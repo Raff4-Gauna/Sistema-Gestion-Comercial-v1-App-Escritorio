@@ -84,6 +84,12 @@
     <Compile Include="MdConfiguracion\frmRespaldo.Designer.cs">
       <DependentUpon>frmRespaldo.cs</DependentUpon>
     </Compile>
+    <Compile Include="MdConfiguracion\frmSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdConfiguracion\frmSucursales.Designer.cs">
+      <DependentUpon>frmSucursales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FomsModulos\frmConfiguracion.resx">
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MdConfiguracion\frmRespaldo.resx">
       <DependentUpon>frmRespaldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdConfiguracion\frmSucursales.resx">
+      <DependentUpon>frmSucursales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
