@@ -46,5 +46,11 @@ namespace CapaPresentación.FomsModulos
             frmRespaldo frmRespaldo = new frmRespaldo();
             frmRespaldo.Show();
         }
+
+        private void subMenuSucursales_Click(object sender, EventArgs e)
+        {
+            frmSucursales frmSucursales = new frmSucursales();
+            frmSucursales.Show();
+        }
     }
 }
