@@ -21,8 +21,8 @@ namespace CapaPresentación.MdConfiguracion
         }
         private void frmSucursales_Load(object sender, EventArgs e)
         {
-            cboestado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
-            cboestado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
+            cboestado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Alta" });
+            cboestado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Baja" });
             cboestado.DisplayMember = "Texto";
             cboestado.ValueMember = "Valor";
             cboestado.SelectedIndex = 0;
@@ -31,12 +31,9 @@ namespace CapaPresentación.MdConfiguracion
             {
                 if (columna.Visible == true && columna.Name != "btnseleccionar")
                 {
-                    //     cbobusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+
                 }
             }
-            // cbobusqueda.DisplayMember = "Texto";
-            // cbobusqueda.ValueMember = "Valor";
-            // cbobusqueda.SelectedIndex = 0;
 
 
             //Mostrar todos las Sucursales
@@ -48,10 +45,12 @@ namespace CapaPresentación.MdConfiguracion
 
                 dgvdata.Rows.Add(new object[] {"", item.IdSucursales, item.Nombre, item.Direccion, item.Telefono,
                 item.Estado == true ? 1 : 0,
-                item.Estado == true ? "Activo" : "No Activo"
+                item.Estado == true ? "Alta" : "Baja"
                 });
 
             }
+            // metodo de sumar las sucursales
+            SumarSucursales();
         }
 
         private void btnguardar_Click(object sender, EventArgs e)
@@ -83,6 +82,9 @@ namespace CapaPresentación.MdConfiguracion
                     });
 
                     Limpiar();
+
+                    // Para actualizar el total
+                    SumarSucursales();
                 }
                 else
                 {
@@ -197,7 +199,11 @@ namespace CapaPresentación.MdConfiguracion
                     if (respuesta)
                     {
                         dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
+
                         Limpiar();
+
+                        // Para actualizar el total
+                        SumarSucursales();
                     }
                     else
                     {
@@ -207,6 +213,20 @@ namespace CapaPresentación.MdConfiguracion
                 }
             }
         }
+
+        // Sumar todas las sucursales
+        public void SumarSucursales()
+        {
+            int Total = 0;
+
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                Total++;
+            }
+
+            lblTotalSucursales.Text = Total.ToString();
+        }
+
 
         private void btnlimpiar_Click(object sender, EventArgs e)
         {

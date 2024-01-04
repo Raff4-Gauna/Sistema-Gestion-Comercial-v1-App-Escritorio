@@ -221,8 +221,10 @@ namespace CapaPresentación
             // 
             // Login
             // 
+            this.AcceptButton = this.btningresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btncancelar;
             this.ClientSize = new System.Drawing.Size(653, 298);
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.btncancelar);

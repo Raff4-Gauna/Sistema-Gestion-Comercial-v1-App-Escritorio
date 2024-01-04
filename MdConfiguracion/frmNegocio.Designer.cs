@@ -388,6 +388,7 @@ namespace CapaPresentación.MdConfiguracion
             this.ClientSize = new System.Drawing.Size(853, 493);
             this.Controls.Add(this.btnimpreguardar);
             this.Name = "frmNegocio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Preferencias del negocio";
             this.Load += new System.EventHandler(this.frmNegocio_Load);
             this.tabPage2.ResumeLayout(false);
