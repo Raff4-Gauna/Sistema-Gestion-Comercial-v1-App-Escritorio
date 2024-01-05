@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.IO;
 using CapaNegocio;
 using CapaEntidad;
+using CapaDatos;
 using System.Windows.Forms;
 
 namespace CapaPresentación
@@ -27,6 +28,24 @@ namespace CapaPresentación
 
             if (obtenido)
                 picLogo.Image = ByteToImage(byteimage);
+
+            // Obtener el nombre del negocio directamente
+            Negocio datosNegocio = new CN_Negocio().ObtenerDatos();
+
+            // Obtener la lista de sucursales, incluyendo el nombre del negocio
+            List<string> listaSucursales = new List<string> { datosNegocio.Nombre };
+            List<Sucursales> sucursales = new CN_Sucursales().Listar();
+            foreach (Sucursales sucursal in sucursales)
+            {
+                listaSucursales.Add(sucursal.Nombre);
+            }
+
+            // Asignar la lista de sucursales al ComboBox
+            cboempresas.DataSource = listaSucursales;
+
+            // Seleccionar el nombre del negocio como ítem por defecto
+            cboempresas.SelectedItem = datosNegocio.Nombre;
+            // Para actualizar el total
         }
         public Image ByteToImage(byte[] imageBytes)
         {
