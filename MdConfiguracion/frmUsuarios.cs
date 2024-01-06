@@ -67,6 +67,9 @@ namespace CapaPresentación.MdConfiguracion
                 });
 
             }
+
+            SumarUsuarios();
+
         }
         // evento de guardar datos de los textbox al datagrid
         private void btnguardar_Click(object sender, EventArgs e)
@@ -100,6 +103,7 @@ namespace CapaPresentación.MdConfiguracion
                });
 
                     Limpiar();
+                    SumarUsuarios();
                 }
                 else
                 {
@@ -234,6 +238,8 @@ namespace CapaPresentación.MdConfiguracion
                     if (respuesta)
                     {
                         dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
+                        SumarUsuarios();
+
                     }
                     else
                     {
@@ -276,6 +282,25 @@ namespace CapaPresentación.MdConfiguracion
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            frmReporteListaUsuarios frmReporteListaUsuarios = new frmReporteListaUsuarios();
+            frmReporteListaUsuarios.Show();
+        }
+
+        // Sumar todos los usuarios
+        public void SumarUsuarios()
+        {
+            int Total = 0;
+
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                Total++;
+            }
+
+            lblTotalUsuarios.Text = Total.ToString();
         }
     }
 }
