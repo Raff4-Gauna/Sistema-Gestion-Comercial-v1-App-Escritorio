@@ -11,11 +11,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Mail;
+using System.Data.SqlClient;
+
 
 namespace CapaPresentación.MdConfiguracion
 {
     public partial class frmNegocio : Form
     {
+        
         public frmNegocio()
         {
             InitializeComponent();
@@ -53,6 +58,11 @@ namespace CapaPresentación.MdConfiguracion
             {
                 cbolistadoimpresoras.Items.Add(Impresora);
             }
+
+            //Mostrar datos de las credenciales de correo smtp
+            Smtp datosSmpt = new CN_Smtp().ObtenerDatosSmtp();
+            txtRemitente.Text = datosSmpt.EmailRemitente;
+            txtContraseña.Text = datosSmpt.ContraseñaRemitente;
         }
 
         private void btnsubir_Click(object sender, EventArgs e)
@@ -98,5 +108,69 @@ namespace CapaPresentación.MdConfiguracion
             else
                 MessageBox.Show("No se pudo guardar los cambios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
+        private void btnGuardarCredenCorreo_Click(object sender, EventArgs e)
+        {
+
+            string mensaje = string.Empty;
+
+            Smtp obj = new Smtp()
+            {
+                EmailRemitente = txtRemitente.Text,
+                ContraseñaRemitente = txtContraseña.Text,
+            };
+
+            bool respuesta = new CN_Smtp().GuardarDatosSmtp(obj, out mensaje);
+
+            if (respuesta)
+                MessageBox.Show("Los cambios fueron guardados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("No se pudo guardar los cambios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void btnEnviaCorreo_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // Dirección de correo del destinatario
+                string destinatario = txtDestinatario.Text;
+
+                // Obtener la configuración del correo desde la base de datos
+                Smtp configuracionSmtp = new CN_Smtp().ObtenerDatosSmtp();
+
+                if (configuracionSmtp != null)
+                {
+                    // Usar la configuración obtenida para el remitente y la contraseña
+                    string remitente = configuracionSmtp.EmailRemitente;
+                    string contraseña = configuracionSmtp.ContraseñaRemitente;
+
+                    // Contenido del mensaje
+                    string mensajeContenido = txtMensaje.Text;
+
+                    // Crear el mensaje
+                    MailMessage mensaje = new MailMessage(remitente, destinatario, "Asunto del correo", mensajeContenido);
+
+                    // Configurar el cliente SMTP
+                    SmtpClient clienteSmtp = new SmtpClient("smtp.gmail.com");
+                    clienteSmtp.Port = 587;
+                    clienteSmtp.Credentials = new NetworkCredential(remitente, contraseña);
+                    clienteSmtp.EnableSsl = true;
+
+                    // Enviar el correo
+                    clienteSmtp.Send(mensaje);
+
+                    MessageBox.Show("Correo enviado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró la configuración del correo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (SmtpException ex)
+            {
+                MessageBox.Show($"Error al enviar el correo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
+
 }
