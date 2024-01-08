@@ -30,8 +30,9 @@ namespace CapaPresentación
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.mdConfiguracion = new FontAwesome.Sharp.IconButton();
+            this.mdSocios = new FontAwesome.Sharp.IconButton();
             this.btnsalir = new FontAwesome.Sharp.IconButton();
+            this.mdConfiguracion = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // label1
@@ -48,6 +49,45 @@ namespace CapaPresentación
             this.label1.TabIndex = 89;
             this.label1.Text = "Sistema de Gestión Comercial ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // mdSocios
+            // 
+            this.mdSocios.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.mdSocios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mdSocios.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.mdSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mdSocios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mdSocios.ForeColor = System.Drawing.Color.Black;
+            this.mdSocios.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.mdSocios.IconColor = System.Drawing.Color.Black;
+            this.mdSocios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.mdSocios.IconSize = 30;
+            this.mdSocios.Location = new System.Drawing.Point(200, 60);
+            this.mdSocios.Name = "mdSocios";
+            this.mdSocios.Size = new System.Drawing.Size(154, 66);
+            this.mdSocios.TabIndex = 91;
+            this.mdSocios.Text = "Socios";
+            this.mdSocios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.mdSocios.UseVisualStyleBackColor = false;
+            this.mdSocios.Click += new System.EventHandler(this.mdSocios_Click);
+            // 
+            // btnsalir
+            // 
+            this.btnsalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnsalir.BackColor = System.Drawing.Color.White;
+            this.btnsalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsalir.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnsalir.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.btnsalir.IconColor = System.Drawing.Color.Black;
+            this.btnsalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnsalir.IconSize = 40;
+            this.btnsalir.Location = new System.Drawing.Point(665, 133);
+            this.btnsalir.Name = "btnsalir";
+            this.btnsalir.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.btnsalir.Size = new System.Drawing.Size(71, 36);
+            this.btnsalir.TabIndex = 90;
+            this.btnsalir.UseVisualStyleBackColor = false;
             // 
             // mdConfiguracion
             // 
@@ -70,29 +110,12 @@ namespace CapaPresentación
             this.mdConfiguracion.UseVisualStyleBackColor = false;
             this.mdConfiguracion.Click += new System.EventHandler(this.mdConfiguracion_Click);
             // 
-            // btnsalir
-            // 
-            this.btnsalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnsalir.BackColor = System.Drawing.Color.White;
-            this.btnsalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnsalir.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsalir.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.btnsalir.IconColor = System.Drawing.Color.Black;
-            this.btnsalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnsalir.IconSize = 40;
-            this.btnsalir.Location = new System.Drawing.Point(665, 133);
-            this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.btnsalir.Size = new System.Drawing.Size(71, 36);
-            this.btnsalir.TabIndex = 90;
-            this.btnsalir.UseVisualStyleBackColor = false;
-            // 
             // frmModulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 181);
+            this.Controls.Add(this.mdSocios);
             this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mdConfiguracion);
@@ -111,5 +134,6 @@ namespace CapaPresentación
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton mdConfiguracion;
         private FontAwesome.Sharp.IconButton btnsalir;
+        private FontAwesome.Sharp.IconButton mdSocios;
     }
 }

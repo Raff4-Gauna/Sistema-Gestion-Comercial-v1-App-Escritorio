@@ -48,14 +48,18 @@ namespace CapaPresentación.MdConfiguracion
             this.label4 = new System.Windows.Forms.Label();
             this.btnsubir = new FontAwesome.Sharp.IconButton();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnEnviaCorreo = new FontAwesome.Sharp.IconButton();
             this.txtMensaje = new System.Windows.Forms.TextBox();
-            this.txtRemitente = new System.Windows.Forms.TextBox();
-            this.txtDestinatario = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtDestinatario = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtRemitente = new System.Windows.Forms.TextBox();
+            this.btnGuardarCredenCorreo = new FontAwesome.Sharp.IconButton();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.btnguardarcambios = new FontAwesome.Sharp.IconButton();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,18 +67,14 @@ namespace CapaPresentación.MdConfiguracion
             this.label2 = new System.Windows.Forms.Label();
             this.btnimpreguardar = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnGuardarCredenCorreo = new FontAwesome.Sharp.IconButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnEnviaCorreo = new FontAwesome.Sharp.IconButton();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.btnimpreguardar.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -174,6 +174,7 @@ namespace CapaPresentación.MdConfiguracion
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(237, 29);
             this.txtnombre.TabIndex = 71;
+            this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
             // 
             // txttelefono
             // 
@@ -205,7 +206,7 @@ namespace CapaPresentación.MdConfiguracion
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(819, 424);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Fiscal";
+            this.tabPage3.Text = "Parámetros Fiscales";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -294,6 +295,69 @@ namespace CapaPresentación.MdConfiguracion
             this.tabPage4.Text = "Correo Electronico";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnEnviaCorreo);
+            this.groupBox4.Controls.Add(this.txtMensaje);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.txtDestinatario);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(28, 187);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(760, 201);
+            this.groupBox4.TabIndex = 78;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Enviar Prueba";
+            // 
+            // btnEnviaCorreo
+            // 
+            this.btnEnviaCorreo.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEnviaCorreo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnviaCorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviaCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviaCorreo.IconChar = FontAwesome.Sharp.IconChar.LevelUp;
+            this.btnEnviaCorreo.IconColor = System.Drawing.Color.Black;
+            this.btnEnviaCorreo.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnEnviaCorreo.IconSize = 25;
+            this.btnEnviaCorreo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEnviaCorreo.Location = new System.Drawing.Point(574, 99);
+            this.btnEnviaCorreo.Name = "btnEnviaCorreo";
+            this.btnEnviaCorreo.Size = new System.Drawing.Size(180, 34);
+            this.btnEnviaCorreo.TabIndex = 77;
+            this.btnEnviaCorreo.Text = "Envia Correo";
+            this.btnEnviaCorreo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEnviaCorreo.UseVisualStyleBackColor = false;
+            this.btnEnviaCorreo.Click += new System.EventHandler(this.btnEnviaCorreo_Click_1);
+            // 
+            // txtMensaje
+            // 
+            this.txtMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMensaje.Location = new System.Drawing.Point(216, 76);
+            this.txtMensaje.Multiline = true;
+            this.txtMensaje.Name = "txtMensaje";
+            this.txtMensaje.Size = new System.Drawing.Size(331, 109);
+            this.txtMensaje.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 34);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(183, 16);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Correo del Destinatario: *";
+            // 
+            // txtDestinatario
+            // 
+            this.txtDestinatario.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.txtDestinatario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDestinatario.Location = new System.Drawing.Point(216, 24);
+            this.txtDestinatario.Name = "txtDestinatario";
+            this.txtDestinatario.Size = new System.Drawing.Size(331, 26);
+            this.txtDestinatario.TabIndex = 2;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -304,15 +368,20 @@ namespace CapaPresentación.MdConfiguracion
             this.label13.TabIndex = 14;
             this.label13.Text = "Mensaje / Asunto: *";
             // 
-            // label12
+            // groupBox3
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 31);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(169, 16);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "Correo del Remitente: *";
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.txtRemitente);
+            this.groupBox3.Controls.Add(this.btnGuardarCredenCorreo);
+            this.groupBox3.Controls.Add(this.txtContraseña);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(28, 20);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(760, 132);
+            this.groupBox3.TabIndex = 77;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Credenciales";
             // 
             // label11
             // 
@@ -324,6 +393,35 @@ namespace CapaPresentación.MdConfiguracion
             this.label11.TabIndex = 11;
             this.label11.Text = "Clave de Aplicación: *";
             // 
+            // txtRemitente
+            // 
+            this.txtRemitente.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.txtRemitente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRemitente.Location = new System.Drawing.Point(216, 21);
+            this.txtRemitente.Name = "txtRemitente";
+            this.txtRemitente.Size = new System.Drawing.Size(321, 26);
+            this.txtRemitente.TabIndex = 3;
+            // 
+            // btnGuardarCredenCorreo
+            // 
+            this.btnGuardarCredenCorreo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnGuardarCredenCorreo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarCredenCorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarCredenCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarCredenCorreo.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.btnGuardarCredenCorreo.IconColor = System.Drawing.Color.Black;
+            this.btnGuardarCredenCorreo.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnGuardarCredenCorreo.IconSize = 25;
+            this.btnGuardarCredenCorreo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardarCredenCorreo.Location = new System.Drawing.Point(574, 47);
+            this.btnGuardarCredenCorreo.Name = "btnGuardarCredenCorreo";
+            this.btnGuardarCredenCorreo.Size = new System.Drawing.Size(180, 34);
+            this.btnGuardarCredenCorreo.TabIndex = 76;
+            this.btnGuardarCredenCorreo.Text = "Guardar Cambios";
+            this.btnGuardarCredenCorreo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardarCredenCorreo.UseVisualStyleBackColor = false;
+            this.btnGuardarCredenCorreo.Click += new System.EventHandler(this.btnGuardarCredenCorreo_Click);
+            // 
             // txtContraseña
             // 
             this.txtContraseña.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -334,42 +432,15 @@ namespace CapaPresentación.MdConfiguracion
             this.txtContraseña.Size = new System.Drawing.Size(321, 26);
             this.txtContraseña.TabIndex = 7;
             // 
-            // txtMensaje
+            // label12
             // 
-            this.txtMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMensaje.Location = new System.Drawing.Point(216, 76);
-            this.txtMensaje.Multiline = true;
-            this.txtMensaje.Name = "txtMensaje";
-            this.txtMensaje.Size = new System.Drawing.Size(331, 109);
-            this.txtMensaje.TabIndex = 5;
-            // 
-            // txtRemitente
-            // 
-            this.txtRemitente.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.txtRemitente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRemitente.Location = new System.Drawing.Point(216, 21);
-            this.txtRemitente.Name = "txtRemitente";
-            this.txtRemitente.Size = new System.Drawing.Size(321, 26);
-            this.txtRemitente.TabIndex = 3;
-            // 
-            // txtDestinatario
-            // 
-            this.txtDestinatario.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.txtDestinatario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDestinatario.Location = new System.Drawing.Point(216, 24);
-            this.txtDestinatario.Name = "txtDestinatario";
-            this.txtDestinatario.Size = new System.Drawing.Size(331, 26);
-            this.txtDestinatario.TabIndex = 2;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 34);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(183, 16);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Correo del Destinatario: *";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 31);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(169, 16);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Correo del Remitente: *";
             // 
             // btnguardarcambios
             // 
@@ -475,76 +546,6 @@ namespace CapaPresentación.MdConfiguracion
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos de Negocio";
             // 
-            // btnGuardarCredenCorreo
-            // 
-            this.btnGuardarCredenCorreo.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnGuardarCredenCorreo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardarCredenCorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarCredenCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarCredenCorreo.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.btnGuardarCredenCorreo.IconColor = System.Drawing.Color.Black;
-            this.btnGuardarCredenCorreo.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnGuardarCredenCorreo.IconSize = 25;
-            this.btnGuardarCredenCorreo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardarCredenCorreo.Location = new System.Drawing.Point(574, 47);
-            this.btnGuardarCredenCorreo.Name = "btnGuardarCredenCorreo";
-            this.btnGuardarCredenCorreo.Size = new System.Drawing.Size(180, 34);
-            this.btnGuardarCredenCorreo.TabIndex = 76;
-            this.btnGuardarCredenCorreo.Text = "Guardar Cambios";
-            this.btnGuardarCredenCorreo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGuardarCredenCorreo.UseVisualStyleBackColor = false;
-            this.btnGuardarCredenCorreo.Click += new System.EventHandler(this.btnGuardarCredenCorreo_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.txtRemitente);
-            this.groupBox3.Controls.Add(this.btnGuardarCredenCorreo);
-            this.groupBox3.Controls.Add(this.txtContraseña);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(28, 20);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(760, 132);
-            this.groupBox3.TabIndex = 77;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Credenciales";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnEnviaCorreo);
-            this.groupBox4.Controls.Add(this.txtMensaje);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.txtDestinatario);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(28, 187);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(760, 201);
-            this.groupBox4.TabIndex = 78;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Enviar Prueba";
-            // 
-            // btnEnviaCorreo
-            // 
-            this.btnEnviaCorreo.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnEnviaCorreo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEnviaCorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnviaCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnviaCorreo.IconChar = FontAwesome.Sharp.IconChar.LevelUp;
-            this.btnEnviaCorreo.IconColor = System.Drawing.Color.Black;
-            this.btnEnviaCorreo.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnEnviaCorreo.IconSize = 25;
-            this.btnEnviaCorreo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEnviaCorreo.Location = new System.Drawing.Point(574, 99);
-            this.btnEnviaCorreo.Name = "btnEnviaCorreo";
-            this.btnEnviaCorreo.Size = new System.Drawing.Size(180, 34);
-            this.btnEnviaCorreo.TabIndex = 77;
-            this.btnEnviaCorreo.Text = "Envia Correo";
-            this.btnEnviaCorreo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEnviaCorreo.UseVisualStyleBackColor = false;
-            this.btnEnviaCorreo.Click += new System.EventHandler(this.btnEnviaCorreo_Click_1);
-            // 
             // frmNegocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -560,14 +561,14 @@ namespace CapaPresentación.MdConfiguracion
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.btnimpreguardar.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
