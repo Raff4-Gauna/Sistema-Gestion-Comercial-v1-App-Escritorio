@@ -58,5 +58,11 @@ namespace CapaPresentación.FomsModulos
             frmUsuarios frmUsuarios = new frmUsuarios();
             frmUsuarios.Show();
         }
+
+        private void subMenuTiposContribuyentes_Click(object sender, EventArgs e)
+        {
+            frmTiposContribuyentes frmTiposContribuyentes = new frmTiposContribuyentes();
+            frmTiposContribuyentes.Show();
+        }
     }
 }

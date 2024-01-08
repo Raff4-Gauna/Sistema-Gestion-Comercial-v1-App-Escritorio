@@ -65,6 +65,18 @@ namespace CapaPresentación.MdConfiguracion
             txtContraseña.Text = datosSmpt.ContraseñaRemitente;
         }
 
+        private void txtnombre_TextChanged(object sender, EventArgs e)
+        {
+            // Almacenar la posición actual del cursor
+            int posicionCursor = txtnombre.SelectionStart;
+
+            // Convertir el texto a mayúsculas y asignarlo de nuevo al control
+            txtnombre.Text = txtnombre.Text.ToUpper();
+
+            // Restaurar la posición del cursor
+            txtnombre.SelectionStart = posicionCursor;
+        }
+
         private void btnsubir_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
@@ -171,6 +183,8 @@ namespace CapaPresentación.MdConfiguracion
                 MessageBox.Show($"Error al enviar el correo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
     }
 
 }

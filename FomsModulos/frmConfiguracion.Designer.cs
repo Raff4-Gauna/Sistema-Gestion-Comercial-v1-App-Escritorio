@@ -30,9 +30,6 @@ namespace CapaPresentación.FomsModulos
         private void InitializeComponent()
         {
             this.menu = new System.Windows.Forms.MenuStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuDatosNegocio = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuDatosNegocio = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuSucursales = new FontAwesome.Sharp.IconMenuItem();
@@ -40,6 +37,11 @@ namespace CapaPresentación.FomsModulos
             this.menuGestionUsuarios = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuUsuarios = new FontAwesome.Sharp.IconMenuItem();
             this.iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
+            this.menuFiscalidad = new FontAwesome.Sharp.IconMenuItem();
+            this.subMenuTiposContribuyentes = new FontAwesome.Sharp.IconMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -51,37 +53,13 @@ namespace CapaPresentación.FomsModulos
             this.menu.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuDatosNegocio,
-            this.menuGestionUsuarios});
+            this.menuGestionUsuarios,
+            this.menuFiscalidad});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(1229, 54);
             this.menu.TabIndex = 4;
             this.menu.Text = "menu";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.statusStrip);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 54);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1229, 632);
-            this.panel1.TabIndex = 5;
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssHora});
-            this.statusStrip.Location = new System.Drawing.Point(0, 610);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1229, 22);
-            this.statusStrip.TabIndex = 3;
-            this.statusStrip.Text = "statusStrip1";
-            // 
-            // tssHora
-            // 
-            this.tssHora.Name = "tssHora";
-            this.tssHora.Size = new System.Drawing.Size(36, 17);
-            this.tssHora.Text = "Hora:";
             // 
             // menuDatosNegocio
             // 
@@ -108,7 +86,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuDatosNegocio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuDatosNegocio.Name = "subMenuDatosNegocio";
             this.subMenuDatosNegocio.Size = new System.Drawing.Size(180, 22);
-            this.subMenuDatosNegocio.Text = "Mi Empresa";
+            this.subMenuDatosNegocio.Text = "Preferencias";
             this.subMenuDatosNegocio.Click += new System.EventHandler(this.subMenuDatosNegocio_Click);
             // 
             // subMenuSucursales
@@ -170,6 +148,57 @@ namespace CapaPresentación.FomsModulos
             this.iconMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.iconMenuItem3.Text = "Roles y Permisos";
             // 
+            // menuFiscalidad
+            // 
+            this.menuFiscalidad.AutoSize = false;
+            this.menuFiscalidad.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.subMenuTiposContribuyentes});
+            this.menuFiscalidad.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
+            this.menuFiscalidad.IconColor = System.Drawing.Color.Black;
+            this.menuFiscalidad.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuFiscalidad.IconSize = 35;
+            this.menuFiscalidad.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuFiscalidad.Name = "menuFiscalidad";
+            this.menuFiscalidad.Size = new System.Drawing.Size(122, 50);
+            this.menuFiscalidad.Text = "Fiscalidad";
+            this.menuFiscalidad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // subMenuTiposContribuyentes
+            // 
+            this.subMenuTiposContribuyentes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subMenuTiposContribuyentes.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.subMenuTiposContribuyentes.IconColor = System.Drawing.Color.Black;
+            this.subMenuTiposContribuyentes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.subMenuTiposContribuyentes.Name = "subMenuTiposContribuyentes";
+            this.subMenuTiposContribuyentes.Size = new System.Drawing.Size(180, 22);
+            this.subMenuTiposContribuyentes.Text = "Contribuyentes";
+            this.subMenuTiposContribuyentes.Click += new System.EventHandler(this.subMenuTiposContribuyentes_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.statusStrip);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 54);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1229, 632);
+            this.panel1.TabIndex = 5;
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssHora});
+            this.statusStrip.Location = new System.Drawing.Point(0, 610);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(1229, 22);
+            this.statusStrip.TabIndex = 3;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // tssHora
+            // 
+            this.tssHora.Name = "tssHora";
+            this.tssHora.Size = new System.Drawing.Size(36, 17);
+            this.tssHora.Text = "Hora:";
+            // 
             // frmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,5 +234,7 @@ namespace CapaPresentación.FomsModulos
         private FontAwesome.Sharp.IconMenuItem menuGestionUsuarios;
         private FontAwesome.Sharp.IconMenuItem subMenuUsuarios;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
+        private FontAwesome.Sharp.IconMenuItem menuFiscalidad;
+        private FontAwesome.Sharp.IconMenuItem subMenuTiposContribuyentes;
     }
 }

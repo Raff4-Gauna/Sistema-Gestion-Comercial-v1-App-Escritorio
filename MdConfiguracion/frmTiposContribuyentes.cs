@@ -13,14 +13,12 @@ using System.Windows.Forms;
 
 namespace CapaPresentación.MdConfiguracion
 {
-    public partial class frmSucursales : Form
+    public partial class frmTiposContribuyentes : Form
     {
-        public frmSucursales()
+        public frmTiposContribuyentes()
         {
             InitializeComponent();
-        }
-        private void frmSucursales_Load(object sender, EventArgs e)
-        {
+
             cboestado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Alta" });
             cboestado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Baja" });
             cboestado.DisplayMember = "Texto";
@@ -35,57 +33,42 @@ namespace CapaPresentación.MdConfiguracion
                 }
             }
 
+            //Mostrar los tipos de contribuyententes
 
-            //Mostrar todos las Sucursales
+            List<TipoContribuyentes> Lista = new CN_Tipo_Contribuyentes().Listar();
 
-            List<Sucursales> Lista = new CN_Sucursales().Listar();
-
-            foreach (Sucursales item in Lista)
+            foreach (TipoContribuyentes item in Lista)
             {
 
-                dgvdata.Rows.Add(new object[] {"", item.IdSucursales, item.Nombre, item.Direccion, item.Telefono,
+                dgvdata.Rows.Add(new object[] {"", item.IdTipoContribuyentes, item.Contribuyente, item.PrMaximoEfectivo,
                 item.Estado == true ? 1 : 0,
                 item.Estado == true ? "Alta" : "Baja"
                 });
 
             }
-            // metodo de sumar las sucursales
-            SumarSucursales();
-        }
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-            // Almacenar la posición actual del cursor
-            int posicionCursor = txtNombre.SelectionStart;
-
-            // Convertir el texto a mayúsculas y asignarlo de nuevo al control
-            txtNombre.Text = txtNombre.Text.ToUpper();
-
-            // Restaurar la posición del cursor
-            txtNombre.SelectionStart = posicionCursor;
         }
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
 
-            Sucursales obj = new Sucursales()
+            TipoContribuyentes obj = new TipoContribuyentes()
             {
-                IdSucursales = Convert.ToInt32(txtid.Text),
-                Nombre = txtNombre.Text,
-                Direccion = txtDireccion.Text,
-                Telefono = txtTelefono.Text,
+                IdTipoContribuyentes = Convert.ToInt32(txtid.Text),
+                Contribuyente = txtContribuyente.Text,
+                PrMaximoEfectivo = Convert.ToDecimal(txtPrMaximoEfectivo.Text),
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
 
             };
 
-            if (obj.IdSucursales == 0)
+            if (obj.IdTipoContribuyentes == 0)
             {
 
-                int idgenerado = new CN_Sucursales().Registrar(obj, out mensaje);
+                int idgenerado = new CN_Tipo_Contribuyentes().Registrar(obj, out mensaje);
 
                 if (idgenerado != 0)
                 {
-                    dgvdata.Rows.Add(new object[] {"", idgenerado, txtNombre.Text, txtDireccion.Text, txtTelefono.Text,
+                    dgvdata.Rows.Add(new object[] {"", idgenerado, txtContribuyente.Text, txtPrMaximoEfectivo.Text,
 
 
                     ((OpcionCombo)cboestado.SelectedItem).Valor.ToString(),
@@ -94,8 +77,6 @@ namespace CapaPresentación.MdConfiguracion
 
                     Limpiar();
 
-                    // Para actualizar el total
-                    SumarSucursales();
                 }
                 else
                 {
@@ -105,15 +86,14 @@ namespace CapaPresentación.MdConfiguracion
             }
             else
             {
-                bool resultado = new CN_Sucursales().Editar(obj, out mensaje);
+                bool resultado = new CN_Tipo_Contribuyentes().Editar(obj, out mensaje);
 
                 if (resultado)
                 {
                     DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
                     row.Cells["Id"].Value = txtid.Text;
-                    row.Cells["Nombre"].Value = txtNombre.Text;
-                    row.Cells["Direccion"].Value = txtDireccion.Text;
-                    row.Cells["Telefono"].Value = txtTelefono.Text;
+                    row.Cells["Contribuyente"].Value = txtContribuyente.Text;
+                    row.Cells["PrMaximoEfectivo"].Value = txtPrMaximoEfectivo.Text;
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
                     row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
 
@@ -127,16 +107,14 @@ namespace CapaPresentación.MdConfiguracion
 
             }
         }
-
         private void Limpiar()
         {
             txtindice.Text = "-1";
             txtid.Text = "0";
-            txtNombre.Text = "";
-            txtDireccion.Text = "";
-            txtTelefono.Text = "";
+            txtContribuyente.Text = "";
+            txtPrMaximoEfectivo.Text = "";
             cboestado.SelectedIndex = 0;
-            txtNombre.Select();
+            txtContribuyente.Select();
         }
 
         private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -170,9 +148,8 @@ namespace CapaPresentación.MdConfiguracion
                 {
                     txtindice.Text = indice.ToString();
                     txtid.Text = dgvdata.Rows[indice].Cells["Id"].Value.ToString();
-                    txtNombre.Text = dgvdata.Rows[indice].Cells["Nombre"].Value.ToString();
-                    txtDireccion.Text = dgvdata.Rows[indice].Cells["Direccion"].Value.ToString();
-                    txtTelefono.Text = dgvdata.Rows[indice].Cells["Telefono"].Value.ToString();
+                    txtContribuyente.Text = dgvdata.Rows[indice].Cells["Contribuyente"].Value.ToString();
+                    txtPrMaximoEfectivo.Text = dgvdata.Rows[indice].Cells["PrMaximoEfectivo"].Value.ToString();
 
                     foreach (OpcionCombo oc in cboestado.Items)
                     {
@@ -185,9 +162,6 @@ namespace CapaPresentación.MdConfiguracion
                         }
 
                     }
-
-
-
                 }
 
             }
@@ -197,24 +171,21 @@ namespace CapaPresentación.MdConfiguracion
         {
             if (Convert.ToInt32(txtid.Text) != 0)
             {
-                if (MessageBox.Show("¿Desea eliminar la sucursal", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Desea eliminar el contribuyente", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     string mensaje = string.Empty;
-                    Sucursales obj = new Sucursales()
+                    TipoContribuyentes obj = new TipoContribuyentes()
                     {
-                        IdSucursales = Convert.ToInt32(txtid.Text)
+                        IdTipoContribuyentes = Convert.ToInt32(txtid.Text)
                     };
 
-                    bool respuesta = new CN_Sucursales().Eliminar(obj, out mensaje);
+                    bool respuesta = new CN_Tipo_Contribuyentes().Eliminar(obj, out mensaje);
 
                     if (respuesta)
                     {
                         dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
 
                         Limpiar();
-
-                        // Para actualizar el total
-                        SumarSucursales();
                     }
                     else
                     {
@@ -225,25 +196,9 @@ namespace CapaPresentación.MdConfiguracion
             }
         }
 
-        // Sumar todas las sucursales
-        public void SumarSucursales()
-        {
-            int Total = 0;
-
-            foreach (DataGridViewRow row in dgvdata.Rows)
-            {
-                Total++;
-            }
-
-            lblTotalSucursales.Text = Total.ToString();
-        }
-
-
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
-
-        
     }
 }
