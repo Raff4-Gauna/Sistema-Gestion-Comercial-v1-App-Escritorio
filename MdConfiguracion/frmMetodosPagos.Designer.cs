@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentación.MdConfiguracion
 {
-    partial class frmTiposContribuyentes
+    partial class frmMetodosPagos
     {
         /// <summary>
         /// Required designer variable.
@@ -34,101 +34,80 @@ namespace CapaPresentación.MdConfiguracion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtContribuyente = new System.Windows.Forms.TextBox();
-            this.cboestado = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btnguardar = new FontAwesome.Sharp.IconButton();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtindice = new System.Windows.Forms.TextBox();
             this.txtid = new System.Windows.Forms.TextBox();
             this.btneliminar = new FontAwesome.Sharp.IconButton();
-            this.btnguardar = new FontAwesome.Sharp.IconButton();
             this.dgvdata = new System.Windows.Forms.DataGridView();
             this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contribuyente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrMaximoEfectivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreMetodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label10 = new System.Windows.Forms.Label();
             this.btnlimpiar = new FontAwesome.Sharp.IconButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtPrMaximoEfectivo = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNombreMetodo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboestado = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
+            // btnguardar
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 18);
-            this.label2.TabIndex = 109;
-            this.label2.Text = "Descripción del Contribuyente: *";
+            this.btnguardar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.btnguardar.IconColor = System.Drawing.Color.Black;
+            this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnguardar.IconSize = 16;
+            this.btnguardar.Location = new System.Drawing.Point(143, 397);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(165, 30);
+            this.btnguardar.TabIndex = 143;
+            this.btnguardar.Text = "Guardar";
+            this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnguardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnguardar.UseVisualStyleBackColor = false;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
-            // label3
+            // label10
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(306, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(193, 18);
-            this.label3.TabIndex = 110;
-            this.label3.Text = "Precio Maximo en Efectivo: ";
-            // 
-            // txtContribuyente
-            // 
-            this.txtContribuyente.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtContribuyente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContribuyente.Location = new System.Drawing.Point(6, 45);
-            this.txtContribuyente.Name = "txtContribuyente";
-            this.txtContribuyente.Size = new System.Drawing.Size(274, 29);
-            this.txtContribuyente.TabIndex = 112;
-            // 
-            // cboestado
-            // 
-            this.cboestado.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cboestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboestado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboestado.FormattingEnabled = true;
-            this.cboestado.Location = new System.Drawing.Point(599, 45);
-            this.cboestado.Name = "cboestado";
-            this.cboestado.Size = new System.Drawing.Size(165, 28);
-            this.cboestado.TabIndex = 117;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(599, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 18);
-            this.label8.TabIndex = 118;
-            this.label8.Text = "Estado:";
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(0, 1);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(799, 26);
+            this.label10.TabIndex = 147;
+            this.label10.Text = "Métodos de Pagos";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtindice
             // 
-            this.txtindice.Location = new System.Drawing.Point(657, 404);
+            this.txtindice.Location = new System.Drawing.Point(656, 399);
             this.txtindice.Name = "txtindice";
             this.txtindice.Size = new System.Drawing.Size(26, 20);
-            this.txtindice.TabIndex = 141;
+            this.txtindice.TabIndex = 149;
             this.txtindice.Text = "-1";
             this.txtindice.Visible = false;
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(689, 404);
+            this.txtid.Location = new System.Drawing.Point(688, 399);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(26, 20);
-            this.txtid.TabIndex = 140;
+            this.txtid.TabIndex = 148;
             this.txtid.Text = "0";
             this.txtid.Visible = false;
             // 
@@ -142,35 +121,15 @@ namespace CapaPresentación.MdConfiguracion
             this.btneliminar.IconColor = System.Drawing.Color.Black;
             this.btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btneliminar.IconSize = 16;
-            this.btneliminar.Location = new System.Drawing.Point(486, 402);
+            this.btneliminar.Location = new System.Drawing.Point(485, 397);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(165, 30);
-            this.btneliminar.TabIndex = 137;
+            this.btneliminar.TabIndex = 145;
             this.btneliminar.Text = "Eliminar";
             this.btneliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btneliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btneliminar.UseVisualStyleBackColor = false;
             this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
-            // 
-            // btnguardar
-            // 
-            this.btnguardar.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnguardar.IconColor = System.Drawing.Color.Black;
-            this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnguardar.IconSize = 16;
-            this.btnguardar.Location = new System.Drawing.Point(144, 402);
-            this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(165, 30);
-            this.btnguardar.TabIndex = 135;
-            this.btnguardar.Text = "Guardar";
-            this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnguardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnguardar.UseVisualStyleBackColor = false;
-            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // dgvdata
             // 
@@ -196,8 +155,8 @@ namespace CapaPresentación.MdConfiguracion
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnseleccionar,
             this.Id,
-            this.Contribuyente,
-            this.PrMaximoEfectivo,
+            this.NombreMetodo,
+            this.Descripcion,
             this.EstadoValor,
             this.Estado});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -209,7 +168,7 @@ namespace CapaPresentación.MdConfiguracion
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdata.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.EnableHeadersVisualStyles = false;
-            this.dgvdata.Location = new System.Drawing.Point(17, 174);
+            this.dgvdata.Location = new System.Drawing.Point(16, 169);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
@@ -227,7 +186,7 @@ namespace CapaPresentación.MdConfiguracion
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
             this.dgvdata.Size = new System.Drawing.Size(770, 219);
-            this.dgvdata.TabIndex = 138;
+            this.dgvdata.TabIndex = 146;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
             // 
@@ -245,19 +204,19 @@ namespace CapaPresentación.MdConfiguracion
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
-            // Contribuyente
+            // NombreMetodo
             // 
-            this.Contribuyente.HeaderText = "Contribuyente";
-            this.Contribuyente.Name = "Contribuyente";
-            this.Contribuyente.ReadOnly = true;
-            this.Contribuyente.Width = 280;
+            this.NombreMetodo.HeaderText = "Método de Pago";
+            this.NombreMetodo.Name = "NombreMetodo";
+            this.NombreMetodo.ReadOnly = true;
+            this.NombreMetodo.Width = 300;
             // 
-            // PrMaximoEfectivo
+            // Descripcion
             // 
-            this.PrMaximoEfectivo.HeaderText = "Maximo Efectivo";
-            this.PrMaximoEfectivo.Name = "PrMaximoEfectivo";
-            this.PrMaximoEfectivo.ReadOnly = true;
-            this.PrMaximoEfectivo.Width = 280;
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 250;
             // 
             // EstadoValor
             // 
@@ -273,21 +232,6 @@ namespace CapaPresentación.MdConfiguracion
             this.Estado.ReadOnly = true;
             this.Estado.Width = 130;
             // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(-4, 2);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(814, 26);
-            this.label10.TabIndex = 139;
-            this.label10.Text = "Tipos de Contribuyentes";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnlimpiar
             // 
             this.btnlimpiar.BackColor = System.Drawing.Color.Wheat;
@@ -298,10 +242,10 @@ namespace CapaPresentación.MdConfiguracion
             this.btnlimpiar.IconColor = System.Drawing.Color.Black;
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiar.IconSize = 18;
-            this.btnlimpiar.Location = new System.Drawing.Point(315, 402);
+            this.btnlimpiar.Location = new System.Drawing.Point(314, 397);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(165, 30);
-            this.btnlimpiar.TabIndex = 136;
+            this.btnlimpiar.TabIndex = 144;
             this.btnlimpiar.Text = "Limpiar";
             this.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnlimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -311,48 +255,106 @@ namespace CapaPresentación.MdConfiguracion
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox1.Controls.Add(this.txtPrMaximoEfectivo);
+            this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtContribuyente);
+            this.groupBox1.Controls.Add(this.txtNombreMetodo);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cboestado);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(17, 31);
+            this.groupBox1.Location = new System.Drawing.Point(16, 39);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(770, 100);
-            this.groupBox1.TabIndex = 142;
+            this.groupBox1.TabIndex = 150;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de datos";
             // 
-            // txtPrMaximoEfectivo
+            // txtDescripcion
             // 
-            this.txtPrMaximoEfectivo.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtPrMaximoEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtPrMaximoEfectivo.Location = new System.Drawing.Point(309, 45);
-            this.txtPrMaximoEfectivo.Name = "txtPrMaximoEfectivo";
-            this.txtPrMaximoEfectivo.Size = new System.Drawing.Size(190, 29);
-            this.txtPrMaximoEfectivo.TabIndex = 119;
+            this.txtDescripcion.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(244, 45);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(193, 29);
+            this.txtDescripcion.TabIndex = 116;
             // 
-            // frmTiposContribuyentes
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(6, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 18);
+            this.label2.TabIndex = 109;
+            this.label2.Text = "Nombre de Métodos: *";
+            // 
+            // txtNombreMetodo
+            // 
+            this.txtNombreMetodo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtNombreMetodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreMetodo.Location = new System.Drawing.Point(6, 45);
+            this.txtNombreMetodo.Name = "txtNombreMetodo";
+            this.txtNombreMetodo.Size = new System.Drawing.Size(221, 29);
+            this.txtNombreMetodo.TabIndex = 112;
+            this.txtNombreMetodo.TextChanged += new System.EventHandler(this.txtNombreMetodo_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(241, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 18);
+            this.label5.TabIndex = 115;
+            this.label5.Text = "Descripción:";
+            // 
+            // cboestado
+            // 
+            this.cboestado.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cboestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboestado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboestado.FormattingEnabled = true;
+            this.cboestado.Location = new System.Drawing.Point(599, 45);
+            this.cboestado.Name = "cboestado";
+            this.cboestado.Size = new System.Drawing.Size(165, 28);
+            this.cboestado.TabIndex = 117;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(599, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 18);
+            this.label8.TabIndex = 118;
+            this.label8.Text = "Estado:";
+            // 
+            // frmMetodosPagos
             // 
             this.AcceptButton = this.btnguardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 440);
+            this.ClientSize = new System.Drawing.Size(799, 433);
+            this.Controls.Add(this.btnguardar);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtindice);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.btneliminar);
-            this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.dgvdata);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnlimpiar);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "frmTiposContribuyentes";
+            this.Name = "frmMetodosPagos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tipos Contribuyentes";
+            this.Text = "Métodos de Pagos";
+            this.Load += new System.EventHandler(this.frmMetodosPagos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -362,24 +364,25 @@ namespace CapaPresentación.MdConfiguracion
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtContribuyente;
-        private System.Windows.Forms.ComboBox cboestado;
-        private System.Windows.Forms.Label label8;
+
+        private FontAwesome.Sharp.IconButton btnguardar;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtindice;
         private System.Windows.Forms.TextBox txtid;
         private FontAwesome.Sharp.IconButton btneliminar;
-        private FontAwesome.Sharp.IconButton btnguardar;
         private System.Windows.Forms.DataGridView dgvdata;
-        private System.Windows.Forms.Label label10;
         private FontAwesome.Sharp.IconButton btnlimpiar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtPrMaximoEfectivo;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtNombreMetodo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cboestado;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewButtonColumn btnseleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Contribuyente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrMaximoEfectivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreMetodo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }

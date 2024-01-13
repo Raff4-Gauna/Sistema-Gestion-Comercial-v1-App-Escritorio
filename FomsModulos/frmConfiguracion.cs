@@ -59,10 +59,28 @@ namespace CapaPresentación.FomsModulos
             frmUsuarios.Show();
         }
 
+        private void subMenuParametrosFiscal_Click(object sender, EventArgs e)
+        {
+            frmParametrosFiscales frmParametrosFiscales = new frmParametrosFiscales();
+            frmParametrosFiscales.Show();
+        }
+
         private void subMenuTiposContribuyentes_Click(object sender, EventArgs e)
         {
             frmTiposContribuyentes frmTiposContribuyentes = new frmTiposContribuyentes();
             frmTiposContribuyentes.Show();
+        }
+
+        private void subMenuTasaImpuestos_Click(object sender, EventArgs e)
+        {
+            frmTasaImpuestos frmTasaImpuestos = new frmTasaImpuestos();
+            frmTasaImpuestos.Show();
+        }
+
+        private void subMenuMetodosPagos_Click(object sender, EventArgs e)
+        {
+            frmMetodosPagos frmMetodosPagos = new frmMetodosPagos();
+            frmMetodosPagos.Show();
         }
     }
 }

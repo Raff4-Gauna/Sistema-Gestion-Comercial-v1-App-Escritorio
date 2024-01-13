@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentación.MdConfiguracion
 {
-    partial class frmTiposContribuyentes
+    partial class frmTasaImpuestos
     {
         /// <summary>
         /// Required designer variable.
@@ -34,9 +34,12 @@ namespace CapaPresentación.MdConfiguracion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtContribuyente = new System.Windows.Forms.TextBox();
+            this.txtNombreTasa = new System.Windows.Forms.TextBox();
+            this.txtPorcentaje = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.cboestado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtindice = new System.Windows.Forms.TextBox();
@@ -46,17 +49,26 @@ namespace CapaPresentación.MdConfiguracion
             this.dgvdata = new System.Windows.Forms.DataGridView();
             this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contribuyente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrMaximoEfectivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreTasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Porcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.btnlimpiar = new FontAwesome.Sharp.IconButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtPrMaximoEfectivo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(400, 45);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(193, 29);
+            this.txtDescripcion.TabIndex = 116;
             // 
             // label2
             // 
@@ -66,9 +78,9 @@ namespace CapaPresentación.MdConfiguracion
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(6, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 18);
+            this.label2.Size = new System.Drawing.Size(133, 18);
             this.label2.TabIndex = 109;
-            this.label2.Text = "Descripción del Contribuyente: *";
+            this.label2.Text = "Nombre de Tasa: *";
             // 
             // label3
             // 
@@ -76,20 +88,42 @@ namespace CapaPresentación.MdConfiguracion
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(306, 24);
+            this.label3.Location = new System.Drawing.Point(202, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(193, 18);
+            this.label3.Size = new System.Drawing.Size(93, 18);
             this.label3.TabIndex = 110;
-            this.label3.Text = "Precio Maximo en Efectivo: ";
+            this.label3.Text = "Porcentaje: *";
             // 
-            // txtContribuyente
+            // txtNombreTasa
             // 
-            this.txtContribuyente.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtContribuyente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContribuyente.Location = new System.Drawing.Point(6, 45);
-            this.txtContribuyente.Name = "txtContribuyente";
-            this.txtContribuyente.Size = new System.Drawing.Size(274, 29);
-            this.txtContribuyente.TabIndex = 112;
+            this.txtNombreTasa.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtNombreTasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreTasa.Location = new System.Drawing.Point(6, 45);
+            this.txtNombreTasa.Name = "txtNombreTasa";
+            this.txtNombreTasa.Size = new System.Drawing.Size(193, 29);
+            this.txtNombreTasa.TabIndex = 112;
+            this.txtNombreTasa.TextChanged += new System.EventHandler(this.txtNombreTasa_TextChanged);
+            // 
+            // txtPorcentaje
+            // 
+            this.txtPorcentaje.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtPorcentaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcentaje.Location = new System.Drawing.Point(205, 45);
+            this.txtPorcentaje.Name = "txtPorcentaje";
+            this.txtPorcentaje.Size = new System.Drawing.Size(193, 29);
+            this.txtPorcentaje.TabIndex = 113;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(397, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 18);
+            this.label5.TabIndex = 115;
+            this.label5.Text = "Descripción:";
             // 
             // cboestado
             // 
@@ -116,7 +150,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             // txtindice
             // 
-            this.txtindice.Location = new System.Drawing.Point(657, 404);
+            this.txtindice.Location = new System.Drawing.Point(655, 400);
             this.txtindice.Name = "txtindice";
             this.txtindice.Size = new System.Drawing.Size(26, 20);
             this.txtindice.TabIndex = 141;
@@ -125,7 +159,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(689, 404);
+            this.txtid.Location = new System.Drawing.Point(687, 400);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(26, 20);
             this.txtid.TabIndex = 140;
@@ -142,7 +176,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btneliminar.IconColor = System.Drawing.Color.Black;
             this.btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btneliminar.IconSize = 16;
-            this.btneliminar.Location = new System.Drawing.Point(486, 402);
+            this.btneliminar.Location = new System.Drawing.Point(484, 398);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(165, 30);
             this.btneliminar.TabIndex = 137;
@@ -162,7 +196,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btnguardar.IconColor = System.Drawing.Color.Black;
             this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 16;
-            this.btnguardar.Location = new System.Drawing.Point(144, 402);
+            this.btnguardar.Location = new System.Drawing.Point(142, 398);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(165, 30);
             this.btnguardar.TabIndex = 135;
@@ -196,8 +230,9 @@ namespace CapaPresentación.MdConfiguracion
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnseleccionar,
             this.Id,
-            this.Contribuyente,
-            this.PrMaximoEfectivo,
+            this.NombreTasa,
+            this.Porcentaje,
+            this.Descripcion,
             this.EstadoValor,
             this.Estado});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -209,7 +244,7 @@ namespace CapaPresentación.MdConfiguracion
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdata.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.EnableHeadersVisualStyles = false;
-            this.dgvdata.Location = new System.Drawing.Point(17, 174);
+            this.dgvdata.Location = new System.Drawing.Point(15, 170);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
@@ -245,19 +280,26 @@ namespace CapaPresentación.MdConfiguracion
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
-            // Contribuyente
+            // NombreTasa
             // 
-            this.Contribuyente.HeaderText = "Contribuyente";
-            this.Contribuyente.Name = "Contribuyente";
-            this.Contribuyente.ReadOnly = true;
-            this.Contribuyente.Width = 280;
+            this.NombreTasa.HeaderText = "Nombre de Tasa";
+            this.NombreTasa.Name = "NombreTasa";
+            this.NombreTasa.ReadOnly = true;
+            this.NombreTasa.Width = 180;
             // 
-            // PrMaximoEfectivo
+            // Porcentaje
             // 
-            this.PrMaximoEfectivo.HeaderText = "Maximo Efectivo";
-            this.PrMaximoEfectivo.Name = "PrMaximoEfectivo";
-            this.PrMaximoEfectivo.ReadOnly = true;
-            this.PrMaximoEfectivo.Width = 280;
+            this.Porcentaje.HeaderText = "Porcentaje";
+            this.Porcentaje.Name = "Porcentaje";
+            this.Porcentaje.ReadOnly = true;
+            this.Porcentaje.Width = 200;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 160;
             // 
             // EstadoValor
             // 
@@ -281,11 +323,11 @@ namespace CapaPresentación.MdConfiguracion
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(-4, 2);
+            this.label10.Location = new System.Drawing.Point(-1, 2);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(814, 26);
+            this.label10.Size = new System.Drawing.Size(806, 26);
             this.label10.TabIndex = 139;
-            this.label10.Text = "Tipos de Contribuyentes";
+            this.label10.Text = "Tasas de Impuestos";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnlimpiar
@@ -298,7 +340,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btnlimpiar.IconColor = System.Drawing.Color.Black;
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiar.IconSize = 18;
-            this.btnlimpiar.Location = new System.Drawing.Point(315, 402);
+            this.btnlimpiar.Location = new System.Drawing.Point(313, 398);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(165, 30);
             this.btnlimpiar.TabIndex = 136;
@@ -311,35 +353,28 @@ namespace CapaPresentación.MdConfiguracion
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox1.Controls.Add(this.txtPrMaximoEfectivo);
+            this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtContribuyente);
+            this.groupBox1.Controls.Add(this.txtNombreTasa);
+            this.groupBox1.Controls.Add(this.txtPorcentaje);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cboestado);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(17, 31);
+            this.groupBox1.Location = new System.Drawing.Point(15, 40);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(770, 100);
             this.groupBox1.TabIndex = 142;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de datos";
             // 
-            // txtPrMaximoEfectivo
-            // 
-            this.txtPrMaximoEfectivo.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtPrMaximoEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtPrMaximoEfectivo.Location = new System.Drawing.Point(309, 45);
-            this.txtPrMaximoEfectivo.Name = "txtPrMaximoEfectivo";
-            this.txtPrMaximoEfectivo.Size = new System.Drawing.Size(190, 29);
-            this.txtPrMaximoEfectivo.TabIndex = 119;
-            // 
-            // frmTiposContribuyentes
+            // frmTasaImpuestos
             // 
             this.AcceptButton = this.btnguardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 440);
+            this.ClientSize = new System.Drawing.Size(804, 436);
             this.Controls.Add(this.txtindice);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.btneliminar);
@@ -350,9 +385,10 @@ namespace CapaPresentación.MdConfiguracion
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "frmTiposContribuyentes";
+            this.Name = "frmTasaImpuestos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tipos Contribuyentes";
+            this.Text = "Tasas de Impuestos";
+            this.Load += new System.EventHandler(this.frmTasaImpuestos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -362,9 +398,12 @@ namespace CapaPresentación.MdConfiguracion
         }
 
         #endregion
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtContribuyente;
+        private System.Windows.Forms.TextBox txtNombreTasa;
+        private System.Windows.Forms.TextBox txtPorcentaje;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboestado;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtindice;
@@ -372,15 +411,15 @@ namespace CapaPresentación.MdConfiguracion
         private FontAwesome.Sharp.IconButton btneliminar;
         private FontAwesome.Sharp.IconButton btnguardar;
         private System.Windows.Forms.DataGridView dgvdata;
+        private System.Windows.Forms.DataGridViewButtonColumn btnseleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreTasa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Porcentaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Label label10;
         private FontAwesome.Sharp.IconButton btnlimpiar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtPrMaximoEfectivo;
-        private System.Windows.Forms.DataGridViewButtonColumn btnseleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Contribuyente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrMaximoEfectivo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

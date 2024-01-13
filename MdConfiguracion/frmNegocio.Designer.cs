@@ -40,9 +40,6 @@ namespace CapaPresentación.MdConfiguracion
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.txttelefono = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,7 +65,6 @@ namespace CapaPresentación.MdConfiguracion
             this.btnimpreguardar = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -196,36 +192,6 @@ namespace CapaPresentación.MdConfiguracion
             this.label7.Size = new System.Drawing.Size(138, 20);
             this.label7.TabIndex = 80;
             this.label7.Text = "N° Ingreso Brutos:";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.groupBox2);
-            this.tabPage3.Controls.Add(this.groupBox1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(819, 424);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Parámetros Fiscales";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(51, 277);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(656, 96);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Impresora Fiscal";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(51, 32);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(656, 214);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Facturación Electronica";
             // 
             // label6
             // 
@@ -511,7 +477,6 @@ namespace CapaPresentación.MdConfiguracion
             // 
             this.btnimpreguardar.Controls.Add(this.tabPage1);
             this.btnimpreguardar.Controls.Add(this.tabPage2);
-            this.btnimpreguardar.Controls.Add(this.tabPage3);
             this.btnimpreguardar.Controls.Add(this.tabPage4);
             this.btnimpreguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnimpreguardar.Location = new System.Drawing.Point(12, 12);
@@ -552,6 +517,7 @@ namespace CapaPresentación.MdConfiguracion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(853, 493);
             this.Controls.Add(this.btnimpreguardar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmNegocio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -559,7 +525,6 @@ namespace CapaPresentación.MdConfiguracion
             this.Load += new System.EventHandler(this.frmNegocio_Load);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -586,9 +551,6 @@ namespace CapaPresentación.MdConfiguracion
         private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.TextBox txttelefono;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;

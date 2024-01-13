@@ -244,7 +244,7 @@
         <Top>0.81138cm</Top>
         <Left>1.58023cm</Left>
         <Height>1.94084cm</Height>
-        <Width>14.36625cm</Width>
+        <Width>14.36624cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -260,7 +260,6 @@
     <PageHeader>
       <Height>1.20854cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Textbox Name="Textbox2">
           <CanGrow>true</CanGrow>
@@ -304,7 +303,6 @@
     <PageFooter>
       <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
       <Style>
         <Border>
           <Style>None</Style>
