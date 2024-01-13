@@ -119,7 +119,7 @@ namespace CapaPresentación
             this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mdConfiguracion);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmModulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

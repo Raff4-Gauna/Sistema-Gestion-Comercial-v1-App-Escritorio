@@ -78,6 +78,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btnRespaldo.Text = "Generar un Respaldo de la Base de Datos";
             this.btnRespaldo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRespaldo.UseVisualStyleBackColor = false;
+            this.btnRespaldo.Click += new System.EventHandler(this.btnRespaldo_Click);
             // 
             // tabControl
             // 
@@ -188,23 +189,24 @@ namespace CapaPresentación.MdConfiguracion
             this.btnSeleccionarUbic.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSeleccionarUbic.IconSize = 40;
             this.btnSeleccionarUbic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeleccionarUbic.Location = new System.Drawing.Point(542, 223);
+            this.btnSeleccionarUbic.Location = new System.Drawing.Point(560, 239);
             this.btnSeleccionarUbic.Name = "btnSeleccionarUbic";
             this.btnSeleccionarUbic.Size = new System.Drawing.Size(196, 43);
             this.btnSeleccionarUbic.TabIndex = 2;
             this.btnSeleccionarUbic.Text = "Buscar Copia";
             this.btnSeleccionarUbic.UseVisualStyleBackColor = false;
+            this.btnSeleccionarUbic.Click += new System.EventHandler(this.btnSeleccionarUbic_Click);
             // 
             // bntRestaurar
             // 
-            this.bntRestaurar.BackColor = System.Drawing.Color.NavajoWhite;
+            this.bntRestaurar.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.bntRestaurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntRestaurar.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.bntRestaurar.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
             this.bntRestaurar.IconColor = System.Drawing.Color.Black;
             this.bntRestaurar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bntRestaurar.IconSize = 40;
             this.bntRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntRestaurar.Location = new System.Drawing.Point(542, 287);
+            this.bntRestaurar.Location = new System.Drawing.Point(560, 303);
             this.bntRestaurar.Name = "bntRestaurar";
             this.bntRestaurar.Size = new System.Drawing.Size(196, 43);
             this.bntRestaurar.TabIndex = 3;
@@ -212,6 +214,7 @@ namespace CapaPresentación.MdConfiguracion
             this.bntRestaurar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bntRestaurar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bntRestaurar.UseVisualStyleBackColor = false;
+            this.bntRestaurar.Click += new System.EventHandler(this.bntRestaurar_Click);
             // 
             // label3
             // 
@@ -230,8 +233,9 @@ namespace CapaPresentación.MdConfiguracion
             this.txtSeleccionarUbi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSeleccionarUbi.Location = new System.Drawing.Point(105, 244);
             this.txtSeleccionarUbi.Name = "txtSeleccionarUbi";
-            this.txtSeleccionarUbi.Size = new System.Drawing.Size(318, 29);
+            this.txtSeleccionarUbi.Size = new System.Drawing.Size(408, 29);
             this.txtSeleccionarUbi.TabIndex = 6;
+            this.txtSeleccionarUbi.TextChanged += new System.EventHandler(this.txtSeleccionarUbi_TextChanged);
             // 
             // label4
             // 
@@ -258,6 +262,8 @@ namespace CapaPresentación.MdConfiguracion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(958, 480);
             this.Controls.Add(this.tabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmRespaldo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Respaldo de datos";
@@ -285,8 +291,8 @@ namespace CapaPresentación.MdConfiguracion
         private FontAwesome.Sharp.IconButton btnSeleccionarUbic;
         private FontAwesome.Sharp.IconButton bntRestaurar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtSeleccionarUbi;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtUbicacionActual;
+        private System.Windows.Forms.TextBox txtSeleccionarUbi;
     }
 }

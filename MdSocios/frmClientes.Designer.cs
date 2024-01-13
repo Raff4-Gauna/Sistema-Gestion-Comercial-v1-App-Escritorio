@@ -632,6 +632,7 @@ namespace CapaPresentación.MdSocios
             // 
             // frmClientes
             // 
+            this.AcceptButton = this.btnguardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -645,7 +646,7 @@ namespace CapaPresentación.MdSocios
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btnlimpiar);
             this.Controls.Add(this.btnguardar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

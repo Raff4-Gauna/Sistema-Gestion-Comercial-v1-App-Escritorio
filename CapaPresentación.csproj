@@ -90,6 +90,12 @@
     <Compile Include="FomsModulos\frmSocios.Designer.cs">
       <DependentUpon>frmSocios.cs</DependentUpon>
     </Compile>
+    <Compile Include="MdConfiguracion\frmMetodosPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdConfiguracion\frmMetodosPagos.Designer.cs">
+      <DependentUpon>frmMetodosPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="MdConfiguracion\frmNegocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MdConfiguracion\frmParametrosFiscales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdConfiguracion\frmParametrosFiscales.Designer.cs">
+      <DependentUpon>frmParametrosFiscales.cs</DependentUpon>
+    </Compile>
     <Compile Include="MdConfiguracion\frmReporteListaUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +137,12 @@
     </Compile>
     <Compile Include="MdConfiguracion\frmSucursales.Designer.cs">
       <DependentUpon>frmSucursales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdConfiguracion\frmTasaImpuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdConfiguracion\frmTasaImpuestos.Designer.cs">
+      <DependentUpon>frmTasaImpuestos.cs</DependentUpon>
     </Compile>
     <Compile Include="MdConfiguracion\frmTiposContribuyentes.cs">
       <SubType>Form</SubType>
@@ -155,6 +173,9 @@
     <EmbeddedResource Include="FomsModulos\frmSocios.resx">
       <DependentUpon>frmSocios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MdConfiguracion\frmMetodosPagos.resx">
+      <DependentUpon>frmMetodosPagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MdConfiguracion\frmNegocio.resx">
       <DependentUpon>frmNegocio.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +185,9 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MdConfiguracion\frmParametrosFiscales.resx">
+      <DependentUpon>frmParametrosFiscales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MdConfiguracion\frmReporteListaUsuarios.resx">
       <DependentUpon>frmReporteListaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MdConfiguracion\frmSucursales.resx">
       <DependentUpon>frmSucursales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdConfiguracion\frmTasaImpuestos.resx">
+      <DependentUpon>frmTasaImpuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MdConfiguracion\frmTiposContribuyentes.resx">
       <DependentUpon>frmTiposContribuyentes.cs</DependentUpon>
