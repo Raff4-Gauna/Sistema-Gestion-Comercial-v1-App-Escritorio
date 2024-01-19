@@ -73,6 +73,16 @@ namespace CapaPresentación.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mdConfiguracion {
+            get {
+                object obj = ResourceManager.GetObject("mdConfiguracion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap remove20 {
             get {
                 object obj = ResourceManager.GetObject("remove20", resourceCulture);

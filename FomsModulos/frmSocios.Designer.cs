@@ -31,12 +31,13 @@ namespace CapaPresentación.FomsModulos
         {
             this.menureportes = new FontAwesome.Sharp.IconMenuItem();
             this.menuClientes = new FontAwesome.Sharp.IconMenuItem();
-            this.menu = new System.Windows.Forms.MenuStrip();
-            this.menuproveedores = new FontAwesome.Sharp.IconMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.subMenuGestionClientes = new FontAwesome.Sharp.IconMenuItem();
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.menuProveedores = new FontAwesome.Sharp.IconMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.subMenuGestionProveedores = new FontAwesome.Sharp.IconMenuItem();
             this.menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -70,44 +71,6 @@ namespace CapaPresentación.FomsModulos
             this.menuClientes.Text = "Clientes";
             this.menuClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // menu
-            // 
-            this.menu.AutoSize = false;
-            this.menu.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuClientes,
-            this.menuproveedores,
-            this.menureportes});
-            this.menu.Location = new System.Drawing.Point(0, 0);
-            this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1264, 57);
-            this.menu.TabIndex = 17;
-            this.menu.Text = "menuStrip1";
-            // 
-            // menuproveedores
-            // 
-            this.menuproveedores.AutoSize = false;
-            this.menuproveedores.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.menuproveedores.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.menuproveedores.IconChar = FontAwesome.Sharp.IconChar.TruckArrowRight;
-            this.menuproveedores.IconColor = System.Drawing.Color.Black;
-            this.menuproveedores.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.menuproveedores.IconSize = 35;
-            this.menuproveedores.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuproveedores.Name = "menuproveedores";
-            this.menuproveedores.Size = new System.Drawing.Size(122, 50);
-            this.menuproveedores.Text = "Proveedores";
-            this.menuproveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.statusStrip);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 57);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1264, 649);
-            this.panel1.TabIndex = 18;
-            // 
             // subMenuGestionClientes
             // 
             this.subMenuGestionClientes.IconChar = FontAwesome.Sharp.IconChar.None;
@@ -117,6 +80,46 @@ namespace CapaPresentación.FomsModulos
             this.subMenuGestionClientes.Size = new System.Drawing.Size(180, 22);
             this.subMenuGestionClientes.Text = "Gestión de Clientes";
             this.subMenuGestionClientes.Click += new System.EventHandler(this.subMenuGestionClientes_Click);
+            // 
+            // menu
+            // 
+            this.menu.AutoSize = false;
+            this.menu.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuClientes,
+            this.menuProveedores,
+            this.menureportes});
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(1264, 57);
+            this.menu.TabIndex = 17;
+            this.menu.Text = "menuStrip1";
+            // 
+            // menuProveedores
+            // 
+            this.menuProveedores.AutoSize = false;
+            this.menuProveedores.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.menuProveedores.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.subMenuGestionProveedores});
+            this.menuProveedores.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuProveedores.IconChar = FontAwesome.Sharp.IconChar.TruckArrowRight;
+            this.menuProveedores.IconColor = System.Drawing.Color.Black;
+            this.menuProveedores.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.menuProveedores.IconSize = 35;
+            this.menuProveedores.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuProveedores.Name = "menuProveedores";
+            this.menuProveedores.Size = new System.Drawing.Size(122, 50);
+            this.menuProveedores.Text = "Proveedores";
+            this.menuProveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.statusStrip);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 57);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1264, 649);
+            this.panel1.TabIndex = 18;
             // 
             // statusStrip
             // 
@@ -133,6 +136,16 @@ namespace CapaPresentación.FomsModulos
             this.tssHora.Name = "tssHora";
             this.tssHora.Size = new System.Drawing.Size(36, 17);
             this.tssHora.Text = "Hora:";
+            // 
+            // subMenuGestionProveedores
+            // 
+            this.subMenuGestionProveedores.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.subMenuGestionProveedores.IconColor = System.Drawing.Color.Black;
+            this.subMenuGestionProveedores.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.subMenuGestionProveedores.Name = "subMenuGestionProveedores";
+            this.subMenuGestionProveedores.Size = new System.Drawing.Size(198, 22);
+            this.subMenuGestionProveedores.Text = "Gestión de Proveedores";
+            this.subMenuGestionProveedores.Click += new System.EventHandler(this.subMenuGestionProveedores_Click);
             // 
             // frmSocios
             // 
@@ -161,10 +174,11 @@ namespace CapaPresentación.FomsModulos
         private FontAwesome.Sharp.IconMenuItem menureportes;
         private FontAwesome.Sharp.IconMenuItem menuClientes;
         private System.Windows.Forms.MenuStrip menu;
-        private FontAwesome.Sharp.IconMenuItem menuproveedores;
+        private FontAwesome.Sharp.IconMenuItem menuProveedores;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconMenuItem subMenuGestionClientes;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tssHora;
+        private FontAwesome.Sharp.IconMenuItem subMenuGestionProveedores;
     }
 }

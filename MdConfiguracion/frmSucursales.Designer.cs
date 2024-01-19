@@ -412,7 +412,7 @@ namespace CapaPresentación.MdConfiguracion
             this.MaximizeBox = false;
             this.Name = "frmSucursales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sucursales";
+            this.Text = "ABM Sucursales";
             this.Load += new System.EventHandler(this.frmSucursales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -33,6 +33,7 @@ namespace CapaPresentación
             this.mdSocios = new FontAwesome.Sharp.IconButton();
             this.btnsalir = new FontAwesome.Sharp.IconButton();
             this.mdConfiguracion = new FontAwesome.Sharp.IconButton();
+            this.mdInventarios = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // label1
@@ -110,11 +111,33 @@ namespace CapaPresentación
             this.mdConfiguracion.UseVisualStyleBackColor = false;
             this.mdConfiguracion.Click += new System.EventHandler(this.mdConfiguracion_Click);
             // 
+            // mdInventarios
+            // 
+            this.mdInventarios.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.mdInventarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mdInventarios.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.mdInventarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mdInventarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mdInventarios.ForeColor = System.Drawing.Color.Black;
+            this.mdInventarios.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            this.mdInventarios.IconColor = System.Drawing.Color.Black;
+            this.mdInventarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.mdInventarios.IconSize = 30;
+            this.mdInventarios.Location = new System.Drawing.Point(360, 60);
+            this.mdInventarios.Name = "mdInventarios";
+            this.mdInventarios.Size = new System.Drawing.Size(154, 66);
+            this.mdInventarios.TabIndex = 92;
+            this.mdInventarios.Text = "Inventarios";
+            this.mdInventarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.mdInventarios.UseVisualStyleBackColor = false;
+            this.mdInventarios.Click += new System.EventHandler(this.mdInventarios_Click);
+            // 
             // frmModulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 181);
+            this.Controls.Add(this.mdInventarios);
             this.Controls.Add(this.mdSocios);
             this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.label1);
@@ -135,5 +158,6 @@ namespace CapaPresentación
         private FontAwesome.Sharp.IconButton mdConfiguracion;
         private FontAwesome.Sharp.IconButton btnsalir;
         private FontAwesome.Sharp.IconButton mdSocios;
+        private FontAwesome.Sharp.IconButton mdInventarios;
     }
 }

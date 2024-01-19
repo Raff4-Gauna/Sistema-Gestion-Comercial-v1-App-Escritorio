@@ -7,17 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaPresentación.MdSocios;
+using CapaNegocio;
+using CapaEntidad;
+using CapaPresentación.MdInventarios;
+
 
 namespace CapaPresentación.FomsModulos
 {
-    public partial class frmSocios : Form
+    public partial class frmInventarios : Form
     {
-        public frmSocios()
+        public frmInventarios()
         {
             InitializeComponent();
         }
-        private void frmSocios_Load(object sender, EventArgs e)
+        private void frmInventarios_Load(object sender, EventArgs e)
         {
             ActualizarHora();
 
@@ -32,17 +35,11 @@ namespace CapaPresentación.FomsModulos
             // Actualizar el contenido del ToolStripStatusLabel con la hora actual
             tssHora.Text = "Hora: " + DateTime.Now.ToString("HH:mm:ss");
         }
-
-        private void subMenuGestionClientes_Click(object sender, EventArgs e)
+        private void subMenuGestionProductos_Click(object sender, EventArgs e)
         {
-            frmClientes frmClientes = new frmClientes();
-            frmClientes.Show();
+            frmGestionProductos frmGestionProductos = new frmGestionProductos();
+            frmGestionProductos.Show();
         }
-
-        private void subMenuGestionProveedores_Click(object sender, EventArgs e)
-        {
-            frmProveedores frmProveedores = new frmProveedores();
-            frmProveedores.Show();
-        }
+        
     }
 }

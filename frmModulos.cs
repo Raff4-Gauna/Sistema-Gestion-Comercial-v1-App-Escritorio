@@ -58,5 +58,19 @@ namespace CapaPresentación
                 MessageBox.Show("No tiene permisos para acceder a este módulo.", "Permiso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void mdInventarios_Click(object sender, EventArgs e)
+        {
+            if (TienePermiso("mdInventarios"))
+            {
+                frmInventarios ajustesForm = new frmInventarios();
+                ajustesForm.Show();
+            }
+            else
+            {
+                // Muestra un mensaje o toma alguna acción adecuada si no tiene permisos
+                MessageBox.Show("No tiene permisos para acceder a este módulo.", "Permiso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

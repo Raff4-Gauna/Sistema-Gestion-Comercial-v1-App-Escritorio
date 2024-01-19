@@ -387,7 +387,7 @@ namespace CapaPresentación.MdConfiguracion
             this.MaximizeBox = false;
             this.Name = "frmTasaImpuestos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tasas de Impuestos";
+            this.Text = "ABM Tasas de Impuestos";
             this.Load += new System.EventHandler(this.frmTasaImpuestos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.groupBox1.ResumeLayout(false);
