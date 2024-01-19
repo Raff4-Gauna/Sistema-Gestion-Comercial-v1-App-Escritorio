@@ -84,6 +84,12 @@
     <Compile Include="FomsModulos\frmConfiguracion.Designer.cs">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FomsModulos\frmInventarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FomsModulos\frmInventarios.Designer.cs">
+      <DependentUpon>frmInventarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FomsModulos\frmSocios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,11 +162,35 @@
     <Compile Include="MdConfiguracion\frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="MdInventarios\frmCrudCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdInventarios\frmCrudCategoria.Designer.cs">
+      <DependentUpon>frmCrudCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdInventarios\frmCrudSubCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdInventarios\frmCrudSubCategoria.Designer.cs">
+      <DependentUpon>frmCrudSubCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdInventarios\frmGestionProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdInventarios\frmGestionProductos.Designer.cs">
+      <DependentUpon>frmGestionProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="MdSocios\frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MdSocios\frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdSocios\frmProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdSocios\frmProveedores.Designer.cs">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -169,6 +199,9 @@
     <Compile Include="Utilidades\OpcionCombo.cs" />
     <EmbeddedResource Include="FomsModulos\frmConfiguracion.resx">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FomsModulos\frmInventarios.resx">
+      <DependentUpon>frmInventarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FomsModulos\frmSocios.resx">
       <DependentUpon>frmSocios.cs</DependentUpon>
@@ -207,8 +240,20 @@
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MdConfiguracion\ReporteListaUsuarios.rdlc" />
+    <EmbeddedResource Include="MdInventarios\frmCrudCategoria.resx">
+      <DependentUpon>frmCrudCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdInventarios\frmCrudSubCategoria.resx">
+      <DependentUpon>frmCrudSubCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdInventarios\frmGestionProductos.resx">
+      <DependentUpon>frmGestionProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MdSocios\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdSocios\frmProveedores.resx">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -260,6 +305,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\mdConfiguracion.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -280,5 +326,6 @@
   <ItemGroup>
     <None Include="Resources\remove20.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

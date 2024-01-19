@@ -538,7 +538,7 @@ namespace CapaPresentación.MdConfiguracion
             this.MaximizeBox = false;
             this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestión de Usuarios";
+            this.Text = "ABM Gestión de Usuarios";
             this.Load += new System.EventHandler(this.frmUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.groupBox1.ResumeLayout(false);

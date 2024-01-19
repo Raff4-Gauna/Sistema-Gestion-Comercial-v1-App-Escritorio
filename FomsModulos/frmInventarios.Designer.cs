@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentación.FomsModulos
 {
-    partial class frmConfiguracion
+    partial class frmInventarios
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,12 @@ namespace CapaPresentación.FomsModulos
         /// </summary>
         private void InitializeComponent()
         {
+            this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.menu = new System.Windows.Forms.MenuStrip();
-            this.menuDatosNegocio = new FontAwesome.Sharp.IconMenuItem();
-            this.subMenuDatosNegocio = new FontAwesome.Sharp.IconMenuItem();
+            this.menuCatalogoProductos = new FontAwesome.Sharp.IconMenuItem();
+            this.subMenuGestionProductos = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuSucursales = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuResguardoDatos = new FontAwesome.Sharp.IconMenuItem();
             this.menuGestionUsuarios = new FontAwesome.Sharp.IconMenuItem();
@@ -44,56 +47,78 @@ namespace CapaPresentación.FomsModulos
             this.menuFormasPagos = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuMetodosPagos = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuHistorialPagos = new FontAwesome.Sharp.IconMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
-            this.menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            this.menu.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tssHora
+            // 
+            this.tssHora.Name = "tssHora";
+            this.tssHora.Size = new System.Drawing.Size(36, 17);
+            this.tssHora.Text = "Hora:";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.statusStrip);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 54);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1210, 696);
+            this.panel1.TabIndex = 7;
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssHora});
+            this.statusStrip.Location = new System.Drawing.Point(0, 674);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(1210, 22);
+            this.statusStrip.TabIndex = 3;
+            this.statusStrip.Text = "statusStrip1";
             // 
             // menu
             // 
             this.menu.AutoSize = false;
-            this.menu.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.menu.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuDatosNegocio,
+            this.menuCatalogoProductos,
             this.menuGestionUsuarios,
             this.menuFiscalidad,
             this.menuFormasPagos});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1229, 54);
-            this.menu.TabIndex = 4;
+            this.menu.Size = new System.Drawing.Size(1210, 54);
+            this.menu.TabIndex = 6;
             this.menu.Text = "menu";
             // 
-            // menuDatosNegocio
+            // menuCatalogoProductos
             // 
-            this.menuDatosNegocio.AutoSize = false;
-            this.menuDatosNegocio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.subMenuDatosNegocio,
+            this.menuCatalogoProductos.AutoSize = false;
+            this.menuCatalogoProductos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.subMenuGestionProductos,
             this.subMenuSucursales,
             this.subMenuResguardoDatos});
-            this.menuDatosNegocio.IconChar = FontAwesome.Sharp.IconChar.Store;
-            this.menuDatosNegocio.IconColor = System.Drawing.Color.Black;
-            this.menuDatosNegocio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuDatosNegocio.IconSize = 35;
-            this.menuDatosNegocio.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuDatosNegocio.Name = "menuDatosNegocio";
-            this.menuDatosNegocio.Size = new System.Drawing.Size(122, 50);
-            this.menuDatosNegocio.Text = "Negocio";
-            this.menuDatosNegocio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuCatalogoProductos.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
+            this.menuCatalogoProductos.IconColor = System.Drawing.Color.Black;
+            this.menuCatalogoProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuCatalogoProductos.IconSize = 35;
+            this.menuCatalogoProductos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuCatalogoProductos.Name = "menuCatalogoProductos";
+            this.menuCatalogoProductos.Size = new System.Drawing.Size(122, 50);
+            this.menuCatalogoProductos.Text = "Catálogo";
+            this.menuCatalogoProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // subMenuDatosNegocio
+            // subMenuGestionProductos
             // 
-            this.subMenuDatosNegocio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subMenuDatosNegocio.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.subMenuDatosNegocio.IconColor = System.Drawing.Color.Black;
-            this.subMenuDatosNegocio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.subMenuDatosNegocio.Name = "subMenuDatosNegocio";
-            this.subMenuDatosNegocio.Size = new System.Drawing.Size(177, 22);
-            this.subMenuDatosNegocio.Text = "Preferencias";
-            this.subMenuDatosNegocio.Click += new System.EventHandler(this.subMenuDatosNegocio_Click);
+            this.subMenuGestionProductos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subMenuGestionProductos.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.subMenuGestionProductos.IconColor = System.Drawing.Color.Black;
+            this.subMenuGestionProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.subMenuGestionProductos.Name = "subMenuGestionProductos";
+            this.subMenuGestionProductos.Size = new System.Drawing.Size(201, 22);
+            this.subMenuGestionProductos.Text = "Gestión de Productos";
+            this.subMenuGestionProductos.Click += new System.EventHandler(this.subMenuGestionProductos_Click);
             // 
             // subMenuSucursales
             // 
@@ -102,9 +127,8 @@ namespace CapaPresentación.FomsModulos
             this.subMenuSucursales.IconColor = System.Drawing.Color.Black;
             this.subMenuSucursales.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuSucursales.Name = "subMenuSucursales";
-            this.subMenuSucursales.Size = new System.Drawing.Size(177, 22);
+            this.subMenuSucursales.Size = new System.Drawing.Size(201, 22);
             this.subMenuSucursales.Text = "Sucursales";
-            this.subMenuSucursales.Click += new System.EventHandler(this.subMenuSucursales_Click);
             // 
             // subMenuResguardoDatos
             // 
@@ -113,9 +137,8 @@ namespace CapaPresentación.FomsModulos
             this.subMenuResguardoDatos.IconColor = System.Drawing.Color.Black;
             this.subMenuResguardoDatos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuResguardoDatos.Name = "subMenuResguardoDatos";
-            this.subMenuResguardoDatos.Size = new System.Drawing.Size(177, 22);
+            this.subMenuResguardoDatos.Size = new System.Drawing.Size(201, 22);
             this.subMenuResguardoDatos.Text = "Resguardo Datos";
-            this.subMenuResguardoDatos.Click += new System.EventHandler(this.subMenuResguardoDatos_Click);
             // 
             // menuGestionUsuarios
             // 
@@ -142,7 +165,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuUsuarios.Name = "subMenuUsuarios";
             this.subMenuUsuarios.Size = new System.Drawing.Size(193, 22);
             this.subMenuUsuarios.Text = "Gestión de Usuarios";
-            this.subMenuUsuarios.Click += new System.EventHandler(this.subMenuUsuarios_Click);
             // 
             // iconMenuItem3
             // 
@@ -180,7 +202,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuParametrosFiscal.Name = "subMenuParametrosFiscal";
             this.subMenuParametrosFiscal.Size = new System.Drawing.Size(184, 22);
             this.subMenuParametrosFiscal.Text = "Parámetros Fiscal";
-            this.subMenuParametrosFiscal.Click += new System.EventHandler(this.subMenuParametrosFiscal_Click);
             // 
             // subMenuTiposContribuyentes
             // 
@@ -191,7 +212,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuTiposContribuyentes.Name = "subMenuTiposContribuyentes";
             this.subMenuTiposContribuyentes.Size = new System.Drawing.Size(184, 22);
             this.subMenuTiposContribuyentes.Text = "Contribuyentes";
-            this.subMenuTiposContribuyentes.Click += new System.EventHandler(this.subMenuTiposContribuyentes_Click);
             // 
             // subMenuTasaImpuestos
             // 
@@ -202,7 +222,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuTasaImpuestos.Name = "subMenuTasaImpuestos";
             this.subMenuTasaImpuestos.Size = new System.Drawing.Size(184, 22);
             this.subMenuTasaImpuestos.Text = "Tasa de Impuestos";
-            this.subMenuTasaImpuestos.Click += new System.EventHandler(this.subMenuTasaImpuestos_Click);
             // 
             // menuFormasPagos
             // 
@@ -229,7 +248,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuMetodosPagos.Name = "subMenuMetodosPagos";
             this.subMenuMetodosPagos.Size = new System.Drawing.Size(187, 22);
             this.subMenuMetodosPagos.Text = "Metódos de Pagos";
-            this.subMenuMetodosPagos.Click += new System.EventHandler(this.subMenuMetodosPagos_Click);
             // 
             // subMenuHistorialPagos
             // 
@@ -241,72 +259,47 @@ namespace CapaPresentación.FomsModulos
             this.subMenuHistorialPagos.Size = new System.Drawing.Size(187, 22);
             this.subMenuHistorialPagos.Text = "Historial de Pagos";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.statusStrip);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 54);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1229, 632);
-            this.panel1.TabIndex = 5;
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssHora});
-            this.statusStrip.Location = new System.Drawing.Point(0, 610);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1229, 22);
-            this.statusStrip.TabIndex = 3;
-            this.statusStrip.Text = "statusStrip1";
-            // 
-            // tssHora
-            // 
-            this.tssHora.Name = "tssHora";
-            this.tssHora.Size = new System.Drawing.Size(36, 17);
-            this.tssHora.Text = "Hora:";
-            // 
-            // frmConfiguracion
+            // frmInventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 686);
+            this.ClientSize = new System.Drawing.Size(1210, 750);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menu);
-            this.Name = "frmConfiguracion";
+            this.Name = "frmInventarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configuracion del sistema";
+            this.Text = "Inventarios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmConfiguracion_Load);
-            this.menu.ResumeLayout(false);
-            this.menu.PerformLayout();
+            this.Load += new System.EventHandler(this.frmInventarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menu;
-        private FontAwesome.Sharp.IconMenuItem menuDatosNegocio;
-        private FontAwesome.Sharp.IconMenuItem subMenuDatosNegocio;
-        private FontAwesome.Sharp.IconMenuItem subMenuSucursales;
-        private FontAwesome.Sharp.IconMenuItem subMenuResguardoDatos;
+        private System.Windows.Forms.ToolStripStatusLabel tssHora;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel tssHora;
-        private FontAwesome.Sharp.IconMenuItem menuGestionUsuarios;
-        private FontAwesome.Sharp.IconMenuItem subMenuUsuarios;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
-        private FontAwesome.Sharp.IconMenuItem menuFiscalidad;
+        private FontAwesome.Sharp.IconMenuItem subMenuHistorialPagos;
+        private FontAwesome.Sharp.IconMenuItem subMenuMetodosPagos;
+        private FontAwesome.Sharp.IconMenuItem menuFormasPagos;
+        private FontAwesome.Sharp.IconMenuItem subMenuTasaImpuestos;
         private FontAwesome.Sharp.IconMenuItem subMenuTiposContribuyentes;
         private FontAwesome.Sharp.IconMenuItem subMenuParametrosFiscal;
-        private FontAwesome.Sharp.IconMenuItem subMenuTasaImpuestos;
-        private FontAwesome.Sharp.IconMenuItem menuFormasPagos;
-        private FontAwesome.Sharp.IconMenuItem subMenuMetodosPagos;
-        private FontAwesome.Sharp.IconMenuItem subMenuHistorialPagos;
+        private FontAwesome.Sharp.IconMenuItem menuFiscalidad;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
+        private FontAwesome.Sharp.IconMenuItem subMenuUsuarios;
+        private FontAwesome.Sharp.IconMenuItem menuGestionUsuarios;
+        private FontAwesome.Sharp.IconMenuItem subMenuResguardoDatos;
+        private FontAwesome.Sharp.IconMenuItem subMenuSucursales;
+        private FontAwesome.Sharp.IconMenuItem subMenuGestionProductos;
+        private FontAwesome.Sharp.IconMenuItem menuCatalogoProductos;
+        private System.Windows.Forms.MenuStrip menu;
     }
 }

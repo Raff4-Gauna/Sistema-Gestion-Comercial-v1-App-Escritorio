@@ -650,7 +650,7 @@ namespace CapaPresentación.MdSocios
             this.MaximizeBox = false;
             this.Name = "frmClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestión de Clientes";
+            this.Text = "ABM Gestión de Clientes";
             this.Load += new System.EventHandler(this.frmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.groupBox1.ResumeLayout(false);
