@@ -69,12 +69,12 @@ namespace CapaPresentación
                 List<Usuario> listaUsuarios = new CN_Usuario().listar();
 
 
-                Usuario usuarioEncontrado = listaUsuarios
+                Usuario ousuario = listaUsuarios
                     .FirstOrDefault(u => u.Documento == txtdocumento.Text && u.Clave == txtclave.Text);
 
-                if (usuarioEncontrado != null)
+                if (ousuario != null)
                 {
-                    frmModulos form = new frmModulos(usuarioEncontrado);
+                    frmModulos form = new frmModulos(ousuario);
 
                     form.Show();
                     this.Hide();

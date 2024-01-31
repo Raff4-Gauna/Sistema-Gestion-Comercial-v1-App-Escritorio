@@ -40,6 +40,29 @@ namespace CapaPresentación.FomsModulos
             frmGestionProductos frmGestionProductos = new frmGestionProductos();
             frmGestionProductos.Show();
         }
-        
+
+        private void subMenuUnidadesMedidas_Click(object sender, EventArgs e)
+        {
+            frmTipoUnidades frmTipoUnidades = new frmTipoUnidades();
+            frmTipoUnidades.ShowDialog();
+        }
+
+        private void subMenuCategorias_Click(object sender, EventArgs e)
+        {
+            frmCrudCategoria frmCrudCategoria = new frmCrudCategoria();
+            frmCrudCategoria.ShowDialog();
+        }
+
+        private void subMenuSubCategorias_Click(object sender, EventArgs e)
+        {
+            frmCrudSubCategoria frmCrudSubCategoria = new frmCrudSubCategoria();
+            frmCrudSubCategoria.ShowDialog();
+        }
+
+        private void subMenuPrecioIndividual_Click(object sender, EventArgs e)
+        {
+            frmActProducto frmActProducto = new frmActProducto();
+            frmActProducto.ShowDialog();
+        }
     }
 }

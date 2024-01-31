@@ -60,7 +60,7 @@ namespace CapaPresentación.MdConfiguracion
             {
                 IdTasaImpuesto = Convert.ToInt32(txtid.Text),
                 NombreTasa = txtNombreTasa.Text,
-                Porcentaje = txtPorcentaje.Text,
+                Porcentaje = Convert.ToSingle(txtPorcentaje.Text),
                 Descripcion = txtDescripcion.Text,
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
 

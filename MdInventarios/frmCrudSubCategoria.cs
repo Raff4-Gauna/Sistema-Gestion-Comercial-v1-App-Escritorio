@@ -28,15 +28,20 @@ namespace CapaPresentación.MdInventarios
             cboestado.ValueMember = "Valor";
             cboestado.SelectedIndex = 0;
 
-            List<Categorias> ListaCategorias = new CN_Categorias().Listar();
+            //-------------------------------------- PARA Listar categorias -------------------------
+            List<Categorias> Listacategoria = new CN_Categorias().Listar();
 
-            foreach (Categorias item in ListaCategorias)
+            // Ordena la lista alfabéticamente por NombreCategoria
+            Listacategoria = Listacategoria.OrderBy(c => c.NombreCategoria).ToList();
+
+            foreach (Categorias item in Listacategoria)
             {
                 cbocategoria.Items.Add(new OpcionCombo() { Valor = item.IdCategoria, Texto = item.NombreCategoria });
             }
             cbocategoria.DisplayMember = "Texto";
             cbocategoria.ValueMember = "Valor";
             cbocategoria.SelectedIndex = 0;
+
 
             foreach (DataGridViewColumn columna in dgvdata.Columns)
             {

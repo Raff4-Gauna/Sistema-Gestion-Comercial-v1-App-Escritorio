@@ -29,11 +29,11 @@ namespace CapaPresentación.MdInventarios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnlimpiar = new FontAwesome.Sharp.IconButton();
             this.btneliminar = new FontAwesome.Sharp.IconButton();
             this.label9 = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@ namespace CapaPresentación.MdInventarios
             this.btnlimpiar.IconColor = System.Drawing.Color.Black;
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiar.IconSize = 18;
-            this.btnlimpiar.Location = new System.Drawing.Point(272, 449);
+            this.btnlimpiar.Location = new System.Drawing.Point(290, 419);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(165, 30);
             this.btnlimpiar.TabIndex = 161;
@@ -99,7 +99,7 @@ namespace CapaPresentación.MdInventarios
             this.btneliminar.IconColor = System.Drawing.Color.Black;
             this.btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btneliminar.IconSize = 16;
-            this.btneliminar.Location = new System.Drawing.Point(443, 449);
+            this.btneliminar.Location = new System.Drawing.Point(461, 419);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(165, 30);
             this.btneliminar.TabIndex = 162;
@@ -113,18 +113,18 @@ namespace CapaPresentación.MdInventarios
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(502, 12);
+            this.label9.Location = new System.Drawing.Point(619, 10);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 16);
+            this.label9.Size = new System.Drawing.Size(157, 16);
             this.label9.TabIndex = 136;
-            this.label9.Text = "Total de Categorias:";
+            this.label9.Text = "Total de Sub Categorias:";
             // 
             // lblTotalSubCategorias
             // 
             this.lblTotalSubCategorias.AutoSize = true;
             this.lblTotalSubCategorias.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.lblTotalSubCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalSubCategorias.Location = new System.Drawing.Point(637, 8);
+            this.lblTotalSubCategorias.Location = new System.Drawing.Point(777, 6);
             this.lblTotalSubCategorias.Name = "lblTotalSubCategorias";
             this.lblTotalSubCategorias.Size = new System.Drawing.Size(49, 20);
             this.lblTotalSubCategorias.TabIndex = 135;
@@ -197,9 +197,9 @@ namespace CapaPresentación.MdInventarios
             this.groupBox2.Controls.Add(this.txtbusqueda);
             this.groupBox2.Controls.Add(this.btnbuscar);
             this.groupBox2.Controls.Add(this.btnlimpiarbuscador);
-            this.groupBox2.Location = new System.Drawing.Point(16, 144);
+            this.groupBox2.Location = new System.Drawing.Point(0, 124);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(695, 64);
+            this.groupBox2.Size = new System.Drawing.Size(838, 64);
             this.groupBox2.TabIndex = 168;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Busqueda";
@@ -208,18 +208,18 @@ namespace CapaPresentación.MdInventarios
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(487, 37);
+            this.label3.Location = new System.Drawing.Point(604, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 16);
+            this.label3.Size = new System.Drawing.Size(172, 16);
             this.label3.TabIndex = 140;
-            this.label3.Text = "Categorias No Activas:";
+            this.label3.Text = "Sub Categorias No Activas:";
             // 
             // lblTotalSubCategoriasNoActivas
             // 
             this.lblTotalSubCategoriasNoActivas.AutoSize = true;
             this.lblTotalSubCategoriasNoActivas.BackColor = System.Drawing.Color.Red;
             this.lblTotalSubCategoriasNoActivas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalSubCategoriasNoActivas.Location = new System.Drawing.Point(637, 34);
+            this.lblTotalSubCategoriasNoActivas.Location = new System.Drawing.Point(777, 32);
             this.lblTotalSubCategoriasNoActivas.Name = "lblTotalSubCategoriasNoActivas";
             this.lblTotalSubCategoriasNoActivas.Size = new System.Drawing.Size(49, 20);
             this.lblTotalSubCategoriasNoActivas.TabIndex = 139;
@@ -231,9 +231,9 @@ namespace CapaPresentación.MdInventarios
             this.cbocategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbocategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbocategoria.FormattingEnabled = true;
-            this.cbocategoria.Location = new System.Drawing.Point(300, 48);
+            this.cbocategoria.Location = new System.Drawing.Point(6, 42);
             this.cbocategoria.Name = "cbocategoria";
-            this.cbocategoria.Size = new System.Drawing.Size(165, 28);
+            this.cbocategoria.Size = new System.Drawing.Size(222, 28);
             this.cbocategoria.TabIndex = 119;
             // 
             // label1
@@ -242,7 +242,7 @@ namespace CapaPresentación.MdInventarios
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(465, 24);
+            this.label1.Location = new System.Drawing.Point(658, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 18);
             this.label1.TabIndex = 120;
@@ -258,9 +258,9 @@ namespace CapaPresentación.MdInventarios
             this.groupBox1.Controls.Add(this.cboestado);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 38);
+            this.groupBox1.Location = new System.Drawing.Point(0, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(695, 100);
+            this.groupBox1.Size = new System.Drawing.Size(838, 89);
             this.groupBox1.TabIndex = 167;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de datos";
@@ -271,19 +271,19 @@ namespace CapaPresentación.MdInventarios
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 24);
+            this.label2.Location = new System.Drawing.Point(231, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 18);
+            this.label2.Size = new System.Drawing.Size(197, 18);
             this.label2.TabIndex = 109;
-            this.label2.Text = "Nombre *";
+            this.label2.Text = "Nombre de la SubCategoria*";
             // 
             // txtNombreSubCategoria
             // 
             this.txtNombreSubCategoria.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtNombreSubCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreSubCategoria.Location = new System.Drawing.Point(6, 45);
+            this.txtNombreSubCategoria.Location = new System.Drawing.Point(234, 39);
             this.txtNombreSubCategoria.Name = "txtNombreSubCategoria";
-            this.txtNombreSubCategoria.Size = new System.Drawing.Size(221, 29);
+            this.txtNombreSubCategoria.Size = new System.Drawing.Size(252, 29);
             this.txtNombreSubCategoria.TabIndex = 112;
             this.txtNombreSubCategoria.TextChanged += new System.EventHandler(this.txtNombreSubCategoria_TextChanged);
             // 
@@ -293,7 +293,7 @@ namespace CapaPresentación.MdInventarios
             this.cboestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboestado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboestado.FormattingEnabled = true;
-            this.cboestado.Location = new System.Drawing.Point(471, 48);
+            this.cboestado.Location = new System.Drawing.Point(664, 42);
             this.cboestado.Name = "cboestado";
             this.cboestado.Size = new System.Drawing.Size(165, 28);
             this.cboestado.TabIndex = 117;
@@ -304,7 +304,7 @@ namespace CapaPresentación.MdInventarios
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(300, 27);
+            this.label8.Location = new System.Drawing.Point(6, 21);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 18);
             this.label8.TabIndex = 118;
@@ -320,14 +320,14 @@ namespace CapaPresentación.MdInventarios
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(724, 26);
+            this.label10.Size = new System.Drawing.Size(851, 26);
             this.label10.TabIndex = 164;
             this.label10.Text = "Sub Categorias";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtindice
             // 
-            this.txtindice.Location = new System.Drawing.Point(614, 451);
+            this.txtindice.Location = new System.Drawing.Point(632, 421);
             this.txtindice.Name = "txtindice";
             this.txtindice.Size = new System.Drawing.Size(26, 20);
             this.txtindice.TabIndex = 166;
@@ -336,7 +336,7 @@ namespace CapaPresentación.MdInventarios
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(646, 451);
+            this.txtid.Location = new System.Drawing.Point(664, 421);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(26, 20);
             this.txtid.TabIndex = 165;
@@ -346,23 +346,23 @@ namespace CapaPresentación.MdInventarios
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvdata.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvdata.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.BackgroundColor = System.Drawing.Color.Silver;
             this.dgvdata.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvdata.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnseleccionar,
@@ -372,33 +372,33 @@ namespace CapaPresentación.MdInventarios
             this.NombreSubcategoria,
             this.EstadoValor,
             this.Estado});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvdata.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvdata.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.EnableHeadersVisualStyles = false;
-            this.dgvdata.Location = new System.Drawing.Point(16, 214);
+            this.dgvdata.Location = new System.Drawing.Point(0, 194);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(695, 219);
+            this.dgvdata.Size = new System.Drawing.Size(838, 219);
             this.dgvdata.TabIndex = 163;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
@@ -429,14 +429,14 @@ namespace CapaPresentación.MdInventarios
             this.NombreCategoria.HeaderText = "Categoria";
             this.NombreCategoria.Name = "NombreCategoria";
             this.NombreCategoria.ReadOnly = true;
-            this.NombreCategoria.Width = 200;
+            this.NombreCategoria.Width = 300;
             // 
             // NombreSubcategoria
             // 
             this.NombreSubcategoria.HeaderText = "SubCategoria";
             this.NombreSubcategoria.Name = "NombreSubcategoria";
             this.NombreSubcategoria.ReadOnly = true;
-            this.NombreSubcategoria.Width = 200;
+            this.NombreSubcategoria.Width = 300;
             // 
             // EstadoValor
             // 
@@ -462,7 +462,7 @@ namespace CapaPresentación.MdInventarios
             this.btnguardar.IconColor = System.Drawing.Color.Black;
             this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 16;
-            this.btnguardar.Location = new System.Drawing.Point(101, 449);
+            this.btnguardar.Location = new System.Drawing.Point(119, 419);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(165, 30);
             this.btnguardar.TabIndex = 160;
@@ -477,7 +477,7 @@ namespace CapaPresentación.MdInventarios
             this.AcceptButton = this.btnguardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 491);
+            this.ClientSize = new System.Drawing.Size(849, 458);
             this.Controls.Add(this.btnlimpiar);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.groupBox2);
@@ -526,6 +526,8 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.DataGridView dgvdata;
         private FontAwesome.Sharp.IconButton btnguardar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTotalSubCategoriasNoActivas;
         private System.Windows.Forms.DataGridViewButtonColumn btnseleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCategoria;
@@ -533,7 +535,5 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreSubcategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblTotalSubCategoriasNoActivas;
     }
 }

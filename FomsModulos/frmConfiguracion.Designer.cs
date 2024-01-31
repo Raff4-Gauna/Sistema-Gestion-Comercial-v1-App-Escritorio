@@ -29,6 +29,7 @@ namespace CapaPresentación.FomsModulos
         /// </summary>
         private void InitializeComponent()
         {
+            this.miniToolStrip = new System.Windows.Forms.MenuStrip();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.menuDatosNegocio = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuDatosNegocio = new FontAwesome.Sharp.IconMenuItem();
@@ -44,13 +45,27 @@ namespace CapaPresentación.FomsModulos
             this.menuFormasPagos = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuMetodosPagos = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuHistorialPagos = new FontAwesome.Sharp.IconMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menu.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // miniToolStrip
+            // 
+            this.miniToolStrip.AccessibleName = "Selección de nuevo elemento";
+            this.miniToolStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.ComboBox;
+            this.miniToolStrip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.miniToolStrip.AutoSize = false;
+            this.miniToolStrip.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.miniToolStrip.Location = new System.Drawing.Point(494, 18);
+            this.miniToolStrip.Name = "miniToolStrip";
+            this.miniToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.miniToolStrip.Size = new System.Drawing.Size(1145, 55);
+            this.miniToolStrip.TabIndex = 5;
             // 
             // menu
             // 
@@ -63,8 +78,9 @@ namespace CapaPresentación.FomsModulos
             this.menuFormasPagos});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1229, 54);
-            this.menu.TabIndex = 4;
+            this.menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menu.Size = new System.Drawing.Size(1184, 55);
+            this.menu.TabIndex = 5;
             this.menu.Text = "menu";
             // 
             // menuDatosNegocio
@@ -241,23 +257,14 @@ namespace CapaPresentación.FomsModulos
             this.subMenuHistorialPagos.Size = new System.Drawing.Size(187, 22);
             this.subMenuHistorialPagos.Text = "Historial de Pagos";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.statusStrip);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 54);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1229, 632);
-            this.panel1.TabIndex = 5;
-            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssHora});
-            this.statusStrip.Location = new System.Drawing.Point(0, 610);
+            this.statusStrip.Location = new System.Drawing.Point(0, 689);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1229, 22);
-            this.statusStrip.TabIndex = 3;
+            this.statusStrip.Size = new System.Drawing.Size(1184, 22);
+            this.statusStrip.TabIndex = 6;
             this.statusStrip.Text = "statusStrip1";
             // 
             // tssHora
@@ -266,12 +273,21 @@ namespace CapaPresentación.FomsModulos
             this.tssHora.Size = new System.Drawing.Size(36, 17);
             this.tssHora.Text = "Hora:";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 55);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1184, 634);
+            this.flowLayoutPanel1.TabIndex = 7;
+            // 
             // frmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 686);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1184, 711);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menu);
             this.Name = "frmConfiguracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -280,33 +296,33 @@ namespace CapaPresentación.FomsModulos
             this.Load += new System.EventHandler(this.frmConfiguracion_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
+        private System.Windows.Forms.MenuStrip miniToolStrip;
         private System.Windows.Forms.MenuStrip menu;
         private FontAwesome.Sharp.IconMenuItem menuDatosNegocio;
         private FontAwesome.Sharp.IconMenuItem subMenuDatosNegocio;
         private FontAwesome.Sharp.IconMenuItem subMenuSucursales;
         private FontAwesome.Sharp.IconMenuItem subMenuResguardoDatos;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel tssHora;
         private FontAwesome.Sharp.IconMenuItem menuGestionUsuarios;
         private FontAwesome.Sharp.IconMenuItem subMenuUsuarios;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
         private FontAwesome.Sharp.IconMenuItem menuFiscalidad;
-        private FontAwesome.Sharp.IconMenuItem subMenuTiposContribuyentes;
         private FontAwesome.Sharp.IconMenuItem subMenuParametrosFiscal;
+        private FontAwesome.Sharp.IconMenuItem subMenuTiposContribuyentes;
         private FontAwesome.Sharp.IconMenuItem subMenuTasaImpuestos;
         private FontAwesome.Sharp.IconMenuItem menuFormasPagos;
         private FontAwesome.Sharp.IconMenuItem subMenuMetodosPagos;
         private FontAwesome.Sharp.IconMenuItem subMenuHistorialPagos;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel tssHora;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
