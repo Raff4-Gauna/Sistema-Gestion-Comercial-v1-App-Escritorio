@@ -31,6 +31,7 @@ namespace CapaPresentación.MdConfiguracion
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -51,17 +52,32 @@ namespace CapaPresentación.MdConfiguracion
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Facturación Electronica";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(298, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(173, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "NO ACTIVO";
+            // 
             // frmParametrosFiscales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmParametrosFiscales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parametros Fiscales";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,5 +85,6 @@ namespace CapaPresentación.MdConfiguracion
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

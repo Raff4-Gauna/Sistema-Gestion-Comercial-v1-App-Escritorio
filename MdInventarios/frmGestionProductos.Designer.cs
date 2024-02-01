@@ -65,7 +65,8 @@ namespace CapaPresentación.MdInventarios
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescripcionGeneral = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdMargenGanancia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionPorcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UbicacionProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockExistente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -236,7 +237,7 @@ namespace CapaPresentación.MdInventarios
             this.btnAgregarProducto.IconSize = 20;
             this.btnAgregarProducto.Location = new System.Drawing.Point(9, 11);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(154, 30);
+            this.btnAgregarProducto.Size = new System.Drawing.Size(155, 30);
             this.btnAgregarProducto.TabIndex = 167;
             this.btnAgregarProducto.Text = "Nuevo Producto";
             this.btnAgregarProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -290,7 +291,8 @@ namespace CapaPresentación.MdInventarios
             this.Codigo,
             this.DescripcionGeneral,
             this.PrecioCompra,
-            this.PrecioVenta,
+            this.IdMargenGanancia,
+            this.DescripcionPorcentaje,
             this.PrecioFinal,
             this.UbicacionProducto,
             this.StockExistente,
@@ -445,11 +447,19 @@ namespace CapaPresentación.MdInventarios
             this.PrecioCompra.Name = "PrecioCompra";
             this.PrecioCompra.ReadOnly = true;
             // 
-            // PrecioVenta
+            // IdMargenGanancia
             // 
-            this.PrecioVenta.HeaderText = "PrecioVenta";
-            this.PrecioVenta.Name = "PrecioVenta";
-            this.PrecioVenta.ReadOnly = true;
+            this.IdMargenGanancia.HeaderText = "IdMargenGanancia";
+            this.IdMargenGanancia.Name = "IdMargenGanancia";
+            this.IdMargenGanancia.ReadOnly = true;
+            this.IdMargenGanancia.Visible = false;
+            // 
+            // DescripcionPorcentaje
+            // 
+            this.DescripcionPorcentaje.HeaderText = "DescripcionPorcentaje";
+            this.DescripcionPorcentaje.Name = "DescripcionPorcentaje";
+            this.DescripcionPorcentaje.ReadOnly = true;
+            this.DescripcionPorcentaje.Visible = false;
             // 
             // PrecioFinal
             // 
@@ -550,7 +560,8 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionGeneral;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdMargenGanancia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionPorcentaje;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn UbicacionProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockExistente;

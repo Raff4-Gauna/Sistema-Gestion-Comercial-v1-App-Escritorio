@@ -41,6 +41,7 @@ namespace CapaPresentación.FomsModulos
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.subMenuMargenesGanancias = new FontAwesome.Sharp.IconMenuItem();
             this.menu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +125,7 @@ namespace CapaPresentación.FomsModulos
             // 
             this.menuGestionUsuarios.AutoSize = false;
             this.menuGestionUsuarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.subMenuMargenesGanancias,
             this.subMenuPrecioIndividual,
             this.subMenuPrecioMasivo});
             this.menuGestionUsuarios.IconChar = FontAwesome.Sharp.IconChar.CartFlatbedSuitcase;
@@ -181,6 +183,17 @@ namespace CapaPresentación.FomsModulos
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1184, 635);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
+            // subMenuMargenesGanancias
+            // 
+            this.subMenuMargenesGanancias.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subMenuMargenesGanancias.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.subMenuMargenesGanancias.IconColor = System.Drawing.Color.Black;
+            this.subMenuMargenesGanancias.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.subMenuMargenesGanancias.Name = "subMenuMargenesGanancias";
+            this.subMenuMargenesGanancias.Size = new System.Drawing.Size(231, 22);
+            this.subMenuMargenesGanancias.Text = "Margenes de Ganancias";
+            this.subMenuMargenesGanancias.Click += new System.EventHandler(this.subMenuMargenesGanancias_Click);
+            // 
             // frmInventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,5 +229,6 @@ namespace CapaPresentación.FomsModulos
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tssHora;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private FontAwesome.Sharp.IconMenuItem subMenuMargenesGanancias;
     }
 }

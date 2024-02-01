@@ -75,8 +75,7 @@ namespace CapaPresentación.MdInventarios
                         lblubicacionproducto.Text = producto.UbicacionProducto;
 
                         // Limpiar el campo de código de barras
-                        txtcodigo.Text = "";
-                        txtcodigobarra.Text = "";
+                        
                     }
                     else
                     {
@@ -157,6 +156,8 @@ namespace CapaPresentación.MdInventarios
             lbldescripciongeneral.Text = "";
             lblfechavencimiento.Text = "";
             txtpreciofinal.Text = "";
+            lblstockexistente.Text = "";
+            lblprecioactual.Text = "";
             lblubicacionproducto.Text = "";
             txtstockexistente.Text = "";
             txtcodigo.Select();

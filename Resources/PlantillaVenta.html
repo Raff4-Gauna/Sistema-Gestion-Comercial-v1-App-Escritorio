@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Page Design</title>
+    <style>
+        table.border {
+            border-collapse: collapse;
+        }
+
+            table.border th,
+            table.border td {
+                text-align: center;
+                padding: 5px;
+                border: 1px solid black;
+            }
+
+        td.label {
+            width: 20%;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        td.value {
+            width: 20%;
+            font-size: 12px;
+        }
+
+        label.header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        div.space {
+            height: 15px !important;
+        }
+
+        hr {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        table.footer {
+            width: 35%;
+            font-size: 12px;
+        }
+
+            table.footer th,
+            table.footer td {
+                background-color: #CACACA;
+            }
+    </style>
+</head>
+
+<body>
+    <table border="0" style="width:100%">
+        <tr>
+            <td style="width:15%" valign="top"></td>
+            <td style="width:60%" valign="top" align="center">
+                <label class="header">@nombrenegocio</label><br />
+                <label style="font-size:11px;">TEL: @telnegocio</label><br />
+                <label style="font-size:11px;">Dirección: @direcnegocio</label><br />
+            </td>
+            <td style="width:25%;" align="right" valign="top">
+                <table style="width:100%" class="border">
+                    <tr>
+                        <td align="center" style="background-color:#CACACA">
+                            <label class="header">@tipodocumento</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <label class="header">@numerodocumento</label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div class="space"></div>
+    <hr />
+    <table border="0" style="width:100%">
+        <tr>
+            <td class="label">Documento Cliente:</td>
+            <td class="value">@doccliente</td>
+        </tr>
+        <tr>
+            <td class="label">Nombre Cliente:</td>
+            <td class="value">@nombrecliente</td>
+        </tr>
+        <tr>
+            <td class="label">Fecha de Emisión:</td>
+            <td class="value">@fecharegistro</td>
+        </tr>
+        <tr>
+            <td class="label">Usuario Registro:</td>
+            <td class="value">@usuarioregistro</td>
+        </tr>
+    </table>
+    <div class="space"></div>
+    <table style="width:100%" class="border">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Prod</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí colocaremos dinámicamente las filas de productos -->
+            @filasDetalles
+        </tbody>
+    </table>
+
+
+    <div class="space"></div>
+    <table class="footer">
+        <thead>
+            <tr>
+                <th>Monto Total</th>
+                <th>Pago Con</th>
+                <th>Cambio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@montototal</td>
+                <td>@pagocon</td>
+                <td>@cambio</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <table border="0" style="width:100%">
+        <tr>
+            <td style="width:100%" align="center">
+                <label class="header">GRACIAS POR ELEGIRNOS!!!</label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:10%" align="left">
+                <label style="font-size:9px;font-weight:bold">Desarrollado por GÉSTION COMERCIAL</label>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

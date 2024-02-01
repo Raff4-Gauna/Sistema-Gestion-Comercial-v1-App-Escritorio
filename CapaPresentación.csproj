@@ -42,6 +42,9 @@
     <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itextsharp.xmlworker.5.5.13.3\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -215,6 +218,12 @@
     <Compile Include="MdInventarios\frmGestionProductos.Designer.cs">
       <DependentUpon>frmGestionProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="MdInventarios\frmMargenGanancias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdInventarios\frmMargenGanancias.Designer.cs">
+      <DependentUpon>frmMargenGanancias.cs</DependentUpon>
+    </Compile>
     <Compile Include="MdInventarios\frmTipoUnidades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +347,9 @@
     <EmbeddedResource Include="MdInventarios\frmGestionProductos.resx">
       <DependentUpon>frmGestionProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MdInventarios\frmMargenGanancias.resx">
+      <DependentUpon>frmMargenGanancias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MdInventarios\frmTipoUnidades.resx">
       <DependentUpon>frmTipoUnidades.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,6 +432,7 @@
     <None Include="Resources\cat.png" />
     <None Include="Resources\subCat.png" />
     <None Include="Resources\vertical-line.png" />
+    <None Include="Resources\PlantillaVenta.html" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -441,7 +454,7 @@
     <None Include="Resources\remove20.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MdVentas\Comprobantes\TipoTick\" />
+    <Folder Include="MdVentas\Comprobantes\TipoTicket\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
