@@ -318,9 +318,9 @@ namespace CapaPresentación.MdInventarios
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Location = new System.Drawing.Point(-9, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(851, 26);
+            this.label10.Size = new System.Drawing.Size(869, 26);
             this.label10.TabIndex = 164;
             this.label10.Text = "Sub Categorias";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -64,5 +64,11 @@ namespace CapaPresentación.FomsModulos
             frmActProducto frmActProducto = new frmActProducto();
             frmActProducto.ShowDialog();
         }
+
+        private void subMenuMargenesGanancias_Click(object sender, EventArgs e)
+        {
+            frmMargenGanancias frmMargenGanancias = new frmMargenGanancias();
+            frmMargenGanancias.ShowDialog();
+        }
     }
 }

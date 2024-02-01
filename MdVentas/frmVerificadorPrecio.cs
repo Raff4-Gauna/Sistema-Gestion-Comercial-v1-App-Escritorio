@@ -23,6 +23,10 @@ namespace CapaPresentación.MdVentas
             txtcodigobarra.Select();
         }
 
+        private void frmVerificadorPrecio_Load(object sender, EventArgs e)
+        {
+            txtcodigo.Select();
+        }
         //Buscar Productos
         private void BuscarDatosProductos(object sender, KeyEventArgs e)
         {
@@ -72,5 +76,6 @@ namespace CapaPresentación.MdVentas
         {
             BuscarDatosProductos(sender, e);
         }
+
     }
 }

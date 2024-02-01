@@ -75,9 +75,9 @@ namespace CapaPresentación.MdInventarios
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(245, 10);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(131, 18);
+            this.label10.Size = new System.Drawing.Size(143, 18);
             this.label10.TabIndex = 111;
-            this.label10.Text = "Código de Barra";
+            this.label10.Text = "Código de Barra *";
             // 
             // label1
             // 
@@ -243,9 +243,9 @@ namespace CapaPresentación.MdInventarios
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(105, 8);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 18);
+            this.label13.Size = new System.Drawing.Size(74, 18);
             this.label13.TabIndex = 180;
-            this.label13.Text = "Código:";
+            this.label13.Text = "Código *";
             // 
             // txtcodigo
             // 

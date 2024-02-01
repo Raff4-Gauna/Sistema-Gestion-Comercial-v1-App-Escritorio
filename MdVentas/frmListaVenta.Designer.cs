@@ -98,6 +98,7 @@ namespace CapaPresentación.MdVentas
             this.btngenerarpdf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btngenerarpdf.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btngenerarpdf.UseVisualStyleBackColor = false;
+            this.btngenerarpdf.Click += new System.EventHandler(this.btngenerarpdf_Click);
             // 
             // btnborrar
             // 

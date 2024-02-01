@@ -74,6 +74,18 @@ namespace CapaPresentación.MdInventarios
             cboimpuestos.ValueMember = "Valor";
             cboimpuestos.SelectedIndex = 0;
 
+            //-------------------------------------- PARA  Margenes de Ganancias-------------------------
+            List<Margenes_Ganancias> Margenes_Ganancias = new CN_Margenes_Ganancias().Listar();
+
+            foreach (Margenes_Ganancias item in Margenes_Ganancias)
+            {
+                cbomargenganancias.Items.Add(new OpcionCombo() { Valor = item.IdMargenGanancia, Texto = item.Porcentaje.ToString() });
+            }
+
+            cbomargenganancias.DisplayMember = "Texto";
+            cbomargenganancias.ValueMember = "Valor";
+            cbomargenganancias.SelectedIndex = 0;
+
 
             //-------------------------------------- PARA  TiposUnidades-------------------------
             List<TiposUnidades> ListaTiposUnidades = new CN_Tipos_Unidades().Listar();
@@ -134,7 +146,8 @@ namespace CapaPresentación.MdInventarios
                     item.Codigo,
                     item.DescripcionGeneral,
                     item.PrecioCompra,
-                    item.PrecioVenta,
+                    item.oMargenes_Ganancias.IdMargenGanancia,
+                    item.oMargenes_Ganancias.NombreMargen,
                     item.PrecioFinal,
                     item.UbicacionProducto,
                     item.StockExistente,
@@ -147,6 +160,8 @@ namespace CapaPresentación.MdInventarios
             //--------------------- cantidad de productos ----------------------------
             SumarProductos();
             SumarProductosNoActivas();
+
+            radioButtonRedondeo.Select();
         }
 
         private void txtdescripciongeneral_TextChanged(object sender, EventArgs e)
@@ -161,7 +176,6 @@ namespace CapaPresentación.MdInventarios
             txtdescripciongeneral.SelectionStart = posicionCursor;
         }
 
-        
         //precio compra
         private void txtpreciocompra_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -177,117 +191,83 @@ namespace CapaPresentación.MdInventarios
                 e.Handled = true;
             }
         }
+        //precio compra
+        private void txtpreciocompra_TextChanged(object sender, EventArgs e)
+        {
+            CalcularPrecioFinal();
 
+        }
         // impuestos
         private void cboimpuestos_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalcularPrecioFinal();
         }
-        private void txtporcentajeganacia_TextChanged(object sender, EventArgs e)
+
+        // procentaje de ganancia
+        private void cbomargenganancias_TextChanged(object sender, EventArgs e)
         {
             // Llamar al método que realiza el cálculo del precio final
             CalcularPrecioFinal();
         }
-        
+
+        //aplica el redondeo y cambia el valor en txtpreciofinal
+        private void radioButtonRedondeo_CheckedChanged(object sender, EventArgs e)
+        {
+            CalcularPrecioFinal();
+        }
+
+        //no aplica el redondeo deja el valor que tiene por defecto en txtpreciofinal
+        private void radioButtonSinRedondeo_CheckedChanged(object sender, EventArgs e)
+        {
+            CalcularPrecioFinal();
+        }
+
         // Método para calcular el precio final
         private void CalcularPrecioFinal()
-        { 
-            // Verificar si los textos son números válidos
+        {
             if (decimal.TryParse(txtpreciocompra.Text, out decimal precioVenta))
             {
-                // Obtener el porcentaje de impuestos seleccionado en cboimpuestos
                 if (cboimpuestos.SelectedItem is OpcionCombo opcion)
                 {
                     decimal porcentajeImpuestos = decimal.Parse(opcion.Texto);
 
-                    // Calcular el precio final sumando el porcentaje de impuestos
                     decimal precioFinal = precioVenta * (1 + porcentajeImpuestos / 100);
 
-                    // Si txtporcentajeganancia tiene un valor válido, calcular el precio final con ganancia
-                    if (!string.IsNullOrWhiteSpace(txtporcentajeganacia.Text) && decimal.TryParse(txtporcentajeganacia.Text, out decimal porcentajeGanancia))
+                    if (!string.IsNullOrWhiteSpace(cbomargenganancias.Text) && decimal.TryParse(cbomargenganancias.Text, out decimal porcentajeGanancia))
                     {
                         precioFinal *= (1 + porcentajeGanancia / 100);
                     }
 
-                    // Formatear el número como string con comas y puntos
+                    // Redondeo según el RadioButton seleccionado
+                    if (radioButtonRedondeo.Checked)
+                    {
+                        precioFinal = Math.Round(precioFinal, 0, MidpointRounding.AwayFromZero);
+                    }
+                    else if (radioButtonSinRedondeo.Checked)
+                    {
+                        precioFinal = Math.Round(precioFinal, 2);
+                    }
+
                     string precioFinalFormateado = string.Format("{0:#,##0.00}", precioFinal);
 
-                    // Asignar el resultado al control TextBox txtpreciofinal
                     txtpreciofinal.Text = precioFinalFormateado;
                 }
             }
         }
 
-        //precio venta
-        private void txtprecioventa_TextChanged(object sender, EventArgs e)
-        {
-            // Verificar si el texto es un número válido
-            if (decimal.TryParse(txtprecioventa.Text, out decimal precio))
-            {
-                // Formatear el número como string con comas y puntos
-                string precioFormateado = string.Format("{0:#,##0.00}", precio);
-
-                // Asignar el resultado al control TextBox txtpreciofinal
-                txtpreciofinal.Text = precioFormateado;
-
-                // Llamar al método que realiza el cálculo del precio final
-                CalcularPrecioFinal();
-            }
-        }
-
-        //precio venta
-        private void txtprecioventa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Permitir solo números, punto y coma
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
-
-            // Permitir solo un punto o una coma decimal
-            if ((e.KeyChar == '.' || e.KeyChar == ',') && (sender as TextBox).Text.Contains(".") && (sender as TextBox).Text.Contains(","))
-            {
-                e.Handled = true;
-            }
-        }
-
-
-        //precio final
         private void txtpreciofinal_TextChanged(object sender, EventArgs e)
         {
-            // Verificar si el texto es un número válido
             if (decimal.TryParse(txtpreciofinal.Text, out decimal precio))
             {
-                string formato;
-
-                // Determinar el formato basado en la cantidad de cifras
-                if (precio < 1000)
-                {
-                    formato = "0.00";
-                }
-                else
-                {
-                    formato = "#,##0.00";
-                }
-
-                // Formatear el número como string con el formato determinado
+                string formato = precio < 1000 ? "0.00" : "#,##0.00";
                 string precioFormateado = precio.ToString(formato);
-
-                // Mostrar el resultado en el control TextBox
                 txtpreciofinal.Text = precioFormateado;
-
-                // Asignar el resultado al control TextBox txtprecioventa
-                txtprecioventa.Text = precioFormateado;
-
-                // Llamar al método que realiza el cálculo del precio final
                 CalcularPrecioFinal();
             }
         }
 
-        //precio final
         private void txtpreciofinal_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permitir solo números, punto y coma
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
             {
                 e.Handled = true;
@@ -356,7 +336,7 @@ namespace CapaPresentación.MdInventarios
                 Codigo = txtcodigo.Text,
                 DescripcionGeneral = txtdescripciongeneral.Text,
                 PrecioCompra = Convert.ToDecimal(txtpreciocompra.Text),
-                PrecioVenta = Convert.ToDecimal(txtprecioventa.Text),
+                oMargenes_Ganancias = new Margenes_Ganancias() { IdMargenGanancia = Convert.ToInt32(((OpcionCombo)cbomargenganancias.SelectedItem).Valor) },
                 PrecioFinal = Convert.ToDecimal(txtpreciofinal.Text),
                 UbicacionProducto = txtubicacion.Text,
                 StockExistente = Convert.ToDecimal(txtstockexistente.Text),
@@ -391,7 +371,8 @@ namespace CapaPresentación.MdInventarios
                     txtcodigo.Text,
                     txtdescripciongeneral.Text,
                     txtpreciocompra.Text,
-                    txtprecioventa.Text,
+                    ((OpcionCombo)cbomargenganancias.SelectedItem).Valor.ToString(),
+                    ((OpcionCombo)cbomargenganancias.SelectedItem).Texto.ToString(),
                     txtpreciofinal.Text,
                     txtubicacion.Text,
                     txtstockexistente.Text,
@@ -431,8 +412,9 @@ namespace CapaPresentación.MdInventarios
                         row.Cells["Codigo"].Value = txtcodigo.Text;
                         row.Cells["DescripcionGeneral"].Value = txtdescripciongeneral.Text;
                         row.Cells["PrecioCompra"].Value = Convert.ToDecimal(txtpreciocompra.Text);
-                        row.Cells["PrecioVenta"].Value = Convert.ToDecimal(txtprecioventa.Text);
-                        row.Cells["PrecioFinal"].Value = Convert.ToDecimal(txtpreciofinal.Text);
+                        row.Cells["IdMargenGanancia"].Value = ((OpcionCombo)cbomargenganancias.SelectedItem).Valor.ToString();
+                        row.Cells["DescripcionPorcentaje"].Value = ((OpcionCombo)cbomargenganancias.SelectedItem).Texto.ToString();
+                         row.Cells["PrecioFinal"].Value = Convert.ToDecimal(txtpreciofinal.Text);
                         row.Cells["UbicacionProducto"].Value = txtubicacion.Text;
                         row.Cells["StockExistente"].Value = Convert.ToDecimal(txtstockexistente.Text);
                         row.Cells["StockMinimo"].Value = Convert.ToDecimal(txtstockminimo.Text);
@@ -463,11 +445,9 @@ namespace CapaPresentación.MdInventarios
             txtcodigobarra.Text = "";
             txtdescripciongeneral.Text = "";
             txtpreciocompra.Text = "";
-            txtprecioventa.Text = "";
             txtpreciofinal.Text = "";
             txtubicacion.Text = "";
             txtstockexistente.Text = "";
-            txtporcentajeganacia.Text = "";
             txtstockminimo.Text = "";
             txtfechavencimiento.Text = "";
             cbocategoria.SelectedIndex = 0;
@@ -574,7 +554,17 @@ namespace CapaPresentación.MdInventarios
                     txtcodigo.Text = dgvdata.Rows[indice].Cells["Codigo"].Value.ToString();
                     txtdescripciongeneral.Text = dgvdata.Rows[indice].Cells["DescripcionGeneral"].Value.ToString();
                     txtpreciocompra.Text = dgvdata.Rows[indice].Cells["PrecioCompra"].Value.ToString();
-                    txtprecioventa.Text = dgvdata.Rows[indice].Cells["PrecioVenta"].Value.ToString();
+
+                    //Margen de Ganancia
+                    foreach (OpcionCombo oc in cbomargenganancias.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvdata.Rows[indice].Cells["IdMargenGanancia"].Value))
+                        {
+                            int indice_combo = cbomargenganancias.Items.IndexOf(oc);
+                            cbomargenganancias.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
                     txtpreciofinal.Text = dgvdata.Rows[indice].Cells["PrecioFinal"].Value.ToString();
                     txtubicacion.Text = dgvdata.Rows[indice].Cells["UbicacionProducto"].Value.ToString();
                     txtstockexistente.Text = dgvdata.Rows[indice].Cells["StockExistente"].Value.ToString();

@@ -179,6 +179,7 @@ namespace CapaPresentación.MdVentas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verificador de Precios";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.frmVerificadorPrecio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
