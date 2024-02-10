@@ -14,13 +14,26 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
 using System.Data.SqlClient;
+using CapaPresentación.MdConfiguracion;
+
 
 
 namespace CapaPresentación.MdConfiguracion
 {
     public partial class frmNegocio : Form
     {
-        
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmNegocio instancia = null;
+
+        public static frmNegocio ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmNegocio();
+            }
+            return instancia;
+        }
+
         public frmNegocio()
         {
             InitializeComponent();
@@ -76,7 +89,15 @@ namespace CapaPresentación.MdConfiguracion
             // Restaurar la posición del cursor
             txtnombre.SelectionStart = posicionCursor;
         }
-
+        private void txttelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado no es un número
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar la entrada del carácter si no es un número
+                e.Handled = true;
+            }
+        }
         private void btnsubir_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;

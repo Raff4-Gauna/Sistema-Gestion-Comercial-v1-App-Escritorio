@@ -36,7 +36,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(72, 300);
+            this.groupBox2.Location = new System.Drawing.Point(127, 335);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(656, 96);
             this.groupBox2.TabIndex = 3;
@@ -45,7 +45,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(72, 55);
+            this.groupBox1.Location = new System.Drawing.Point(127, 90);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(656, 214);
             this.groupBox1.TabIndex = 2;
@@ -56,7 +56,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(298, 9);
+            this.label1.Location = new System.Drawing.Point(353, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(173, 31);
             this.label1.TabIndex = 0;
@@ -66,7 +66,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(904, 511);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

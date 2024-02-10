@@ -21,6 +21,18 @@ namespace CapaPresentación.MdVentas
 {
     public partial class frmListaVenta : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmListaVenta instancia = null;
+
+        public static frmListaVenta ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmListaVenta();
+            }
+            return instancia;
+        }
+
         public frmListaVenta()
         {
             InitializeComponent();
@@ -144,6 +156,29 @@ namespace CapaPresentación.MdVentas
             }
         }
 
+        private void btnvercomprobante_Click(object sender, EventArgs e)
+        {
+            /*
+            if (dgvdata.SelectedRows.Count > 0)
+            {
+                int idVenta = Convert.ToInt32(dgvdata.SelectedRows[0].Cells["IdVenta"].Value);
+                Venta ventaDetalle = new CN_Venta().ObtenerDetalleVenta(idVenta);
+
+                // Configurar el origen de datos para el informe
+               // ReportDataSource reportDataSource = new ReportDataSource("NombreDataSet", ventaDetalle.oDetalle_Venta);
+
+                // Asignar el origen de datos al control ReportViewer
+            //    this.reportViewer1.LocalReport.DataSources.Clear();
+             //   this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
+              //  this.reportViewer1.RefreshReport();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una venta antes de ver el comprobante.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            */
+        }
+
         // generar pdf obteniendo los datos de "dgvdata ventas" y "dgvdatadetalleventa detalle de venta"
         private void btngenerarpdf_Click(object sender, EventArgs e)
         {
@@ -210,9 +245,6 @@ namespace CapaPresentación.MdVentas
 
             // Guarda el archivo PDF
             GuardarPDF(Texto_Html);
-
-            // Guarda el archivo PDF
-            GuardarPDF(Texto_Html);
         }
 
         private string ObtenerFilasHTML(DataGridView dataGridView)
@@ -242,8 +274,8 @@ namespace CapaPresentación.MdVentas
             try
             {
                 SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("Venta_{0}.pdf", DateTime.Now.ToString("yyyyMMdd_HHmmss"));
-            savefile.Filter = "Pdf Files|*.pdf";
+                savefile.FileName = string.Format("Venta_{0}.pdf", DateTime.Now.ToString("yyyyMMdd_HHmmss"));
+                savefile.Filter = "Pdf Files|*.pdf";
 
             if (savefile.ShowDialog() == DialogResult.OK)
             {
@@ -253,7 +285,18 @@ namespace CapaPresentación.MdVentas
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
                     pdfDoc.Open();
 
-                    // Resto del código para agregar contenido al PDF...
+                    bool obtenido = true;
+                    byte[] byteImage = new CN_Negocio().ObtenerLogo(out obtenido);
+
+                    if (obtenido)
+                    {
+                        iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(byteImage);
+                        img.ScaleToFit(60, 60);
+                        img.Alignment = iTextSharp.text.Image.UNDERLYING;
+                        img.SetAbsolutePosition(pdfDoc.Left, pdfDoc.GetTop(51));
+                        pdfDoc.Add(img);
+                    }
+
 
                     using (StringReader sr = new StringReader(contenidoHTML))
                     {
@@ -272,6 +315,7 @@ namespace CapaPresentación.MdVentas
             }
         }
 
+       
     } 
 }
 

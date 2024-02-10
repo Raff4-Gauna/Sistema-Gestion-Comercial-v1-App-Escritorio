@@ -15,6 +15,17 @@ namespace CapaPresentación.MdConfiguracion
 {
     public partial class frmSucursales : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmSucursales instancia = null;
+
+        public static frmSucursales ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmSucursales();
+            }
+            return instancia;
+        }
         public frmSucursales()
         {
             InitializeComponent();
@@ -63,7 +74,15 @@ namespace CapaPresentación.MdConfiguracion
             // Restaurar la posición del cursor
             txtNombre.SelectionStart = posicionCursor;
         }
-
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado no es un número
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar la entrada del carácter si no es un número
+                e.Handled = true;
+            }
+        }
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;

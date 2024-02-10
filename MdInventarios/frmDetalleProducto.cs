@@ -19,84 +19,74 @@ namespace CapaPresentación.MdInventarios
 {
     public partial class frmDetalleProducto : Form
     {
+       
         public Productos _Productos { get; set; }
 
         // Constructor que recibe el ID del producto
         public frmDetalleProducto(string id)
         {
             InitializeComponent();
+            try
+            {
+                // Obtener los datos del producto usando el ID
+                _Productos = ObtenerDatosProductoPorID(id);
+
+                // Cargar los datos del producto en los controles del formulario
+                CargarDatosEnControles();
+            }
+            catch (Exception ex)
+            {
+                // Manejar otras excepciones si es necesario
+                Console.WriteLine("Error al crear el formulario: " + ex.Message);
+            }
+
+            // Cargar los datos del producto en los controles del formulario
+            CargarDatosEnControles();
         }
 
         private void frmDetalleProducto_Load(object sender, EventArgs e)
         {
-
-           
-
-            //-------------------------------------- PARA LOS ESTADOS -------------------------
-            cboestado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
-            cboestado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
-            cboestado.DisplayMember = "Texto";
-            cboestado.ValueMember = "Valor";
-            cboestado.SelectedIndex = 0;
-
-            //-------------------------------------- PARA Listar categorias -------------------------
-            List<Categorias> Listacategoria = new CN_Categorias().Listar();
-
-            foreach (Categorias item in Listacategoria)
+            // Cargar los datos del producto en los controles del formulario
+            CargarDatosEnControles();
+        }
+        private void CargarDatosEnControles()
+        {
+            // Verificar si se obtuvieron datos del producto
+            if (_Productos != null)
             {
-                cbocategoria.Items.Add(new OpcionCombo() { Valor = item.IdCategoria, Texto = item.NombreCategoria });
+                // Cargar los datos del producto en los controles del formulario
+                txtid.Text = _Productos.IdProducto.ToString();
+                cbocategoria.Text = _Productos.oCategorias.NombreCategoria.ToString();
+                cbosubcategoria.Text = _Productos.oSubCategorias.NombreSubcategoria.ToString();
+                cboimpuestos.Text = _Productos.oTasaImpuestos.Porcentaje.ToString();
+                cbotipounidad.Text = _Productos.oTiposUnidades.NombreTipoUnidad.ToString();
+                cboproveedor.Text = _Productos.oProveedor.RazonSocial.ToString();
+                txtcodigobarra.Text = _Productos.CodigoBarras.ToString();
+                txtcodigo.Text = _Productos.Codigo.ToString();
+                txtdescripciongeneral.Text = _Productos.DescripcionGeneral.ToString();
+                txtpreciocompra.Text = _Productos.PrecioCompra.ToString();
+                cbomargenganancias.Text = _Productos.oMargenes_Ganancias.Porcentaje.ToString();
+                txtpreciofinal.Text = _Productos.PrecioFinal.ToString();
+                txtubicacion.Text = _Productos.UbicacionProducto.ToString();
+                txtstockexistente.Text = _Productos.StockExistente.ToString();
+                txtstockminimo.Text = _Productos.StockMinimo.ToString();
+                txtfechavencimiento.Text = _Productos.FechaVencimiento.ToString();
+                cboestado.Text = _Productos.Estado.ToString();
             }
-            cbocategoria.DisplayMember = "Texto";
-            cbocategoria.ValueMember = "Valor";
-            cbocategoria.SelectedIndex = 0;
-
-            //-------------------------------------- PARA  ListaSubCategorias-------------------------
-            List<SubCategorias> ListaSubCategorias = new CN_SubCategoria().Listar();
-
-            foreach (SubCategorias item in ListaSubCategorias)
+            else
             {
-                cbosubcategoria.Items.Add(new OpcionCombo() { Valor = item.IdSubcategoria, Texto = item.NombreSubcategoria });
+                // Manejar el caso en que no se obtengan datos del producto
+                MessageBox.Show("No se pudo obtener información del producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            cbosubcategoria.DisplayMember = "Texto";
-            cbosubcategoria.ValueMember = "Valor";
-            cbosubcategoria.SelectedIndex = 0;
-
-            //-------------------------------------- PARA  TasaImpuestos-------------------------
-            List<TasaImpuestos> ListaTasaImpuestos = new CN_Tasa_Impuesto().Listar();
-
-            foreach (TasaImpuestos item in ListaTasaImpuestos)
-            {
-                cboimpuestos.Items.Add(new OpcionCombo() { Valor = item.IdTasaImpuesto, Texto = item.Porcentaje.ToString() });
-            }
-
-            cboimpuestos.DisplayMember = "Texto";
-            cboimpuestos.ValueMember = "Valor";
-            cboimpuestos.SelectedIndex = 0;
-
-
-            //-------------------------------------- PARA  TiposUnidades-------------------------
-            List<TiposUnidades> ListaTiposUnidades = new CN_Tipos_Unidades().Listar();
-
-            foreach (TiposUnidades item in ListaTiposUnidades)
-            {
-                cbotipounidad.Items.Add(new OpcionCombo() { Valor = item.IdTipoUnidad, Texto = item.NombreTipoUnidad });
-            }
-            cbotipounidad.DisplayMember = "Texto";
-            cbotipounidad.ValueMember = "Valor";
-            cbotipounidad.SelectedIndex = 0;
-
-            //-------------------------------------- PARA  TiposUnidades-------------------------
-            List<Proveedor> ListaProveedor = new CN_Proveedor().Listar();
-
-            foreach (Proveedor item in ListaProveedor)
-            {
-                cboproveedor.Items.Add(new OpcionCombo() { Valor = item.IdProveedor, Texto = item.RazonSocial });
-            }
-            cboproveedor.DisplayMember = "Texto";
-            cboproveedor.ValueMember = "Valor";
-            cboproveedor.SelectedIndex = 0;
-
         }
 
+        private Productos ObtenerDatosProductoPorID(string id)
+        {
+            // Instanciar la clase de la capa de negocios
+            CN_Productos objcd_Producto = new CN_Productos();
+
+            // Llamar al método de la capa de negocios para obtener el producto por ID
+            return objcd_Producto.ObtenerProductoPorID(id);
+        }
     }
 }

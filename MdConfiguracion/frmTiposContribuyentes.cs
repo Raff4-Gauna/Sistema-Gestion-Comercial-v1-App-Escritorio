@@ -15,6 +15,17 @@ namespace CapaPresentación.MdConfiguracion
 {
     public partial class frmTiposContribuyentes : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmTiposContribuyentes instancia = null;
+
+        public static frmTiposContribuyentes ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmTiposContribuyentes();
+            }
+            return instancia;
+        }
         public frmTiposContribuyentes()
         {
             InitializeComponent();

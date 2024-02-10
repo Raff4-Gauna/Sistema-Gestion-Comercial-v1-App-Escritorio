@@ -87,10 +87,10 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBVENTASGESTIONDataSet.Designer.cs">
+    <Compile Include="DBVENTASGESTIONPRDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBVENTASGESTIONDataSet.xsd</DependentUpon>
+      <DependentUpon>DBVENTASGESTIONPRDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="FomsModulos\frmConfiguracion.cs">
       <SubType>Form</SubType>
@@ -146,12 +146,6 @@
     <Compile Include="MdConfiguracion\frmParametrosFiscales.Designer.cs">
       <DependentUpon>frmParametrosFiscales.cs</DependentUpon>
     </Compile>
-    <Compile Include="MdConfiguracion\frmReporteListaUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MdConfiguracion\frmReporteListaUsuarios.Designer.cs">
-      <DependentUpon>frmReporteListaUsuarios.cs</DependentUpon>
-    </Compile>
     <Compile Include="MdConfiguracion\frmRespaldo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +175,12 @@
     </Compile>
     <Compile Include="MdConfiguracion\frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdInventarios\frmActMasivaProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdInventarios\frmActMasivaProducto.Designer.cs">
+      <DependentUpon>frmActMasivaProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="MdInventarios\frmActProducto.cs">
       <SubType>Form</SubType>
@@ -241,6 +241,12 @@
     </Compile>
     <Compile Include="MdSocios\frmProveedores.Designer.cs">
       <DependentUpon>frmProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdVentas\Comprobantes\VerDetalleVenta\frmReporteDetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdVentas\Comprobantes\VerDetalleVenta\frmReporteDetalleVenta.Designer.cs">
+      <DependentUpon>frmReporteDetalleVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="MdVentas\frmListaVenta.cs">
       <SubType>Form</SubType>
@@ -310,9 +316,6 @@
     <EmbeddedResource Include="MdConfiguracion\frmParametrosFiscales.resx">
       <DependentUpon>frmParametrosFiscales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MdConfiguracion\frmReporteListaUsuarios.resx">
-      <DependentUpon>frmReporteListaUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MdConfiguracion\frmRespaldo.resx">
       <DependentUpon>frmRespaldo.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,7 +331,9 @@
     <EmbeddedResource Include="MdConfiguracion\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MdConfiguracion\ReporteListaUsuarios.rdlc" />
+    <EmbeddedResource Include="MdInventarios\frmActMasivaProducto.resx">
+      <DependentUpon>frmActMasivaProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MdInventarios\frmActProducto.resx">
       <DependentUpon>frmActProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,7 +364,10 @@
     <EmbeddedResource Include="MdSocios\frmProveedores.resx">
       <DependentUpon>frmProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MdVentas\Comprobantes\TipoHoja\ReporteTipoHoja.rdlc" />
+    <EmbeddedResource Include="MdVentas\Comprobantes\VerDetalleVenta\frmReporteDetalleVenta.resx">
+      <DependentUpon>frmReporteDetalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdVentas\Comprobantes\VerDetalleVenta\ReportDetalleVenta.rdlc" />
     <EmbeddedResource Include="MdVentas\frmListaVenta.resx">
       <DependentUpon>frmListaVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -388,16 +396,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DBVENTASGESTIONDataSet.xsc">
-      <DependentUpon>DBVENTASGESTIONDataSet.xsd</DependentUpon>
+    <None Include="DBVENTASGESTIONPRDataSet.xsc">
+      <DependentUpon>DBVENTASGESTIONPRDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DBVENTASGESTIONDataSet.xsd">
+    <None Include="DBVENTASGESTIONPRDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DBVENTASGESTIONDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBVENTASGESTIONPRDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DBVENTASGESTIONDataSet.xss">
-      <DependentUpon>DBVENTASGESTIONDataSet.xsd</DependentUpon>
+    <None Include="DBVENTASGESTIONPRDataSet.xss">
+      <DependentUpon>DBVENTASGESTIONPRDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -454,6 +462,7 @@
     <None Include="Resources\remove20.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MdVentas\Comprobantes\TipoHoja\" />
     <Folder Include="MdVentas\Comprobantes\TipoTicket\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

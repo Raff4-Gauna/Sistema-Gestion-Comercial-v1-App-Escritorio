@@ -54,7 +54,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(142, 30);
+            this.label1.Location = new System.Drawing.Point(146, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(619, 40);
             this.label1.TabIndex = 0;
@@ -71,7 +71,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btnRespaldo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRespaldo.IconSize = 50;
             this.btnRespaldo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRespaldo.Location = new System.Drawing.Point(216, 103);
+            this.btnRespaldo.Location = new System.Drawing.Point(220, 119);
             this.btnRespaldo.Name = "btnRespaldo";
             this.btnRespaldo.Size = new System.Drawing.Size(454, 103);
             this.btnRespaldo.TabIndex = 1;
@@ -88,7 +88,7 @@ namespace CapaPresentación.MdConfiguracion
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(937, 464);
+            this.tabControl.Size = new System.Drawing.Size(880, 487);
             this.tabControl.TabIndex = 226;
             // 
             // tabPage1
@@ -103,7 +103,7 @@ namespace CapaPresentación.MdConfiguracion
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(929, 435);
+            this.tabPage1.Size = new System.Drawing.Size(863, 458);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Guardar Datos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@ namespace CapaPresentación.MdConfiguracion
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(198, 337);
+            this.label8.Location = new System.Drawing.Point(202, 353);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 20);
             this.label8.TabIndex = 6;
@@ -124,7 +124,7 @@ namespace CapaPresentación.MdConfiguracion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Crimson;
-            this.label7.Location = new System.Drawing.Point(198, 357);
+            this.label7.Location = new System.Drawing.Point(202, 373);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(230, 20);
             this.label7.TabIndex = 5;
@@ -135,7 +135,7 @@ namespace CapaPresentación.MdConfiguracion
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(198, 256);
+            this.label6.Location = new System.Drawing.Point(202, 272);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(205, 20);
             this.label6.TabIndex = 4;
@@ -146,7 +146,7 @@ namespace CapaPresentación.MdConfiguracion
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label5.Location = new System.Drawing.Point(198, 287);
+            this.label5.Location = new System.Drawing.Point(202, 303);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(288, 20);
             this.label5.TabIndex = 3;
@@ -157,7 +157,7 @@ namespace CapaPresentación.MdConfiguracion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label2.Location = new System.Drawing.Point(198, 399);
+            this.label2.Location = new System.Drawing.Point(202, 415);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(446, 20);
             this.label2.TabIndex = 2;
@@ -175,7 +175,7 @@ namespace CapaPresentación.MdConfiguracion
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(929, 435);
+            this.tabPage2.Size = new System.Drawing.Size(872, 458);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Restaurar datos";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -189,7 +189,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btnSeleccionarUbic.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSeleccionarUbic.IconSize = 40;
             this.btnSeleccionarUbic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeleccionarUbic.Location = new System.Drawing.Point(560, 239);
+            this.btnSeleccionarUbic.Location = new System.Drawing.Point(560, 246);
             this.btnSeleccionarUbic.Name = "btnSeleccionarUbic";
             this.btnSeleccionarUbic.Size = new System.Drawing.Size(196, 43);
             this.btnSeleccionarUbic.TabIndex = 2;
@@ -206,7 +206,7 @@ namespace CapaPresentación.MdConfiguracion
             this.bntRestaurar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bntRestaurar.IconSize = 40;
             this.bntRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntRestaurar.Location = new System.Drawing.Point(560, 303);
+            this.bntRestaurar.Location = new System.Drawing.Point(560, 310);
             this.bntRestaurar.Name = "bntRestaurar";
             this.bntRestaurar.Size = new System.Drawing.Size(196, 43);
             this.bntRestaurar.TabIndex = 3;
@@ -220,7 +220,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(101, 174);
+            this.label3.Location = new System.Drawing.Point(101, 181);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(333, 20);
             this.label3.TabIndex = 0;
@@ -231,7 +231,7 @@ namespace CapaPresentación.MdConfiguracion
             this.txtSeleccionarUbi.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtSeleccionarUbi.Enabled = false;
             this.txtSeleccionarUbi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeleccionarUbi.Location = new System.Drawing.Point(105, 244);
+            this.txtSeleccionarUbi.Location = new System.Drawing.Point(105, 251);
             this.txtSeleccionarUbi.Name = "txtSeleccionarUbi";
             this.txtSeleccionarUbi.Size = new System.Drawing.Size(408, 29);
             this.txtSeleccionarUbi.TabIndex = 6;
@@ -241,7 +241,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(101, 83);
+            this.label4.Location = new System.Drawing.Point(101, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(714, 20);
             this.label4.TabIndex = 224;
@@ -250,7 +250,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             // txtUbicacionActual
             // 
-            this.txtUbicacionActual.Location = new System.Drawing.Point(113, 310);
+            this.txtUbicacionActual.Location = new System.Drawing.Point(113, 317);
             this.txtUbicacionActual.Name = "txtUbicacionActual";
             this.txtUbicacionActual.Size = new System.Drawing.Size(318, 26);
             this.txtUbicacionActual.TabIndex = 7;
@@ -260,13 +260,13 @@ namespace CapaPresentación.MdConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 480);
+            this.ClientSize = new System.Drawing.Size(904, 511);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmRespaldo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Respaldo de datos";
+            this.Text = "Respaldo de Datos";
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

@@ -17,7 +17,17 @@ namespace CapaPresentación.MdConfiguracion
 {
     public partial class frmRespaldo : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmRespaldo instancia = null;
 
+        public static frmRespaldo ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmRespaldo();
+            }
+            return instancia;
+        }
         public frmRespaldo()
         {
             InitializeComponent();

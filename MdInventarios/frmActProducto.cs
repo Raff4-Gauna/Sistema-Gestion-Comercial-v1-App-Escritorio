@@ -18,6 +18,18 @@ namespace CapaPresentación.MdInventarios
 {
     public partial class frmActProducto : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmActProducto instancia = null;
+
+        public static frmActProducto ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmActProducto();
+            }
+            return instancia;
+        }
+
         private CN_Productos cnProductos = new CN_Productos();
         public frmActProducto()
         {
@@ -31,15 +43,19 @@ namespace CapaPresentación.MdInventarios
 
         private void txtcodigobarra_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permitir solo números, punto y coma
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            // Verificar si el carácter ingresado no es un número
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
+                // Cancelar la entrada del carácter si no es un número
                 e.Handled = true;
             }
-
-            // Permitir solo un punto o una coma decimal
-            if ((e.KeyChar == '.' || e.KeyChar == ',') && (sender as TextBox).Text.Contains(".") && (sender as TextBox).Text.Contains(","))
+        }
+        private void txtcodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado no es un número
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
+                // Cancelar la entrada del carácter si no es un número
                 e.Handled = true;
             }
         }
@@ -159,7 +175,7 @@ namespace CapaPresentación.MdInventarios
             lblstockexistente.Text = "";
             lblprecioactual.Text = "";
             lblubicacionproducto.Text = "";
-            txtstockexistente.Text = "";
+            txtstockexistente.Text = "0";
             txtcodigo.Select();
         }
     }

@@ -44,5 +44,16 @@ namespace CapaPresentación.Properties {
                 return ((string)(this["DBVENTASGESTIONConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RG\\SISTEMA;Initial Catalog=DBVENTASGESTIONPR;Integrated Secur" +
+            "ity=True")]
+        public string DBVENTASGESTIONPRConnectionString {
+            get {
+                return ((string)(this["DBVENTASGESTIONPRConnectionString"]));
+            }
+        }
     }
 }

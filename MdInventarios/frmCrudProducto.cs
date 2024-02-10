@@ -20,9 +20,24 @@ namespace CapaPresentación.MdInventarios
 {
     public partial class frmCrudProducto : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmCrudProducto instancia = null;
+
+        public static frmCrudProducto ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmCrudProducto();
+            }
+            return instancia;
+        }
+
         public frmCrudProducto()
         {
             InitializeComponent();
+            // Suscribirse a los eventos SelectedIndexChanged de los ComboBox
+            cbocategoria.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            cbosubcategoria.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
         }
         
         private void frmCrudProducto_Load(object sender, EventArgs e)
@@ -98,7 +113,7 @@ namespace CapaPresentación.MdInventarios
             cbotipounidad.ValueMember = "Valor";
             cbotipounidad.SelectedIndex = 0;
 
-            //-------------------------------------- PARA  TiposUnidades-------------------------
+            //-------------------------------------- PARA  Proveedor-------------------------
             List<Proveedor> ListaProveedor = new CN_Proveedor().Listar();
 
             foreach (Proveedor item in ListaProveedor)
@@ -164,6 +179,57 @@ namespace CapaPresentación.MdInventarios
             radioButtonRedondeo.Select();
         }
 
+        private void cbocategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener el Id de la categoría seleccionada
+            int idCategoriaSeleccionada = Convert.ToInt32(((OpcionCombo)cbocategoria.SelectedItem).Valor);
+
+            // Obtener las subcategorías relacionadas a la categoría seleccionada
+            List<SubCategorias> subcategoriasRelacionadas = ObtenerSubcategoriasPorCategoria(idCategoriaSeleccionada);
+
+            // Limpiar el ComboBox de subcategorías
+            cbosubcategoria.Items.Clear();
+
+            // Llenar el ComboBox de subcategorías con las opciones relacionadas
+            foreach (SubCategorias subcategoria in subcategoriasRelacionadas)
+            {
+                cbosubcategoria.Items.Add(new OpcionCombo() { Valor = subcategoria.IdSubcategoria, Texto = subcategoria.NombreSubcategoria });
+            }
+
+            // Seleccionar el primer elemento del ComboBox de subcategorías
+            if (cbosubcategoria.Items.Count > 0)
+            {
+                cbosubcategoria.SelectedIndex = 0;
+            }
+        }
+
+        // Método para obtener las subcategorías relacionadas a una categoría
+        private List<SubCategorias> ObtenerSubcategoriasPorCategoria(int idCategoria)
+        {
+            return new CN_Productos().ObtenerSubcategoriasPorCategoria(idCategoria);
+        }
+
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener los valores seleccionados de categoría y subcategoría
+            int idCategoriaSeleccionada = Convert.ToInt32(((OpcionCombo)cbocategoria.SelectedItem).Valor);
+            int idSubcategoriaSeleccionada = Convert.ToInt32(((OpcionCombo)cbosubcategoria.SelectedItem).Valor);
+
+            // Mostrar contenido al datagrid basado en la categoría y subcategoría seleccionadas
+            List<Productos> listaFiltrada = FiltrarProductosPorCategoriaSubcategoria(idCategoriaSeleccionada, idSubcategoriaSeleccionada);
+        }
+
+        private List<Productos> FiltrarProductosPorCategoriaSubcategoria(int idCategoria, int idSubcategoria)
+        {
+            // Filtrar la lista de productos por categoría y subcategoría
+            List<Productos> lista = new CN_Productos().Listar();
+            List<Productos> listaFiltrada = lista
+                .Where(p => p.oCategorias.IdCategoria == idCategoria && p.oSubCategorias.IdSubcategoria == idSubcategoria)
+                .ToList();
+
+            return listaFiltrada;
+        }
+
         private void txtdescripciongeneral_TextChanged(object sender, EventArgs e)
         {
             // Almacenar la posición actual del cursor
@@ -220,6 +286,38 @@ namespace CapaPresentación.MdInventarios
         private void radioButtonSinRedondeo_CheckedChanged(object sender, EventArgs e)
         {
             CalcularPrecioFinal();
+        }
+
+        //Stock
+        private void txtstockexistente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números y la coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo una coma
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(','))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //stock minimo
+        private void txtstockminimo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números y la coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo una coma
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(','))
+            {
+                e.Handled = true;
+            }
         }
 
         // Método para calcular el precio final
@@ -414,7 +512,7 @@ namespace CapaPresentación.MdInventarios
                         row.Cells["PrecioCompra"].Value = Convert.ToDecimal(txtpreciocompra.Text);
                         row.Cells["IdMargenGanancia"].Value = ((OpcionCombo)cbomargenganancias.SelectedItem).Valor.ToString();
                         row.Cells["DescripcionPorcentaje"].Value = ((OpcionCombo)cbomargenganancias.SelectedItem).Texto.ToString();
-                         row.Cells["PrecioFinal"].Value = Convert.ToDecimal(txtpreciofinal.Text);
+                        row.Cells["PrecioFinal"].Value = Convert.ToDecimal(txtpreciofinal.Text);
                         row.Cells["UbicacionProducto"].Value = txtubicacion.Text;
                         row.Cells["StockExistente"].Value = Convert.ToDecimal(txtstockexistente.Text);
                         row.Cells["StockMinimo"].Value = Convert.ToDecimal(txtstockminimo.Text);
@@ -553,7 +651,7 @@ namespace CapaPresentación.MdInventarios
                     txtcodigobarra.Text = dgvdata.Rows[indice].Cells["CodigoBarras"].Value.ToString();
                     txtcodigo.Text = dgvdata.Rows[indice].Cells["Codigo"].Value.ToString();
                     txtdescripciongeneral.Text = dgvdata.Rows[indice].Cells["DescripcionGeneral"].Value.ToString();
-                    txtpreciocompra.Text = dgvdata.Rows[indice].Cells["PrecioCompra"].Value.ToString();
+                  //  txtpreciocompra.Text = dgvdata.Rows[indice].Cells["PrecioCompra"].Value.ToString();
 
                     //Margen de Ganancia
                     foreach (OpcionCombo oc in cbomargenganancias.Items)
@@ -667,7 +765,33 @@ namespace CapaPresentación.MdInventarios
 
         private void txtcodigobarra_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Verificar si el carácter ingresado no es un número
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar la entrada del carácter si no es un número
+                e.Handled = true;
+            }
+
             if (e.KeyChar == (char)Keys.Enter) { }
+        }
+        private void txtcodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado no es un número
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar la entrada del carácter si no es un número
+                e.Handled = true;
+            }
+
+        }
+        private void txtdescripciongeneral_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado no es una letra ni un número ni un carácter de control, excepto la barra espaciadora
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                // Cancelar la entrada del carácter si no es una letra ni un número ni un carácter de control, excepto la barra espaciadora
+                e.Handled = true;
+            }
         }
 
         private void txtbusqueda_KeyPress(object sender, KeyPressEventArgs e)
@@ -706,6 +830,6 @@ namespace CapaPresentación.MdInventarios
             lblTotalProductosNoActivas.Text = TotalNoActivas.ToString();
         }
 
-        
+       
     }
 }

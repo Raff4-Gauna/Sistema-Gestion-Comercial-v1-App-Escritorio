@@ -16,6 +16,17 @@ namespace CapaPresentación.MdConfiguracion
 {
     public partial class frmMetodosPagos : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmMetodosPagos instancia = null;
+
+        public static frmMetodosPagos ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmMetodosPagos();
+            }
+            return instancia;
+        }
         public frmMetodosPagos()
         {
             InitializeComponent();

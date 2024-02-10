@@ -40,7 +40,7 @@ namespace CapaPresentación
         {
             if (TienePermiso("mdConfiguracion"))
             {
-                frmConfiguracion ajustesForm = new frmConfiguracion();
+                frmConfiguracion ajustesForm = frmConfiguracion.ventana_unica_p_modulo();
                 ajustesForm.Show();
             }
             else
@@ -54,7 +54,7 @@ namespace CapaPresentación
         {
             if (TienePermiso("mdSocios"))
             {
-                frmSocios ajustesForm = new frmSocios();
+                frmSocios ajustesForm = frmSocios.ventana_unica_p_modulo();
                 ajustesForm.Show();
             }
             else
@@ -68,7 +68,7 @@ namespace CapaPresentación
         {
             if (TienePermiso("mdInventarios"))
             {
-                frmInventarios ajustesForm = new frmInventarios();
+                frmInventarios ajustesForm = frmInventarios.ventana_unica_p_modulo();
                 ajustesForm.Show();
             }
             else

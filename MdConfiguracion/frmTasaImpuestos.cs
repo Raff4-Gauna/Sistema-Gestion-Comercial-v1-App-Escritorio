@@ -15,6 +15,17 @@ namespace CapaPresentación.MdConfiguracion
 {
     public partial class frmTasaImpuestos : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmTasaImpuestos instancia = null;
+
+        public static frmTasaImpuestos ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmTasaImpuestos();
+            }
+            return instancia;
+        }
         public frmTasaImpuestos()
         {
             InitializeComponent();

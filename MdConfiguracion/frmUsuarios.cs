@@ -16,6 +16,17 @@ namespace CapaPresentación.MdConfiguracion
 {
     public partial class frmUsuarios : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmUsuarios instancia = null;
+
+        public static frmUsuarios ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmUsuarios();
+            }
+            return instancia;
+        }
         public frmUsuarios()
         {
             InitializeComponent();
@@ -282,12 +293,6 @@ namespace CapaPresentación.MdConfiguracion
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
-        }
-
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            frmReporteListaUsuarios frmReporteListaUsuarios = new frmReporteListaUsuarios();
-            frmReporteListaUsuarios.Show();
         }
 
         // Sumar todos los usuarios

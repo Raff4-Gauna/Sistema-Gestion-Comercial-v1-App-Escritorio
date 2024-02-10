@@ -202,6 +202,27 @@ namespace CapaPresentación.MdVentas
             }
         }
 
+        //No aceptar caracteres especiales y solo numeros
+        private void txtcodbarraproducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado no es un número
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar la entrada del carácter si no es un número
+                e.Handled = true;
+            }
+        }
+
+        private void txtCodproducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado no es un número
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar la entrada del carácter si no es un número
+                e.Handled = true;
+            }
+        }
+
         //Agregar rapidamente al datagrid
         private void AgregarProductoAlDataGridView()
         {
@@ -503,6 +524,7 @@ namespace CapaPresentación.MdVentas
             }
         }
 
+        //Grabar y crear la venta
         private void btncrearventa_Click(object sender, EventArgs e)
         {
 
@@ -564,20 +586,22 @@ namespace CapaPresentación.MdVentas
             string mensaje = string.Empty;
             bool respuesta = new CN_Venta().Registrar(oVenta, detalle_venta, out mensaje);
 
+            // Después de realizar la venta
             if (respuesta)
             {
-                var result = MessageBox.Show("Numero de venta generada:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                var result = MessageBox.Show("Número de venta generada:\n" + numeroDocumento + "\n", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
-                    Clipboard.SetText(numeroDocumento);
+                {
+                    
+                }
 
                 dgvdata.Rows.Clear();
                 calcularTotal();
                 txtpagocon.Text = "";
                 txtcambio.Text = "";
             }
-            else
-                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
 
         }
 
@@ -600,5 +624,6 @@ namespace CapaPresentación.MdVentas
             frmVerificadorPrecio.Show();
         }
 
+       
     }
 }
