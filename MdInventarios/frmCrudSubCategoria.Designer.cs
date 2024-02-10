@@ -286,6 +286,7 @@ namespace CapaPresentación.MdInventarios
             this.txtNombreSubCategoria.Size = new System.Drawing.Size(252, 29);
             this.txtNombreSubCategoria.TabIndex = 112;
             this.txtNombreSubCategoria.TextChanged += new System.EventHandler(this.txtNombreSubCategoria_TextChanged);
+            this.txtNombreSubCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreSubCategoria_KeyPress);
             // 
             // cboestado
             // 

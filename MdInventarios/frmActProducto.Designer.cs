@@ -256,6 +256,7 @@ namespace CapaPresentación.MdInventarios
             this.txtcodigo.Size = new System.Drawing.Size(136, 29);
             this.txtcodigo.TabIndex = 181;
             this.txtcodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcodigo_KeyDown);
+            this.txtcodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcodigo_KeyPress);
             // 
             // lblubicacionproducto
             // 

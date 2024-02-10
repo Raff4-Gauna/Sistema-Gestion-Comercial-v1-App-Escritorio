@@ -15,6 +15,17 @@ namespace CapaPresentación.MdInventarios
 {
     public partial class frmTipoUnidades : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmTipoUnidades instancia = null;
+
+        public static frmTipoUnidades ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmTipoUnidades();
+            }
+            return instancia;
+        }
         public frmTipoUnidades()
         {
             InitializeComponent();

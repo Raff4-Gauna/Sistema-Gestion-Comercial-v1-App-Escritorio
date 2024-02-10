@@ -511,6 +511,7 @@ namespace CapaPresentación.MdVentas
             this.btnvercomprobante.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnvercomprobante.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnvercomprobante.UseVisualStyleBackColor = false;
+            this.btnvercomprobante.Click += new System.EventHandler(this.btnvercomprobante_Click);
             // 
             // btnenviarporemail
             // 

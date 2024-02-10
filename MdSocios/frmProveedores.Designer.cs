@@ -100,7 +100,7 @@ namespace CapaPresentación.MdSocios
             this.groupBox2.Controls.Add(this.btnlimpiarbuscador);
             this.groupBox2.Location = new System.Drawing.Point(18, 208);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(767, 50);
+            this.groupBox2.Size = new System.Drawing.Size(874, 50);
             this.groupBox2.TabIndex = 136;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Busqueda";
@@ -109,18 +109,18 @@ namespace CapaPresentación.MdSocios
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(555, 23);
+            this.label9.Location = new System.Drawing.Point(771, 22);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 16);
+            this.label9.Size = new System.Drawing.Size(42, 16);
             this.label9.TabIndex = 136;
-            this.label9.Text = "Total de Proveedores:";
+            this.label9.Text = "Total:";
             // 
             // lblTotalProveedores
             // 
             this.lblTotalProveedores.AutoSize = true;
             this.lblTotalProveedores.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.lblTotalProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalProveedores.Location = new System.Drawing.Point(704, 19);
+            this.lblTotalProveedores.Location = new System.Drawing.Point(819, 18);
             this.lblTotalProveedores.Name = "lblTotalProveedores";
             this.lblTotalProveedores.Size = new System.Drawing.Size(49, 20);
             this.lblTotalProveedores.TabIndex = 135;
@@ -317,7 +317,7 @@ namespace CapaPresentación.MdSocios
             // 
             // txtindice
             // 
-            this.txtindice.Location = new System.Drawing.Point(726, 513);
+            this.txtindice.Location = new System.Drawing.Point(789, 476);
             this.txtindice.Name = "txtindice";
             this.txtindice.Size = new System.Drawing.Size(26, 20);
             this.txtindice.TabIndex = 133;
@@ -363,7 +363,7 @@ namespace CapaPresentación.MdSocios
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdata.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.EnableHeadersVisualStyles = false;
-            this.dgvdata.Location = new System.Drawing.Point(18, 264);
+            this.dgvdata.Location = new System.Drawing.Point(64, 264);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
@@ -380,7 +380,7 @@ namespace CapaPresentación.MdSocios
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(767, 236);
+            this.dgvdata.Size = new System.Drawing.Size(767, 180);
             this.dgvdata.TabIndex = 131;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
@@ -448,7 +448,7 @@ namespace CapaPresentación.MdSocios
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(758, 513);
+            this.txtid.Location = new System.Drawing.Point(821, 476);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(26, 20);
             this.txtid.TabIndex = 132;
@@ -465,7 +465,7 @@ namespace CapaPresentación.MdSocios
             this.btneliminar.IconColor = System.Drawing.Color.Black;
             this.btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btneliminar.IconSize = 16;
-            this.btneliminar.Location = new System.Drawing.Point(483, 506);
+            this.btneliminar.Location = new System.Drawing.Point(546, 469);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(165, 30);
             this.btneliminar.TabIndex = 130;
@@ -485,7 +485,7 @@ namespace CapaPresentación.MdSocios
             this.btnlimpiar.IconColor = System.Drawing.Color.Black;
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiar.IconSize = 18;
-            this.btnlimpiar.Location = new System.Drawing.Point(300, 506);
+            this.btnlimpiar.Location = new System.Drawing.Point(363, 469);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(165, 30);
             this.btnlimpiar.TabIndex = 129;
@@ -505,7 +505,7 @@ namespace CapaPresentación.MdSocios
             this.btnguardar.IconColor = System.Drawing.Color.Black;
             this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 16;
-            this.btnguardar.Location = new System.Drawing.Point(115, 506);
+            this.btnguardar.Location = new System.Drawing.Point(178, 469);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(165, 30);
             this.btnguardar.TabIndex = 128;
@@ -601,7 +601,7 @@ namespace CapaPresentación.MdSocios
             this.AcceptButton = this.btnguardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 561);
+            this.ClientSize = new System.Drawing.Size(904, 511);
             this.Controls.Add(this.txtNotas);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label13);

@@ -15,6 +15,17 @@ namespace CapaPresentación.MdInventarios
 {
     public partial class frmMargenGanancias : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmMargenGanancias instancia = null;
+
+        public static frmMargenGanancias ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmMargenGanancias();
+            }
+            return instancia;
+        }
         public frmMargenGanancias()
         {
             InitializeComponent();
@@ -52,6 +63,33 @@ namespace CapaPresentación.MdInventarios
             }
         }
 
+        private void txtNombreMargen_TextChanged(object sender, EventArgs e)
+        {
+            // Almacenar la posición actual del cursor
+            int posicionCursor = txtNombreMargen.SelectionStart;
+
+            // Convertir el texto a mayúsculas y asignarlo de nuevo al control
+            txtNombreMargen.Text = txtNombreMargen.Text.ToUpper();
+
+            // Restaurar la posición del cursor
+            txtNombreMargen.SelectionStart = posicionCursor;
+        }
+
+        private void txtPorcentaje_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números y la coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo una coma
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(','))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
@@ -60,7 +98,7 @@ namespace CapaPresentación.MdInventarios
             {
                 IdMargenGanancia = Convert.ToInt32(txtid.Text),
                 NombreMargen = txtNombreMargen.Text,
-                Porcentaje = Convert.ToSingle(txtPorcentaje.Text),
+                Porcentaje = Convert.ToDecimal(txtPorcentaje.Text),
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
 
             };
@@ -202,16 +240,6 @@ namespace CapaPresentación.MdInventarios
             Limpiar();
         }
 
-        private void txtNombreMargen_TextChanged(object sender, EventArgs e)
-        {
-            // Almacenar la posición actual del cursor
-            int posicionCursor = txtNombreMargen.SelectionStart;
-
-            // Convertir el texto a mayúsculas y asignarlo de nuevo al control
-            txtNombreMargen.Text = txtNombreMargen.Text.ToUpper();
-
-            // Restaurar la posición del cursor
-            txtNombreMargen.SelectionStart = posicionCursor;
-        }
+        
     }
 }

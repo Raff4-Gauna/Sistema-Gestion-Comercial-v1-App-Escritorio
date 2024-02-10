@@ -38,7 +38,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuHistorialPagos = new FontAwesome.Sharp.IconMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +79,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuPuntoVenta.IconColor = System.Drawing.Color.Black;
             this.subMenuPuntoVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuPuntoVenta.Name = "subMenuPuntoVenta";
-            this.subMenuPuntoVenta.Size = new System.Drawing.Size(180, 22);
+            this.subMenuPuntoVenta.Size = new System.Drawing.Size(169, 22);
             this.subMenuPuntoVenta.Text = "Punto de Ventas";
             this.subMenuPuntoVenta.Click += new System.EventHandler(this.subMenuPuntoVenta_Click);
             // 
@@ -91,7 +90,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuListaVenta.IconColor = System.Drawing.Color.Black;
             this.subMenuListaVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuListaVenta.Name = "subMenuListaVenta";
-            this.subMenuListaVenta.Size = new System.Drawing.Size(180, 22);
+            this.subMenuListaVenta.Size = new System.Drawing.Size(169, 22);
             this.subMenuListaVenta.Text = "Lista de Ventas";
             this.subMenuListaVenta.Click += new System.EventHandler(this.subMenuListaVenta_Click);
             // 
@@ -147,22 +146,14 @@ namespace CapaPresentación.FomsModulos
             this.tssHora.Size = new System.Drawing.Size(36, 17);
             this.tssHora.Text = "Hora:";
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 55);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1184, 634);
-            this.flowLayoutPanel1.TabIndex = 8;
-            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 711);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menu);
+            this.IsMdiContainer = true;
             this.Name = "frmVentas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventas";
@@ -187,6 +178,5 @@ namespace CapaPresentación.FomsModulos
         private FontAwesome.Sharp.IconMenuItem subMenuHistorialPagos;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tssHora;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

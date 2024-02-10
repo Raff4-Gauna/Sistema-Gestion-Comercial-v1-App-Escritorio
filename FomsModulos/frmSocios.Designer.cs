@@ -36,7 +36,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuGestionProveedores = new FontAwesome.Sharp.IconMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +61,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuGestionClientes.IconColor = System.Drawing.Color.Black;
             this.subMenuGestionClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuGestionClientes.Name = "subMenuGestionClientes";
-            this.subMenuGestionClientes.Size = new System.Drawing.Size(180, 22);
+            this.subMenuGestionClientes.Size = new System.Drawing.Size(175, 22);
             this.subMenuGestionClientes.Text = "Gestión de Clientes";
             this.subMenuGestionClientes.Click += new System.EventHandler(this.subMenuGestionClientes_Click);
             // 
@@ -122,22 +121,14 @@ namespace CapaPresentación.FomsModulos
             this.tssHora.Size = new System.Drawing.Size(36, 17);
             this.tssHora.Text = "Hora:";
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 57);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1184, 632);
-            this.flowLayoutPanel1.TabIndex = 20;
-            // 
             // frmSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 711);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.statusStrip);
+            this.IsMdiContainer = true;
             this.Name = "frmSocios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Socios";
@@ -160,6 +151,5 @@ namespace CapaPresentación.FomsModulos
         private FontAwesome.Sharp.IconMenuItem subMenuGestionProveedores;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tssHora;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

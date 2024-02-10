@@ -47,7 +47,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuHistorialPagos = new FontAwesome.Sharp.IconMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -107,7 +106,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuDatosNegocio.IconColor = System.Drawing.Color.Black;
             this.subMenuDatosNegocio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuDatosNegocio.Name = "subMenuDatosNegocio";
-            this.subMenuDatosNegocio.Size = new System.Drawing.Size(177, 22);
+            this.subMenuDatosNegocio.Size = new System.Drawing.Size(180, 22);
             this.subMenuDatosNegocio.Text = "Preferencias";
             this.subMenuDatosNegocio.Click += new System.EventHandler(this.subMenuDatosNegocio_Click);
             // 
@@ -118,7 +117,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuSucursales.IconColor = System.Drawing.Color.Black;
             this.subMenuSucursales.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuSucursales.Name = "subMenuSucursales";
-            this.subMenuSucursales.Size = new System.Drawing.Size(177, 22);
+            this.subMenuSucursales.Size = new System.Drawing.Size(180, 22);
             this.subMenuSucursales.Text = "Sucursales";
             this.subMenuSucursales.Click += new System.EventHandler(this.subMenuSucursales_Click);
             // 
@@ -129,7 +128,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuResguardoDatos.IconColor = System.Drawing.Color.Black;
             this.subMenuResguardoDatos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuResguardoDatos.Name = "subMenuResguardoDatos";
-            this.subMenuResguardoDatos.Size = new System.Drawing.Size(177, 22);
+            this.subMenuResguardoDatos.Size = new System.Drawing.Size(180, 22);
             this.subMenuResguardoDatos.Text = "Resguardo Datos";
             this.subMenuResguardoDatos.Click += new System.EventHandler(this.subMenuResguardoDatos_Click);
             // 
@@ -259,10 +258,12 @@ namespace CapaPresentación.FomsModulos
             // 
             // statusStrip
             // 
+            this.statusStrip.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssHora});
             this.statusStrip.Location = new System.Drawing.Point(0, 689);
             this.statusStrip.Name = "statusStrip";
+            this.statusStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.statusStrip.Size = new System.Drawing.Size(1184, 22);
             this.statusStrip.TabIndex = 6;
             this.statusStrip.Text = "statusStrip1";
@@ -273,25 +274,18 @@ namespace CapaPresentación.FomsModulos
             this.tssHora.Size = new System.Drawing.Size(36, 17);
             this.tssHora.Text = "Hora:";
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 55);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1184, 634);
-            this.flowLayoutPanel1.TabIndex = 7;
-            // 
             // frmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 711);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menu);
+            this.IsMdiContainer = true;
+            this.MaximizeBox = false;
             this.Name = "frmConfiguracion";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configuracion del sistema";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "Configuración del Negocio / Sistema";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmConfiguracion_Load);
             this.menu.ResumeLayout(false);
@@ -323,6 +317,5 @@ namespace CapaPresentación.FomsModulos
         private FontAwesome.Sharp.IconMenuItem subMenuHistorialPagos;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tssHora;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

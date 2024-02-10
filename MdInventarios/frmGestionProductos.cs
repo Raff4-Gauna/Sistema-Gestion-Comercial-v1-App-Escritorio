@@ -18,6 +18,18 @@ namespace CapaPresentación.MdInventarios
 {
     public partial class frmGestionProductos : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmGestionProductos instancia = null;
+
+        public static frmGestionProductos ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmGestionProductos();
+            }
+            return instancia;
+        }
+
         private ContextMenuStrip menuNegocio;
         private TreeNode nodoNegocio;
         public frmGestionProductos()
@@ -295,21 +307,48 @@ namespace CapaPresentación.MdInventarios
             lblTotalProductosNoActivas.Text = TotalNoActivas.ToString();
         }
 
+        private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (e.ColumnIndex == 0)
+            {
+
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.check20.Width;
+                var h = Properties.Resources.check20.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
+                e.Handled = true;
+
+            }
+        }
+
         private void dgvdata_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow selectedRow = dgvdata.Rows[e.RowIndex];
+                // Obtener el ID del producto desde la celda "Id"
+                string id = dgvdata.Rows[e.RowIndex].Cells["Id"].Value.ToString();
 
-                // Obtener datos de la fila seleccionada del datagrid dgvdata
-                string id = selectedRow.Cells["Id"].Value.ToString();
+                // Crear una instancia del formulario detalle y pasarle el ID del producto
+                using (frmDetalleProducto frmDetalleProducto = new frmDetalleProducto(id))
+                {
+                    // Manejar el evento Closed para liberar recursos después de cerrar el formulario
+                    frmDetalleProducto.Closed += (s, args) => frmDetalleProducto.Dispose();
 
-                // Mostrar el formulario detalle con el ID del producto
-                frmDetalleProducto frmDetalleProducto = new frmDetalleProducto(id);
-
-                // Mostrar el formulario detalle
-                frmDetalleProducto.ShowDialog();
+                    // Mostrar el formulario detalle
+                    frmDetalleProducto.ShowDialog();
+                }
+            }
+            else
+            {
+                // Manejar el caso en que el índice de fila es incorrecto
+                Console.WriteLine("El índice de fila es incorrecto.");
             }
         }
     }

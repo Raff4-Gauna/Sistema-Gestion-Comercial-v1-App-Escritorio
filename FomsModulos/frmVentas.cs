@@ -45,8 +45,10 @@ namespace CapaPresentación.FomsModulos
 
         private void subMenuListaVenta_Click(object sender, EventArgs e)
         {
-            frmListaVenta frmListaVenta = new frmListaVenta();
+            frmListaVenta frmListaVenta = frmListaVenta.ventana_unica();
+            frmListaVenta.MdiParent = this;
             frmListaVenta.Show();
+            frmListaVenta.BringToFront();
         }
     }
 }

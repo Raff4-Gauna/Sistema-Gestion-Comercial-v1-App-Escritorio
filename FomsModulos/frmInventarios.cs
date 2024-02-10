@@ -16,6 +16,18 @@ namespace CapaPresentación.FomsModulos
 {
     public partial class frmInventarios : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmInventarios instancia = null;
+
+        public static frmInventarios ventana_unica_p_modulo()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmInventarios();
+                return instancia;
+            }
+            return instancia;
+        }
         public frmInventarios()
         {
             InitializeComponent();
@@ -37,38 +49,65 @@ namespace CapaPresentación.FomsModulos
         }
         private void subMenuGestionProductos_Click(object sender, EventArgs e)
         {
-            frmGestionProductos frmGestionProductos = new frmGestionProductos();
+            frmGestionProductos frmGestionProductos =  frmGestionProductos.ventana_unica();
+            frmGestionProductos.MdiParent = this;
             frmGestionProductos.Show();
+            frmGestionProductos.BringToFront();
         }
 
-        private void subMenuUnidadesMedidas_Click(object sender, EventArgs e)
+        private void subMenuUnidadesMedidas_Click_1(object sender, EventArgs e)
         {
-            frmTipoUnidades frmTipoUnidades = new frmTipoUnidades();
-            frmTipoUnidades.ShowDialog();
+            frmTipoUnidades frmTipoUnidades = frmTipoUnidades.ventana_unica();
+            frmTipoUnidades.MdiParent = this;
+            frmTipoUnidades.Show();
+            frmTipoUnidades.BringToFront();
+        }
+        private void subMenuCategorias_Click_1(object sender, EventArgs e)
+        {
+            frmCrudCategoria frmCrudCategoria = frmCrudCategoria.ventana_unica();
+            frmCrudCategoria.MdiParent = this;
+            frmCrudCategoria.Show();
+            frmCrudCategoria.BringToFront();
         }
 
-        private void subMenuCategorias_Click(object sender, EventArgs e)
+        private void subMenuSubCategorias1_Click(object sender, EventArgs e)
         {
-            frmCrudCategoria frmCrudCategoria = new frmCrudCategoria();
-            frmCrudCategoria.ShowDialog();
-        }
-
-        private void subMenuSubCategorias_Click(object sender, EventArgs e)
-        {
-            frmCrudSubCategoria frmCrudSubCategoria = new frmCrudSubCategoria();
-            frmCrudSubCategoria.ShowDialog();
+            frmCrudSubCategoria frmCrudSubCategoria = frmCrudSubCategoria.ventana_unica();
+            frmCrudSubCategoria.MdiParent = this;
+            frmCrudSubCategoria.Show();
+            frmCrudSubCategoria.BringToFront();
         }
 
         private void subMenuPrecioIndividual_Click(object sender, EventArgs e)
         {
-            frmActProducto frmActProducto = new frmActProducto();
-            frmActProducto.ShowDialog();
+            frmActProducto frmActProducto = frmActProducto.ventana_unica();
+            frmActProducto.MdiParent = this;
+            frmActProducto.Show();
+            frmActProducto.BringToFront();
         }
 
-        private void subMenuMargenesGanancias_Click(object sender, EventArgs e)
+        private void subMenuMargenesGanancias_Click_1(object sender, EventArgs e)
         {
-            frmMargenGanancias frmMargenGanancias = new frmMargenGanancias();
-            frmMargenGanancias.ShowDialog();
+            frmMargenGanancias frmMargenGanancias = frmMargenGanancias.ventana_unica();
+            frmMargenGanancias.MdiParent = this;
+            frmMargenGanancias.Show();
+            frmMargenGanancias.BringToFront();
+        }
+
+        private void subMenuPrecioMasivo_Click(object sender, EventArgs e)
+        {
+            frmActMasivaProducto frmActMasivaProducto = frmActMasivaProducto.ventana_unica();
+            frmActMasivaProducto.MdiParent = this;
+            frmActMasivaProducto.Show();
+            frmActMasivaProducto.BringToFront();
+        }
+
+        private void subMenuABMProductos_Click(object sender, EventArgs e)
+        {
+            frmCrudProducto frmCrudProducto = frmCrudProducto.ventana_unica();
+            frmCrudProducto.MdiParent = this;
+            frmCrudProducto.Show();
+            frmCrudProducto.BringToFront();
         }
     }
 }

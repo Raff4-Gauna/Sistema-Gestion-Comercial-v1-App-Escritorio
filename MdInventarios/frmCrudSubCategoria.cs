@@ -15,6 +15,17 @@ namespace CapaPresentación.MdInventarios
 {
     public partial class frmCrudSubCategoria : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmCrudSubCategoria instancia = null;
+
+        public static frmCrudSubCategoria ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmCrudSubCategoria();
+            }
+            return instancia;
+        }
         public frmCrudSubCategoria()
         {
             InitializeComponent();
@@ -85,6 +96,16 @@ namespace CapaPresentación.MdInventarios
 
             // Restaurar la posición del cursor
             txtNombreSubCategoria.SelectionStart = posicionCursor;
+        }
+
+        private void txtNombreSubCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado no es una letra ni un número ni un carácter de control, excepto la barra espaciadora
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                // Cancelar la entrada del carácter si no es una letra ni un número ni un carácter de control, excepto la barra espaciadora
+                e.Handled = true;
+            }
         }
 
         private void btnguardar_Click(object sender, EventArgs e)
@@ -314,5 +335,7 @@ namespace CapaPresentación.MdInventarios
 
             lblTotalSubCategoriasNoActivas.Text = TotalNoActivas.ToString();
         }
+
+       
     }
 }

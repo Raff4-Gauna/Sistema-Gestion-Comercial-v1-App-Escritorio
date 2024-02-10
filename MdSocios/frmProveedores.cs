@@ -17,6 +17,17 @@ namespace CapaPresentación.MdSocios
 {
     public partial class frmProveedores : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmProveedores instancia = null;
+
+        public static frmProveedores ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmProveedores();
+            }
+            return instancia;
+        }
         public frmProveedores()
         {
             InitializeComponent();

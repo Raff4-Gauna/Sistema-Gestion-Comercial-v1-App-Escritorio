@@ -12,6 +12,17 @@ namespace CapaPresentación.MdConfiguracion
 {
     public partial class frmParametrosFiscales : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmParametrosFiscales instancia = null;
+
+        public static frmParametrosFiscales ventana_unica()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmParametrosFiscales();
+            }
+            return instancia;
+        }
         public frmParametrosFiscales()
         {
             InitializeComponent();

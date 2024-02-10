@@ -13,6 +13,19 @@ namespace CapaPresentación.FomsModulos
 {
     public partial class frmSocios : Form
     {
+        //mantener activa solo una ventana y evitar duplicidad
+        private static frmSocios instancia = null;
+
+        public static frmSocios ventana_unica_p_modulo()
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmSocios();
+                return instancia;
+            }
+            return instancia;
+        }
+
         public frmSocios()
         {
             InitializeComponent();
@@ -35,14 +48,18 @@ namespace CapaPresentación.FomsModulos
 
         private void subMenuGestionClientes_Click(object sender, EventArgs e)
         {
-            frmClientes frmClientes = new frmClientes();
+            frmClientes frmClientes = frmClientes.ventana_unica();
+            frmClientes.MdiParent = this;
             frmClientes.Show();
+            frmClientes.BringToFront();
         }
 
         private void subMenuGestionProveedores_Click(object sender, EventArgs e)
         {
-            frmProveedores frmProveedores = new frmProveedores();
+            frmProveedores frmProveedores = frmProveedores.ventana_unica();
+            frmProveedores.MdiParent = this;
             frmProveedores.Show();
+            frmProveedores.BringToFront();
         }
     }
 }

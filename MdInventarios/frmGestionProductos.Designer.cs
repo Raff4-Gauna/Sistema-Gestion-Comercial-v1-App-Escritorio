@@ -330,13 +330,13 @@ namespace CapaPresentación.MdInventarios
             this.dgvdata.Size = new System.Drawing.Size(741, 400);
             this.dgvdata.TabIndex = 168;
             this.dgvdata.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellDoubleClick);
+            this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
             // 
             // btnseleccionar
             // 
             this.btnseleccionar.HeaderText = "";
             this.btnseleccionar.Name = "btnseleccionar";
             this.btnseleccionar.ReadOnly = true;
-            this.btnseleccionar.Visible = false;
             this.btnseleccionar.Width = 30;
             // 
             // Id

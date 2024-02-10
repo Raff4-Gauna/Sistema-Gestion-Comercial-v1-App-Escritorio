@@ -105,14 +105,14 @@ namespace CapaPresentación.MdSocios
             // txtbusqueda
             // 
             this.txtbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbusqueda.Location = new System.Drawing.Point(160, 15);
+            this.txtbusqueda.Location = new System.Drawing.Point(166, 19);
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(149, 23);
             this.txtbusqueda.TabIndex = 105;
             // 
             // txtindice
             // 
-            this.txtindice.Location = new System.Drawing.Point(122, 526);
+            this.txtindice.Location = new System.Drawing.Point(122, 476);
             this.txtindice.Name = "txtindice";
             this.txtindice.Size = new System.Drawing.Size(26, 20);
             this.txtindice.TabIndex = 106;
@@ -178,7 +178,7 @@ namespace CapaPresentación.MdSocios
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(939, 236);
+            this.dgvdata.Size = new System.Drawing.Size(878, 179);
             this.dgvdata.TabIndex = 98;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
@@ -276,7 +276,7 @@ namespace CapaPresentación.MdSocios
             this.btnlimpiarbuscador.IconColor = System.Drawing.Color.Black;
             this.btnlimpiarbuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiarbuscador.IconSize = 20;
-            this.btnlimpiarbuscador.Location = new System.Drawing.Point(393, 16);
+            this.btnlimpiarbuscador.Location = new System.Drawing.Point(399, 20);
             this.btnlimpiarbuscador.Name = "btnlimpiarbuscador";
             this.btnlimpiarbuscador.Size = new System.Drawing.Size(72, 22);
             this.btnlimpiarbuscador.TabIndex = 104;
@@ -295,7 +295,7 @@ namespace CapaPresentación.MdSocios
             this.btnbuscar.IconColor = System.Drawing.Color.Black;
             this.btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnbuscar.IconSize = 20;
-            this.btnbuscar.Location = new System.Drawing.Point(315, 16);
+            this.btnbuscar.Location = new System.Drawing.Point(321, 20);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(72, 22);
             this.btnbuscar.TabIndex = 103;
@@ -309,14 +309,14 @@ namespace CapaPresentación.MdSocios
             this.cbobusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbobusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbobusqueda.FormattingEnabled = true;
-            this.cbobusqueda.Location = new System.Drawing.Point(5, 15);
+            this.cbobusqueda.Location = new System.Drawing.Point(11, 19);
             this.cbobusqueda.Name = "cbobusqueda";
             this.cbobusqueda.Size = new System.Drawing.Size(149, 24);
             this.cbobusqueda.TabIndex = 102;
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(154, 526);
+            this.txtid.Location = new System.Drawing.Point(154, 476);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(26, 20);
             this.txtid.TabIndex = 100;
@@ -333,7 +333,7 @@ namespace CapaPresentación.MdSocios
             this.btneliminar.IconColor = System.Drawing.Color.Black;
             this.btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btneliminar.IconSize = 16;
-            this.btneliminar.Location = new System.Drawing.Point(570, 519);
+            this.btneliminar.Location = new System.Drawing.Point(570, 469);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(165, 30);
             this.btneliminar.TabIndex = 96;
@@ -353,7 +353,7 @@ namespace CapaPresentación.MdSocios
             this.btnlimpiar.IconColor = System.Drawing.Color.Black;
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiar.IconSize = 18;
-            this.btnlimpiar.Location = new System.Drawing.Point(387, 519);
+            this.btnlimpiar.Location = new System.Drawing.Point(387, 469);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(165, 30);
             this.btnlimpiar.TabIndex = 95;
@@ -373,7 +373,7 @@ namespace CapaPresentación.MdSocios
             this.btnguardar.IconColor = System.Drawing.Color.Black;
             this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 16;
-            this.btnguardar.Location = new System.Drawing.Point(202, 519);
+            this.btnguardar.Location = new System.Drawing.Point(202, 469);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(165, 30);
             this.btnguardar.TabIndex = 94;
@@ -508,9 +508,9 @@ namespace CapaPresentación.MdSocios
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(605, 38);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(151, 16);
+            this.label7.Size = new System.Drawing.Size(103, 16);
             this.label7.TabIndex = 131;
-            this.label7.Text = "Tipo de Contribuyente: *";
+            this.label7.Text = "Condición IVA: *";
             // 
             // txtNotas
             // 
@@ -562,9 +562,9 @@ namespace CapaPresentación.MdSocios
             this.groupBox2.Controls.Add(this.txtbusqueda);
             this.groupBox2.Controls.Add(this.btnbuscar);
             this.groupBox2.Controls.Add(this.btnlimpiarbuscador);
-            this.groupBox2.Location = new System.Drawing.Point(14, 221);
+            this.groupBox2.Location = new System.Drawing.Point(3, 221);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(939, 50);
+            this.groupBox2.Size = new System.Drawing.Size(897, 50);
             this.groupBox2.TabIndex = 127;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Busqueda";
@@ -573,18 +573,18 @@ namespace CapaPresentación.MdSocios
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(716, 19);
+            this.label9.Location = new System.Drawing.Point(792, 26);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(112, 16);
+            this.label9.Size = new System.Drawing.Size(42, 16);
             this.label9.TabIndex = 136;
-            this.label9.Text = "Total de Clientes:";
+            this.label9.Text = "Total:";
             // 
             // lblTotalSucursales
             // 
             this.lblTotalSucursales.AutoSize = true;
             this.lblTotalSucursales.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.lblTotalSucursales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalSucursales.Location = new System.Drawing.Point(834, 15);
+            this.lblTotalSucursales.Location = new System.Drawing.Point(840, 23);
             this.lblTotalSucursales.Name = "lblTotalSucursales";
             this.lblTotalSucursales.Size = new System.Drawing.Size(49, 20);
             this.lblTotalSucursales.TabIndex = 135;
@@ -677,7 +677,7 @@ namespace CapaPresentación.MdSocios
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(963, 558);
+            this.ClientSize = new System.Drawing.Size(904, 511);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label15);
