@@ -90,6 +90,12 @@ namespace CapaPresentación.MdInventarios
             }
         }
 
+        private void txtPorcentaje_Leave(object sender, EventArgs e)
+        {
+            CN_Formato_Monedas cnFormatoMonedas = new CN_Formato_Monedas();
+            cnFormatoMonedas.FormatoMoneda(txtPorcentaje);
+        }
+
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;

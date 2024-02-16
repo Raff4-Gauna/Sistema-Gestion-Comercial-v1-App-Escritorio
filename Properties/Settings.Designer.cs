@@ -26,33 +26,11 @@ namespace CapaPresentación.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RG\\SISTEMA;Initial Catalog=DB_ENCUESTAS;Integrated Security=T" +
-            "rue")]
-        public string DB_ENCUESTASConnectionString {
-            get {
-                return ((string)(this["DB_ENCUESTASConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RG\\SISTEMA;Initial Catalog=DBVENTASGESTION;Integrated Securit" +
-            "y=True")]
-        public string DBVENTASGESTIONConnectionString {
-            get {
-                return ((string)(this["DBVENTASGESTIONConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RG\\SISTEMA;Initial Catalog=DBVENTASGESTIONPR;Integrated Secur" +
             "ity=True")]
-        public string DBVENTASGESTIONPRConnectionString {
+        public string cadena_reportes {
             get {
-                return ((string)(this["DBVENTASGESTIONPRConnectionString"]));
+                return ((string)(this["cadena_reportes"]));
             }
         }
     }

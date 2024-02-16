@@ -589,7 +589,7 @@ namespace CapaPresentación.MdVentas
             // Después de realizar la venta
             if (respuesta)
             {
-                var result = MessageBox.Show("Número de venta generada:\n" + numeroDocumento + "\n", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show("Número de venta generada:\n" + numeroDocumento + "\n", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -615,6 +615,20 @@ namespace CapaPresentación.MdVentas
             txttotalpagar.Text = "";
             txtpagocon.Text = "";
             txtcambio.Text = "";
+
+            // Limpia el DataGridView usando la misma lógica que en el evento dgvdata_CellContentClick
+            for (int index = dgvdata.Rows.Count - 1; index >= 0; index--)
+            {
+                bool respuesta = new CN_Venta().SumarStock(
+                    Convert.ToInt32(dgvdata.Rows[index].Cells["IdProducto"].Value.ToString()),
+                    Convert.ToDecimal(dgvdata.Rows[index].Cells["Cantidad"].Value));
+
+                if (respuesta)
+                {
+                    dgvdata.Rows.RemoveAt(index);
+                    calcularTotal();
+                }
+            }
         }
 
         //Abrir verificador de precios productos

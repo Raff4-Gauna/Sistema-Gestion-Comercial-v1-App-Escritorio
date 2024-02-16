@@ -20,73 +20,290 @@ namespace CapaPresentación.MdInventarios
     public partial class frmDetalleProducto : Form
     {
        
-        public Productos _Productos { get; set; }
-
-        // Constructor que recibe el ID del producto
-        public frmDetalleProducto(string id)
+        public frmDetalleProducto()
         {
             InitializeComponent();
-            try
-            {
-                // Obtener los datos del producto usando el ID
-                _Productos = ObtenerDatosProductoPorID(id);
-
-                // Cargar los datos del producto en los controles del formulario
-                CargarDatosEnControles();
-            }
-            catch (Exception ex)
-            {
-                // Manejar otras excepciones si es necesario
-                Console.WriteLine("Error al crear el formulario: " + ex.Message);
-            }
-
-            // Cargar los datos del producto en los controles del formulario
-            CargarDatosEnControles();
         }
 
         private void frmDetalleProducto_Load(object sender, EventArgs e)
         {
-            // Cargar los datos del producto en los controles del formulario
-            CargarDatosEnControles();
+
+
+
         }
-        private void CargarDatosEnControles()
+
+        private void txtcodigobarra_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si se obtuvieron datos del producto
-            if (_Productos != null)
+            // Verificar si el carácter ingresado no es un número
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                // Cargar los datos del producto en los controles del formulario
-                txtid.Text = _Productos.IdProducto.ToString();
-                cbocategoria.Text = _Productos.oCategorias.NombreCategoria.ToString();
-                cbosubcategoria.Text = _Productos.oSubCategorias.NombreSubcategoria.ToString();
-                cboimpuestos.Text = _Productos.oTasaImpuestos.Porcentaje.ToString();
-                cbotipounidad.Text = _Productos.oTiposUnidades.NombreTipoUnidad.ToString();
-                cboproveedor.Text = _Productos.oProveedor.RazonSocial.ToString();
-                txtcodigobarra.Text = _Productos.CodigoBarras.ToString();
-                txtcodigo.Text = _Productos.Codigo.ToString();
-                txtdescripciongeneral.Text = _Productos.DescripcionGeneral.ToString();
-                txtpreciocompra.Text = _Productos.PrecioCompra.ToString();
-                cbomargenganancias.Text = _Productos.oMargenes_Ganancias.Porcentaje.ToString();
-                txtpreciofinal.Text = _Productos.PrecioFinal.ToString();
-                txtubicacion.Text = _Productos.UbicacionProducto.ToString();
-                txtstockexistente.Text = _Productos.StockExistente.ToString();
-                txtstockminimo.Text = _Productos.StockMinimo.ToString();
-                txtfechavencimiento.Text = _Productos.FechaVencimiento.ToString();
-                cboestado.Text = _Productos.Estado.ToString();
+                // Cancelar la entrada del carácter si no es un número
+                e.Handled = true;
             }
-            else
+
+            if (e.KeyChar == (char)Keys.Enter) { }
+        }
+
+        private void txtcodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado no es un número
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                // Manejar el caso en que no se obtengan datos del producto
-                MessageBox.Show("No se pudo obtener información del producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Cancelar la entrada del carácter si no es un número
+                e.Handled = true;
             }
         }
 
-        private Productos ObtenerDatosProductoPorID(string id)
+        private void txtdescripciongeneral_TextChanged(object sender, EventArgs e)
         {
-            // Instanciar la clase de la capa de negocios
-            CN_Productos objcd_Producto = new CN_Productos();
+            // Almacenar la posición actual del cursor
+            int posicionCursor = txtdescripciongeneral.SelectionStart;
 
-            // Llamar al método de la capa de negocios para obtener el producto por ID
-            return objcd_Producto.ObtenerProductoPorID(id);
+            // Convertir el texto a mayúsculas y asignarlo de nuevo al control
+            txtdescripciongeneral.Text = txtdescripciongeneral.Text.ToUpper();
+
+            // Restaurar la posición del cursor
+            txtdescripciongeneral.SelectionStart = posicionCursor;
         }
+
+        private void txtdescripciongeneral_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado no es una letra ni un número ni un carácter de control, excepto la barra espaciadora
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                // Cancelar la entrada del carácter si no es una letra ni un número ni un carácter de control, excepto la barra espaciadora
+                e.Handled = true;
+            }
+        }
+
+        // Método para formatear la fecha (puedes ajustarlo según tus necesidades)
+        private string FormatearFecha(string fecha)
+        {
+            // Obtener día, mes y año a partir del texto ingresado
+            string dia = fecha.Substring(0, 2);
+            string mes = fecha.Substring(3, 2);
+            string año = fecha.Substring(6, 4);
+
+            // Formatear la fecha como "Dia-mes-año"
+            return $"{dia}-{mes}-{año}";
+        }
+
+        private void txtfechavencimiento_TextChanged(object sender, EventArgs e)
+        {
+            // Obtener el texto ingresado en el TextBox
+            string textoIngresado = txtfechavencimiento.Text;
+
+            // Verificar la longitud del texto
+            if (textoIngresado.Length == 2 || textoIngresado.Length == 5)
+            {
+                // Si se han ingresado dos o cinco caracteres, agregar automáticamente el separador
+                txtfechavencimiento.Text += "-";
+
+                // Posicionar el cursor al final del texto para facilitar la edición
+                txtfechavencimiento.SelectionStart = txtfechavencimiento.Text.Length;
+            }
+            else if (textoIngresado.Length == 10)
+            {
+                // Si se han ingresado diez caracteres, es posible formatear la fecha completa
+                // Puedes agregar validaciones adicionales si es necesario
+                string fechaFormateada = FormatearFecha(textoIngresado);
+
+                // Mostrar la fecha formateada en el TextBox
+                txtfechavencimiento.Text = fechaFormateada;
+
+                // Posicionar el cursor al final del texto para facilitar la edición
+                txtfechavencimiento.SelectionStart = txtfechavencimiento.Text.Length;
+            }
+        }
+
+        private void txtstockexistente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números y la coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo una coma
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(','))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtstockminimo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números y la coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo una coma
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(','))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtpreciocompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números, punto y coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto o una coma decimal
+            if ((e.KeyChar == '.' || e.KeyChar == ',') && (sender as TextBox).Text.Contains(".") && (sender as TextBox).Text.Contains(","))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private bool calculandoPrecioFinal = false;
+
+        // Método para calcular el precio final
+        private void CalcularPrecioFinal()
+        {
+            if (!calculandoPrecioFinal)
+            {
+                if (decimal.TryParse(txtpreciocompra.Text, out decimal precioVenta))
+                {
+                    if (cboimpuestos.SelectedItem is OpcionCombo opcion)
+                    {
+                        decimal porcentajeImpuestos = decimal.Parse(opcion.Texto);
+
+                        decimal precioFinal = precioVenta * (1 + porcentajeImpuestos / 100);
+
+                        if (!string.IsNullOrWhiteSpace(cbomargenganancias.Text) && decimal.TryParse(cbomargenganancias.Text, out decimal porcentajeGanancia))
+                        {
+                            precioFinal *= (1 + porcentajeGanancia / 100);
+                        }
+
+                        // Redondeo según el RadioButton seleccionado
+                        if (radioButtonRedondeo.Checked)
+                        {
+                            precioFinal = Math.Round(precioFinal, 0, MidpointRounding.AwayFromZero);
+                        }
+                        else if (radioButtonSinRedondeo.Checked)
+                        {
+                            precioFinal = Math.Round(precioFinal, 2);
+                        }
+
+                        string precioFinalFormateado = string.Format("{0:#,##0.00}", precioFinal);
+
+                        txtpreciofinal.Text = precioFinalFormateado;
+                    }
+                }
+            }
+        }
+
+        private void txtpreciocompra_TextChanged(object sender, EventArgs e)
+        {
+            CalcularPrecioFinal();
+        }
+
+        private void cboimpuestos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalcularPrecioFinal();
+        }
+
+        private void cbomargenganancias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalcularPrecioFinal();
+        }
+
+        private void txtpreciofinal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números, punto y coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto o una coma decimal
+            if ((e.KeyChar == '.' || e.KeyChar == ',') && (sender as TextBox).Text.Contains(".") && (sender as TextBox).Text.Contains(","))
+            {
+                e.Handled = true;
+            }
+
+            // Permitir borrar el contenido
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void txtpreciofinal_TextChanged(object sender, EventArgs e)
+        {
+            if (!calculandoPrecioFinal)
+            {
+                calculandoPrecioFinal = true;
+
+
+                calculandoPrecioFinal = false;
+            }
+        }
+
+        private void radioButtonRedondeo_CheckedChanged(object sender, EventArgs e)
+        {
+            CalcularPrecioFinal();
+        }
+
+        private void radioButtonSinRedondeo_CheckedChanged(object sender, EventArgs e)
+        {
+            CalcularPrecioFinal();
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string mensaje = string.Empty;
+
+                // Crear el objeto Productos con la información del formulario
+                Productos obj = new Productos()
+                {
+                    IdProducto = Convert.ToInt32(txtid.Text),
+                    oCategorias = new Categorias() { IdCategoria = Convert.ToInt32(((OpcionCombo)cbocategoria.SelectedItem).Valor) },
+                    oSubCategorias = new SubCategorias() { IdSubcategoria = Convert.ToInt32(((OpcionCombo)cbosubcategoria.SelectedItem).Valor) },
+                    oTasaImpuestos = new TasaImpuestos() { IdTasaImpuesto = Convert.ToInt32(((OpcionCombo)cboimpuestos.SelectedItem).Valor) },
+                    oTiposUnidades = new TiposUnidades() { IdTipoUnidad = Convert.ToInt32(((OpcionCombo)cbotipounidad.SelectedItem).Valor) },
+                    oProveedor = new Proveedor() { IdProveedor = Convert.ToInt32(((OpcionCombo)cboproveedor.SelectedItem).Valor) },
+                    CodigoBarras = txtcodigobarra.Text,
+                    Codigo = txtcodigo.Text,
+                    DescripcionGeneral = txtdescripciongeneral.Text,
+                    PrecioCompra = Convert.ToDecimal(txtpreciocompra.Text),
+                    oMargenes_Ganancias = new Margenes_Ganancias() { IdMargenGanancia = Convert.ToInt32(((OpcionCombo)cbomargenganancias.SelectedItem).Valor) },
+                    PrecioFinal = Convert.ToDecimal(txtpreciofinal.Text),
+                    UbicacionProducto = txtubicacion.Text,
+                    StockExistente = Convert.ToDecimal(txtstockexistente.Text),
+                    StockMinimo = Convert.ToDecimal(txtstockminimo.Text),
+                    FechaVencimiento = txtfechavencimiento.Text,
+                    Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
+                };
+
+                // Llamar al método de edición en la capa de negocio
+                bool resultado = new CN_Productos().Editar(obj, out mensaje);
+
+                if (resultado)
+                {
+                    MessageBox.Show("Producto editado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar el producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+       
     }
 }

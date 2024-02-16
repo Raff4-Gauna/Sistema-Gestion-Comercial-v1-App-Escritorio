@@ -113,11 +113,11 @@ namespace CapaPresentación.MdInventarios
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(619, 10);
+            this.label9.Location = new System.Drawing.Point(660, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(157, 16);
+            this.label9.Size = new System.Drawing.Size(116, 16);
             this.label9.TabIndex = 136;
-            this.label9.Text = "Total de Sub Categorias:";
+            this.label9.Text = "T. SubCategorias:";
             // 
             // lblTotalSubCategorias
             // 
@@ -135,7 +135,7 @@ namespace CapaPresentación.MdInventarios
             this.cbobusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbobusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbobusqueda.FormattingEnabled = true;
-            this.cbobusqueda.Location = new System.Drawing.Point(5, 15);
+            this.cbobusqueda.Location = new System.Drawing.Point(7, 24);
             this.cbobusqueda.Name = "cbobusqueda";
             this.cbobusqueda.Size = new System.Drawing.Size(149, 24);
             this.cbobusqueda.TabIndex = 102;
@@ -143,7 +143,7 @@ namespace CapaPresentación.MdInventarios
             // txtbusqueda
             // 
             this.txtbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbusqueda.Location = new System.Drawing.Point(160, 15);
+            this.txtbusqueda.Location = new System.Drawing.Point(162, 24);
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(149, 23);
             this.txtbusqueda.TabIndex = 105;
@@ -158,7 +158,7 @@ namespace CapaPresentación.MdInventarios
             this.btnbuscar.IconColor = System.Drawing.Color.Black;
             this.btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnbuscar.IconSize = 20;
-            this.btnbuscar.Location = new System.Drawing.Point(315, 16);
+            this.btnbuscar.Location = new System.Drawing.Point(317, 25);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(72, 22);
             this.btnbuscar.TabIndex = 103;
@@ -177,7 +177,7 @@ namespace CapaPresentación.MdInventarios
             this.btnlimpiarbuscador.IconColor = System.Drawing.Color.Black;
             this.btnlimpiarbuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiarbuscador.IconSize = 20;
-            this.btnlimpiarbuscador.Location = new System.Drawing.Point(393, 16);
+            this.btnlimpiarbuscador.Location = new System.Drawing.Point(395, 25);
             this.btnlimpiarbuscador.Name = "btnlimpiarbuscador";
             this.btnlimpiarbuscador.Size = new System.Drawing.Size(72, 22);
             this.btnlimpiarbuscador.TabIndex = 104;
@@ -199,7 +199,7 @@ namespace CapaPresentación.MdInventarios
             this.groupBox2.Controls.Add(this.btnlimpiarbuscador);
             this.groupBox2.Location = new System.Drawing.Point(0, 124);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(838, 64);
+            this.groupBox2.Size = new System.Drawing.Size(838, 58);
             this.groupBox2.TabIndex = 168;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Busqueda";
@@ -208,11 +208,11 @@ namespace CapaPresentación.MdInventarios
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(604, 36);
+            this.label3.Location = new System.Drawing.Point(645, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 16);
+            this.label3.Size = new System.Drawing.Size(126, 16);
             this.label3.TabIndex = 140;
-            this.label3.Text = "Sub Categorias No Activas:";
+            this.label3.Text = "SubCat. No Activas:";
             // 
             // lblTotalSubCategoriasNoActivas
             // 

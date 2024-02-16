@@ -312,6 +312,7 @@ namespace CapaPresentación.MdInventarios
             this.txtPorcentaje.Size = new System.Drawing.Size(193, 29);
             this.txtPorcentaje.TabIndex = 113;
             this.txtPorcentaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentaje_KeyPress);
+            this.txtPorcentaje.Leave += new System.EventHandler(this.txtPorcentaje_Leave);
             // 
             // cboestado
             // 

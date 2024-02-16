@@ -47,7 +47,6 @@ namespace CapaPresentación.MdVentas.Modal
             this.cbobusqueda = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnbuscar = new FontAwesome.Sharp.IconButton();
             this.btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.SuspendLayout();
@@ -175,6 +174,7 @@ namespace CapaPresentación.MdVentas.Modal
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(397, 29);
             this.txtbusqueda.TabIndex = 80;
+            this.txtbusqueda.TextChanged += new System.EventHandler(this.txtbusqueda_TextChanged);
             // 
             // cbobusqueda
             // 
@@ -210,25 +210,6 @@ namespace CapaPresentación.MdVentas.Modal
             this.label10.TabIndex = 77;
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnbuscar
-            // 
-            this.btnbuscar.BackColor = System.Drawing.Color.White;
-            this.btnbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnbuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnbuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnbuscar.IconColor = System.Drawing.Color.Black;
-            this.btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnbuscar.IconSize = 20;
-            this.btnbuscar.Location = new System.Drawing.Point(625, 14);
-            this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(42, 29);
-            this.btnbuscar.TabIndex = 81;
-            this.btnbuscar.UseVisualStyleBackColor = false;
-            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
-            // 
             // btnlimpiarbuscador
             // 
             this.btnlimpiarbuscador.BackColor = System.Drawing.Color.White;
@@ -241,7 +222,7 @@ namespace CapaPresentación.MdVentas.Modal
             this.btnlimpiarbuscador.IconColor = System.Drawing.Color.Black;
             this.btnlimpiarbuscador.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnlimpiarbuscador.IconSize = 20;
-            this.btnlimpiarbuscador.Location = new System.Drawing.Point(673, 14);
+            this.btnlimpiarbuscador.Location = new System.Drawing.Point(625, 14);
             this.btnlimpiarbuscador.Name = "btnlimpiarbuscador";
             this.btnlimpiarbuscador.Size = new System.Drawing.Size(42, 29);
             this.btnlimpiarbuscador.TabIndex = 90;
@@ -251,12 +232,10 @@ namespace CapaPresentación.MdVentas.Modal
             // 
             // frmListarProductos
             // 
-            this.AcceptButton = this.btnbuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 472);
             this.Controls.Add(this.dgvdata);
-            this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.btnlimpiarbuscador);
             this.Controls.Add(this.txtbusqueda);
             this.Controls.Add(this.cbobusqueda);
@@ -279,7 +258,6 @@ namespace CapaPresentación.MdVentas.Modal
         #endregion
 
         private System.Windows.Forms.DataGridView dgvdata;
-        private FontAwesome.Sharp.IconButton btnbuscar;
         private FontAwesome.Sharp.IconButton btnlimpiarbuscador;
         private System.Windows.Forms.TextBox txtbusqueda;
         private System.Windows.Forms.ComboBox cbobusqueda;

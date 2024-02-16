@@ -15,6 +15,7 @@ using CapaDatos;
 using CapaEntidad;
 using CapaNegocio;
 using CapaPresentación.Usos;
+using CapaPresentación.MdVentas.Modal;
 using Rectangle = System.Drawing.Rectangle;
 
 namespace CapaPresentación.MdVentas
@@ -156,95 +157,146 @@ namespace CapaPresentación.MdVentas
             }
         }
 
+        // Variable para almacenar la fila seleccionada
+        private int selectedRowIndex = -1;
+
+        //Cuando se da click se pintara de color la celda elegida
+        private void dgvdata_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Almacena el índice de la fila seleccionada
+                selectedRowIndex = e.RowIndex;
+
+                // Cambia el color de la fila seleccionada
+                dgvdata.Rows[selectedRowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
+
+                // Restaura el color de las otras filas
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    if (row.Index != selectedRowIndex)
+                    {
+                        row.DefaultCellStyle.BackColor = dgvdata.DefaultCellStyle.BackColor;
+                    }
+                }
+            }
+        }
+
+        //Ver el comprobante solo si se dio click sobre una celda
         private void btnvercomprobante_Click(object sender, EventArgs e)
         {
-            /*
-            if (dgvdata.SelectedRows.Count > 0)
+            try
             {
-                int idVenta = Convert.ToInt32(dgvdata.SelectedRows[0].Cells["IdVenta"].Value);
-                Venta ventaDetalle = new CN_Venta().ObtenerDetalleVenta(idVenta);
+                // Verifica si hay una fila seleccionada
+                if (selectedRowIndex >= 0 && dgvdata.Rows.Count > selectedRowIndex)
+                {
+                    // Obtén el IdVenta de la fila seleccionada
+                    int idVenta = Convert.ToInt32(dgvdata.Rows[selectedRowIndex].Cells["IdVenta"].Value);
 
-                // Configurar el origen de datos para el informe
-               // ReportDataSource reportDataSource = new ReportDataSource("NombreDataSet", ventaDetalle.oDetalle_Venta);
+                    // Crea una instancia del formulario de detalles de ventas
+                    Reportes.frmRPTDetallesVentas Rpt =  Reportes.frmRPTDetallesVentas.ventana_unica();
+                    
+                    // Asigna el IdVenta al TextBox en el formulario de detalles de ventas
+                    Rpt.txtIdVenta.Text = idVenta.ToString();
 
-                // Asignar el origen de datos al control ReportViewer
-            //    this.reportViewer1.LocalReport.DataSources.Clear();
-             //   this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
-              //  this.reportViewer1.RefreshReport();
+                    // Muestra el formulario de detalles de ventas
+                    Rpt.ShowDialog();
+                }
+                else
+                {
+                    // Mostrar un mensaje si no hay fila seleccionada
+                    MessageBox.Show("Por favor, selecciona una fila antes de ver el comprobante.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Por favor, selecciona una venta antes de ver el comprobante.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Maneja la excepción y muestra un mensaje de error
+                MessageBox.Show($"Error al intentar ver el comprobante: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
         }
 
         // generar pdf obteniendo los datos de "dgvdata ventas" y "dgvdatadetalleventa detalle de venta"
         private void btngenerarpdf_Click(object sender, EventArgs e)
         {
-            // Verifica si hay al menos una fila seleccionada
-            if (dgvdata.SelectedRows.Count == 0)
+            try
             {
-                MessageBox.Show("No se ha seleccionado ninguna venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                // Verifica si hay al menos una fila seleccionada
+                if (selectedRowIndex >= 0 && dgvdata.Rows.Count > selectedRowIndex)
+                {
+                    // Obtén la fila seleccionada
+                    DataGridViewRow selectedRow = dgvdata.Rows[selectedRowIndex];
+
+                    // Restaura el color de la fila seleccionada
+                    selectedRow.DefaultCellStyle.BackColor = dgvdata.DefaultCellStyle.BackColor;
+
+                    // Restablece la variable de índice de fila seleccionada
+                    selectedRowIndex = -1;
+
+                    // Obtén el ID de la venta desde la fila seleccionada
+                    int idVenta = Convert.ToInt32(selectedRow.Cells["IdVenta"].Value);
+                    //
+                    Negocio odatos = new CN_Negocio().ObtenerDatos();
+
+                    // Obtén los datos de la venta con el ID obtenido
+                    Venta ventaConDetalles = new CN_Venta().ObtenerDetalleVenta(idVenta);
+
+                    // Crear el contenido HTML basado en la plantilla
+                    string Texto_Html = Properties.Resources.PlantillaVenta.ToString();
+
+
+                    // Reemplazar variables en el HTML con los datos de la venta y detalles
+                    //datos del negocio/empresa
+                    Texto_Html = Texto_Html.Replace("@nombrenegocio", odatos.Nombre.ToUpper());
+                    Texto_Html = Texto_Html.Replace("@telnegocio", odatos.Telefono);
+                    Texto_Html = Texto_Html.Replace("@direcnegocio", odatos.Direccion);
+                    //datos de emision de venta
+                    Texto_Html = Texto_Html.Replace("@tipodocumento", selectedRow.Cells["TipoDocumento"].Value.ToString());
+                    Texto_Html = Texto_Html.Replace("@numerodocumento", selectedRow.Cells["NumeroDocumento"].Value.ToString());
+                    Texto_Html = Texto_Html.Replace("@doccliente", ventaConDetalles.DocumentoCliente);
+                    Texto_Html = Texto_Html.Replace("@nombrecliente", ventaConDetalles.NombreCliente);
+                    Texto_Html = Texto_Html.Replace("@fecharegistro", selectedRow.Cells["FechaRegistro"].Value.ToString());
+                    Texto_Html = Texto_Html.Replace("@usuarioregistro", selectedRow.Cells["NombreCompleto"].Value.ToString());
+                    Texto_Html = Texto_Html.Replace("@montototal", selectedRow.Cells["MontoTotal"].Value.ToString());
+                    Texto_Html = Texto_Html.Replace("@pagocon", ventaConDetalles.MontoPago.ToString());
+                    Texto_Html = Texto_Html.Replace("@cambio", ventaConDetalles.MontoCambio.ToString());
+
+                    //datos detalle de la venta emitida
+                    StringBuilder detallesHTML = new StringBuilder();
+
+                    foreach (var detalleVenta in ventaConDetalles.oDetalle_Venta)
+                    {
+                        detallesHTML.Append($"<tr><td>{detalleVenta.oProducto.DescripcionGeneral}</td><td>{detalleVenta.Cantidad}</td><td>{detalleVenta.Total}</td></tr>");
+                    }
+
+                    // Reemplazar en el HTML con los detalles específicos
+                    Texto_Html = Texto_Html.Replace("@filasDetalles", detallesHTML.ToString());
+
+                    // Obtén las filas para la tabla de ventas
+                    string filasVentas = ObtenerFilasHTML(dgvdata);
+
+                    // Obtén las filas para la tabla de detalles de venta desde dgvdatadetalleventa
+                    string filasDetalles = ObtenerFilasHTML(dgvdatadetalleventa);
+
+                    // Reemplazar las marcas de posición en el HTML con las filas de datos
+                    Texto_Html = Texto_Html.Replace("@filasVentas", filasVentas);
+
+                    // Reemplazar las marcas de posición en el HTML con las filas de datos
+                    Texto_Html = Texto_Html.Replace("@filasDetalles", filasDetalles);
+
+                    // Guarda el archivo PDF
+                    GuardarPDF(Texto_Html);
+                }
+                else
+                {
+                    // Mostrar un mensaje si no hay fila seleccionada
+                    MessageBox.Show("No se ha seleccionado ninguna venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-
-            Negocio odatos = new CN_Negocio().ObtenerDatos();
-
-            // Obtén la fila seleccionada
-            DataGridViewRow selectedRow = dgvdata.SelectedRows[0];
-
-            // Obtén el ID de la venta desde la fila seleccionada
-            int idVenta = Convert.ToInt32(selectedRow.Cells["IdVenta"].Value);
-
-            // Obtén los datos de la venta con el ID obtenido
-            Venta ventaConDetalles = new CN_Venta().ObtenerDetalleVenta(idVenta);
-
-
-            // Crear el contenido HTML basado en la plantilla
-            string Texto_Html = Properties.Resources.PlantillaVenta.ToString();
-
-            // Reemplazar variables en el HTML con los datos de la venta y detalles
-            //datos del negocio/empresa
-            Texto_Html = Texto_Html.Replace("@nombrenegocio", odatos.Nombre.ToUpper());
-            Texto_Html = Texto_Html.Replace("@telnegocio", odatos.Telefono);
-            Texto_Html = Texto_Html.Replace("@direcnegocio", odatos.Direccion);
-            //datos de emision de venta
-            Texto_Html = Texto_Html.Replace("@tipodocumento", selectedRow.Cells["TipoDocumento"].Value.ToString());
-            Texto_Html = Texto_Html.Replace("@numerodocumento", selectedRow.Cells["NumeroDocumento"].Value.ToString());
-            Texto_Html = Texto_Html.Replace("@doccliente", ventaConDetalles.DocumentoCliente);
-            Texto_Html = Texto_Html.Replace("@nombrecliente", ventaConDetalles.NombreCliente);
-            Texto_Html = Texto_Html.Replace("@fecharegistro", selectedRow.Cells["FechaRegistro"].Value.ToString());
-            Texto_Html = Texto_Html.Replace("@usuarioregistro", selectedRow.Cells["NombreCompleto"].Value.ToString());
-            Texto_Html = Texto_Html.Replace("@montototal", selectedRow.Cells["MontoTotal"].Value.ToString());
-            Texto_Html = Texto_Html.Replace("@pagocon", ventaConDetalles.MontoPago.ToString());
-            Texto_Html = Texto_Html.Replace("@cambio", ventaConDetalles.MontoCambio.ToString());
-
-            //datos detalle de la venta emitida
-            StringBuilder detallesHTML = new StringBuilder();
-
-            foreach (var detalleVenta in ventaConDetalles.oDetalle_Venta)
+            catch (Exception ex)
             {
-                detallesHTML.Append($"<tr><td>{detalleVenta.oProducto.DescripcionGeneral}</td><td>{detalleVenta.Cantidad}</td><td>{detalleVenta.Total}</td></tr>");
+                // Maneja la excepción y muestra un mensaje de error
+                MessageBox.Show($"Error al intentar generar el PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            // Reemplazar en el HTML con los detalles específicos
-            Texto_Html = Texto_Html.Replace("@filasDetalles", detallesHTML.ToString());
-
-            // Obtén las filas para la tabla de ventas
-            string filasVentas = ObtenerFilasHTML(dgvdata);
-
-            // Obtén las filas para la tabla de detalles de venta desde dgvdatadetalleventa
-            string filasDetalles = ObtenerFilasHTML(dgvdatadetalleventa);
-
-            // Reemplazar las marcas de posición en el HTML con las filas de datos
-            Texto_Html = Texto_Html.Replace("@filasVentas", filasVentas);
-
-            // Reemplazar las marcas de posición en el HTML con las filas de datos
-            Texto_Html = Texto_Html.Replace("@filasDetalles", filasDetalles);
-
-            // Guarda el archivo PDF
-            GuardarPDF(Texto_Html);
         }
 
         private string ObtenerFilasHTML(DataGridView dataGridView)
@@ -315,7 +367,119 @@ namespace CapaPresentación.MdVentas
             }
         }
 
-       
-    } 
-}
+        //Abrir el frmEnvioVentaCorreo pasando el IdVenta y la venta en formato pdf listo para envia al destinatario
+        private void btnenviarporemail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (selectedRowIndex >= 0 && dgvdata.Rows.Count > selectedRowIndex)
+                {
+                    DataGridViewRow selectedRow = dgvdata.Rows[selectedRowIndex];
+                    selectedRow.DefaultCellStyle.BackColor = dgvdata.DefaultCellStyle.BackColor;
+                    selectedRowIndex = -1;
+
+                    int idVenta = Convert.ToInt32(selectedRow.Cells["IdVenta"].Value);
+                    Venta ventaConDetalles = new CN_Venta().ObtenerDetalleVenta(idVenta);
+                    Negocio odatos = new CN_Negocio().ObtenerDatos();
+
+                    // Crear el contenido HTML basado en la plantilla
+                    string textoHtml = Properties.Resources.PlantillaVenta.ToString();
+
+                    // Reemplazar variables en el HTML con los datos de la venta y detalles
+                    textoHtml = textoHtml.Replace("@nombrenegocio", odatos.Nombre.ToUpper());
+                    textoHtml = textoHtml.Replace("@telnegocio", odatos.Telefono);
+                    textoHtml = textoHtml.Replace("@direcnegocio", odatos.Direccion);
+
+                    //datos de emision de venta
+                    textoHtml = textoHtml.Replace("@tipodocumento", selectedRow.Cells["TipoDocumento"].Value.ToString());
+                    textoHtml = textoHtml.Replace("@numerodocumento", selectedRow.Cells["NumeroDocumento"].Value.ToString());
+                    textoHtml = textoHtml.Replace("@doccliente", ventaConDetalles.DocumentoCliente);
+                    textoHtml = textoHtml.Replace("@nombrecliente", ventaConDetalles.NombreCliente);
+                    textoHtml = textoHtml.Replace("@fecharegistro", selectedRow.Cells["FechaRegistro"].Value.ToString());
+                    textoHtml = textoHtml.Replace("@usuarioregistro", selectedRow.Cells["NombreCompleto"].Value.ToString());
+                    textoHtml = textoHtml.Replace("@montototal", selectedRow.Cells["MontoTotal"].Value.ToString());
+                    textoHtml = textoHtml.Replace("@pagocon", ventaConDetalles.MontoPago.ToString());
+                    textoHtml = textoHtml.Replace("@cambio", ventaConDetalles.MontoCambio.ToString());
+
+                    //datos detalle de la venta emitida
+                    StringBuilder detallesHTML = new StringBuilder();
+
+                    foreach (var detalleVenta in ventaConDetalles.oDetalle_Venta)
+                    {
+                        detallesHTML.Append($"<tr><td>{detalleVenta.oProducto.DescripcionGeneral}</td><td>{detalleVenta.Cantidad}</td><td>{detalleVenta.Total}</td></tr>");
+                    }
+
+                    // Reemplazar en el HTML con los detalles específicos
+                    textoHtml = textoHtml.Replace("@filasDetalles", detallesHTML.ToString());
+
+                    // Obtén las filas para la tabla de ventas
+                    string filasVentas = ObtenerFilasHTML(dgvdata);
+
+                    // Obtén las filas para la tabla de detalles de venta desde dgvdatadetalleventa
+                    string filasDetalles = ObtenerFilasHTML(dgvdatadetalleventa);
+
+                    // Reemplazar las marcas de posición en el HTML con las filas de datos
+                    textoHtml = textoHtml.Replace("@filasVentas", filasVentas);
+
+                    // Reemplazar las marcas de posición en el HTML con las filas de datos
+                    textoHtml = textoHtml.Replace("@filasDetalles", filasDetalles);
+
+                    // Genera el archivo PDF directamente
+                    using (MemoryStream stream = new MemoryStream())
+                    {
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+
+                        bool obtenido = true;
+                        byte[] byteImage = new CN_Negocio().ObtenerLogo(out obtenido);
+
+                        if (obtenido)
+                        {
+                            iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(byteImage);
+                            img.ScaleToFit(60, 60);
+                            img.Alignment = iTextSharp.text.Image.UNDERLYING;
+                            img.SetAbsolutePosition(pdfDoc.Left, pdfDoc.GetTop(51));
+                            pdfDoc.Add(img);
+                        }
+
+                        using (StringReader sr = new StringReader(textoHtml))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+
+                        pdfDoc.Close();
+
+                        // Llamada a la función para enviar el correo
+                        EnviarCorreoConPDF(stream, ventaConDetalles);
+                    }
+                }
+                else
+                {
+                    // Mostrar un mensaje si no hay fila seleccionada
+                    MessageBox.Show("No se ha seleccionado ninguna venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Maneja la excepción y muestra un mensaje de error
+                MessageBox.Show($"Error al intentar enviar el correo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EnviarCorreoConPDF(MemoryStream pdfStream, Venta venta)
+        {
+            try
+            {
+                frmEnvioVentaCorreo frmEnvioCorreo = new frmEnvioVentaCorreo(venta, pdfStream);
+                frmEnvioCorreo.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al intentar enviar el correo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+} 
+
 

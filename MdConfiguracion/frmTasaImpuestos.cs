@@ -62,6 +62,37 @@ namespace CapaPresentación.MdConfiguracion
 
             }
         }
+        private void txtNombreTasa_TextChanged(object sender, EventArgs e)
+        {
+            // Almacenar la posición actual del cursor
+            int posicionCursor = txtNombreTasa.SelectionStart;
+
+            // Convertir el texto a mayúsculas y asignarlo de nuevo al control
+            txtNombreTasa.Text = txtNombreTasa.Text.ToUpper();
+
+            // Restaurar la posición del cursor
+            txtNombreTasa.SelectionStart = posicionCursor;
+        }
+        private void txtPorcentaje_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números y la coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo una coma
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(','))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPorcentaje_Leave(object sender, EventArgs e)
+        {
+            CN_Formato_Monedas cnFormatoMonedas = new CN_Formato_Monedas();
+            cnFormatoMonedas.FormatoMoneda(txtPorcentaje);
+        }
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
@@ -216,18 +247,6 @@ namespace CapaPresentación.MdConfiguracion
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
-        }
-
-        private void txtNombreTasa_TextChanged(object sender, EventArgs e)
-        {
-            // Almacenar la posición actual del cursor
-            int posicionCursor = txtNombreTasa.SelectionStart;
-
-            // Convertir el texto a mayúsculas y asignarlo de nuevo al control
-            txtNombreTasa.Text = txtNombreTasa.Text.ToUpper();
-
-            // Restaurar la posición del cursor
-            txtNombreTasa.SelectionStart = posicionCursor;
         }
     }
 }
