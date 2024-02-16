@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DBVENTASGESTIONPRDataSet" targetNamespace="http://tempuri.org/DBVENTASGESTIONPRDataSet.xsd" xmlns:mstns="http://tempuri.org/DBVENTASGESTIONPRDataSet.xsd" xmlns="http://tempuri.org/DBVENTASGESTIONPRDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DBVENTASGESTIONPR_DS" targetNamespace="http://tempuri.org/DBVENTASGESTIONPR_DS.xsd" xmlns:mstns="http://tempuri.org/DBVENTASGESTIONPR_DS.xsd" xmlns="http://tempuri.org/DBVENTASGESTIONPR_DS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBVENTASGESTIONPRConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBVENTASGESTIONPRConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CapaPresentación.Properties.Settings.GlobalReference.Default.DBVENTASGESTIONPRConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="cadena_reportes" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="cadena_reportes (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CapaPresentación.Properties.Settings.GlobalReference.Default.cadena" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ObtenerDetallesVentaRDLCTableAdapter" GeneratorDataComponentClassName="ObtenerDetallesVentaRDLCTableAdapter" Name="ObtenerDetallesVentaRDLC" UserDataComponentName="ObtenerDetallesVentaRDLCTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DBVENTASGESTIONPRConnectionString (Settings)" DbObjectName="DBVENTASGESTIONPR.dbo.ObtenerDetallesVentaRDLC" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="cadena_reportes (Settings)" DbObjectName="DBVENTASGESTIONPR.dbo.ObtenerDetallesVentaRDLC" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ObtenerDetallesVentaRDLC</CommandText>
@@ -47,7 +47,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DBVENTASGESTIONPRDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DBVENTASGESTIONPRDataSet" msprop:Generator_UserDSName="DBVENTASGESTIONPRDataSet">
+  <xs:element name="DBVENTASGESTIONPR_DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DBVENTASGESTIONPR_DS" msprop:Generator_UserDSName="DBVENTASGESTIONPR_DS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="ObtenerDetallesVentaRDLC" msprop:Generator_TableClassName="ObtenerDetallesVentaRDLCDataTable" msprop:Generator_TableVarName="tableObtenerDetallesVentaRDLC" msprop:Generator_TablePropName="ObtenerDetallesVentaRDLC" msprop:Generator_RowDeletingName="ObtenerDetallesVentaRDLCRowDeleting" msprop:Generator_RowChangingName="ObtenerDetallesVentaRDLCRowChanging" msprop:Generator_RowEvHandlerName="ObtenerDetallesVentaRDLCRowChangeEventHandler" msprop:Generator_RowDeletedName="ObtenerDetallesVentaRDLCRowDeleted" msprop:Generator_UserTableName="ObtenerDetallesVentaRDLC" msprop:Generator_RowChangedName="ObtenerDetallesVentaRDLCRowChanged" msprop:Generator_RowEvArgName="ObtenerDetallesVentaRDLCRowChangeEvent" msprop:Generator_RowClassName="ObtenerDetallesVentaRDLCRow">

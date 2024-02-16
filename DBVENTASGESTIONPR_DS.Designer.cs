@@ -20,9 +20,9 @@ namespace CapaPresentación {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DBVENTASGESTIONPRDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DBVENTASGESTIONPR_DS")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DBVENTASGESTIONPRDataSet : global::System.Data.DataSet {
+    public partial class DBVENTASGESTIONPR_DS : global::System.Data.DataSet {
         
         private ObtenerDetallesVentaRDLCDataTable tableObtenerDetallesVentaRDLC;
         
@@ -30,7 +30,7 @@ namespace CapaPresentación {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DBVENTASGESTIONPRDataSet() {
+        public DBVENTASGESTIONPR_DS() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace CapaPresentación {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected DBVENTASGESTIONPRDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DBVENTASGESTIONPR_DS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace CapaPresentación {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DBVENTASGESTIONPRDataSet cln = ((DBVENTASGESTIONPRDataSet)(base.Clone()));
+            DBVENTASGESTIONPR_DS cln = ((DBVENTASGESTIONPR_DS)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace CapaPresentación {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DBVENTASGESTIONPRDataSet";
+            this.DataSetName = "DBVENTASGESTIONPR_DS";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DBVENTASGESTIONPRDataSet.xsd";
+            this.Namespace = "http://tempuri.org/DBVENTASGESTIONPR_DS.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableObtenerDetallesVentaRDLC = new ObtenerDetallesVentaRDLCDataTable();
@@ -225,7 +225,7 @@ namespace CapaPresentación {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DBVENTASGESTIONPRDataSet ds = new DBVENTASGESTIONPRDataSet();
+            DBVENTASGESTIONPR_DS ds = new DBVENTASGESTIONPR_DS();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -696,7 +696,7 @@ namespace CapaPresentación {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DBVENTASGESTIONPRDataSet ds = new DBVENTASGESTIONPRDataSet();
+                DBVENTASGESTIONPR_DS ds = new DBVENTASGESTIONPR_DS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1280,7 +1280,7 @@ namespace CapaPresentación {
         }
     }
 }
-namespace CapaPresentación.DBVENTASGESTIONPRDataSetTableAdapters {
+namespace CapaPresentación.DBVENTASGESTIONPR_DSTableAdapters {
     
     
     /// <summary>
@@ -1428,7 +1428,7 @@ namespace CapaPresentación.DBVENTASGESTIONPRDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CapaPresentación.Properties.Settings.Default.DBVENTASGESTIONPRConnectionString;
+            this._connection.ConnectionString = global::CapaPresentación.Properties.Settings.Default.cadena;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1447,7 +1447,7 @@ namespace CapaPresentación.DBVENTASGESTIONPRDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DBVENTASGESTIONPRDataSet.ObtenerDetallesVentaRDLCDataTable dataTable, global::System.Nullable<int> IdVenta) {
+        public virtual int Fill(DBVENTASGESTIONPR_DS.ObtenerDetallesVentaRDLCDataTable dataTable, global::System.Nullable<int> IdVenta) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((IdVenta.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(IdVenta.Value));
@@ -1466,7 +1466,7 @@ namespace CapaPresentación.DBVENTASGESTIONPRDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DBVENTASGESTIONPRDataSet.ObtenerDetallesVentaRDLCDataTable GetData(global::System.Nullable<int> IdVenta) {
+        public virtual DBVENTASGESTIONPR_DS.ObtenerDetallesVentaRDLCDataTable GetData(global::System.Nullable<int> IdVenta) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((IdVenta.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(IdVenta.Value));
@@ -1474,7 +1474,7 @@ namespace CapaPresentación.DBVENTASGESTIONPRDataSetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            DBVENTASGESTIONPRDataSet.ObtenerDetallesVentaRDLCDataTable dataTable = new DBVENTASGESTIONPRDataSet.ObtenerDetallesVentaRDLCDataTable();
+            DBVENTASGESTIONPR_DS.ObtenerDetallesVentaRDLCDataTable dataTable = new DBVENTASGESTIONPR_DS.ObtenerDetallesVentaRDLCDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1548,7 +1548,7 @@ namespace CapaPresentación.DBVENTASGESTIONPRDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(DBVENTASGESTIONPRDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DBVENTASGESTIONPR_DS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1558,7 +1558,7 @@ namespace CapaPresentación.DBVENTASGESTIONPRDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(DBVENTASGESTIONPRDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DBVENTASGESTIONPR_DS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1568,7 +1568,7 @@ namespace CapaPresentación.DBVENTASGESTIONPRDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(DBVENTASGESTIONPRDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DBVENTASGESTIONPR_DS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1602,7 +1602,7 @@ namespace CapaPresentación.DBVENTASGESTIONPRDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(DBVENTASGESTIONPRDataSet dataSet) {
+        public virtual int UpdateAll(DBVENTASGESTIONPR_DS dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

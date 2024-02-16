@@ -68,16 +68,19 @@ namespace CapaPresentación.MdVentas
             this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
             this.chekboxMostarTodoDatagrid = new System.Windows.Forms.CheckBox();
             this.btnanularventa = new FontAwesome.Sharp.IconButton();
             this.btnvercomprobante = new FontAwesome.Sharp.IconButton();
             this.btnenviarporemail = new FontAwesome.Sharp.IconButton();
             this.btngenerarexls = new FontAwesome.Sharp.IconButton();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdatadetalleventa)).BeginInit();
+            this.tabControl2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btngenerarpdf
@@ -90,7 +93,7 @@ namespace CapaPresentación.MdVentas
             this.btngenerarpdf.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btngenerarpdf.IconSize = 20;
             this.btngenerarpdf.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btngenerarpdf.Location = new System.Drawing.Point(321, 518);
+            this.btngenerarpdf.Location = new System.Drawing.Point(160, 6);
             this.btngenerarpdf.Name = "btngenerarpdf";
             this.btngenerarpdf.Size = new System.Drawing.Size(151, 31);
             this.btngenerarpdf.TabIndex = 227;
@@ -121,7 +124,7 @@ namespace CapaPresentación.MdVentas
             // btnbuscar
             // 
             this.btnbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnbuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
             this.btnbuscar.IconColor = System.Drawing.Color.Black;
             this.btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Solid;
@@ -130,7 +133,7 @@ namespace CapaPresentación.MdVentas
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(115, 24);
             this.btnbuscar.TabIndex = 212;
-            this.btnbuscar.Text = "Ver Todos";
+            this.btnbuscar.Text = "Visualizar";
             this.btnbuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnbuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnbuscar.UseVisualStyleBackColor = true;
@@ -174,7 +177,7 @@ namespace CapaPresentación.MdVentas
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdata.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.EnableHeadersVisualStyles = false;
-            this.dgvdata.Location = new System.Drawing.Point(5, 36);
+            this.dgvdata.Location = new System.Drawing.Point(1, 29);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
@@ -190,8 +193,9 @@ namespace CapaPresentación.MdVentas
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(988, 192);
+            this.dgvdata.Size = new System.Drawing.Size(992, 192);
             this.dgvdata.TabIndex = 236;
+            this.dgvdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellClick);
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
             // 
@@ -297,7 +301,7 @@ namespace CapaPresentación.MdVentas
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(5, 231);
+            this.tabControl1.Location = new System.Drawing.Point(1, 227);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(992, 281);
@@ -381,7 +385,7 @@ namespace CapaPresentación.MdVentas
             // 
             // DescripcionMetodoPago
             // 
-            this.DescripcionMetodoPago.HeaderText = "Pago";
+            this.DescripcionMetodoPago.HeaderText = "F. Pago";
             this.DescripcionMetodoPago.Name = "DescripcionMetodoPago";
             this.DescripcionMetodoPago.ReadOnly = true;
             this.DescripcionMetodoPago.Width = 130;
@@ -402,7 +406,7 @@ namespace CapaPresentación.MdVentas
             // 
             // TotalDetalle
             // 
-            this.TotalDetalle.HeaderText = "ValorProd";
+            this.TotalDetalle.HeaderText = "P. Unitario";
             this.TotalDetalle.Name = "TotalDetalle";
             this.TotalDetalle.ReadOnly = true;
             this.TotalDetalle.Width = 120;
@@ -448,21 +452,6 @@ namespace CapaPresentación.MdVentas
             this.tabPage2.Text = "Lineas de Venta";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Enabled = false;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(-8, 18);
-            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1110, 21);
-            this.label2.TabIndex = 246;
-            this.label2.Text = "_________________________________________________________________________________" +
-    "________________________________________________________________________________" +
-    "______";
-            // 
             // chekboxMostarTodoDatagrid
             // 
             this.chekboxMostarTodoDatagrid.AutoSize = true;
@@ -484,7 +473,7 @@ namespace CapaPresentación.MdVentas
             this.btnanularventa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnanularventa.IconSize = 20;
             this.btnanularventa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnanularventa.Location = new System.Drawing.Point(819, 518);
+            this.btnanularventa.Location = new System.Drawing.Point(810, 6);
             this.btnanularventa.Name = "btnanularventa";
             this.btnanularventa.Size = new System.Drawing.Size(151, 31);
             this.btnanularventa.TabIndex = 248;
@@ -503,7 +492,7 @@ namespace CapaPresentación.MdVentas
             this.btnvercomprobante.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnvercomprobante.IconSize = 20;
             this.btnvercomprobante.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnvercomprobante.Location = new System.Drawing.Point(7, 518);
+            this.btnvercomprobante.Location = new System.Drawing.Point(3, 6);
             this.btnvercomprobante.Name = "btnvercomprobante";
             this.btnvercomprobante.Size = new System.Drawing.Size(151, 31);
             this.btnvercomprobante.TabIndex = 249;
@@ -523,7 +512,7 @@ namespace CapaPresentación.MdVentas
             this.btnenviarporemail.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnenviarporemail.IconSize = 20;
             this.btnenviarporemail.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnenviarporemail.Location = new System.Drawing.Point(164, 518);
+            this.btnenviarporemail.Location = new System.Drawing.Point(336, 6);
             this.btnenviarporemail.Name = "btnenviarporemail";
             this.btnenviarporemail.Size = new System.Drawing.Size(151, 31);
             this.btnenviarporemail.TabIndex = 250;
@@ -531,6 +520,7 @@ namespace CapaPresentación.MdVentas
             this.btnenviarporemail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnenviarporemail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnenviarporemail.UseVisualStyleBackColor = false;
+            this.btnenviarporemail.Click += new System.EventHandler(this.btnenviarporemail_Click);
             // 
             // btngenerarexls
             // 
@@ -542,7 +532,7 @@ namespace CapaPresentación.MdVentas
             this.btngenerarexls.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btngenerarexls.IconSize = 20;
             this.btngenerarexls.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btngenerarexls.Location = new System.Drawing.Point(478, 518);
+            this.btngenerarexls.Location = new System.Drawing.Point(493, 6);
             this.btngenerarexls.Name = "btngenerarexls";
             this.btngenerarexls.Size = new System.Drawing.Size(151, 31);
             this.btngenerarexls.TabIndex = 251;
@@ -551,16 +541,39 @@ namespace CapaPresentación.MdVentas
             this.btngenerarexls.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btngenerarexls.UseVisualStyleBackColor = false;
             // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl2.Location = new System.Drawing.Point(1, 510);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(992, 73);
+            this.tabControl2.TabIndex = 252;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.PowderBlue;
+            this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage3.Controls.Add(this.btngenerarexls);
+            this.tabPage3.Controls.Add(this.btnanularventa);
+            this.tabPage3.Controls.Add(this.btnvercomprobante);
+            this.tabPage3.Controls.Add(this.btnenviarporemail);
+            this.tabPage3.Controls.Add(this.btngenerarpdf);
+            this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(984, 45);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Gestión";
+            // 
             // frmListaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 561);
-            this.Controls.Add(this.btngenerarexls);
-            this.Controls.Add(this.btnenviarporemail);
-            this.Controls.Add(this.btnvercomprobante);
-            this.Controls.Add(this.btnanularventa);
-            this.Controls.Add(this.btngenerarpdf);
+            this.ClientSize = new System.Drawing.Size(996, 585);
+            this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.chekboxMostarTodoDatagrid);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.txtfechafin);
@@ -570,7 +583,6 @@ namespace CapaPresentación.MdVentas
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dgvdata);
-            this.Controls.Add(this.label2);
             this.MaximizeBox = false;
             this.Name = "frmListaVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -580,6 +592,8 @@ namespace CapaPresentación.MdVentas
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdatadetalleventa)).EndInit();
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,7 +603,6 @@ namespace CapaPresentación.MdVentas
         private FontAwesome.Sharp.IconButton btngenerarpdf;
         private FontAwesome.Sharp.IconButton btnborrar;
         private FontAwesome.Sharp.IconButton btnbuscar;
-        private System.Windows.Forms.DataGridView dgvdata;
         private System.Windows.Forms.DateTimePicker txtfechafin;
         private System.Windows.Forms.DateTimePicker txtfechainicio;
         private System.Windows.Forms.Label label7;
@@ -598,7 +611,6 @@ namespace CapaPresentación.MdVentas
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dgvdatadetalleventa;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chekboxMostarTodoDatagrid;
         private System.Windows.Forms.DataGridViewButtonColumn btnseleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdVenta;
@@ -608,6 +620,10 @@ namespace CapaPresentación.MdVentas
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn MontoTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
+        private FontAwesome.Sharp.IconButton btnanularventa;
+        private FontAwesome.Sharp.IconButton btnvercomprobante;
+        private FontAwesome.Sharp.IconButton btnenviarporemail;
+        private FontAwesome.Sharp.IconButton btngenerarexls;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdDetalleVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionMetodoPago;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionGeneral;
@@ -617,9 +633,8 @@ namespace CapaPresentación.MdVentas
         private System.Windows.Forms.DataGridViewTextBoxColumn MontoCambio;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private FontAwesome.Sharp.IconButton btnanularventa;
-        private FontAwesome.Sharp.IconButton btnvercomprobante;
-        private FontAwesome.Sharp.IconButton btnenviarporemail;
-        private FontAwesome.Sharp.IconButton btngenerarexls;
+        private System.Windows.Forms.DataGridView dgvdata;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }

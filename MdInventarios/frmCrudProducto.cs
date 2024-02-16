@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
+using CapaPresentación.Properties;
 
 namespace CapaPresentación.MdInventarios
 {
@@ -38,8 +39,10 @@ namespace CapaPresentación.MdInventarios
             // Suscribirse a los eventos SelectedIndexChanged de los ComboBox
             cbocategoria.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
             cbosubcategoria.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            // Cargar imagen por defecto al abrir el formulario
+            CargarImagenPorDefecto();
         }
-        
+
         private void frmCrudProducto_Load(object sender, EventArgs e)
         {
             //-------------------------------------- PARA LOS ESTADOS -------------------------
@@ -157,6 +160,7 @@ namespace CapaPresentación.MdInventarios
                     item.oTiposUnidades.NombreTipoUnidad,
                     item.oProveedor.IdProveedor,
                     item.oProveedor.RazonSocial,
+                    item.Imagen,
                     item.CodigoBarras,
                     item.Codigo,
                     item.DescripcionGeneral,
@@ -177,6 +181,15 @@ namespace CapaPresentación.MdInventarios
             SumarProductosNoActivas();
 
             radioButtonRedondeo.Select();
+        }
+
+        private void CargarImagenPorDefecto()
+        {
+            // Obtener la imagen desde los recursos
+            Image imagenPorDefecto = Resources.sin_img;
+
+            // Asignar la imagen al control picImgProducto
+            picImgProducto.Image = imagenPorDefecto;
         }
 
         private void cbocategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -242,6 +255,44 @@ namespace CapaPresentación.MdInventarios
             txtdescripciongeneral.SelectionStart = posicionCursor;
         }
 
+        private bool calculandoPrecioFinal = false;
+
+        // Método para calcular el precio final
+        private void CalcularPrecioFinal()
+        {
+            if (!calculandoPrecioFinal)
+            {
+                if (decimal.TryParse(txtpreciocompra.Text, out decimal precioVenta))
+                {
+                    if (cboimpuestos.SelectedItem is OpcionCombo opcion)
+                    {
+                        decimal porcentajeImpuestos = decimal.Parse(opcion.Texto);
+
+                        decimal precioFinal = precioVenta * (1 + porcentajeImpuestos / 100);
+
+                        if (!string.IsNullOrWhiteSpace(cbomargenganancias.Text) && decimal.TryParse(cbomargenganancias.Text, out decimal porcentajeGanancia))
+                        {
+                            precioFinal *= (1 + porcentajeGanancia / 100);
+                        }
+
+                        // Redondeo según el RadioButton seleccionado
+                        if (radioButtonRedondeo.Checked)
+                        {
+                            precioFinal = Math.Round(precioFinal, 0, MidpointRounding.AwayFromZero);
+                        }
+                        else if (radioButtonSinRedondeo.Checked)
+                        {
+                            precioFinal = Math.Round(precioFinal, 2);
+                        }
+
+                        string precioFinalFormateado = string.Format("{0:#,##0.00}", precioFinal);
+
+                        txtpreciofinal.Text = precioFinalFormateado;
+                    }
+                }
+            }
+        }
+
         //precio compra
         private void txtpreciocompra_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -257,6 +308,7 @@ namespace CapaPresentación.MdInventarios
                 e.Handled = true;
             }
         }
+
         //precio compra
         private void txtpreciocompra_TextChanged(object sender, EventArgs e)
         {
@@ -320,52 +372,20 @@ namespace CapaPresentación.MdInventarios
             }
         }
 
-        // Método para calcular el precio final
-        private void CalcularPrecioFinal()
-        {
-            if (decimal.TryParse(txtpreciocompra.Text, out decimal precioVenta))
-            {
-                if (cboimpuestos.SelectedItem is OpcionCombo opcion)
-                {
-                    decimal porcentajeImpuestos = decimal.Parse(opcion.Texto);
-
-                    decimal precioFinal = precioVenta * (1 + porcentajeImpuestos / 100);
-
-                    if (!string.IsNullOrWhiteSpace(cbomargenganancias.Text) && decimal.TryParse(cbomargenganancias.Text, out decimal porcentajeGanancia))
-                    {
-                        precioFinal *= (1 + porcentajeGanancia / 100);
-                    }
-
-                    // Redondeo según el RadioButton seleccionado
-                    if (radioButtonRedondeo.Checked)
-                    {
-                        precioFinal = Math.Round(precioFinal, 0, MidpointRounding.AwayFromZero);
-                    }
-                    else if (radioButtonSinRedondeo.Checked)
-                    {
-                        precioFinal = Math.Round(precioFinal, 2);
-                    }
-
-                    string precioFinalFormateado = string.Format("{0:#,##0.00}", precioFinal);
-
-                    txtpreciofinal.Text = precioFinalFormateado;
-                }
-            }
-        }
-
         private void txtpreciofinal_TextChanged(object sender, EventArgs e)
         {
-            if (decimal.TryParse(txtpreciofinal.Text, out decimal precio))
+            if (!calculandoPrecioFinal)
             {
-                string formato = precio < 1000 ? "0.00" : "#,##0.00";
-                string precioFormateado = precio.ToString(formato);
-                txtpreciofinal.Text = precioFormateado;
-                CalcularPrecioFinal();
+                calculandoPrecioFinal = true;
+
+                
+                calculandoPrecioFinal = false;
             }
         }
 
         private void txtpreciofinal_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Permitir solo números, punto y coma
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
             {
                 e.Handled = true;
@@ -376,6 +396,25 @@ namespace CapaPresentación.MdInventarios
             {
                 e.Handled = true;
             }
+
+            // Permitir borrar el contenido
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+        }
+
+        //formateo de numeros a monedas
+        private void txtpreciocompra_Leave(object sender, EventArgs e)
+        {
+            CN_Formato_Monedas cnFormatoMonedas = new CN_Formato_Monedas();
+            cnFormatoMonedas.FormatoMoneda(txtpreciocompra);
+        }
+
+        private void txtpreciofinal_Leave(object sender, EventArgs e)
+        {
+            CN_Formato_Monedas cnFormatoMonedas = new CN_Formato_Monedas();
+            cnFormatoMonedas.FormatoMoneda(txtpreciofinal);
         }
 
         //Fecha de vencimiento
@@ -422,6 +461,19 @@ namespace CapaPresentación.MdInventarios
         {
             string mensaje = string.Empty;
 
+            // Convierte la imagen a bytes antes de guardarla
+            byte[] imagenBytes = null;
+            if (picImgProducto.Image != null)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    // Clona la imagen antes de intentar guardarla
+                    Bitmap clonedImage = new Bitmap(picImgProducto.Image);
+                    clonedImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    imagenBytes = ms.ToArray();
+                }
+            }
+
             Productos obj = new Productos()
             {
                 IdProducto = Convert.ToInt32(txtid.Text),
@@ -430,6 +482,7 @@ namespace CapaPresentación.MdInventarios
                 oTasaImpuestos = new TasaImpuestos() { IdTasaImpuesto = Convert.ToInt32(((OpcionCombo)cboimpuestos.SelectedItem).Valor) },
                 oTiposUnidades = new TiposUnidades() { IdTipoUnidad = Convert.ToInt32(((OpcionCombo)cbotipounidad.SelectedItem).Valor) },
                 oProveedor = new Proveedor() { IdProveedor = Convert.ToInt32(((OpcionCombo)cboproveedor.SelectedItem).Valor) },
+                Imagen = imagenBytes,
                 CodigoBarras = txtcodigobarra.Text,
                 Codigo = txtcodigo.Text,
                 DescripcionGeneral = txtdescripciongeneral.Text,
@@ -464,7 +517,7 @@ namespace CapaPresentación.MdInventarios
                     ((OpcionCombo)cbotipounidad.SelectedItem).Texto.ToString(),
                     ((OpcionCombo)cboproveedor.SelectedItem).Valor.ToString(),
                     ((OpcionCombo)cboproveedor.SelectedItem).Texto.ToString(),
-
+                    imagenBytes,
                     txtcodigobarra.Text,
                     txtcodigo.Text,
                     txtdescripciongeneral.Text,
@@ -506,6 +559,7 @@ namespace CapaPresentación.MdInventarios
                         row.Cells["TipoUnidad"].Value = ((OpcionCombo)cbotipounidad.SelectedItem).Texto.ToString();
                         row.Cells["IdProveedor"].Value = ((OpcionCombo)cboproveedor.SelectedItem).Valor.ToString();
                         row.Cells["NombreProveedor"].Value = ((OpcionCombo)cboproveedor.SelectedItem).Texto.ToString();
+                        row.Cells["Imagen"].Value = imagenBytes;
                         row.Cells["CodigoBarras"].Value = txtcodigobarra.Text;
                         row.Cells["Codigo"].Value = txtcodigo.Text;
                         row.Cells["DescripcionGeneral"].Value = txtdescripciongeneral.Text;
@@ -554,6 +608,7 @@ namespace CapaPresentación.MdInventarios
             cboimpuestos.SelectedIndex = 0;
             cbotipounidad.SelectedIndex = 0;
             cboproveedor.SelectedIndex = 0;
+            CargarImagenPorDefecto();
             txtcodigobarra.Select();
         }
 
@@ -648,10 +703,23 @@ namespace CapaPresentación.MdInventarios
                             break;
                         }
                     }
+
+                    // Convertir el valor de la celda "Imagen" a bytes
+                    byte[] imagenBytes = dgvdata.Rows[indice].Cells["Imagen"].Value as byte[];
+
+                    // Asignar los bytes de la imagen al control picImgProducto
+                    if (imagenBytes != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream(imagenBytes))
+                        {
+                            picImgProducto.Image = Image.FromStream(ms);
+                        }
+                    }
+
                     txtcodigobarra.Text = dgvdata.Rows[indice].Cells["CodigoBarras"].Value.ToString();
                     txtcodigo.Text = dgvdata.Rows[indice].Cells["Codigo"].Value.ToString();
                     txtdescripciongeneral.Text = dgvdata.Rows[indice].Cells["DescripcionGeneral"].Value.ToString();
-                  //  txtpreciocompra.Text = dgvdata.Rows[indice].Cells["PrecioCompra"].Value.ToString();
+                    txtpreciocompra.Text = dgvdata.Rows[indice].Cells["PrecioCompra"].Value.ToString();
 
                     //Margen de Ganancia
                     foreach (OpcionCombo oc in cbomargenganancias.Items)
@@ -730,14 +798,7 @@ namespace CapaPresentación.MdInventarios
             }
         }
 
-        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
-        {
-            txtbusqueda.Text = "";
-            foreach (DataGridViewRow row in dgvdata.Rows)
-            {
-                row.Visible = true;
-            }
-        }
+        
 
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
@@ -786,10 +847,10 @@ namespace CapaPresentación.MdInventarios
         }
         private void txtdescripciongeneral_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si el carácter ingresado no es una letra ni un número ni un carácter de control, excepto la barra espaciadora
-            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            // Verificar si el carácter ingresado no es una letra, un número ni un carácter de control, excepto el espacio y el punto
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != '.')
             {
-                // Cancelar la entrada del carácter si no es una letra ni un número ni un carácter de control, excepto la barra espaciadora
+                // Cancelar la entrada del carácter si no es una letra, un número ni un carácter de control, excepto el espacio y el punto
                 e.Handled = true;
             }
         }
@@ -830,6 +891,57 @@ namespace CapaPresentación.MdInventarios
             lblTotalProductosNoActivas.Text = TotalNoActivas.ToString();
         }
 
-       
+        private void txtbusqueda_TextChanged(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
+            string textoBusqueda = txtbusqueda.Text;
+
+            FiltrarDataGridView(columnaFiltro, textoBusqueda);
+        }
+
+        //Aplica el filtro eligiendo desde el cbo
+        private void FiltrarDataGridView(string columnaFiltro, string textoBusqueda)
+        {
+            if (dgvdata.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    string valorCelda = row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper();
+                    bool contieneTexto = valorCelda.Contains(textoBusqueda.Trim().ToUpper());
+                    row.Visible = contieneTexto;
+                }
+            }
+        }
+
+        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
+        {
+            MostrarTodasLasFilas();
+        }
+        //Limpiar el txt y restablece el datagrid
+        private void MostrarTodasLasFilas()
+        {
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                row.Visible = true;
+            }
+        }
+
+        private void btnAgregarImg_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fo = new OpenFileDialog();
+            fo.Filter = "Imágenes|*.jpg;*.jpeg;*.png"; // Establece los formatos de imagen permitidos
+
+            DialogResult rs = fo.ShowDialog();
+
+            if (rs == DialogResult.OK)
+            {
+                // Abre el archivo seleccionado como un flujo (Stream)
+                using (FileStream fs = new FileStream(fo.FileName, FileMode.Open, FileAccess.Read))
+                {
+                    // Asigna el flujo al control PictureBox
+                    picImgProducto.Image = Image.FromStream(fs);
+                }
+            }
+        }
     }
 }

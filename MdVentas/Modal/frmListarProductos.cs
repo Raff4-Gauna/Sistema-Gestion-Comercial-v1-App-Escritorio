@@ -93,33 +93,41 @@ namespace CapaPresentación.MdVentas.Modal
                 }
             }
         }
-
-        private void btnbuscar_Click(object sender, EventArgs e)
+        private void txtbusqueda_TextChanged(object sender, EventArgs e)
         {
             string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
+            string textoBusqueda = txtbusqueda.Text;
 
+            FiltrarDataGridView(columnaFiltro, textoBusqueda);
+        }
+
+        //Aplica el filtro eligiendo desde el cbo
+        private void FiltrarDataGridView(string columnaFiltro, string textoBusqueda)
+        {
             if (dgvdata.Rows.Count > 0)
             {
                 foreach (DataGridViewRow row in dgvdata.Rows)
                 {
-
-                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
-                        row.Visible = true;
-                    else
-                        row.Visible = false;
+                    string valorCelda = row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper();
+                    bool contieneTexto = valorCelda.Contains(textoBusqueda.Trim().ToUpper());
+                    row.Visible = contieneTexto;
                 }
             }
         }
 
-        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
+        //Limpiar el txt y restablece el datagrid
+        private void MostrarTodasLasFilas()
         {
-            txtbusqueda.Text = "";
             foreach (DataGridViewRow row in dgvdata.Rows)
             {
                 row.Visible = true;
             }
         }
 
-        
+        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
+        {
+            txtbusqueda.Text = "";
+            MostrarTodasLasFilas();
+        }
     }
 }

@@ -181,6 +181,13 @@ namespace CapaPresentación.MdInventarios
             return listaFiltrada;
         }
 
+        //formateo de numeros a monedas
+        private void txtAumentoProcentaje_Leave(object sender, EventArgs e)
+        {
+            CN_Formato_Monedas cnFormatoMonedas = new CN_Formato_Monedas();
+            cnFormatoMonedas.FormatoMoneda(txtAumentoProcentaje);
+        }
+
         private void btnguardar_Click(object sender, EventArgs e)
         {
             try
@@ -188,7 +195,15 @@ namespace CapaPresentación.MdInventarios
                 // Obtener los valores seleccionados
                 int idCategoria = Convert.ToInt32(((OpcionCombo)cbocategoria.SelectedItem).Valor);
                 int idSubcategoria = Convert.ToInt32(((OpcionCombo)cbosubcategoria.SelectedItem).Valor);
-                decimal porcentajeAumento = Convert.ToDecimal(((OpcionCombo)cbomargenganancias.SelectedItem).Texto);
+
+                // Obtener el porcentaje de "cbomargenganancias"
+                decimal porcentajeCbomargen = Convert.ToDecimal(((OpcionCombo)cbomargenganancias.SelectedItem).Texto);
+
+                // Obtener el porcentaje ingresado manualmente en "txtAumentoProcentaje"
+                decimal porcentajeManual = string.IsNullOrWhiteSpace(txtAumentoProcentaje.Text) ? 0 : Convert.ToDecimal(txtAumentoProcentaje.Text);
+
+                // Calcular el porcentaje total
+                decimal porcentajeTotal = porcentajeCbomargen + porcentajeManual;
 
                 // Mostrar un mensaje de confirmación
                 DialogResult resultadoConfirmacion = MessageBox.Show("¿Está seguro que desea cambiar el precio a estos productos?", "Confirmar Actualización", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -200,7 +215,7 @@ namespace CapaPresentación.MdInventarios
                     string mensaje;
 
                     // Llamar al método de la capa de negocios para actualizar los precios masivamente
-                    bool resultado = new CN_Productos().ActualizarPreciosMasivos(idCategoria, idSubcategoria, 0, porcentajeAumento, out mensaje);
+                    bool resultado = new CN_Productos().ActualizarPreciosMasivos(idCategoria, idSubcategoria, 0, porcentajeTotal, out mensaje);
 
                     // Asignar el mensaje correspondiente
                     mensaje = resultado ? "Los precios se actualizaron correctamente." : mensaje;
@@ -232,11 +247,14 @@ namespace CapaPresentación.MdInventarios
             cbocategoria.SelectedIndex = 0;
             cbosubcategoria.SelectedIndex = 0;
             cbomargenganancias.SelectedIndex = 0;
+            txtAumentoProcentaje.Text = "";
         }
 
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
+
+       
     }
 }

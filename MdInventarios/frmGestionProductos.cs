@@ -5,6 +5,8 @@ using CapaPresentación.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -224,12 +226,13 @@ namespace CapaPresentación.MdInventarios
                 item.oProveedor.IdProveedor,
                 item.oProveedor.RazonSocial,
 
+                item.Imagen,
                 item.CodigoBarras,
                 item.Codigo,
                 item.DescripcionGeneral,
                 item.PrecioCompra,
                 item.oMargenes_Ganancias.IdMargenGanancia,
-                item.oMargenes_Ganancias.NombreMargen,
+                item.oMargenes_Ganancias.Porcentaje,
                 item.PrecioFinal,
                 item.UbicacionProducto,
                 item.StockExistente,
@@ -250,29 +253,100 @@ namespace CapaPresentación.MdInventarios
             // Volver a cargar los datos en el DataGridView
             MostrarListaProductos();
         }
-        private void btnbuscar_Click(object sender, EventArgs e)
+        
+        //Ingresar texto y buscar
+        private void txtbusqueda_TextChanged(object sender, EventArgs e)
         {
             string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
+            string textoBusqueda = txtbusqueda.Text;
 
+            FiltrarDataGridView(columnaFiltro, textoBusqueda);
+        }
+
+        //Aplica el filtro eligiendo desde el cbo
+        private void FiltrarDataGridView(string columnaFiltro, string textoBusqueda)
+        {
             if (dgvdata.Rows.Count > 0)
             {
                 foreach (DataGridViewRow row in dgvdata.Rows)
                 {
-                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
-                        row.Visible = true;
-                    else
-                        row.Visible = false;
+                    string valorCelda = row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper();
+                    bool contieneTexto = valorCelda.Contains(textoBusqueda.Trim().ToUpper());
+                    row.Visible = contieneTexto;
                 }
-
             }
         }
-
+        //Limpiar el txt y restablece el datagrid
         private void btnlimpiarbuscador_Click(object sender, EventArgs e)
         {
             txtbusqueda.Text = "";
+            lblDescripcionProd.Text = "";
+            lblUltPrecioCompra.Text = "";
+            lblUltPrecioVenta.Text = "";
+            lblStockExistente.Text = "";
+            MostrarTodasLasFilas();
+        }
+
+        //Limpiar el txt y restablece el datagrid
+        private void MostrarTodasLasFilas()
+        {
             foreach (DataGridViewRow row in dgvdata.Rows)
             {
                 row.Visible = true;
+            }
+        }
+
+        // Variable para almacenar la fila seleccionada
+        private int selectedRowIndex = -1;
+
+        //Cuando se da click se pintara de color la celda elegida
+        private void dgvdata_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Restaura el color de la fila anteriormente seleccionada, si hay alguna
+                if (selectedRowIndex >= 0)
+                {
+                    dgvdata.Rows[selectedRowIndex].DefaultCellStyle.BackColor = dgvdata.DefaultCellStyle.BackColor;
+                }
+
+                // Almacena el índice de la fila seleccionada
+                selectedRowIndex = e.RowIndex;
+
+                // Cambia el color de la fila seleccionada
+                dgvdata.Rows[selectedRowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.LightCyan;
+
+                // Llena los datos en los lbl utilizando el índice de la fila seleccionada
+                LlenarDatosEnLabels(selectedRowIndex);
+            }
+        }
+        private void LlenarDatosEnLabels(int rowIndex)
+        {
+            if (rowIndex >= 0 && rowIndex < dgvdata.Rows.Count)
+            {
+                txtindice.Text = rowIndex.ToString();
+                txtid.Text = dgvdata.Rows[rowIndex].Cells["Id"].Value.ToString();
+                lblDescripcionProd.Text = dgvdata.Rows[rowIndex].Cells["DescripcionGeneral"].Value.ToString();
+                // Agregar el símbolo de dólar a los labels de precios
+                lblUltPrecioCompra.Text = $"${dgvdata.Rows[rowIndex].Cells["PrecioCompra"].Value:0,0.00}";
+                lblUltPrecioVenta.Text = $"${dgvdata.Rows[rowIndex].Cells["PrecioFinal"].Value:0,0.00}";
+
+                lblStockExistente.Text = dgvdata.Rows[rowIndex].Cells["StockExistente"].Value.ToString();
+
+                // Mostrar la imagen
+                byte[] imagenBytes = dgvdata.Rows[rowIndex].Cells["Imagen"].Value as byte[];
+                if (imagenBytes != null)
+                {
+                    using (MemoryStream ms = new MemoryStream(imagenBytes))
+                    {
+                        picImgProducto.Image = Image.FromStream(ms);
+                    }
+                }
+                else
+                {
+                    // Si no hay datos de imagen, puedes asignar una imagen por defecto o limpiar el PictureBox
+                    picImgProducto.Image = null; // O asignar una imagen por defecto si es necesario
+                }
             }
         }
 
@@ -328,28 +402,68 @@ namespace CapaPresentación.MdInventarios
             }
         }
 
-        private void dgvdata_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        //Exportar Lista de Articulos a EXEL 
+        private void btnExportaExel_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (dgvdata.Rows.Count < 1)
             {
-                // Obtener el ID del producto desde la celda "Id"
-                string id = dgvdata.Rows[e.RowIndex].Cells["Id"].Value.ToString();
-
-                // Crear una instancia del formulario detalle y pasarle el ID del producto
-                using (frmDetalleProducto frmDetalleProducto = new frmDetalleProducto(id))
-                {
-                    // Manejar el evento Closed para liberar recursos después de cerrar el formulario
-                    frmDetalleProducto.Closed += (s, args) => frmDetalleProducto.Dispose();
-
-                    // Mostrar el formulario detalle
-                    frmDetalleProducto.ShowDialog();
-                }
+                MessageBox.Show("No hay datos por exportar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                // Manejar el caso en que el índice de fila es incorrecto
-                Console.WriteLine("El índice de fila es incorrecto.");
+                DataTable dt = new DataTable();
+
+                foreach (DataGridViewColumn columna in dgvdata.Columns)
+                {
+                    if (columna.HeaderText != "" && columna.Visible)
+                        dt.Columns.Add(columna.HeaderText, typeof(string));
+                }
+
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    if (row.Visible)
+                        dt.Rows.Add(new object[]
+                        {
+                            row.Cells[3].Value.ToString(),
+                            row.Cells[5].Value.ToString(),
+                            row.Cells[7].Value.ToString(),
+                            row.Cells[9].Value.ToString(),
+                            row.Cells[11].Value.ToString(),
+                            row.Cells[12].Value.ToString(),
+                            row.Cells[14].Value.ToString(),
+                            row.Cells[15].Value.ToString(),
+                            row.Cells[18].Value.ToString(),
+                            row.Cells[20].Value.ToString(),
+                            row.Cells[21].Value.ToString(),
+                            row.Cells[24].Value.ToString(),
+                        });
+                }
+
+                SaveFileDialog savefile = new SaveFileDialog();
+                savefile.FileName = string.Format("ReporteProducto_{0}.xlsx", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+                savefile.Filter = "Exel Files | *.xlsx";
+
+                if (savefile.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        XLWorkbook wb = new XLWorkbook();
+                        var hoja = wb.Worksheets.Add(dt, "Informe");
+                        hoja.ColumnsUsed().AdjustToContents();
+                        wb.SaveAs(savefile.FileName);
+                        MessageBox.Show("Reporte Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error al Generar el Reporte", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    }
+
+                }
+
             }
         }
+
+        
     }
 }

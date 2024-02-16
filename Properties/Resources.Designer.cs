@@ -116,6 +116,50 @@ namespace CapaPresentación.Properties {
         ///&lt;body&gt;
         ///    &lt;tab [resto de la cadena truncado]&quot;;.
         /// </summary>
+        internal static string PlantillaCompra {
+            get {
+                return ResourceManager.GetString("PlantillaCompra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] PlantillaProducto {
+            get {
+                object obj = ResourceManager.GetObject("PlantillaProducto", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Comprobante&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///        }
+        ///
+        ///            table.border th,
+        ///            table.border td {
+        ///                text-align: center;
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///        td.label {
+        ///            width: 20%;
+        ///            font-size: 12px;
+        ///            font-weight: bold;
+        ///        }
+        ///
+        ///        td.value {
+        ///            width: 20%;
+        ///   [resto de la cadena truncado]&quot;;.
+        /// </summary>
         internal static string PlantillaVenta {
             get {
                 return ResourceManager.GetString("PlantillaVenta", resourceCulture);
@@ -128,6 +172,16 @@ namespace CapaPresentación.Properties {
         internal static System.Drawing.Bitmap remove20 {
             get {
                 object obj = ResourceManager.GetObject("remove20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sin_img {
+            get {
+                object obj = ResourceManager.GetObject("sin_img", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -59,6 +59,28 @@ namespace CapaPresentación.MdConfiguracion
             }
         }
 
+        private void txtPrMaximoEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números y la coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo una coma
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(','))
+            {
+                e.Handled = true;
+            }
+        }
+
+        // convertir a monedas
+        private void txtPrMaximoEfectivo_Leave(object sender, EventArgs e)
+        {
+            CN_Formato_Monedas cnFormatoMonedas = new CN_Formato_Monedas();
+            cnFormatoMonedas.FormatoMoneda(txtPrMaximoEfectivo);
+        }
+
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
@@ -211,5 +233,7 @@ namespace CapaPresentación.MdConfiguracion
         {
             Limpiar();
         }
+
+       
     }
 }

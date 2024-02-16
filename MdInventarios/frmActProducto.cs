@@ -60,6 +60,13 @@ namespace CapaPresentación.MdInventarios
             }
         }
 
+        //formateo de numeros a monedas
+        private void txtpreciofinal_Leave(object sender, EventArgs e)
+        {
+            CN_Formato_Monedas cnFormatoMonedas = new CN_Formato_Monedas();
+            cnFormatoMonedas.FormatoMoneda(txtpreciofinal);
+        }
+
         //Buscar Productos
         private void BuscarDatosProductos(object sender, KeyEventArgs e)
         {
@@ -86,7 +93,7 @@ namespace CapaPresentación.MdInventarios
                         txtpreciofinal.Text = producto.PrecioFinal.ToString();
                         lbldescripciongeneral.Text = producto.DescripcionGeneral;
                         lblstockexistente.Text = producto.StockExistente.ToString();
-                        lblprecioactual.Text = producto.PrecioFinal.ToString();
+                        lblprecioactual.Text = producto.PrecioFinal.ToString("N2");
                         lblfechavencimiento.Text = producto.FechaVencimiento;
                         lblubicacionproducto.Text = producto.UbicacionProducto;
 
@@ -178,5 +185,7 @@ namespace CapaPresentación.MdInventarios
             txtstockexistente.Text = "0";
             txtcodigo.Select();
         }
+
+       
     }
 }
