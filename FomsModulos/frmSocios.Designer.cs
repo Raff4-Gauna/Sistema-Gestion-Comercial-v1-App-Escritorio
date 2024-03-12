@@ -29,6 +29,7 @@ namespace CapaPresentación.FomsModulos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSocios));
             this.menuClientes = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuGestionClientes = new FontAwesome.Sharp.IconMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
@@ -45,13 +46,14 @@ namespace CapaPresentación.FomsModulos
             this.menuClientes.AutoSize = false;
             this.menuClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.subMenuGestionClientes});
+            this.menuClientes.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.menuClientes.IconChar = FontAwesome.Sharp.IconChar.UsersRectangle;
             this.menuClientes.IconColor = System.Drawing.Color.Black;
             this.menuClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuClientes.IconSize = 35;
+            this.menuClientes.IconSize = 20;
             this.menuClientes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuClientes.Name = "menuClientes";
-            this.menuClientes.Size = new System.Drawing.Size(122, 50);
+            this.menuClientes.Size = new System.Drawing.Size(100, 40);
             this.menuClientes.Text = "Clientes";
             this.menuClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -61,7 +63,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuGestionClientes.IconColor = System.Drawing.Color.Black;
             this.subMenuGestionClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuGestionClientes.Name = "subMenuGestionClientes";
-            this.subMenuGestionClientes.Size = new System.Drawing.Size(175, 22);
+            this.subMenuGestionClientes.Size = new System.Drawing.Size(172, 22);
             this.subMenuGestionClientes.Text = "Gestión de Clientes";
             this.subMenuGestionClientes.Click += new System.EventHandler(this.subMenuGestionClientes_Click);
             // 
@@ -74,7 +76,7 @@ namespace CapaPresentación.FomsModulos
             this.menuProveedores});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1184, 57);
+            this.menu.Size = new System.Drawing.Size(1184, 45);
             this.menu.TabIndex = 17;
             this.menu.Text = "menuStrip1";
             // 
@@ -84,14 +86,14 @@ namespace CapaPresentación.FomsModulos
             this.menuProveedores.BackColor = System.Drawing.Color.AntiqueWhite;
             this.menuProveedores.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.subMenuGestionProveedores});
-            this.menuProveedores.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuProveedores.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.menuProveedores.IconChar = FontAwesome.Sharp.IconChar.TruckArrowRight;
             this.menuProveedores.IconColor = System.Drawing.Color.Black;
             this.menuProveedores.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.menuProveedores.IconSize = 35;
+            this.menuProveedores.IconSize = 20;
             this.menuProveedores.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuProveedores.Name = "menuProveedores";
-            this.menuProveedores.Size = new System.Drawing.Size(122, 50);
+            this.menuProveedores.Size = new System.Drawing.Size(100, 40);
             this.menuProveedores.Text = "Proveedores";
             this.menuProveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -101,7 +103,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuGestionProveedores.IconColor = System.Drawing.Color.Black;
             this.subMenuGestionProveedores.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuGestionProveedores.Name = "subMenuGestionProveedores";
-            this.subMenuGestionProveedores.Size = new System.Drawing.Size(198, 22);
+            this.subMenuGestionProveedores.Size = new System.Drawing.Size(196, 22);
             this.subMenuGestionProveedores.Text = "Gestión de Proveedores";
             this.subMenuGestionProveedores.Click += new System.EventHandler(this.subMenuGestionProveedores_Click);
             // 
@@ -128,6 +130,7 @@ namespace CapaPresentación.FomsModulos
             this.ClientSize = new System.Drawing.Size(1184, 711);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.statusStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "frmSocios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

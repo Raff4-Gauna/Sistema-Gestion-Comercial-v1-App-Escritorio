@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 
@@ -42,15 +43,20 @@ namespace CapaPresentación.MdVentas.Modal
 
             foreach (Productos item in lista)
             {
+                string stockConcatenado = $"{item.StockExistente:F2} {item.oTiposUnidades.NombreTipoUnidad}";
+
                 dgvdata.Rows.Add(new object[] {
                     item.IdProducto,
                     item.CodigoBarras,
                     item.DescripcionGeneral,
                     item.oCategorias.NombreCategoria,
-                    item.StockExistente,
+                    item.oTiposUnidades.IdTipoUnidad,
+                    item.oTiposUnidades.NombreTipoUnidad,
+                    stockConcatenado,
                     item.PrecioCompra,
                     item.oTasaImpuestos.Porcentaje,
-                    item.PrecioFinal
+                    item.PrecioFinal,
+                    item.Imagen
                 });
             }
         }
@@ -58,16 +64,20 @@ namespace CapaPresentación.MdVentas.Modal
         private void SeleccionarFilaDataGrid(int rowIndex)
         {
             // Tu lógica para seleccionar la fila según el índice de fila proporcionado
+            string stockConcatenado = dgvdata.Rows[rowIndex].Cells["stockConcatenado"].Value.ToString();
+            string[] partesStock = stockConcatenado.Split(' '); 
+            decimal stockExistente = Convert.ToDecimal(partesStock[0]);
+
             _Producto = new Productos()
             {
                 IdProducto = Convert.ToInt32(dgvdata.Rows[rowIndex].Cells["Id"].Value.ToString()),
                 CodigoBarras = dgvdata.Rows[rowIndex].Cells["CodigoBarras"].Value.ToString(),
                 DescripcionGeneral = dgvdata.Rows[rowIndex].Cells["DescripcionGeneral"].Value.ToString(),
-                StockExistente = Convert.ToDecimal(dgvdata.Rows[rowIndex].Cells["StockExistente"].Value.ToString()),
+                StockExistente = stockExistente,
                 PrecioCompra = Convert.ToDecimal(dgvdata.Rows[rowIndex].Cells["PrecioCompra"].Value.ToString()),
                 PrecioFinal = Convert.ToDecimal(dgvdata.Rows[rowIndex].Cells["PrecioFinal"].Value.ToString()),
             };
-
+            
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -128,6 +138,50 @@ namespace CapaPresentación.MdVentas.Modal
         {
             txtbusqueda.Text = "";
             MostrarTodasLasFilas();
+        }
+
+        // Variable para almacenar la fila seleccionada
+        private int selectedRowIndex = -1;
+        private void dgvdata_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Restaura el color de la fila anteriormente seleccionada, si hay alguna
+                if (selectedRowIndex >= 0)
+                {
+                    dgvdata.Rows[selectedRowIndex].DefaultCellStyle.BackColor = dgvdata.DefaultCellStyle.BackColor;
+                }
+
+                // Almacena el índice de la fila seleccionada
+                selectedRowIndex = e.RowIndex;
+
+                // Cambia el color de la fila seleccionada
+                dgvdata.Rows[selectedRowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.LightCyan;
+
+                // Llena los datos en los lbl utilizando el índice de la fila seleccionada
+                LlenarDatosEnLabels(selectedRowIndex);
+            }
+        }
+
+        private void LlenarDatosEnLabels(int rowIndex)
+        {
+            if (rowIndex >= 0 && rowIndex < dgvdata.Rows.Count)
+            {
+                // Mostrar la imagen
+                byte[] imagenBytes = dgvdata.Rows[rowIndex].Cells["Imagen"].Value as byte[];
+                if (imagenBytes != null)
+                {
+                    using (MemoryStream ms = new MemoryStream(imagenBytes))
+                    {
+                        picImgProducto.Image = Image.FromStream(ms);
+                    }
+                }
+                else
+                {
+                    // Si no hay datos de imagen, puedes asignar una imagen por defecto o limpiar el PictureBox
+                    picImgProducto.Image = null; // O asignar una imagen por defecto si es necesario
+                }
+            }
         }
     }
 }

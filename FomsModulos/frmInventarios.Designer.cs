@@ -29,27 +29,25 @@ namespace CapaPresentación.FomsModulos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventarios));
             this.menu = new System.Windows.Forms.MenuStrip();
             this.menuParametros = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuMargenesGanancias = new FontAwesome.Sharp.IconMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.subMenuUnidadesMedidas = new FontAwesome.Sharp.IconMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.subMenuCategorias = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuSubCategorias1 = new FontAwesome.Sharp.IconMenuItem();
             this.menuCatalogoProductos = new FontAwesome.Sharp.IconMenuItem();
-            this.subMenuABMProductos = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuGestionProductos = new FontAwesome.Sharp.IconMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.subMenuABMProductos = new FontAwesome.Sharp.IconMenuItem();
             this.menuGestionUsuarios = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuPrecioIndividual = new FontAwesome.Sharp.IconMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.subMenuPrecioMasivo = new FontAwesome.Sharp.IconMenuItem();
-            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
-            this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
-            this.iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -61,11 +59,10 @@ namespace CapaPresentación.FomsModulos
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuParametros,
             this.menuCatalogoProductos,
-            this.menuGestionUsuarios,
-            this.iconMenuItem1});
+            this.menuGestionUsuarios});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1184, 54);
+            this.menu.Size = new System.Drawing.Size(1184, 45);
             this.menu.TabIndex = 6;
             this.menu.Text = "menu";
             // 
@@ -79,13 +76,15 @@ namespace CapaPresentación.FomsModulos
             this.toolStripSeparator1,
             this.subMenuCategorias,
             this.subMenuSubCategorias1});
+            this.menuParametros.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuParametros.IconChar = FontAwesome.Sharp.IconChar.Gears;
             this.menuParametros.IconColor = System.Drawing.Color.Black;
             this.menuParametros.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuParametros.IconSize = 35;
+            this.menuParametros.IconSize = 20;
             this.menuParametros.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuParametros.Name = "menuParametros";
-            this.menuParametros.Size = new System.Drawing.Size(122, 50);
+            this.menuParametros.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.menuParametros.Size = new System.Drawing.Size(100, 40);
             this.menuParametros.Text = "Parámetros";
             this.menuParametros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -100,6 +99,11 @@ namespace CapaPresentación.FomsModulos
             this.subMenuMargenesGanancias.Text = "Margenes de Ganancias";
             this.subMenuMargenesGanancias.Click += new System.EventHandler(this.subMenuMargenesGanancias_Click_1);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
+            // 
             // subMenuUnidadesMedidas
             // 
             this.subMenuUnidadesMedidas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,6 +114,11 @@ namespace CapaPresentación.FomsModulos
             this.subMenuUnidadesMedidas.Size = new System.Drawing.Size(216, 22);
             this.subMenuUnidadesMedidas.Text = "Unidades de Medidas";
             this.subMenuUnidadesMedidas.Click += new System.EventHandler(this.subMenuUnidadesMedidas_Click_1);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
             // 
             // subMenuCategorias
             // 
@@ -140,26 +149,17 @@ namespace CapaPresentación.FomsModulos
             this.subMenuGestionProductos,
             this.toolStripSeparator3,
             this.subMenuABMProductos});
+            this.menuCatalogoProductos.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.menuCatalogoProductos.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
             this.menuCatalogoProductos.IconColor = System.Drawing.Color.Black;
             this.menuCatalogoProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuCatalogoProductos.IconSize = 35;
+            this.menuCatalogoProductos.IconSize = 20;
             this.menuCatalogoProductos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuCatalogoProductos.Name = "menuCatalogoProductos";
-            this.menuCatalogoProductos.Size = new System.Drawing.Size(122, 50);
+            this.menuCatalogoProductos.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.menuCatalogoProductos.Size = new System.Drawing.Size(100, 40);
             this.menuCatalogoProductos.Text = "Catálogo";
             this.menuCatalogoProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // subMenuABMProductos
-            // 
-            this.subMenuABMProductos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subMenuABMProductos.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.subMenuABMProductos.IconColor = System.Drawing.Color.Black;
-            this.subMenuABMProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.subMenuABMProductos.Name = "subMenuABMProductos";
-            this.subMenuABMProductos.Size = new System.Drawing.Size(182, 22);
-            this.subMenuABMProductos.Text = "ABM Productos";
-            this.subMenuABMProductos.Click += new System.EventHandler(this.subMenuABMProductos_Click);
             // 
             // subMenuGestionProductos
             // 
@@ -172,6 +172,22 @@ namespace CapaPresentación.FomsModulos
             this.subMenuGestionProductos.Text = "Gestión Productos";
             this.subMenuGestionProductos.Click += new System.EventHandler(this.subMenuGestionProductos_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(179, 6);
+            // 
+            // subMenuABMProductos
+            // 
+            this.subMenuABMProductos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subMenuABMProductos.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.subMenuABMProductos.IconColor = System.Drawing.Color.Black;
+            this.subMenuABMProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.subMenuABMProductos.Name = "subMenuABMProductos";
+            this.subMenuABMProductos.Size = new System.Drawing.Size(182, 22);
+            this.subMenuABMProductos.Text = "ABM Productos";
+            this.subMenuABMProductos.Click += new System.EventHandler(this.subMenuABMProductos_Click);
+            // 
             // menuGestionUsuarios
             // 
             this.menuGestionUsuarios.AutoSize = false;
@@ -179,13 +195,15 @@ namespace CapaPresentación.FomsModulos
             this.subMenuPrecioIndividual,
             this.toolStripSeparator4,
             this.subMenuPrecioMasivo});
+            this.menuGestionUsuarios.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.menuGestionUsuarios.IconChar = FontAwesome.Sharp.IconChar.CartFlatbedSuitcase;
             this.menuGestionUsuarios.IconColor = System.Drawing.Color.Black;
             this.menuGestionUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuGestionUsuarios.IconSize = 35;
+            this.menuGestionUsuarios.IconSize = 20;
             this.menuGestionUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuGestionUsuarios.Name = "menuGestionUsuarios";
-            this.menuGestionUsuarios.Size = new System.Drawing.Size(122, 50);
+            this.menuGestionUsuarios.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.menuGestionUsuarios.Size = new System.Drawing.Size(100, 40);
             this.menuGestionUsuarios.Text = "Comercio";
             this.menuGestionUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -200,6 +218,11 @@ namespace CapaPresentación.FomsModulos
             this.subMenuPrecioIndividual.Text = "Act  Stock / PVP Individual";
             this.subMenuPrecioIndividual.Click += new System.EventHandler(this.subMenuPrecioIndividual_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(223, 6);
+            // 
             // subMenuPrecioMasivo
             // 
             this.subMenuPrecioMasivo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -210,42 +233,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuPrecioMasivo.Size = new System.Drawing.Size(226, 22);
             this.subMenuPrecioMasivo.Text = "Act PVP Masivamente";
             this.subMenuPrecioMasivo.Click += new System.EventHandler(this.subMenuPrecioMasivo_Click);
-            // 
-            // iconMenuItem1
-            // 
-            this.iconMenuItem1.AutoSize = false;
-            this.iconMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iconMenuItem2,
-            this.iconMenuItem3});
-            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
-            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
-            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem1.IconSize = 35;
-            this.iconMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.iconMenuItem1.Name = "iconMenuItem1";
-            this.iconMenuItem1.Size = new System.Drawing.Size(122, 50);
-            this.iconMenuItem1.Text = "Auditoria";
-            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // iconMenuItem2
-            // 
-            this.iconMenuItem2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconMenuItem2.IconColor = System.Drawing.Color.Black;
-            this.iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem2.Name = "iconMenuItem2";
-            this.iconMenuItem2.Size = new System.Drawing.Size(231, 22);
-            this.iconMenuItem2.Text = "Cambiar PVP Individual";
-            // 
-            // iconMenuItem3
-            // 
-            this.iconMenuItem3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconMenuItem3.IconColor = System.Drawing.Color.Black;
-            this.iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem3.Name = "iconMenuItem3";
-            this.iconMenuItem3.Size = new System.Drawing.Size(231, 22);
-            this.iconMenuItem3.Text = "Cambiar PVP Masivamente";
             // 
             // statusStrip
             // 
@@ -263,26 +250,6 @@ namespace CapaPresentación.FomsModulos
             this.tssHora.Size = new System.Drawing.Size(36, 17);
             this.tssHora.Text = "Hora:";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(179, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(223, 6);
-            // 
             // frmInventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,6 +257,7 @@ namespace CapaPresentación.FomsModulos
             this.ClientSize = new System.Drawing.Size(1184, 711);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "frmInventarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -320,9 +288,6 @@ namespace CapaPresentación.FomsModulos
         private FontAwesome.Sharp.IconMenuItem subMenuCategorias;
         private FontAwesome.Sharp.IconMenuItem subMenuSubCategorias1;
         private FontAwesome.Sharp.IconMenuItem subMenuABMProductos;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;

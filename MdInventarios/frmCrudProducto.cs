@@ -171,7 +171,6 @@ namespace CapaPresentación.MdInventarios
                     item.UbicacionProducto,
                     item.StockExistente,
                     item.StockMinimo,
-                    item.FechaVencimiento,
                     item.Estado == true ? 1 : 0,
                     item.Estado == true ? "Activo" : "No Activo",
                 });
@@ -181,6 +180,7 @@ namespace CapaPresentación.MdInventarios
             SumarProductosNoActivas();
 
             radioButtonRedondeo.Select();
+            rbCodigo.Select();
         }
 
         private void CargarImagenPorDefecto()
@@ -190,6 +190,23 @@ namespace CapaPresentación.MdInventarios
 
             // Asignar la imagen al control picImgProducto
             picImgProducto.Image = imagenPorDefecto;
+        }
+
+        //Radio button de seleccion
+        private void rbCodigoBarra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCodigoBarra.Checked)
+            {
+                txtcodigobarra.Select();
+            }
+        }
+
+        private void rbCodigo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCodigo.Checked)
+            {
+                txtcodigo.Select();
+            }
         }
 
         private void cbocategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -417,45 +434,18 @@ namespace CapaPresentación.MdInventarios
             cnFormatoMonedas.FormatoMoneda(txtpreciofinal);
         }
 
-        //Fecha de vencimiento
-        private void txtfechavencimiento_TextChanged(object sender, EventArgs e)
+       //Eleccion en el cbo de unidades y mostrar en los lbl
+        private void cbotipounidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Obtener el texto ingresado en el TextBox
-            string textoIngresado = txtfechavencimiento.Text;
+            // Obtén la selección actual del ComboBox
+            OpcionCombo seleccion = (OpcionCombo)cbotipounidad.SelectedItem;
 
-            // Verificar la longitud del texto
-            if (textoIngresado.Length == 2 || textoIngresado.Length == 5)
-            {
-                // Si se han ingresado dos o cinco caracteres, agregar automáticamente el separador
-                txtfechavencimiento.Text += "-";
-
-                // Posicionar el cursor al final del texto para facilitar la edición
-                txtfechavencimiento.SelectionStart = txtfechavencimiento.Text.Length;
-            }
-            else if (textoIngresado.Length == 10)
-            {
-                // Si se han ingresado diez caracteres, es posible formatear la fecha completa
-                // Puedes agregar validaciones adicionales si es necesario
-                string fechaFormateada = FormatearFecha(textoIngresado);
-
-                // Mostrar la fecha formateada en el TextBox
-                txtfechavencimiento.Text = fechaFormateada;
-
-                // Posicionar el cursor al final del texto para facilitar la edición
-                txtfechavencimiento.SelectionStart = txtfechavencimiento.Text.Length;
-            }
+            // Asigna la selección a las etiquetas correspondientes
+            lblEleccion1CboUniMed.Text = seleccion.Texto;
+            lblEleccion2CboUniMed.Text = seleccion.Texto;
         }
-        // Método para formatear la fecha (puedes ajustarlo según tus necesidades)
-        private string FormatearFecha(string fecha)
-        {
-            // Obtener día, mes y año a partir del texto ingresado
-            string dia = fecha.Substring(0, 2);
-            string mes = fecha.Substring(3, 2);
-            string año = fecha.Substring(6, 4);
 
-            // Formatear la fecha como "Dia-mes-año"
-            return $"{dia}-{mes}-{año}";
-        }
+        
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
@@ -492,7 +482,6 @@ namespace CapaPresentación.MdInventarios
                 UbicacionProducto = txtubicacion.Text,
                 StockExistente = Convert.ToDecimal(txtstockexistente.Text),
                 StockMinimo = Convert.ToDecimal(txtstockminimo.Text),
-                FechaVencimiento = txtfechavencimiento.Text,
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
             };
 
@@ -528,7 +517,7 @@ namespace CapaPresentación.MdInventarios
                     txtubicacion.Text,
                     txtstockexistente.Text,
                     txtstockminimo.Text,
-                    txtfechavencimiento.Text,
+
 
                     ((OpcionCombo)cboestado.SelectedItem).Valor.ToString(),
                     ((OpcionCombo)cboestado.SelectedItem).Texto.ToString()
@@ -570,7 +559,7 @@ namespace CapaPresentación.MdInventarios
                         row.Cells["UbicacionProducto"].Value = txtubicacion.Text;
                         row.Cells["StockExistente"].Value = Convert.ToDecimal(txtstockexistente.Text);
                         row.Cells["StockMinimo"].Value = Convert.ToDecimal(txtstockminimo.Text);
-                        row.Cells["FechaVencimiento"].Value = txtfechavencimiento.Text;
+
                         row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
                         row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
 
@@ -600,8 +589,9 @@ namespace CapaPresentación.MdInventarios
             txtpreciofinal.Text = "";
             txtubicacion.Text = "";
             txtstockexistente.Text = "";
-            txtstockminimo.Text = "";
-            txtfechavencimiento.Text = "";
+            txtstockminimo.Text = "1";
+            txtbusqueda.Text = "";
+
             cbocategoria.SelectedIndex = 0;
             cboestado.SelectedIndex = 0;
             cbosubcategoria.SelectedIndex = 0;
@@ -735,7 +725,7 @@ namespace CapaPresentación.MdInventarios
                     txtubicacion.Text = dgvdata.Rows[indice].Cells["UbicacionProducto"].Value.ToString();
                     txtstockexistente.Text = dgvdata.Rows[indice].Cells["StockExistente"].Value.ToString();
                     txtstockminimo.Text = dgvdata.Rows[indice].Cells["StockMinimo"].Value.ToString();
-                    txtfechavencimiento.Text = dgvdata.Rows[indice].Cells["FechaVencimiento"].Value.ToString();
+
 
                     foreach (OpcionCombo oc in cboestado.Items)
                     {
@@ -780,25 +770,6 @@ namespace CapaPresentación.MdInventarios
                 }
             }
         }
-
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
-            string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
-
-            if (dgvdata.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dgvdata.Rows)
-                {
-                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
-                        row.Visible = true;
-                    else
-                        row.Visible = false;
-                }
-
-            }
-        }
-
-        
 
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
@@ -916,6 +887,7 @@ namespace CapaPresentación.MdInventarios
         private void btnlimpiarbuscador_Click(object sender, EventArgs e)
         {
             MostrarTodasLasFilas();
+            txtbusqueda.Text = "";
         }
         //Limpiar el txt y restablece el datagrid
         private void MostrarTodasLasFilas()
@@ -943,5 +915,7 @@ namespace CapaPresentación.MdInventarios
                 }
             }
         }
+
+        
     }
 }

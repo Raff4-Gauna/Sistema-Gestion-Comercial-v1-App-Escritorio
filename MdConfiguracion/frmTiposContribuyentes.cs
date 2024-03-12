@@ -233,7 +233,5 @@ namespace CapaPresentación.MdConfiguracion
         {
             Limpiar();
         }
-
-       
     }
 }

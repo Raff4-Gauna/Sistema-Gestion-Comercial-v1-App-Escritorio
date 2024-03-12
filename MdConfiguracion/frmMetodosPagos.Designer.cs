@@ -68,7 +68,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btnguardar.IconColor = System.Drawing.Color.Black;
             this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 16;
-            this.btnguardar.Location = new System.Drawing.Point(182, 469);
+            this.btnguardar.Location = new System.Drawing.Point(183, 369);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(165, 30);
             this.btnguardar.TabIndex = 143;
@@ -95,7 +95,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             // txtindice
             // 
-            this.txtindice.Location = new System.Drawing.Point(695, 471);
+            this.txtindice.Location = new System.Drawing.Point(696, 371);
             this.txtindice.Name = "txtindice";
             this.txtindice.Size = new System.Drawing.Size(26, 20);
             this.txtindice.TabIndex = 149;
@@ -104,7 +104,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(727, 471);
+            this.txtid.Location = new System.Drawing.Point(728, 371);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(26, 20);
             this.txtid.TabIndex = 148;
@@ -121,7 +121,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btneliminar.IconColor = System.Drawing.Color.Black;
             this.btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btneliminar.IconSize = 16;
-            this.btneliminar.Location = new System.Drawing.Point(524, 469);
+            this.btneliminar.Location = new System.Drawing.Point(525, 369);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(165, 30);
             this.btneliminar.TabIndex = 145;
@@ -141,7 +141,6 @@ namespace CapaPresentación.MdConfiguracion
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.BackgroundColor = System.Drawing.Color.Silver;
-            this.dgvdata.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvdata.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -185,7 +184,7 @@ namespace CapaPresentación.MdConfiguracion
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(770, 341);
+            this.dgvdata.Size = new System.Drawing.Size(770, 250);
             this.dgvdata.TabIndex = 146;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
@@ -242,7 +241,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btnlimpiar.IconColor = System.Drawing.Color.Black;
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiar.IconSize = 18;
-            this.btnlimpiar.Location = new System.Drawing.Point(353, 469);
+            this.btnlimpiar.Location = new System.Drawing.Point(354, 369);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(165, 30);
             this.btnlimpiar.TabIndex = 144;
@@ -340,7 +339,7 @@ namespace CapaPresentación.MdConfiguracion
             this.AcceptButton = this.btnguardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 511);
+            this.ClientSize = new System.Drawing.Size(904, 411);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtindice);

@@ -39,28 +39,33 @@ namespace CapaPresentación.MdVentas.Modal
             this.CodigoBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescripcionGeneral = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescripcionCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockExistente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTipoUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockConcatenado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumeroPorcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtbusqueda = new System.Windows.Forms.TextBox();
             this.cbobusqueda = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
+            this.picImgProducto = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImgProducto)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvdata.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.BackgroundColor = System.Drawing.Color.White;
-            this.dgvdata.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -73,13 +78,16 @@ namespace CapaPresentación.MdVentas.Modal
             this.CodigoBarras,
             this.DescripcionGeneral,
             this.DescripcionCategoria,
-            this.StockExistente,
+            this.IdTipoUnidad,
+            this.TipoUnidad,
+            this.stockConcatenado,
             this.PrecioCompra,
             this.NumeroPorcentaje,
-            this.PrecioFinal});
+            this.PrecioFinal,
+            this.Imagen});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -91,13 +99,13 @@ namespace CapaPresentación.MdVentas.Modal
             this.dgvdata.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
@@ -105,8 +113,9 @@ namespace CapaPresentación.MdVentas.Modal
             this.dgvdata.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowTemplate.Height = 28;
             this.dgvdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvdata.Size = new System.Drawing.Size(875, 393);
+            this.dgvdata.Size = new System.Drawing.Size(777, 364);
             this.dgvdata.TabIndex = 82;
+            this.dgvdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellClick);
             this.dgvdata.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellDoubleClick);
             this.dgvdata.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvdata_KeyDown);
             // 
@@ -122,7 +131,6 @@ namespace CapaPresentación.MdVentas.Modal
             this.CodigoBarras.HeaderText = "Codigo";
             this.CodigoBarras.Name = "CodigoBarras";
             this.CodigoBarras.ReadOnly = true;
-            this.CodigoBarras.Width = 150;
             // 
             // DescripcionGeneral
             // 
@@ -139,19 +147,32 @@ namespace CapaPresentación.MdVentas.Modal
             this.DescripcionCategoria.Visible = false;
             this.DescripcionCategoria.Width = 180;
             // 
-            // StockExistente
+            // IdTipoUnidad
             // 
-            this.StockExistente.HeaderText = "Stock";
-            this.StockExistente.Name = "StockExistente";
-            this.StockExistente.ReadOnly = true;
-            this.StockExistente.Width = 60;
+            this.IdTipoUnidad.HeaderText = "IdTipoUnidad";
+            this.IdTipoUnidad.Name = "IdTipoUnidad";
+            this.IdTipoUnidad.ReadOnly = true;
+            this.IdTipoUnidad.Visible = false;
+            // 
+            // TipoUnidad
+            // 
+            this.TipoUnidad.HeaderText = "TipoUnidad";
+            this.TipoUnidad.Name = "TipoUnidad";
+            this.TipoUnidad.ReadOnly = true;
+            this.TipoUnidad.Visible = false;
+            // 
+            // stockConcatenado
+            // 
+            this.stockConcatenado.HeaderText = "Stock";
+            this.stockConcatenado.Name = "stockConcatenado";
+            this.stockConcatenado.ReadOnly = true;
+            this.stockConcatenado.Width = 80;
             // 
             // PrecioCompra
             // 
-            this.PrecioCompra.HeaderText = "Precio Compra";
+            this.PrecioCompra.HeaderText = "Pre.Compra";
             this.PrecioCompra.Name = "PrecioCompra";
             this.PrecioCompra.ReadOnly = true;
-            this.PrecioCompra.Width = 140;
             // 
             // NumeroPorcentaje
             // 
@@ -162,10 +183,16 @@ namespace CapaPresentación.MdVentas.Modal
             // 
             // PrecioFinal
             // 
-            this.PrecioFinal.HeaderText = "Precio Final";
+            this.PrecioFinal.HeaderText = "PVP";
             this.PrecioFinal.Name = "PrecioFinal";
             this.PrecioFinal.ReadOnly = true;
-            this.PrecioFinal.Width = 140;
+            // 
+            // Imagen
+            // 
+            this.Imagen.HeaderText = "Imagen";
+            this.Imagen.Name = "Imagen";
+            this.Imagen.ReadOnly = true;
+            this.Imagen.Visible = false;
             // 
             // txtbusqueda
             // 
@@ -182,9 +209,9 @@ namespace CapaPresentación.MdVentas.Modal
             this.cbobusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbobusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbobusqueda.FormattingEnabled = true;
-            this.cbobusqueda.Location = new System.Drawing.Point(100, 13);
+            this.cbobusqueda.Location = new System.Drawing.Point(67, 13);
             this.cbobusqueda.Name = "cbobusqueda";
-            this.cbobusqueda.Size = new System.Drawing.Size(116, 28);
+            this.cbobusqueda.Size = new System.Drawing.Size(149, 28);
             this.cbobusqueda.TabIndex = 79;
             // 
             // label11
@@ -192,11 +219,11 @@ namespace CapaPresentación.MdVentas.Modal
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.DarkGray;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(9, 19);
+            this.label11.Location = new System.Drawing.Point(2, 19);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 18);
+            this.label11.Size = new System.Drawing.Size(59, 18);
             this.label11.TabIndex = 78;
-            this.label11.Text = "Buscar por:";
+            this.label11.Text = "Buscar:";
             // 
             // label10
             // 
@@ -206,7 +233,7 @@ namespace CapaPresentación.MdVentas.Modal
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(3, 6, 0, 0);
-            this.label10.Size = new System.Drawing.Size(875, 52);
+            this.label10.Size = new System.Drawing.Size(930, 52);
             this.label10.TabIndex = 77;
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -230,11 +257,34 @@ namespace CapaPresentación.MdVentas.Modal
             this.btnlimpiarbuscador.UseVisualStyleBackColor = false;
             this.btnlimpiarbuscador.Click += new System.EventHandler(this.btnlimpiarbuscador_Click);
             // 
+            // picImgProducto
+            // 
+            this.picImgProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picImgProducto.Location = new System.Drawing.Point(779, 83);
+            this.picImgProducto.Name = "picImgProducto";
+            this.picImgProducto.Size = new System.Drawing.Size(118, 122);
+            this.picImgProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImgProducto.TabIndex = 224;
+            this.picImgProducto.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(810, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 15);
+            this.label1.TabIndex = 225;
+            this.label1.Text = "Imagen";
+            // 
             // frmListarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 472);
+            this.ClientSize = new System.Drawing.Size(901, 425);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.picImgProducto);
             this.Controls.Add(this.dgvdata);
             this.Controls.Add(this.btnlimpiarbuscador);
             this.Controls.Add(this.txtbusqueda);
@@ -247,9 +297,9 @@ namespace CapaPresentación.MdVentas.Modal
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Productos";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmListarProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImgProducto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,13 +313,18 @@ namespace CapaPresentación.MdVentas.Modal
         private System.Windows.Forms.ComboBox cbobusqueda;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox picImgProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoBarras;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionGeneral;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StockExistente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdTipoUnidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoUnidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockConcatenado;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumeroPorcentaje;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioFinal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Imagen;
+        private System.Windows.Forms.Label label1;
     }
 }
