@@ -29,6 +29,7 @@ namespace CapaPresentación
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.btncancelar = new FontAwesome.Sharp.IconButton();
             this.btningresar = new FontAwesome.Sharp.IconButton();
@@ -217,6 +218,7 @@ namespace CapaPresentación
             this.Controls.Add(this.txtclave);
             this.Controls.Add(this.txtdocumento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

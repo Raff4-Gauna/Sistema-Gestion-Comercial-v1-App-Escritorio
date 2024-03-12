@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using CapaEntidad;
 using System.Windows.Forms;
 using CapaPresentación.MdVentas;
+using CapaPresentación.MdVentas.Modal;
 
 
 namespace CapaPresentación.FomsModulos
@@ -39,8 +40,13 @@ namespace CapaPresentación.FomsModulos
         }
         private void subMenuPuntoVenta_Click(object sender, EventArgs e)
         {
-            frmPuntoVenta puntoVentaForm = new frmPuntoVenta(usuarioActual);
+            //frmPuntoVenta puntoVentaForm = new frmPuntoVenta(usuarioActual);
+            //puntoVentaForm.Show();
+
+            frmPuntoVenta puntoVentaForm = frmPuntoVenta.ventana_unica(usuarioActual);
+            puntoVentaForm.MdiParent = this;
             puntoVentaForm.Show();
+            puntoVentaForm.BringToFront();
         }
 
         private void subMenuListaVenta_Click(object sender, EventArgs e)
@@ -50,5 +56,14 @@ namespace CapaPresentación.FomsModulos
             frmListaVenta.Show();
             frmListaVenta.BringToFront();
         }
+
+        private void subAperturaCaja_Click(object sender, EventArgs e)
+        {
+            frmAperturaCaja frmEstadoCaja = frmAperturaCaja.ventana_unica(usuarioActual);
+            frmEstadoCaja.MdiParent = this;
+            frmEstadoCaja.Show();
+            frmEstadoCaja.BringToFront();
+        }
+
     }
 }

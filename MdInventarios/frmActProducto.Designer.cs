@@ -89,11 +89,11 @@ namespace CapaPresentación.MdInventarios
             // 
             this.lbldescripciongeneral.AutoSize = true;
             this.lbldescripciongeneral.BackColor = System.Drawing.SystemColors.Desktop;
-            this.lbldescripciongeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbldescripciongeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldescripciongeneral.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lbldescripciongeneral.Location = new System.Drawing.Point(8, 16);
+            this.lbldescripciongeneral.Location = new System.Drawing.Point(4, 18);
             this.lbldescripciongeneral.Name = "lbldescripciongeneral";
-            this.lbldescripciongeneral.Size = new System.Drawing.Size(16, 24);
+            this.lbldescripciongeneral.Size = new System.Drawing.Size(11, 13);
             this.lbldescripciongeneral.TabIndex = 114;
             this.lbldescripciongeneral.Text = ".";
             // 
@@ -190,7 +190,7 @@ namespace CapaPresentación.MdInventarios
             this.lblprecioactual.BackColor = System.Drawing.SystemColors.Desktop;
             this.lblprecioactual.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.lblprecioactual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblprecioactual.Location = new System.Drawing.Point(8, 16);
+            this.lblprecioactual.Location = new System.Drawing.Point(3, 16);
             this.lblprecioactual.Name = "lblprecioactual";
             this.lblprecioactual.Size = new System.Drawing.Size(16, 24);
             this.lblprecioactual.TabIndex = 179;
@@ -257,7 +257,7 @@ namespace CapaPresentación.MdInventarios
             this.groupBox2.Controls.Add(this.lblfechacaducidad);
             this.groupBox2.Location = new System.Drawing.Point(12, 60);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(383, 202);
+            this.groupBox2.Size = new System.Drawing.Size(426, 191);
             this.groupBox2.TabIndex = 187;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalle del Producto";
@@ -267,7 +267,7 @@ namespace CapaPresentación.MdInventarios
             this.groupBox4.Controls.Add(this.lblprecioactual);
             this.groupBox4.Location = new System.Drawing.Point(6, 126);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(340, 45);
+            this.groupBox4.Size = new System.Drawing.Size(239, 45);
             this.groupBox4.TabIndex = 193;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "PVP Actual";
@@ -277,7 +277,7 @@ namespace CapaPresentación.MdInventarios
             this.groupBox3.Controls.Add(this.lblstockexistente);
             this.groupBox3.Location = new System.Drawing.Point(6, 73);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(340, 45);
+            this.groupBox3.Size = new System.Drawing.Size(239, 45);
             this.groupBox3.TabIndex = 192;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Stock Existente";
@@ -288,7 +288,7 @@ namespace CapaPresentación.MdInventarios
             this.lblstockexistente.BackColor = System.Drawing.SystemColors.Desktop;
             this.lblstockexistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.lblstockexistente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblstockexistente.Location = new System.Drawing.Point(8, 16);
+            this.lblstockexistente.Location = new System.Drawing.Point(3, 16);
             this.lblstockexistente.Name = "lblstockexistente";
             this.lblstockexistente.Size = new System.Drawing.Size(16, 24);
             this.lblstockexistente.TabIndex = 190;
@@ -299,7 +299,7 @@ namespace CapaPresentación.MdInventarios
             this.groupBox1.Controls.Add(this.lbldescripciongeneral);
             this.groupBox1.Location = new System.Drawing.Point(6, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(340, 45);
+            this.groupBox1.Size = new System.Drawing.Size(414, 45);
             this.groupBox1.TabIndex = 191;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Producto";
@@ -339,9 +339,9 @@ namespace CapaPresentación.MdInventarios
             // 
             this.groupBox6.Controls.Add(this.txtstockexistente);
             this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox6.Location = new System.Drawing.Point(412, 79);
+            this.groupBox6.Location = new System.Drawing.Point(444, 79);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(199, 69);
+            this.groupBox6.Size = new System.Drawing.Size(190, 69);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Actualizar Stock";
@@ -351,18 +351,18 @@ namespace CapaPresentación.MdInventarios
             this.textBox1.BackColor = System.Drawing.Color.LightYellow;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(401, 60);
+            this.textBox1.Location = new System.Drawing.Point(436, 60);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 202);
+            this.textBox1.Size = new System.Drawing.Size(201, 202);
             this.textBox1.TabIndex = 191;
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.txtpreciofinal);
-            this.groupBox5.Location = new System.Drawing.Point(411, 174);
+            this.groupBox5.Location = new System.Drawing.Point(443, 174);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 69);
+            this.groupBox5.Size = new System.Drawing.Size(191, 69);
             this.groupBox5.TabIndex = 192;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Actualizar Precio Venta";

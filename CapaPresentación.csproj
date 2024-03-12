@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +46,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
@@ -58,19 +76,19 @@
       <HintPath>packages\itextsharp.xmlworker.5.5.13.3\lib\itextsharp.xmlworker.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
@@ -161,6 +179,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FomsModulos\frmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FomsModulos\frmCompras.Designer.cs">
+      <DependentUpon>frmCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="FomsModulos\frmConfiguracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +196,18 @@
     </Compile>
     <Compile Include="FomsModulos\frmInventarios.Designer.cs">
       <DependentUpon>frmInventarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FomsModulos\frmLicencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FomsModulos\frmLicencia.Designer.cs">
+      <DependentUpon>frmLicencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FomsModulos\frmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FomsModulos\frmReportes.Designer.cs">
+      <DependentUpon>frmReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="FomsModulos\frmSocios.cs">
       <SubType>Form</SubType>
@@ -275,12 +311,6 @@
     <Compile Include="MdInventarios\frmCrudProducto.Designer.cs">
       <DependentUpon>frmCrudProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="MdInventarios\frmDetalleProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MdInventarios\frmDetalleProducto.Designer.cs">
-      <DependentUpon>frmDetalleProducto.cs</DependentUpon>
-    </Compile>
     <Compile Include="MdInventarios\frmGestionProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +328,12 @@
     </Compile>
     <Compile Include="MdInventarios\frmTipoUnidades.Designer.cs">
       <DependentUpon>frmTipoUnidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdLicencia\frmAjustesLicencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdLicencia\frmAjustesLicencia.Designer.cs">
+      <DependentUpon>frmAjustesLicencia.cs</DependentUpon>
     </Compile>
     <Compile Include="MdSocios\frmClientes.cs">
       <SubType>Form</SubType>
@@ -335,6 +371,12 @@
     <Compile Include="MdVentas\Modal\frmEnvioVentaCorreo.Designer.cs">
       <DependentUpon>frmEnvioVentaCorreo.cs</DependentUpon>
     </Compile>
+    <Compile Include="MdVentas\Modal\frmAperturaCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdVentas\Modal\frmAperturaCaja.Designer.cs">
+      <DependentUpon>frmAperturaCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="MdVentas\Modal\frmListarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,13 +412,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Usos\IDeshabilitarModulos.cs" />
     <Compile Include="Usos\OpcionCombo.cs" />
     <Compile Include="Utilidades\OpcionCombo.cs" />
+    <EmbeddedResource Include="FomsModulos\frmCompras.resx">
+      <DependentUpon>frmCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FomsModulos\frmConfiguracion.resx">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FomsModulos\frmInventarios.resx">
       <DependentUpon>frmInventarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FomsModulos\frmLicencia.resx">
+      <DependentUpon>frmLicencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FomsModulos\frmReportes.resx">
+      <DependentUpon>frmReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FomsModulos\frmSocios.resx">
       <DependentUpon>frmSocios.cs</DependentUpon>
@@ -429,9 +481,6 @@
     <EmbeddedResource Include="MdInventarios\frmCrudProducto.resx">
       <DependentUpon>frmCrudProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MdInventarios\frmDetalleProducto.resx">
-      <DependentUpon>frmDetalleProducto.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MdInventarios\frmGestionProductos.resx">
       <DependentUpon>frmGestionProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,6 +489,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MdInventarios\frmTipoUnidades.resx">
       <DependentUpon>frmTipoUnidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdLicencia\frmAjustesLicencia.resx">
+      <DependentUpon>frmAjustesLicencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MdSocios\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
@@ -458,6 +510,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MdVentas\Modal\frmEnvioVentaCorreo.resx">
       <DependentUpon>frmEnvioVentaCorreo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdVentas\Modal\frmAperturaCaja.resx">
+      <DependentUpon>frmAperturaCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MdVentas\Modal\frmListarClientes.resx">
       <DependentUpon>frmListarClientes.cs</DependentUpon>
@@ -530,6 +585,10 @@
     <None Include="Resources\PlantillaVenta.html" />
     <None Include="Resources\PlantillaCompra.html" />
     <None Include="Resources\sin-img.jpg" />
+    <None Include="Resources\icono.ico" />
+    <None Include="Resources\logo.png" />
+    <Content Include="ico.ico" />
+    <None Include="Resources\ico.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -551,9 +610,23 @@
     <None Include="Resources\remove20.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MdCompras\" />
+    <Folder Include="MdReportes\" />
     <Folder Include="MdVentas\Comprobantes\TipoHoja\" />
     <Folder Include="MdVentas\Comprobantes\TipoTicket\" />
     <Folder Include="SCRIPTS-001\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

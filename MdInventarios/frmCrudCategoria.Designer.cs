@@ -48,13 +48,13 @@ namespace CapaPresentación.MdInventarios
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cboestado = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbonegocio = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblTotalCategoriasNoActivas = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblTotalCategorias = new System.Windows.Forms.Label();
+            this.cbonegocio = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbobusqueda = new System.Windows.Forms.ComboBox();
             this.txtbusqueda = new System.Windows.Forms.TextBox();
             this.btnbuscar = new FontAwesome.Sharp.IconButton();
@@ -71,21 +71,21 @@ namespace CapaPresentación.MdInventarios
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 24);
+            this.label2.Location = new System.Drawing.Point(5, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 18);
+            this.label2.Size = new System.Drawing.Size(163, 16);
             this.label2.TabIndex = 109;
             this.label2.Text = "Nombre de la Categoria: *";
             // 
             // txtNombreCategoria
             // 
             this.txtNombreCategoria.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtNombreCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCategoria.Location = new System.Drawing.Point(6, 45);
+            this.txtNombreCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreCategoria.Location = new System.Drawing.Point(5, 36);
             this.txtNombreCategoria.Name = "txtNombreCategoria";
-            this.txtNombreCategoria.Size = new System.Drawing.Size(303, 29);
+            this.txtNombreCategoria.Size = new System.Drawing.Size(303, 22);
             this.txtNombreCategoria.TabIndex = 112;
             this.txtNombreCategoria.TextChanged += new System.EventHandler(this.txtNombreCategoria_TextChanged);
             this.txtNombreCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCategoria_KeyPress);
@@ -94,32 +94,32 @@ namespace CapaPresentación.MdInventarios
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(358, 24);
+            this.label8.Location = new System.Drawing.Point(472, 17);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 18);
+            this.label8.Size = new System.Drawing.Size(57, 13);
             this.label8.TabIndex = 118;
             this.label8.Text = "Negocio: *";
+            this.label8.Visible = false;
             // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(-7, -1);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(737, 26);
+            this.label10.Size = new System.Drawing.Size(770, 26);
             this.label10.TabIndex = 155;
-            this.label10.Text = "Categorias";
+            this.label10.Text = "Categorias / Tipo / Productos";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtindice
             // 
-            this.txtindice.Location = new System.Drawing.Point(567, 436);
+            this.txtindice.Location = new System.Drawing.Point(611, 360);
             this.txtindice.Name = "txtindice";
             this.txtindice.Size = new System.Drawing.Size(26, 20);
             this.txtindice.TabIndex = 157;
@@ -128,7 +128,7 @@ namespace CapaPresentación.MdInventarios
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(599, 436);
+            this.txtid.Location = new System.Drawing.Point(643, 360);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(26, 20);
             this.txtid.TabIndex = 156;
@@ -139,17 +139,16 @@ namespace CapaPresentación.MdInventarios
             // 
             this.dgvdata.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.BackgroundColor = System.Drawing.Color.Silver;
-            this.dgvdata.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvdata.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -164,31 +163,32 @@ namespace CapaPresentación.MdInventarios
             this.Estado});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdata.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.EnableHeadersVisualStyles = false;
-            this.dgvdata.Location = new System.Drawing.Point(1, 196);
+            this.dgvdata.Location = new System.Drawing.Point(18, 149);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(713, 219);
+            this.dgvdata.Size = new System.Drawing.Size(713, 198);
             this.dgvdata.TabIndex = 154;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
@@ -232,87 +232,60 @@ namespace CapaPresentación.MdInventarios
             // 
             this.cboestado.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cboestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboestado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboestado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboestado.FormattingEnabled = true;
-            this.cboestado.Location = new System.Drawing.Point(529, 45);
+            this.cboestado.Location = new System.Drawing.Point(314, 36);
             this.cboestado.Name = "cboestado";
-            this.cboestado.Size = new System.Drawing.Size(165, 28);
+            this.cboestado.Size = new System.Drawing.Size(137, 21);
             this.cboestado.TabIndex = 117;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox1.Controls.Add(this.cbonegocio);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lblTotalCategoriasNoActivas);
             this.groupBox1.Controls.Add(this.txtNombreCategoria);
             this.groupBox1.Controls.Add(this.cboestado);
-            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.lblTotalCategorias);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(1, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(719, 87);
+            this.groupBox1.Size = new System.Drawing.Size(752, 67);
             this.groupBox1.TabIndex = 158;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de datos";
             // 
-            // cbonegocio
+            // label3
             // 
-            this.cbonegocio.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cbonegocio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbonegocio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbonegocio.FormattingEnabled = true;
-            this.cbonegocio.Location = new System.Drawing.Point(358, 45);
-            this.cbonegocio.Name = "cbonegocio";
-            this.cbonegocio.Size = new System.Drawing.Size(165, 28);
-            this.cbonegocio.TabIndex = 119;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(594, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 138;
+            this.label3.Text = "Cat.No Activas:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(523, 21);
+            this.label1.Location = new System.Drawing.Point(311, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 18);
+            this.label1.Size = new System.Drawing.Size(62, 16);
             this.label1.TabIndex = 120;
             this.label1.Text = "Estado: *";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.lblTotalCategoriasNoActivas);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.lblTotalCategorias);
-            this.groupBox2.Controls.Add(this.cbobusqueda);
-            this.groupBox2.Controls.Add(this.txtbusqueda);
-            this.groupBox2.Controls.Add(this.btnbuscar);
-            this.groupBox2.Controls.Add(this.btnlimpiarbuscador);
-            this.groupBox2.Location = new System.Drawing.Point(1, 121);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(719, 59);
-            this.groupBox2.TabIndex = 159;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Busqueda";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(540, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 16);
-            this.label3.TabIndex = 138;
-            this.label3.Text = "Cat.No Activas:";
             // 
             // lblTotalCategoriasNoActivas
             // 
             this.lblTotalCategoriasNoActivas.AutoSize = true;
             this.lblTotalCategoriasNoActivas.BackColor = System.Drawing.Color.Red;
             this.lblTotalCategoriasNoActivas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalCategoriasNoActivas.Location = new System.Drawing.Point(645, 36);
+            this.lblTotalCategoriasNoActivas.Location = new System.Drawing.Point(681, 37);
             this.lblTotalCategoriasNoActivas.Name = "lblTotalCategoriasNoActivas";
             this.lblTotalCategoriasNoActivas.Size = new System.Drawing.Size(49, 20);
             this.lblTotalCategoriasNoActivas.TabIndex = 137;
@@ -321,10 +294,10 @@ namespace CapaPresentación.MdInventarios
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(547, 10);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(457, 43);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 16);
+            this.label9.Size = new System.Drawing.Size(73, 13);
             this.label9.TabIndex = 136;
             this.label9.Text = "T. Categorias:";
             // 
@@ -333,18 +306,47 @@ namespace CapaPresentación.MdInventarios
             this.lblTotalCategorias.AutoSize = true;
             this.lblTotalCategorias.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.lblTotalCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalCategorias.Location = new System.Drawing.Point(645, 7);
+            this.lblTotalCategorias.Location = new System.Drawing.Point(530, 36);
             this.lblTotalCategorias.Name = "lblTotalCategorias";
             this.lblTotalCategorias.Size = new System.Drawing.Size(49, 20);
             this.lblTotalCategorias.TabIndex = 135;
             this.lblTotalCategorias.Text = "Total";
+            // 
+            // cbonegocio
+            // 
+            this.cbonegocio.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbonegocio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbonegocio.Enabled = false;
+            this.cbonegocio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbonegocio.FormattingEnabled = true;
+            this.cbonegocio.Location = new System.Drawing.Point(535, 14);
+            this.cbonegocio.Name = "cbonegocio";
+            this.cbonegocio.Size = new System.Drawing.Size(57, 21);
+            this.cbonegocio.TabIndex = 119;
+            this.cbonegocio.Visible = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox2.Controls.Add(this.cbonegocio);
+            this.groupBox2.Controls.Add(this.cbobusqueda);
+            this.groupBox2.Controls.Add(this.txtbusqueda);
+            this.groupBox2.Controls.Add(this.btnbuscar);
+            this.groupBox2.Controls.Add(this.btnlimpiarbuscador);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Location = new System.Drawing.Point(1, 101);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(752, 42);
+            this.groupBox2.TabIndex = 159;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Busqueda";
             // 
             // cbobusqueda
             // 
             this.cbobusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbobusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbobusqueda.FormattingEnabled = true;
-            this.cbobusqueda.Location = new System.Drawing.Point(5, 25);
+            this.cbobusqueda.Location = new System.Drawing.Point(4, 14);
             this.cbobusqueda.Name = "cbobusqueda";
             this.cbobusqueda.Size = new System.Drawing.Size(149, 24);
             this.cbobusqueda.TabIndex = 102;
@@ -352,7 +354,7 @@ namespace CapaPresentación.MdInventarios
             // txtbusqueda
             // 
             this.txtbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbusqueda.Location = new System.Drawing.Point(160, 25);
+            this.txtbusqueda.Location = new System.Drawing.Point(159, 14);
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(149, 23);
             this.txtbusqueda.TabIndex = 105;
@@ -367,7 +369,7 @@ namespace CapaPresentación.MdInventarios
             this.btnbuscar.IconColor = System.Drawing.Color.Black;
             this.btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnbuscar.IconSize = 20;
-            this.btnbuscar.Location = new System.Drawing.Point(315, 26);
+            this.btnbuscar.Location = new System.Drawing.Point(314, 15);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(72, 22);
             this.btnbuscar.TabIndex = 103;
@@ -386,7 +388,7 @@ namespace CapaPresentación.MdInventarios
             this.btnlimpiarbuscador.IconColor = System.Drawing.Color.Black;
             this.btnlimpiarbuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiarbuscador.IconSize = 20;
-            this.btnlimpiarbuscador.Location = new System.Drawing.Point(393, 26);
+            this.btnlimpiarbuscador.Location = new System.Drawing.Point(392, 15);
             this.btnlimpiarbuscador.Name = "btnlimpiarbuscador";
             this.btnlimpiarbuscador.Size = new System.Drawing.Size(72, 22);
             this.btnlimpiarbuscador.TabIndex = 104;
@@ -405,7 +407,7 @@ namespace CapaPresentación.MdInventarios
             this.btnlimpiar.IconColor = System.Drawing.Color.Black;
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiar.IconSize = 18;
-            this.btnlimpiar.Location = new System.Drawing.Point(223, 421);
+            this.btnlimpiar.Location = new System.Drawing.Point(269, 353);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(165, 30);
             this.btnlimpiar.TabIndex = 152;
@@ -425,7 +427,7 @@ namespace CapaPresentación.MdInventarios
             this.btnguardar.IconColor = System.Drawing.Color.Black;
             this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 16;
-            this.btnguardar.Location = new System.Drawing.Point(52, 421);
+            this.btnguardar.Location = new System.Drawing.Point(98, 353);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(165, 30);
             this.btnguardar.TabIndex = 151;
@@ -445,7 +447,7 @@ namespace CapaPresentación.MdInventarios
             this.btneliminar.IconColor = System.Drawing.Color.Black;
             this.btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btneliminar.IconSize = 16;
-            this.btneliminar.Location = new System.Drawing.Point(394, 421);
+            this.btneliminar.Location = new System.Drawing.Point(440, 353);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(165, 30);
             this.btneliminar.TabIndex = 153;
@@ -460,7 +462,7 @@ namespace CapaPresentación.MdInventarios
             this.AcceptButton = this.btnguardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 471);
+            this.ClientSize = new System.Drawing.Size(753, 411);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnlimpiar);
             this.Controls.Add(this.btnguardar);

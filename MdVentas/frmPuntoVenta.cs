@@ -16,6 +16,19 @@ namespace CapaPresentación.MdVentas
 {
     public partial class frmPuntoVenta : Form
     {
+        // Mantener activa solo una ventana y evitar duplicidad
+        private static frmPuntoVenta instancia = null;
+
+        public static frmPuntoVenta ventana_unica(Usuario oUsuario = null)
+        {
+            if (instancia == null || instancia.IsDisposed)
+            {
+                instancia = new frmPuntoVenta(oUsuario);
+            }
+            return instancia;
+        }
+
+        //--------------------------------------
         private Usuario _Usuario;
         public frmPuntoVenta(Usuario oUsuario)
         {
@@ -65,11 +78,12 @@ namespace CapaPresentación.MdVentas
 
             txtfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtidproducto.Text = "0";
-            txtCodproducto.Select();
+          //  txtCodproducto.Select();
             txtpagocon.Text = "";
             txtcambio.Text = "";
             txttotalpagar.Text = "0";
 
+            rbCodigo.Select();
         }
 
         private void btnbuscarcliente_Click(object sender, EventArgs e)
@@ -89,6 +103,23 @@ namespace CapaPresentación.MdVentas
                     txtdocumentocliente.Select();
                 }
 
+            }
+        }
+
+        //Radio button de seleccion
+        private void rbCodigoBarra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCodigoBarra.Checked)
+            {
+                txtcodbarraproducto.Select();
+            }
+        }
+
+        private void rbCodigo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCodigo.Checked)
+            {
+                txtCodproducto.Select();
             }
         }
 
@@ -122,8 +153,8 @@ namespace CapaPresentación.MdVentas
                     txtidproducto.Text = modal._Producto.IdProducto.ToString();
                     txtcodbarraproducto.Text = modal._Producto.CodigoBarras;
                     txtproducto.Text = modal._Producto.DescripcionGeneral;
-                    txtprecio.Text = modal._Producto.PrecioFinal.ToString("0.00");
-                    txtstock.Text = Convert.ToDecimal(modal._Producto.StockExistente).ToString("0.00");
+                    txtprecio.Text = modal._Producto.PrecioFinal.ToString("N2");
+                    txtstock.Text = Convert.ToDecimal(modal._Producto.StockExistente).ToString("");
                     txtcantidad.Select();
                 }
                 else
@@ -146,7 +177,7 @@ namespace CapaPresentación.MdVentas
                     txtcodbarraproducto.BackColor = Color.Honeydew;
                     txtidproducto.Text = oProducto.IdProducto.ToString();
                     txtproducto.Text = oProducto.DescripcionGeneral;
-                    txtprecio.Text = oProducto.PrecioFinal.ToString("0.00");
+                    txtprecio.Text = oProducto.PrecioFinal.ToString("N2");
                     txtstock.Text = Convert.ToDecimal(oProducto.StockExistente).ToString();
                     txtCodproducto.Text = Convert.ToDecimal(oProducto.Codigo).ToString();
                     txtcantidad.Select();
@@ -180,7 +211,7 @@ namespace CapaPresentación.MdVentas
                     txtcodbarraproducto.BackColor = Color.Honeydew;
                     txtidproducto.Text = oProducto.IdProducto.ToString();
                     txtproducto.Text = oProducto.DescripcionGeneral;
-                    txtprecio.Text = oProducto.PrecioFinal.ToString("0.00");
+                    txtprecio.Text = oProducto.PrecioFinal.ToString("N2");
                     txtstock.Text = Convert.ToDecimal(oProducto.StockExistente).ToString();
                     txtCodproducto.Text = Convert.ToDecimal(oProducto.Codigo).ToString();
                     txtcantidad.Select();
@@ -335,7 +366,7 @@ namespace CapaPresentación.MdVentas
 
                     calcularTotal();
                     limpiarProducto();
-                    txtCodproducto.Select();
+                   // txtCodproducto.Select();
                 }
             }
         }
@@ -615,6 +646,7 @@ namespace CapaPresentación.MdVentas
             txttotalpagar.Text = "";
             txtpagocon.Text = "";
             txtcambio.Text = "";
+            txtcantidad.Text = "1";
 
             // Limpia el DataGridView usando la misma lógica que en el evento dgvdata_CellContentClick
             for (int index = dgvdata.Rows.Count - 1; index >= 0; index--)
@@ -638,6 +670,14 @@ namespace CapaPresentación.MdVentas
             frmVerificadorPrecio.Show();
         }
 
-       
+        private void txtcantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si el carácter es un número o una coma
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es un número o una coma, ignora el evento
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -207,43 +207,38 @@ namespace CapaPresentación.MdInventarios
 
             foreach (Productos item in Lista)
             {
+                string stockConcatenado = $"{item.StockExistente:F2} {item.oTiposUnidades.NombreTipoUnidad}";
 
                 dgvdata.Rows.Add(new object[] {
-                "",
-                item.IdProducto,
-                item.oCategorias.IdCategoria,
-                item.oCategorias.NombreCategoria,
-
-                item.oSubCategorias.IdSubcategoria,
-                item.oSubCategorias.NombreSubcategoria,
-
-                item.oTasaImpuestos.IdTasaImpuesto,
-                item.oTasaImpuestos.Porcentaje,
-
-                item.oTiposUnidades.IdTipoUnidad,
-                item.oTiposUnidades.NombreTipoUnidad,
-
-                item.oProveedor.IdProveedor,
-                item.oProveedor.RazonSocial,
-
-                item.Imagen,
-                item.CodigoBarras,
-                item.Codigo,
-                item.DescripcionGeneral,
-                item.PrecioCompra,
-                item.oMargenes_Ganancias.IdMargenGanancia,
-                item.oMargenes_Ganancias.Porcentaje,
-                item.PrecioFinal,
-                item.UbicacionProducto,
-                item.StockExistente,
-                item.StockMinimo,
-                item.FechaVencimiento,
-                item.Estado == true ? 1 : 0,
-                item.Estado == true ? "Activo" : "No Activo",
+                    "",
+                    item.IdProducto,
+                    item.oCategorias.IdCategoria,
+                    item.oCategorias.NombreCategoria,
+                    item.oSubCategorias.IdSubcategoria,
+                    item.oSubCategorias.NombreSubcategoria,
+                    item.oTasaImpuestos.IdTasaImpuesto,
+                    item.oTasaImpuestos.Porcentaje,
+                    item.oTiposUnidades.IdTipoUnidad,
+                    item.oTiposUnidades.NombreTipoUnidad,
+                    item.oProveedor.IdProveedor,
+                    item.oProveedor.RazonSocial,
+                    item.Imagen,
+                    item.CodigoBarras,
+                    item.Codigo,
+                    item.DescripcionGeneral,
+                    item.PrecioCompra,
+                    item.oMargenes_Ganancias.IdMargenGanancia,
+                    item.oMargenes_Ganancias.Porcentaje,
+                    item.PrecioFinal,
+                    item.UbicacionProducto,
+                    stockConcatenado,
+                    item.StockMinimo,
+                    item.Estado == true ? 1 : 0,
+                    item.Estado == true ? "Activo" : "No Activo",
                 });
-
             }
         }
+
 
         private void ActualizarDataGridView()
         {
@@ -276,6 +271,12 @@ namespace CapaPresentación.MdInventarios
                 }
             }
         }
+
+        private void txtbusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) { }
+        }
+
         //Limpiar el txt y restablece el datagrid
         private void btnlimpiarbuscador_Click(object sender, EventArgs e)
         {
@@ -331,7 +332,7 @@ namespace CapaPresentación.MdInventarios
                 lblUltPrecioCompra.Text = $"${dgvdata.Rows[rowIndex].Cells["PrecioCompra"].Value:0,0.00}";
                 lblUltPrecioVenta.Text = $"${dgvdata.Rows[rowIndex].Cells["PrecioFinal"].Value:0,0.00}";
 
-                lblStockExistente.Text = dgvdata.Rows[rowIndex].Cells["StockExistente"].Value.ToString();
+                lblStockExistente.Text = dgvdata.Rows[rowIndex].Cells["stockConcatenado"].Value.ToString();
 
                 // Mostrar la imagen
                 byte[] imagenBytes = dgvdata.Rows[rowIndex].Cells["Imagen"].Value as byte[];
@@ -413,35 +414,36 @@ namespace CapaPresentación.MdInventarios
             {
                 DataTable dt = new DataTable();
 
+                // Agregar las columnas visibles al DataTable
                 foreach (DataGridViewColumn columna in dgvdata.Columns)
                 {
-                    if (columna.HeaderText != "" && columna.Visible)
+                    if (columna.Visible)
                         dt.Columns.Add(columna.HeaderText, typeof(string));
                 }
 
+                // Agregar las filas al DataTable
                 foreach (DataGridViewRow row in dgvdata.Rows)
                 {
                     if (row.Visible)
-                        dt.Rows.Add(new object[]
+                    {
+                        // Crear una lista dinámica para almacenar los valores de cada fila
+                        List<object> rowData = new List<object>();
+
+                        // Agregar valores solo para las columnas visibles
+                        foreach (DataGridViewColumn columna in dgvdata.Columns)
                         {
-                            row.Cells[3].Value.ToString(),
-                            row.Cells[5].Value.ToString(),
-                            row.Cells[7].Value.ToString(),
-                            row.Cells[9].Value.ToString(),
-                            row.Cells[11].Value.ToString(),
-                            row.Cells[12].Value.ToString(),
-                            row.Cells[14].Value.ToString(),
-                            row.Cells[15].Value.ToString(),
-                            row.Cells[18].Value.ToString(),
-                            row.Cells[20].Value.ToString(),
-                            row.Cells[21].Value.ToString(),
-                            row.Cells[24].Value.ToString(),
-                        });
+                            if (columna.Visible)
+                                rowData.Add(row.Cells[columna.Index].Value?.ToString() ?? "");
+                        }
+
+                        // Agregar la fila al DataTable
+                        dt.Rows.Add(rowData.ToArray());
+                    }
                 }
 
                 SaveFileDialog savefile = new SaveFileDialog();
-                savefile.FileName = string.Format("ReporteProducto_{0}.xlsx", DateTime.Now.ToString("ddMMyyyyHHmmss"));
-                savefile.Filter = "Exel Files | *.xlsx";
+                savefile.FileName = string.Format("Lista_Productos_{0}.xlsx", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+                savefile.Filter = "Excel Files | *.xlsx";
 
                 if (savefile.ShowDialog() == DialogResult.OK)
                 {
@@ -456,14 +458,10 @@ namespace CapaPresentación.MdInventarios
                     catch
                     {
                         MessageBox.Show("Error al Generar el Reporte", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
                     }
-
                 }
-
             }
         }
 
-        
     }
 }

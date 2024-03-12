@@ -94,7 +94,6 @@ namespace CapaPresentación.MdInventarios
                         lbldescripciongeneral.Text = producto.DescripcionGeneral;
                         lblstockexistente.Text = producto.StockExistente.ToString();
                         lblprecioactual.Text = producto.PrecioFinal.ToString("N2");
-                        lblfechavencimiento.Text = producto.FechaVencimiento;
                         lblubicacionproducto.Text = producto.UbicacionProducto;
 
                         // Limpiar el campo de código de barras

@@ -193,7 +193,7 @@ namespace CapaPresentación.MdConfiguracion
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(838, 301);
+            this.dgvdata.Size = new System.Drawing.Size(838, 201);
             this.dgvdata.TabIndex = 76;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
@@ -282,7 +282,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btneliminar.IconColor = System.Drawing.Color.Black;
             this.btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btneliminar.IconSize = 16;
-            this.btneliminar.Location = new System.Drawing.Point(539, 469);
+            this.btneliminar.Location = new System.Drawing.Point(562, 369);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(165, 30);
             this.btneliminar.TabIndex = 74;
@@ -302,7 +302,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btnlimpiar.IconColor = System.Drawing.Color.Black;
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiar.IconSize = 18;
-            this.btnlimpiar.Location = new System.Drawing.Point(358, 469);
+            this.btnlimpiar.Location = new System.Drawing.Point(381, 369);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(165, 30);
             this.btnlimpiar.TabIndex = 73;
@@ -322,7 +322,7 @@ namespace CapaPresentación.MdConfiguracion
             this.btnguardar.IconColor = System.Drawing.Color.Black;
             this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnguardar.IconSize = 16;
-            this.btnguardar.Location = new System.Drawing.Point(177, 469);
+            this.btnguardar.Location = new System.Drawing.Point(200, 369);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(165, 30);
             this.btnguardar.TabIndex = 72;
@@ -455,6 +455,7 @@ namespace CapaPresentación.MdConfiguracion
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cboestado);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(7, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(891, 90);
@@ -504,7 +505,7 @@ namespace CapaPresentación.MdConfiguracion
             this.AcceptButton = this.btnguardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 511);
+            this.ClientSize = new System.Drawing.Size(904, 411);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvdata);
             this.Controls.Add(this.groupBox1);

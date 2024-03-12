@@ -77,9 +77,9 @@ namespace CapaPresentación.MdInventarios
             cbomargenganancias.ValueMember = "Valor";
             cbomargenganancias.SelectedIndex = 0;
 
-
+            /*
             //----------Mostrar contenido al datagrid
-            List<Productos> lista = new CN_Productos().Listar();
+            List <Productos> lista = new CN_Productos().Listar();
 
             foreach (Productos item in lista)
             {
@@ -96,6 +96,10 @@ namespace CapaPresentación.MdInventarios
                 item.FechaActualizacion
                 });
             }
+            */
+
+            dgvdata.Rows.Clear();
+
         }
 
         private void cbocategoria_SelectedIndexChanged(object sender, EventArgs e)

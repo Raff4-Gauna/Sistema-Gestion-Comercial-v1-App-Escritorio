@@ -193,7 +193,7 @@ namespace CapaPresentación.MdVentas
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(992, 192);
+            this.dgvdata.Size = new System.Drawing.Size(992, 150);
             this.dgvdata.TabIndex = 236;
             this.dgvdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellClick);
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
@@ -301,10 +301,10 @@ namespace CapaPresentación.MdVentas
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(1, 227);
+            this.tabControl1.Location = new System.Drawing.Point(1, 185);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(992, 281);
+            this.tabControl1.Size = new System.Drawing.Size(992, 192);
             this.tabControl1.TabIndex = 245;
             // 
             // tabPage1
@@ -313,7 +313,7 @@ namespace CapaPresentación.MdVentas
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(984, 255);
+            this.tabPage1.Size = new System.Drawing.Size(984, 166);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detalle de Venta";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -373,7 +373,7 @@ namespace CapaPresentación.MdVentas
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdatadetalleventa.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvdatadetalleventa.RowTemplate.Height = 28;
-            this.dgvdatadetalleventa.Size = new System.Drawing.Size(969, 243);
+            this.dgvdatadetalleventa.Size = new System.Drawing.Size(969, 150);
             this.dgvdatadetalleventa.TabIndex = 246;
             // 
             // IdDetalleVenta
@@ -447,7 +447,7 @@ namespace CapaPresentación.MdVentas
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(984, 255);
+            this.tabPage2.Size = new System.Drawing.Size(984, 183);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Lineas de Venta";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -545,7 +545,7 @@ namespace CapaPresentación.MdVentas
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl2.Location = new System.Drawing.Point(1, 510);
+            this.tabControl2.Location = new System.Drawing.Point(1, 375);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(992, 73);
@@ -572,7 +572,7 @@ namespace CapaPresentación.MdVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 585);
+            this.ClientSize = new System.Drawing.Size(996, 447);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.chekboxMostarTodoDatagrid);
             this.Controls.Add(this.tabControl1);

@@ -29,6 +29,7 @@ namespace CapaPresentación.FomsModulos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfiguracion));
             this.miniToolStrip = new System.Windows.Forms.MenuStrip();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.menuDatosNegocio = new FontAwesome.Sharp.IconMenuItem();
@@ -44,7 +45,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuTasaImpuestos = new FontAwesome.Sharp.IconMenuItem();
             this.menuFormasPagos = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuMetodosPagos = new FontAwesome.Sharp.IconMenuItem();
-            this.subMenuHistorialPagos = new FontAwesome.Sharp.IconMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.menu.SuspendLayout();
@@ -78,7 +78,7 @@ namespace CapaPresentación.FomsModulos
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menu.Size = new System.Drawing.Size(1184, 55);
+            this.menu.Size = new System.Drawing.Size(1184, 45);
             this.menu.TabIndex = 5;
             this.menu.Text = "menu";
             // 
@@ -89,13 +89,15 @@ namespace CapaPresentación.FomsModulos
             this.subMenuDatosNegocio,
             this.subMenuSucursales,
             this.subMenuResguardoDatos});
+            this.menuDatosNegocio.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuDatosNegocio.IconChar = FontAwesome.Sharp.IconChar.Store;
             this.menuDatosNegocio.IconColor = System.Drawing.Color.Black;
             this.menuDatosNegocio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuDatosNegocio.IconSize = 35;
+            this.menuDatosNegocio.IconSize = 20;
             this.menuDatosNegocio.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuDatosNegocio.Name = "menuDatosNegocio";
-            this.menuDatosNegocio.Size = new System.Drawing.Size(122, 50);
+            this.menuDatosNegocio.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.menuDatosNegocio.Size = new System.Drawing.Size(100, 40);
             this.menuDatosNegocio.Text = "Negocio";
             this.menuDatosNegocio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -106,7 +108,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuDatosNegocio.IconColor = System.Drawing.Color.Black;
             this.subMenuDatosNegocio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuDatosNegocio.Name = "subMenuDatosNegocio";
-            this.subMenuDatosNegocio.Size = new System.Drawing.Size(180, 22);
+            this.subMenuDatosNegocio.Size = new System.Drawing.Size(177, 22);
             this.subMenuDatosNegocio.Text = "Preferencias";
             this.subMenuDatosNegocio.Click += new System.EventHandler(this.subMenuDatosNegocio_Click);
             // 
@@ -117,7 +119,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuSucursales.IconColor = System.Drawing.Color.Black;
             this.subMenuSucursales.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuSucursales.Name = "subMenuSucursales";
-            this.subMenuSucursales.Size = new System.Drawing.Size(180, 22);
+            this.subMenuSucursales.Size = new System.Drawing.Size(177, 22);
             this.subMenuSucursales.Text = "Sucursales";
             this.subMenuSucursales.Click += new System.EventHandler(this.subMenuSucursales_Click);
             // 
@@ -128,7 +130,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuResguardoDatos.IconColor = System.Drawing.Color.Black;
             this.subMenuResguardoDatos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuResguardoDatos.Name = "subMenuResguardoDatos";
-            this.subMenuResguardoDatos.Size = new System.Drawing.Size(180, 22);
+            this.subMenuResguardoDatos.Size = new System.Drawing.Size(177, 22);
             this.subMenuResguardoDatos.Text = "Resguardo Datos";
             this.subMenuResguardoDatos.Click += new System.EventHandler(this.subMenuResguardoDatos_Click);
             // 
@@ -138,13 +140,15 @@ namespace CapaPresentación.FomsModulos
             this.menuGestionUsuarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.subMenuUsuarios,
             this.iconMenuItem3});
+            this.menuGestionUsuarios.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuGestionUsuarios.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
             this.menuGestionUsuarios.IconColor = System.Drawing.Color.Black;
             this.menuGestionUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuGestionUsuarios.IconSize = 35;
+            this.menuGestionUsuarios.IconSize = 20;
             this.menuGestionUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuGestionUsuarios.Name = "menuGestionUsuarios";
-            this.menuGestionUsuarios.Size = new System.Drawing.Size(122, 50);
+            this.menuGestionUsuarios.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.menuGestionUsuarios.Size = new System.Drawing.Size(100, 40);
             this.menuGestionUsuarios.Text = "Gestión";
             this.menuGestionUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -176,13 +180,14 @@ namespace CapaPresentación.FomsModulos
             this.subMenuParametrosFiscal,
             this.subMenuTiposContribuyentes,
             this.subMenuTasaImpuestos});
+            this.menuFiscalidad.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuFiscalidad.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
             this.menuFiscalidad.IconColor = System.Drawing.Color.Black;
             this.menuFiscalidad.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuFiscalidad.IconSize = 35;
+            this.menuFiscalidad.IconSize = 20;
             this.menuFiscalidad.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuFiscalidad.Name = "menuFiscalidad";
-            this.menuFiscalidad.Size = new System.Drawing.Size(122, 50);
+            this.menuFiscalidad.Size = new System.Drawing.Size(100, 40);
             this.menuFiscalidad.Text = "Fiscalización";
             this.menuFiscalidad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -223,15 +228,15 @@ namespace CapaPresentación.FomsModulos
             // 
             this.menuFormasPagos.AutoSize = false;
             this.menuFormasPagos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.subMenuMetodosPagos,
-            this.subMenuHistorialPagos});
+            this.subMenuMetodosPagos});
+            this.menuFormasPagos.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuFormasPagos.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
             this.menuFormasPagos.IconColor = System.Drawing.Color.Black;
             this.menuFormasPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuFormasPagos.IconSize = 35;
+            this.menuFormasPagos.IconSize = 20;
             this.menuFormasPagos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuFormasPagos.Name = "menuFormasPagos";
-            this.menuFormasPagos.Size = new System.Drawing.Size(122, 50);
+            this.menuFormasPagos.Size = new System.Drawing.Size(100, 40);
             this.menuFormasPagos.Text = "Pagos";
             this.menuFormasPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -245,16 +250,6 @@ namespace CapaPresentación.FomsModulos
             this.subMenuMetodosPagos.Size = new System.Drawing.Size(187, 22);
             this.subMenuMetodosPagos.Text = "Metódos de Pagos";
             this.subMenuMetodosPagos.Click += new System.EventHandler(this.subMenuMetodosPagos_Click);
-            // 
-            // subMenuHistorialPagos
-            // 
-            this.subMenuHistorialPagos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subMenuHistorialPagos.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.subMenuHistorialPagos.IconColor = System.Drawing.Color.Black;
-            this.subMenuHistorialPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.subMenuHistorialPagos.Name = "subMenuHistorialPagos";
-            this.subMenuHistorialPagos.Size = new System.Drawing.Size(187, 22);
-            this.subMenuHistorialPagos.Text = "Historial de Pagos";
             // 
             // statusStrip
             // 
@@ -281,6 +276,7 @@ namespace CapaPresentación.FomsModulos
             this.ClientSize = new System.Drawing.Size(1184, 711);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "frmConfiguracion";
@@ -314,7 +310,6 @@ namespace CapaPresentación.FomsModulos
         private FontAwesome.Sharp.IconMenuItem subMenuTasaImpuestos;
         private FontAwesome.Sharp.IconMenuItem menuFormasPagos;
         private FontAwesome.Sharp.IconMenuItem subMenuMetodosPagos;
-        private FontAwesome.Sharp.IconMenuItem subMenuHistorialPagos;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tssHora;
     }

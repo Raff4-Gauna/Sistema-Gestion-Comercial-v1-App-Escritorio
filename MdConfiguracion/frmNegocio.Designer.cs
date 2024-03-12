@@ -75,13 +75,14 @@ namespace CapaPresentación.MdConfiguracion
             // 
             // tabPage2
             // 
+            this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage2.Controls.Add(this.iconButton1);
             this.tabPage2.Controls.Add(this.cbolistadoimpresoras);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(872, 458);
+            this.tabPage2.Size = new System.Drawing.Size(872, 366);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Impresiones";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -252,12 +253,13 @@ namespace CapaPresentación.MdConfiguracion
             // 
             // tabPage4
             // 
+            this.tabPage4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Controls.Add(this.groupBox3);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(872, 458);
+            this.tabPage4.Size = new System.Drawing.Size(872, 366);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Correo Electronico";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -483,12 +485,13 @@ namespace CapaPresentación.MdConfiguracion
             this.btnimpreguardar.Location = new System.Drawing.Point(12, 12);
             this.btnimpreguardar.Name = "btnimpreguardar";
             this.btnimpreguardar.SelectedIndex = 0;
-            this.btnimpreguardar.Size = new System.Drawing.Size(880, 487);
+            this.btnimpreguardar.Size = new System.Drawing.Size(880, 395);
             this.btnimpreguardar.TabIndex = 77;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage1.Controls.Add(this.txtingresosbrutos);
             this.tabPage1.Controls.Add(this.txtcuit);
             this.tabPage1.Controls.Add(this.txttitular);
@@ -508,7 +511,7 @@ namespace CapaPresentación.MdConfiguracion
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(872, 458);
+            this.tabPage1.Size = new System.Drawing.Size(872, 366);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos de Negocio";
             // 
@@ -516,7 +519,7 @@ namespace CapaPresentación.MdConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 511);
+            this.ClientSize = new System.Drawing.Size(904, 411);
             this.Controls.Add(this.btnimpreguardar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
