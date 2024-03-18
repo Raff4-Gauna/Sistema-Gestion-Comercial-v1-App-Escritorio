@@ -29,6 +29,7 @@ namespace CapaPresentación.MdInventarios
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActProducto));
             this.txtcodigobarra = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lbldescripciongeneral = new System.Windows.Forms.Label();
@@ -65,10 +66,10 @@ namespace CapaPresentación.MdInventarios
             // txtcodigobarra
             // 
             this.txtcodigobarra.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtcodigobarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcodigobarra.Location = new System.Drawing.Point(158, 25);
+            this.txtcodigobarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcodigobarra.Location = new System.Drawing.Point(154, 27);
             this.txtcodigobarra.Name = "txtcodigobarra";
-            this.txtcodigobarra.Size = new System.Drawing.Size(399, 29);
+            this.txtcodigobarra.Size = new System.Drawing.Size(284, 26);
             this.txtcodigobarra.TabIndex = 112;
             this.txtcodigobarra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcodigobarra_KeyDown);
             this.txtcodigobarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcodigobarra_KeyPress);
@@ -79,11 +80,11 @@ namespace CapaPresentación.MdInventarios
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(155, 6);
+            this.label10.Location = new System.Drawing.Point(151, 6);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(143, 18);
+            this.label10.Size = new System.Drawing.Size(136, 18);
             this.label10.TabIndex = 111;
-            this.label10.Text = "Código de Barra *";
+            this.label10.Text = "Código de Barra ";
             // 
             // lbldescripciongeneral
             // 
@@ -204,17 +205,17 @@ namespace CapaPresentación.MdInventarios
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(15, 4);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(74, 18);
+            this.label13.Size = new System.Drawing.Size(67, 18);
             this.label13.TabIndex = 180;
-            this.label13.Text = "Código *";
+            this.label13.Text = "Código ";
             // 
             // txtcodigo
             // 
             this.txtcodigo.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcodigo.Location = new System.Drawing.Point(13, 25);
+            this.txtcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcodigo.Location = new System.Drawing.Point(12, 25);
             this.txtcodigo.Name = "txtcodigo";
-            this.txtcodigo.Size = new System.Drawing.Size(136, 29);
+            this.txtcodigo.Size = new System.Drawing.Size(136, 26);
             this.txtcodigo.TabIndex = 181;
             this.txtcodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcodigo_KeyDown);
             this.txtcodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcodigo_KeyPress);
@@ -255,6 +256,8 @@ namespace CapaPresentación.MdInventarios
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.lblubicacionproducto);
             this.groupBox2.Controls.Add(this.lblfechacaducidad);
+            this.groupBox2.Controls.Add(this.txtindice);
+            this.groupBox2.Controls.Add(this.txtid);
             this.groupBox2.Location = new System.Drawing.Point(12, 60);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(426, 191);
@@ -319,7 +322,7 @@ namespace CapaPresentación.MdInventarios
             // 
             // txtindice
             // 
-            this.txtindice.Location = new System.Drawing.Point(361, 4);
+            this.txtindice.Location = new System.Drawing.Point(299, 163);
             this.txtindice.Name = "txtindice";
             this.txtindice.Size = new System.Drawing.Size(26, 20);
             this.txtindice.TabIndex = 190;
@@ -328,7 +331,7 @@ namespace CapaPresentación.MdInventarios
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(393, 4);
+            this.txtid.Location = new System.Drawing.Point(331, 163);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(26, 20);
             this.txtid.TabIndex = 189;
@@ -378,12 +381,11 @@ namespace CapaPresentación.MdInventarios
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtcodigobarra);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtindice);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.txtid);
             this.Controls.Add(this.btnlimpiarcampos);
             this.Controls.Add(this.btnactualizarprod);
             this.Controls.Add(this.textBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmActProducto";

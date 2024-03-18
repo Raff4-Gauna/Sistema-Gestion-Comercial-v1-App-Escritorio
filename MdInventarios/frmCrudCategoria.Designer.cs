@@ -34,6 +34,7 @@ namespace CapaPresentación.MdInventarios
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCrudCategoria));
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombreCategoria = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -473,6 +474,7 @@ namespace CapaPresentación.MdInventarios
             this.Controls.Add(this.dgvdata);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmCrudCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

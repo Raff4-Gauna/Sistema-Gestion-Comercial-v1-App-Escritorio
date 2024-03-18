@@ -30,8 +30,9 @@ namespace CapaPresentación.MdVentas.Reportes
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRPTDetallesVentas));
             this.datosGeneralesVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DS_Reportes = new CapaPresentación.MdVentas.Reportes.DS_Reportes();
             this.detalleVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -62,12 +63,12 @@ namespace CapaPresentación.MdVentas.Reportes
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource5.Name = "DS_DatosGeneralesVenta";
-            reportDataSource5.Value = this.datosGeneralesVentaBindingSource;
-            reportDataSource6.Name = "DS_DetalleVenta";
-            reportDataSource6.Value = this.detalleVentaBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource5);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource6);
+            reportDataSource1.Name = "DS_DatosGeneralesVenta";
+            reportDataSource1.Value = this.datosGeneralesVentaBindingSource;
+            reportDataSource2.Name = "DS_DetalleVenta";
+            reportDataSource2.Value = this.detalleVentaBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "CapaPresentación.MdVentas.Reportes.RPT_DetallesVentas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -98,6 +99,7 @@ namespace CapaPresentación.MdVentas.Reportes
             this.ClientSize = new System.Drawing.Size(754, 682);
             this.Controls.Add(this.txtIdVenta);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmRPTDetallesVentas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

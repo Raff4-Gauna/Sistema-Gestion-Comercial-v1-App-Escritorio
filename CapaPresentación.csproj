@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ico.ico</ApplicationIcon>
+    <ApplicationIcon>GT-modified.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
@@ -587,8 +587,10 @@
     <None Include="Resources\sin-img.jpg" />
     <None Include="Resources\icono.ico" />
     <None Include="Resources\logo.png" />
+    <Content Include="GT-modified.ico" />
     <Content Include="ico.ico" />
     <None Include="Resources\ico.ico" />
+    <None Include="Resources\GT-modified.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

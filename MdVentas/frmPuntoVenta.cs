@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
+using CapaDatos;
 using CapaPresentación.Utilidades;
 using CapaPresentación.MdVentas.Modal;
 using System;
@@ -34,6 +35,17 @@ namespace CapaPresentación.MdVentas
         {
             _Usuario = oUsuario;
             InitializeComponent();
+
+            // Autocompletar Textbox con consulta por SQL
+            CD_Productos cdProductos = new CD_Productos();
+            try
+            {
+                cdProductos.AutoCompledDescripcion(txtDescripcionProd);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void frmPuntoVenta_Load(object sender, EventArgs e)
@@ -68,17 +80,12 @@ namespace CapaPresentación.MdVentas
 
             // Cargar los tipos de documentos
             cbotipodocumento.Items.Add(new OpcionCombo() { Valor = "Remito X", Texto = "Remito X" });
-            cbotipodocumento.Items.Add(new OpcionCombo() { Valor = "Factura A", Texto = "Factura A" });
-            cbotipodocumento.Items.Add(new OpcionCombo() { Valor = "Factura B", Texto = "Factura B" });
-            cbotipodocumento.Items.Add(new OpcionCombo() { Valor = "Factura C", Texto = "Factura C" });
-            cbotipodocumento.Items.Add(new OpcionCombo() { Valor = "Nota de Crédito", Texto = "Nota de Crédito" });
             cbotipodocumento.DisplayMember = "Texto";
             cbotipodocumento.ValueMember = "Valor";
             cbotipodocumento.SelectedIndex = 0;
 
             txtfecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtidproducto.Text = "0";
-          //  txtCodproducto.Select();
             txtpagocon.Text = "";
             txtcambio.Text = "";
             txttotalpagar.Text = "0";
@@ -180,7 +187,7 @@ namespace CapaPresentación.MdVentas
                     txtprecio.Text = oProducto.PrecioFinal.ToString("N2");
                     txtstock.Text = Convert.ToDecimal(oProducto.StockExistente).ToString();
                     txtCodproducto.Text = Convert.ToDecimal(oProducto.Codigo).ToString();
-                    txtcantidad.Select();
+                  //  txtcantidad.Select();
 
                     // Agregar automáticamente al DataGridView
                     AgregarProductoAlDataGridView();
@@ -193,6 +200,7 @@ namespace CapaPresentación.MdVentas
                     txtprecio.Text = "";
                     txtstock.Text = "";
                     txtCodproducto.Text = "";
+                    txtDescripcionProd.Text = "";
                     txtcantidad.Value = 1;
                     MessageBox.Show("Producto no encontrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -214,7 +222,7 @@ namespace CapaPresentación.MdVentas
                     txtprecio.Text = oProducto.PrecioFinal.ToString("N2");
                     txtstock.Text = Convert.ToDecimal(oProducto.StockExistente).ToString();
                     txtCodproducto.Text = Convert.ToDecimal(oProducto.Codigo).ToString();
-                    txtcantidad.Select();
+                   // txtcantidad.Select();
 
                     // Agregar automáticamente al DataGridView
                     AgregarProductoAlDataGridView();
@@ -227,6 +235,42 @@ namespace CapaPresentación.MdVentas
                     txtprecio.Text = "";
                     txtstock.Text = "";
                     txtCodproducto.Text = "";
+                    txtDescripcionProd.Text = "";
+                    txtcantidad.Value = 1;
+                    MessageBox.Show("Producto no encontrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        // Buscar producto por descripcion
+        private void txtDescripcionProd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                Productos oProducto = new CN_Productos().Listar().FirstOrDefault(p => p.DescripcionGeneral == txtDescripcionProd.Text && p.Estado == true);
+
+                if (oProducto != null)
+                {
+                    txtcodbarraproducto.BackColor = Color.Honeydew;
+                    txtidproducto.Text = oProducto.IdProducto.ToString();
+                    txtproducto.Text = oProducto.DescripcionGeneral;
+                    txtprecio.Text = oProducto.PrecioFinal.ToString("N2");
+                    txtstock.Text = Convert.ToDecimal(oProducto.StockExistente).ToString();
+                    txtCodproducto.Text = Convert.ToDecimal(oProducto.Codigo).ToString();
+                  //  txtcantidad.Select();
+
+                    // Agregar automáticamente al DataGridView
+                    AgregarProductoAlDataGridView();
+                }
+                else
+                {
+                    txtDescripcionProd.BackColor = Color.MistyRose;
+                    txtidproducto.Text = "0";
+                    txtproducto.Text = "";
+                    txtprecio.Text = "";
+                    txtstock.Text = "";
+                    txtCodproducto.Text = "";
+                    txtDescripcionProd.Text = "";
                     txtcantidad.Value = 1;
                     MessageBox.Show("Producto no encontrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -260,6 +304,7 @@ namespace CapaPresentación.MdVentas
             decimal precio = 0;
             decimal cantidad = txtcantidad.Value;
             bool producto_existe = false;
+            int index = -1;
 
             if (int.Parse(txtidproducto.Text) == 0)
             {
@@ -285,90 +330,44 @@ namespace CapaPresentación.MdVentas
                 if (fila.Cells["IdProducto"].Value.ToString() == txtidproducto.Text)
                 {
                     producto_existe = true;
+                    index = fila.Index;
                     break;
                 }
             }
 
-            if (!producto_existe)
+            if (producto_existe)
             {
-                bool respuesta = new CN_Venta().RestarStock(
-                                Convert.ToInt32(txtidproducto.Text),
-                                cantidad);
+                // Si el producto ya existe, actualizamos la cantidad
+                decimal nueva_cantidad = Convert.ToDecimal(dgvdata.Rows[index].Cells["Cantidad"].Value) + cantidad;
+                dgvdata.Rows[index].Cells["Cantidad"].Value = nueva_cantidad;
+                dgvdata.Rows[index].Cells["SubTotal"].Value = (nueva_cantidad * precio).ToString("N2");
+            }
+            else
+            {
+                // Si el producto no existe, agregamos una nueva fila
+                dgvdata.Rows.Add(new object[] {
+                    txtidproducto.Text,
+                    txtproducto.Text,
+                    precio.ToString("N2"),
+                    cantidad,
+                    (cantidad * precio).ToString("N2")
+                });
+            }
 
-                if (respuesta)
-                {
-                    dgvdata.Rows.Add(new object[] {
-                txtidproducto.Text,
-                txtproducto.Text,
-                precio.ToString("N2"),
-                cantidad,
-                (cantidad * precio).ToString("N2")
-            });
+            // Restar el stock independientemente de si el producto existe o no en el carrito
+            bool respuesta = new CN_Venta().RestarStock(Convert.ToInt32(txtidproducto.Text), cantidad);
 
-                    calcularTotal();
-                    limpiarProducto();
-                    txtCodproducto.Select();
-                }
+            if (respuesta)
+            {
+                calcularTotal();
+                limpiarProducto();
             }
         }
 
+
         private void btnagregarproducto_Click(object sender, EventArgs e)
         {
-            decimal precio = 0;
-            decimal cantidad = txtcantidad.Value;
-            bool producto_existe = false;
-
-            if (int.Parse(txtidproducto.Text) == 0)
-            {
-                MessageBox.Show("Debe seleccionar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            if (!decimal.TryParse(txtprecio.Text, out precio))
-            {
-                MessageBox.Show("Precio - Formato moneda incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtprecio.Select();
-                return;
-            }
-
-            if (cantidad > Convert.ToDecimal(txtstock.Text))
-            {
-                MessageBox.Show("La cantidad no puede ser mayor al stock", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-
-            foreach (DataGridViewRow fila in dgvdata.Rows)
-            {
-                if (fila.Cells["IdProducto"].Value.ToString() == txtidproducto.Text)
-                {
-                    producto_existe = true;
-                    break;
-                }
-            }
-
-            if (!producto_existe)
-            {
-
-                bool respuesta = new CN_Venta().RestarStock(
-                                Convert.ToInt32(txtidproducto.Text),
-                                cantidad);
-
-                if (respuesta)
-                {
-                    dgvdata.Rows.Add(new object[] {
-                        txtidproducto.Text,
-                        txtproducto.Text,
-                        precio.ToString("N2"),
-                        cantidad,
-                        (cantidad * precio).ToString("N2")
-                    });
-
-                    calcularTotal();
-                    limpiarProducto();
-                   // txtCodproducto.Select();
-                }
-            }
+            AgregarProductoAlDataGridView();
         }
 
         //agregar item por medio de una tecla
@@ -417,6 +416,7 @@ namespace CapaPresentación.MdVentas
             txtidproducto.Text = "0";
             txtcodbarraproducto.Text = "";
             txtCodproducto.Text = "";
+            txtDescripcionProd.Text = "";
             txtproducto.Text = "";
             txtprecio.Text = "";
             txtstock.Text = "";
@@ -641,6 +641,7 @@ namespace CapaPresentación.MdVentas
             txtcodbarraproducto.Text = "";
             txtCodproducto.Text = "";
             txtproducto.Text = "";
+            txtDescripcionProd.Text = "";
             txtprecio.Text = "";
             txtstock.Text = "";
             txttotalpagar.Text = "";
@@ -678,6 +679,18 @@ namespace CapaPresentación.MdVentas
                 // Si no es un número o una coma, ignora el evento
                 e.Handled = true;
             }
+        }
+
+        private void txtDescripcionProd_TextChanged(object sender, EventArgs e)
+        {
+            // Almacenar la posición actual del cursor
+            int posicionCursor = txtDescripcionProd.SelectionStart;
+
+            // Convertir el texto a mayúsculas y asignarlo de nuevo al control
+            txtDescripcionProd.Text = txtDescripcionProd.Text.ToUpper();
+
+            // Restaurar la posición del cursor
+            txtDescripcionProd.SelectionStart = posicionCursor;
         }
     }
 }

@@ -29,6 +29,7 @@ namespace CapaPresentación.MdConfiguracion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNegocio));
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.cbolistadoimpresoras = new System.Windows.Forms.ComboBox();
@@ -522,6 +523,7 @@ namespace CapaPresentación.MdConfiguracion
             this.ClientSize = new System.Drawing.Size(904, 411);
             this.Controls.Add(this.btnimpreguardar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmNegocio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

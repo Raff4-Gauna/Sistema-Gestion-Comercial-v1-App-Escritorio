@@ -29,6 +29,7 @@ namespace CapaPresentación.MdLicencia
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAjustesLicencia));
             this.btnEstablecer = new FontAwesome.Sharp.IconButton();
             this.txtfechafin = new System.Windows.Forms.DateTimePicker();
             this.txtfechainicio = new System.Windows.Forms.DateTimePicker();
@@ -145,7 +146,7 @@ namespace CapaPresentación.MdLicencia
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(97, 9);
+            this.label2.Location = new System.Drawing.Point(124, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(372, 21);
             this.label2.TabIndex = 253;
@@ -203,11 +204,12 @@ namespace CapaPresentación.MdLicencia
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAjustesLicencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ACTIVAR PRODUCTO";
+            this.Text = "ACTIVAR LICENCIA PRODUCTO";
             this.Load += new System.EventHandler(this.frmAjustesLicencia_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
