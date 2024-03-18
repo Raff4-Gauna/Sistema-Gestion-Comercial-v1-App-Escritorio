@@ -29,6 +29,7 @@ namespace CapaPresentación.FomsModulos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCompras));
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.menuCompras = new FontAwesome.Sharp.IconMenuItem();
@@ -92,7 +93,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuListaCompra.IconColor = System.Drawing.Color.Black;
             this.subMenuListaCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuListaCompra.Name = "subMenuListaCompra";
-            this.subMenuListaCompra.Size = new System.Drawing.Size(195, 22);
+            this.subMenuListaCompra.Size = new System.Drawing.Size(182, 22);
             this.subMenuListaCompra.Text = "Lista de Compras";
             // 
             // menu
@@ -115,6 +116,7 @@ namespace CapaPresentación.FomsModulos
             this.ClientSize = new System.Drawing.Size(1186, 716);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "frmCompras";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -39,6 +39,7 @@ namespace CapaPresentación.MdVentas
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaVenta));
             this.btngenerarpdf = new FontAwesome.Sharp.IconButton();
             this.btnborrar = new FontAwesome.Sharp.IconButton();
             this.btnbuscar = new FontAwesome.Sharp.IconButton();
@@ -447,7 +448,7 @@ namespace CapaPresentación.MdVentas
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(984, 183);
+            this.tabPage2.Size = new System.Drawing.Size(984, 166);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Lineas de Venta";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -583,6 +584,7 @@ namespace CapaPresentación.MdVentas
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dgvdata);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmListaVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

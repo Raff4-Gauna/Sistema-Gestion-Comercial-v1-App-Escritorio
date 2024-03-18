@@ -83,19 +83,9 @@ namespace CapaPresentación.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
         /// </summary>
-        internal static System.Drawing.Icon ico {
+        internal static System.Drawing.Icon GT_modified {
             get {
-                object obj = ResourceManager.GetObject("ico", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
-        /// </summary>
-        internal static System.Drawing.Icon icono {
-            get {
-                object obj = ResourceManager.GetObject("icono", resourceCulture);
+                object obj = ResourceManager.GetObject("GT_modified", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

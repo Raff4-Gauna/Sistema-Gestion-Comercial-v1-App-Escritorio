@@ -29,6 +29,7 @@ namespace CapaPresentación.MdVentas.Modal
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAperturaCaja));
             this.label5 = new System.Windows.Forms.Label();
             this.txtMontoIncialCaja = new System.Windows.Forms.TextBox();
             this.btnRegistrar = new FontAwesome.Sharp.IconButton();
@@ -180,6 +181,7 @@ namespace CapaPresentación.MdVentas.Modal
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnCierreCaja);
             this.Controls.Add(this.label4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAperturaCaja";

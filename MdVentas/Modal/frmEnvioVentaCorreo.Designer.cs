@@ -29,6 +29,7 @@ namespace CapaPresentación.MdVentas.Modal
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEnvioVentaCorreo));
             this.btnEnviar = new FontAwesome.Sharp.IconButton();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.txtmensaje = new System.Windows.Forms.TextBox();
@@ -64,6 +65,7 @@ namespace CapaPresentación.MdVentas.Modal
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.IndianRed;
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.IconChar = FontAwesome.Sharp.IconChar.TimesSquare;
@@ -179,6 +181,7 @@ namespace CapaPresentación.MdVentas.Modal
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEnvioVentaCorreo";

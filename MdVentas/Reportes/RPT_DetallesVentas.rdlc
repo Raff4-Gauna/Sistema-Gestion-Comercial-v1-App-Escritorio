@@ -5,9 +5,9 @@
       <Rectangle Name="Rectangle4">
         <ReportItems>
           <Line Name="Line2">
-            <Top>0.8311cm</Top>
+            <Top>0.96481cm</Top>
             <Left>9.45892cm</Left>
-            <Height>2.26536cm</Height>
+            <Height>1.78769cm</Height>
             <Width>0cm</Width>
             <Style>
               <Border>
@@ -106,8 +106,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DS_DatosGeneralesVenta</DataSetName>
-            <Top>2.07313cm</Top>
-            <Left>12.56456cm</Left>
+            <Top>0.96481cm</Top>
+            <Left>12.56455cm</Left>
             <Height>0.95278cm</Height>
             <Width>6.40256cm</Width>
             <ZIndex>1</ZIndex>
@@ -425,11 +425,47 @@
               </Border>
             </Style>
           </Image>
+          <Textbox Name="Textbox111">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>DOCUMENTO NO VÁLIDO COMO FACTURA</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox111</rd:DefaultName>
+            <Top>2.17895cm</Top>
+            <Left>12.99955cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>5.96756cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>0.65865cm</Top>
         <Left>1.02707cm</Left>
-        <Height>3.33057cm</Height>
+        <Height>2.7525cm</Height>
         <Width>18.96713cm</Width>
         <Style>
           <Border>
@@ -455,7 +491,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.52944cm</Height>
+              <Height>0.67937cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -674,7 +710,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.74993cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -829,9 +865,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DS_DetalleVenta</DataSetName>
-        <Top>5.62011cm</Top>
+        <Top>5.32025cm</Top>
         <Left>1.02707cm</Left>
-        <Height>1.12944cm</Height>
+        <Height>1.4293cm</Height>
         <Width>18.96712cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -862,19 +898,19 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>N° Cliente:</Value>
+                                  <Value>N° Cliente: </Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value xml:space="preserve">  </Value>
+                                  <Value xml:space="preserve"> </Value>
                                   <Style />
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!DocumentoCliente.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -886,12 +922,19 @@
                                 <TextRun>
                                   <Value>Nombre:</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value xml:space="preserve">  </Value>
+                                  <Value xml:space="preserve"> </Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value xml:space="preserve"> </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -900,7 +943,7 @@
                                 <TextRun>
                                   <Value>=Fields!NombreCliente.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -910,13 +953,19 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Forma de Pago:  </Value>
+                                  <Value>Forma de Pago: </Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value xml:space="preserve"> </Value>
                                   <Style />
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!DescripcionMetodoPago.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -966,8 +1015,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DS_DatosGeneralesVenta</DataSetName>
-            <Top>0.14111cm</Top>
-            <Left>0.19681cm</Left>
+            <Top>0.10583cm</Top>
+            <Left>0.23209cm</Left>
             <Height>1.38226cm</Height>
             <Width>6.88718cm</Width>
             <Style>
@@ -978,9 +1027,9 @@
           </Tablix>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>3.82566cm</Top>
+        <Top>3.58754cm</Top>
         <Left>1.02707cm</Left>
-        <Height>1.72389cm</Height>
+        <Height>1.5916cm</Height>
         <Width>18.96712cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
@@ -1015,6 +1064,7 @@
                             <TextRun>
                               <Value>Importe Pago</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -1068,6 +1118,7 @@
                             <TextRun>
                               <Value>Importe Total</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -1126,14 +1177,12 @@
                             <TextRun>
                               <Value>$ </Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!MontoPago.Value</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -1194,7 +1243,6 @@
                             <TextRun>
                               <Value>=Fields!MontoTotal.Value</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -1259,9 +1307,9 @@
         </TablixRowHierarchy>
         <DataSetName>DS_DatosGeneralesVenta</DataSetName>
         <Top>6.82011cm</Top>
-        <Left>10.51062cm</Left>
+        <Left>10.51063cm</Left>
         <Height>1.24704cm</Height>
-        <Width>9.48356cm</Width>
+        <Width>9.48355cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -1269,42 +1317,6 @@
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox111">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>DOCUMENTO NO VÁLIDO COMO FACTURA</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontSize>8pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                  <Color>#000000</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox111</rd:DefaultName>
-        <Top>21.55265cm</Top>
-        <Left>1.02707cm</Left>
-        <Height>0.6cm</Height>
-        <Width>8.83236cm</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>23.13376cm</Height>
     <Style>

@@ -31,11 +31,11 @@ namespace CapaPresentación.FomsModulos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentas));
             this.menu = new System.Windows.Forms.MenuStrip();
-            this.menuCaja = new FontAwesome.Sharp.IconMenuItem();
-            this.subAperturaCaja = new FontAwesome.Sharp.IconMenuItem();
             this.menuDatosNegocio = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuPuntoVenta = new FontAwesome.Sharp.IconMenuItem();
             this.subMenuListaVenta = new FontAwesome.Sharp.IconMenuItem();
+            this.menuCaja = new FontAwesome.Sharp.IconMenuItem();
+            this.subAperturaCaja = new FontAwesome.Sharp.IconMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.menu.SuspendLayout();
@@ -55,32 +55,6 @@ namespace CapaPresentación.FomsModulos
             this.menu.Size = new System.Drawing.Size(1184, 45);
             this.menu.TabIndex = 6;
             this.menu.Text = "menu";
-            // 
-            // menuCaja
-            // 
-            this.menuCaja.AutoSize = false;
-            this.menuCaja.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.subAperturaCaja});
-            this.menuCaja.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
-            this.menuCaja.IconColor = System.Drawing.Color.Black;
-            this.menuCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuCaja.IconSize = 20;
-            this.menuCaja.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuCaja.Name = "menuCaja";
-            this.menuCaja.Size = new System.Drawing.Size(100, 40);
-            this.menuCaja.Text = "Caja";
-            this.menuCaja.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // subAperturaCaja
-            // 
-            this.subAperturaCaja.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.subAperturaCaja.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.subAperturaCaja.IconColor = System.Drawing.Color.Black;
-            this.subAperturaCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.subAperturaCaja.Name = "subAperturaCaja";
-            this.subAperturaCaja.Size = new System.Drawing.Size(180, 22);
-            this.subAperturaCaja.Text = "Apertura de Caja";
-            this.subAperturaCaja.Click += new System.EventHandler(this.subAperturaCaja_Click);
             // 
             // menuDatosNegocio
             // 
@@ -105,7 +79,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuPuntoVenta.IconColor = System.Drawing.Color.Black;
             this.subMenuPuntoVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuPuntoVenta.Name = "subMenuPuntoVenta";
-            this.subMenuPuntoVenta.Size = new System.Drawing.Size(180, 22);
+            this.subMenuPuntoVenta.Size = new System.Drawing.Size(169, 22);
             this.subMenuPuntoVenta.Text = "Punto de Ventas";
             this.subMenuPuntoVenta.Click += new System.EventHandler(this.subMenuPuntoVenta_Click);
             // 
@@ -116,9 +90,35 @@ namespace CapaPresentación.FomsModulos
             this.subMenuListaVenta.IconColor = System.Drawing.Color.Black;
             this.subMenuListaVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuListaVenta.Name = "subMenuListaVenta";
-            this.subMenuListaVenta.Size = new System.Drawing.Size(180, 22);
+            this.subMenuListaVenta.Size = new System.Drawing.Size(169, 22);
             this.subMenuListaVenta.Text = "Lista de Ventas";
             this.subMenuListaVenta.Click += new System.EventHandler(this.subMenuListaVenta_Click);
+            // 
+            // menuCaja
+            // 
+            this.menuCaja.AutoSize = false;
+            this.menuCaja.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.subAperturaCaja});
+            this.menuCaja.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
+            this.menuCaja.IconColor = System.Drawing.Color.Black;
+            this.menuCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuCaja.IconSize = 20;
+            this.menuCaja.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuCaja.Name = "menuCaja";
+            this.menuCaja.Size = new System.Drawing.Size(100, 40);
+            this.menuCaja.Text = "Caja";
+            this.menuCaja.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // subAperturaCaja
+            // 
+            this.subAperturaCaja.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.subAperturaCaja.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.subAperturaCaja.IconColor = System.Drawing.Color.Black;
+            this.subAperturaCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.subAperturaCaja.Name = "subAperturaCaja";
+            this.subAperturaCaja.Size = new System.Drawing.Size(174, 22);
+            this.subAperturaCaja.Text = "Apertura de Caja";
+            this.subAperturaCaja.Click += new System.EventHandler(this.subAperturaCaja_Click);
             // 
             // statusStrip
             // 

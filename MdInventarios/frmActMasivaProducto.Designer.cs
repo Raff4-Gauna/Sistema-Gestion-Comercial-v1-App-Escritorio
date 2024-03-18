@@ -34,6 +34,7 @@ namespace CapaPresentación.MdInventarios
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActMasivaProducto));
             this.label24 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.cbosubcategoria = new System.Windows.Forms.ComboBox();
@@ -90,22 +91,22 @@ namespace CapaPresentación.MdInventarios
             // 
             this.cbosubcategoria.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.cbosubcategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbosubcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbosubcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbosubcategoria.FormattingEnabled = true;
             this.cbosubcategoria.Location = new System.Drawing.Point(302, 36);
             this.cbosubcategoria.Name = "cbosubcategoria";
-            this.cbosubcategoria.Size = new System.Drawing.Size(234, 24);
+            this.cbosubcategoria.Size = new System.Drawing.Size(234, 21);
             this.cbosubcategoria.TabIndex = 174;
             // 
             // cbocategoria
             // 
             this.cbocategoria.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.cbocategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbocategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbocategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbocategoria.FormattingEnabled = true;
             this.cbocategoria.Location = new System.Drawing.Point(38, 36);
             this.cbocategoria.Name = "cbocategoria";
-            this.cbocategoria.Size = new System.Drawing.Size(210, 24);
+            this.cbocategoria.Size = new System.Drawing.Size(210, 21);
             this.cbocategoria.TabIndex = 172;
             this.cbocategoria.SelectedIndexChanged += new System.EventHandler(this.cbocategoria_SelectedIndexChanged);
             // 
@@ -165,12 +166,12 @@ namespace CapaPresentación.MdInventarios
             // 
             this.cbomargenganancias.BackColor = System.Drawing.Color.White;
             this.cbomargenganancias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbomargenganancias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbomargenganancias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbomargenganancias.ForeColor = System.Drawing.Color.Black;
             this.cbomargenganancias.FormattingEnabled = true;
             this.cbomargenganancias.Location = new System.Drawing.Point(590, 32);
             this.cbomargenganancias.Name = "cbomargenganancias";
-            this.cbomargenganancias.Size = new System.Drawing.Size(107, 28);
+            this.cbomargenganancias.Size = new System.Drawing.Size(107, 24);
             this.cbomargenganancias.TabIndex = 232;
             this.cbomargenganancias.SelectedIndexChanged += new System.EventHandler(this.cbomargenganancias_SelectedIndexChanged);
             // 
@@ -375,6 +376,7 @@ namespace CapaPresentación.MdInventarios
             this.Controls.Add(this.dgvdata);
             this.Controls.Add(this.btnlimpiar);
             this.Controls.Add(this.btnguardar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmActMasivaProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

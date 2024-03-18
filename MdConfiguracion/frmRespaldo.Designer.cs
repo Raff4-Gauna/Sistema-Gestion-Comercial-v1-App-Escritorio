@@ -29,6 +29,7 @@ namespace CapaPresentación.MdConfiguracion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRespaldo));
             this.label1 = new System.Windows.Forms.Label();
             this.btnRespaldo = new FontAwesome.Sharp.IconButton();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -265,6 +266,7 @@ namespace CapaPresentación.MdConfiguracion
             this.ClientSize = new System.Drawing.Size(904, 411);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmRespaldo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

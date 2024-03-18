@@ -185,6 +185,6 @@ namespace CapaPresentación.MdInventarios
             txtcodigo.Select();
         }
 
-       
+        
     }
 }
