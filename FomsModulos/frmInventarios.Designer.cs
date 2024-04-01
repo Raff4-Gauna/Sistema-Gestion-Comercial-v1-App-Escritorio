@@ -48,6 +48,9 @@ namespace CapaPresentación.FomsModulos
             this.subMenuPrecioMasivo = new FontAwesome.Sharp.IconMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnCotización = new FontAwesome.Sharp.IconMenuItem();
+            this.iconValorDolarActual = new FontAwesome.Sharp.IconMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.menu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +62,8 @@ namespace CapaPresentación.FomsModulos
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuParametros,
             this.menuCatalogoProductos,
-            this.menuGestionUsuarios});
+            this.menuGestionUsuarios,
+            this.btnCotización});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(1184, 45);
@@ -250,6 +254,40 @@ namespace CapaPresentación.FomsModulos
             this.tssHora.Size = new System.Drawing.Size(36, 17);
             this.tssHora.Text = "Hora:";
             // 
+            // btnCotización
+            // 
+            this.btnCotización.AutoSize = false;
+            this.btnCotización.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iconValorDolarActual,
+            this.toolStripSeparator5});
+            this.btnCotización.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnCotización.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
+            this.btnCotización.IconColor = System.Drawing.Color.Black;
+            this.btnCotización.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCotización.IconSize = 20;
+            this.btnCotización.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnCotización.Name = "btnCotización";
+            this.btnCotización.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.btnCotización.Size = new System.Drawing.Size(100, 40);
+            this.btnCotización.Text = "Cotización";
+            this.btnCotización.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // iconValorDolarActual
+            // 
+            this.iconValorDolarActual.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconValorDolarActual.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconValorDolarActual.IconColor = System.Drawing.Color.Black;
+            this.iconValorDolarActual.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconValorDolarActual.Name = "iconValorDolarActual";
+            this.iconValorDolarActual.Size = new System.Drawing.Size(180, 22);
+            this.iconValorDolarActual.Text = "Valor Dolar Actual";
+            this.iconValorDolarActual.Click += new System.EventHandler(this.iconValorDolarActual_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            // 
             // frmInventarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,5 +330,8 @@ namespace CapaPresentación.FomsModulos
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private FontAwesome.Sharp.IconMenuItem btnCotización;
+        private FontAwesome.Sharp.IconMenuItem iconValorDolarActual;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }

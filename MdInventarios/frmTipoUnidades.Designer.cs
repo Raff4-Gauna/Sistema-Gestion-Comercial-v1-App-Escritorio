@@ -125,7 +125,7 @@ namespace CapaPresentación.MdInventarios
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(103, 30);
             this.btnguardar.TabIndex = 135;
-            this.btnguardar.Text = "Guardar";
+            this.btnguardar.Text = "Grabar";
             this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnguardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnguardar.UseVisualStyleBackColor = false;
@@ -260,6 +260,7 @@ namespace CapaPresentación.MdInventarios
             // 
             // frmTipoUnidades
             // 
+            this.AcceptButton = this.btnguardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(332, 414);

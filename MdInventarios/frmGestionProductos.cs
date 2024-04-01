@@ -233,6 +233,7 @@ namespace CapaPresentación.MdInventarios
                     item.UbicacionProducto,
                     stockConcatenado,
                     item.StockMinimo,
+                    item.FechaActualizacion,
                     item.Estado == true ? 1 : 0,
                     item.Estado == true ? "Activo" : "No Activo",
                 });
@@ -329,8 +330,8 @@ namespace CapaPresentación.MdInventarios
                 txtid.Text = dgvdata.Rows[rowIndex].Cells["Id"].Value.ToString();
                 lblDescripcionProd.Text = dgvdata.Rows[rowIndex].Cells["DescripcionGeneral"].Value.ToString();
                 // Agregar el símbolo de dólar a los labels de precios
-                lblUltPrecioCompra.Text = $"${dgvdata.Rows[rowIndex].Cells["PrecioCompra"].Value:0,0.00}";
-                lblUltPrecioVenta.Text = $"${dgvdata.Rows[rowIndex].Cells["PrecioFinal"].Value:0,0.00}";
+                lblUltPrecioCompra.Text = $"${dgvdata.Rows[rowIndex].Cells["PrecioCompra"].Value:N2}";
+                lblUltPrecioVenta.Text = $"${dgvdata.Rows[rowIndex].Cells["PrecioFinal"].Value:N2}";
 
                 lblStockExistente.Text = dgvdata.Rows[rowIndex].Cells["stockConcatenado"].Value.ToString();
 
@@ -349,6 +350,9 @@ namespace CapaPresentación.MdInventarios
                     picImgProducto.Image = null; // O asignar una imagen por defecto si es necesario
                 }
             }
+
+            //Fechas de movimientos de precio final
+            lblUltActPrecioVenta.Text = dgvdata.Rows[rowIndex].Cells["FechaActualizacion"].Value.ToString();
         }
 
         public void SumarProductos()

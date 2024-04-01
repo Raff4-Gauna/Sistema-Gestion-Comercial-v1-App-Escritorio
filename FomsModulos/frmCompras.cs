@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CapaEntidad;
 using System.Windows.Forms;
+using CapaPresentación.MdCompras;
+using CapaPresentación.MdVentas.Modal;
 
 namespace CapaPresentación.FomsModulos
 {
@@ -20,9 +22,13 @@ namespace CapaPresentación.FomsModulos
             InitializeComponent();
         }
 
-        private void frmCompras_Load(object sender, EventArgs e)
+        private void subMenuOrdenCompra_Click(object sender, EventArgs e)
         {
 
+            frmOrdenCompra ordenCompraForm = frmOrdenCompra.ventana_unica(usuarioActual);
+            ordenCompraForm.MdiParent = this;
+            ordenCompraForm.Show();
+            ordenCompraForm.BringToFront();
         }
     }
 }

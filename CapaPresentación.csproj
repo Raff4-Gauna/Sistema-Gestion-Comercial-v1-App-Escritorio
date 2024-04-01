@@ -93,6 +93,9 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
@@ -221,6 +224,18 @@
     <Compile Include="FomsModulos\frmVentas.Designer.cs">
       <DependentUpon>frmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="MdCompras\frmOrdenCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdCompras\frmOrdenCompra.Designer.cs">
+      <DependentUpon>frmOrdenCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdCompras\Modal\frmListarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdCompras\Modal\frmListarProveedor.Designer.cs">
+      <DependentUpon>frmListarProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="MdConfiguracion\frmMetodosPagos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +326,12 @@
     <Compile Include="MdInventarios\frmCrudProducto.Designer.cs">
       <DependentUpon>frmCrudProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="MdInventarios\frmDetalleProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdInventarios\frmDetalleProducto.Designer.cs">
+      <DependentUpon>frmDetalleProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="MdInventarios\frmGestionProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,6 +349,12 @@
     </Compile>
     <Compile Include="MdInventarios\frmTipoUnidades.Designer.cs">
       <DependentUpon>frmTipoUnidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdInventarios\frmValorDolar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdInventarios\frmValorDolar.Designer.cs">
+      <DependentUpon>frmValorDolar.cs</DependentUpon>
     </Compile>
     <Compile Include="MdLicencia\frmAjustesLicencia.cs">
       <SubType>Form</SubType>
@@ -409,6 +436,12 @@
     <Compile Include="MdVentas\Reportes\frmRPTDetallesVentas.Designer.cs">
       <DependentUpon>frmRPTDetallesVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\frmConsultarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\frmConsultarProductos.Designer.cs">
+      <DependentUpon>frmConsultarProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -435,6 +468,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FomsModulos\frmVentas.resx">
       <DependentUpon>frmVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdCompras\frmOrdenCompra.resx">
+      <DependentUpon>frmOrdenCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdCompras\Modal\frmListarProveedor.resx">
+      <DependentUpon>frmListarProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MdConfiguracion\frmMetodosPagos.resx">
       <DependentUpon>frmMetodosPagos.cs</DependentUpon>
@@ -481,6 +520,9 @@
     <EmbeddedResource Include="MdInventarios\frmCrudProducto.resx">
       <DependentUpon>frmCrudProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MdInventarios\frmDetalleProducto.resx">
+      <DependentUpon>frmDetalleProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MdInventarios\frmGestionProductos.resx">
       <DependentUpon>frmGestionProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -489,6 +531,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MdInventarios\frmTipoUnidades.resx">
       <DependentUpon>frmTipoUnidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdInventarios\frmValorDolar.resx">
+      <DependentUpon>frmValorDolar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MdLicencia\frmAjustesLicencia.resx">
       <DependentUpon>frmAjustesLicencia.cs</DependentUpon>
@@ -527,6 +572,9 @@
       <DependentUpon>frmRPTDetallesVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MdVentas\Reportes\RPT_DetallesVentas.rdlc" />
+    <EmbeddedResource Include="Modales\frmConsultarProductos.resx">
+      <DependentUpon>frmConsultarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -612,7 +660,6 @@
     <None Include="Resources\remove20.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MdCompras\" />
     <Folder Include="MdReportes\" />
     <Folder Include="MdVentas\Comprobantes\TipoHoja\" />
     <Folder Include="MdVentas\Comprobantes\TipoTicket\" />

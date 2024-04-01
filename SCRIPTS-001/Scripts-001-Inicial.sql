@@ -177,12 +177,27 @@ CREATE TABLE PRODUCTOS (
     UbicacionProducto VARCHAR(100) NULL,
     StockExistente DECIMAL(18,2) NOT NULL,
     StockMinimo DECIMAL(18,2) NOT NULL,
-    FechaVencimiento VARCHAR(50)NULL,
 	FechaActualizacion  DATETIME DEFAULT GETDATE(),
     Estado BIT,
     FechaRegistro DATETIME DEFAULT GETDATE()
 );
 go
+
+-- Trigger para actualizar la FechaActualizacion cuando se modifica PrecioFinal
+CREATE TRIGGER TRG_ActualizarFecha
+ON PRODUCTOS
+AFTER UPDATE
+AS
+BEGIN
+    IF UPDATE(PrecioFinal)
+    BEGIN
+        UPDATE PRODUCTOS
+        SET FechaActualizacion = GETDATE()
+        FROM inserted
+        WHERE PRODUCTOS.IdProducto = inserted.IdProducto;
+    END
+END;
+
 
 /*-------------------- Tabla de VENTA -------------------------*/
 create table VENTA(
@@ -206,25 +221,10 @@ IdUsuario int references USUARIO(IdUsuario),
 IdProveedor int references PROVEEDOR(IdProveedor),
 TipoDocumento varchar(50),
 NumeroDocumento varchar(50),
-MontoTotal decimal(10,2),
+DescripcionMetodoPago varchar(100),
+MontoTotal DECIMAL(18,2),
 FechaRegistro datetime default getdate()
 )
-
-
-go
-
-
-create table DETALLE_COMPRA(
-IdDetalleCompra int primary key identity,
-IdCompra int references COMPRA(IdCompra),
-IdProducto int references PRODUCTOS(IdProducto),
-PrecioCompra decimal(10,2) default 0,
-PrecioVenta decimal(10,2) default 0,
-Cantidad decimal(10,2) ,
-MontoTotal decimal(10,2),
-FechaRegistro datetime default getdate()
-)
-
 go
 
 /*-------------------- Tabla de DETALLE VENTA -------------------------*/
@@ -239,6 +239,20 @@ FechaRegistro datetime default getdate()
 )
 go
 
+create table DETALLE_COMPRA(
+IdDetalleCompra int primary key identity,
+IdCompra int references COMPRA(IdCompra),
+IdProducto int references PRODUCTOS(IdProducto),
+PrecioCompra DECIMAL(18,2) DEFAULT 0.00,
+PrecioVenta DECIMAL(18,2) DEFAULT 0.00,
+Cantidad DECIMAL(18,2),
+MontoTotal DECIMAL(18,2) DEFAULT 0.00,
+FechaRegistro datetime default getdate()
+)
+go
+
+
+
 /*-------------------- Tabla para almacenar anulaciones de venta -------------------------*/
 CREATE TABLE ANULACION_VENTA (
     IdAnulacionVenta INT PRIMARY KEY IDENTITY,
@@ -247,6 +261,58 @@ CREATE TABLE ANULACION_VENTA (
     FechaAnulacion DATETIME DEFAULT GETDATE()
 );
 go
+
+/*----------------------- Tabla de Apertura de Caja -------------------------*/
+CREATE TABLE APERTURA_CAJA(
+    IdAperturaCaja int PRIMARY KEY IDENTITY,
+    IdUsuario int REFERENCES USUARIO(IdUsuario),
+    MontoInicial decimal(18,2),
+    FechaApertura datetime DEFAULT GETDATE(),
+    FechaCierre datetime,
+    EstadoCaja bit, -- 0 para abierta, 1 para cerrada
+    CONSTRAINT UC_Usuario_FechaApertura UNIQUE (IdUsuario, FechaApertura)
+);
+go
+
+/*----------------------- Tabla de Ingresos -------------------------*/
+CREATE TABLE INGRESOS_CAJA(
+    IdIngreso int PRIMARY KEY IDENTITY,
+    IdAperturaCaja int REFERENCES APERTURA_CAJA(IdAperturaCaja),
+    Monto decimal(18,2),
+    Descripcion varchar(255),
+    FechaIngreso datetime DEFAULT GETDATE()
+);
+go
+
+/*----------------------- Tabla de Egresos -------------------------*/
+CREATE TABLE EGRESOS_CAJA(
+    IdEgreso int PRIMARY KEY IDENTITY,
+    IdAperturaCaja int REFERENCES APERTURA_CAJA(IdAperturaCaja),
+    Monto decimal(18,2),
+    Descripcion varchar(255),
+    FechaEgreso datetime DEFAULT GETDATE()
+);
+go
+
+/*----------------------- Tabla de Clave Unica -------------------------*/
+CREATE TABLE ClaveUnica (
+    IdUsuario int REFERENCES USUARIO(IdUsuario) PRIMARY KEY,
+    ClaveUnica varchar(50),
+    FechaRegistro datetime DEFAULT GETDATE(),
+    CONSTRAINT CK_ClaveUnica_FechaRegistro CHECK (FechaRegistro <= GETDATE())
+);
+GO
+
+/*----------------------- Tabla de Caducidad -------------------------*/
+CREATE TABLE Caducidad (
+    FechaInicio datetime,
+    FechaFin datetime,
+    DiasDiferencia int,
+    FechaRegistro datetime DEFAULT GETDATE(),
+    CONSTRAINT CK_Caducidad_Fechas CHECK (FechaInicio <= FechaFin),
+    CONSTRAINT CK_Caducidad_FechaRegistro CHECK (FechaRegistro <= GETDATE())
+);
+GO
 
 /*##########################  FIN DE TABLAS ##########################*/
 
@@ -340,6 +406,80 @@ END
 GO
 
 /*########################## FIN PROC USUARIOS ##########################*/
+
+/*########################## INICIO PROC PROC APERTURA CAJA ##########################*/
+
+CREATE PROCEDURE SP_APERTURA_CAJA
+    @IdUsuario int,
+    @MontoInicial decimal(18,2),
+    @Resultado int OUTPUT,
+    @Mensaje varchar(500) OUTPUT
+AS
+BEGIN
+    SET @Resultado = 0
+    SET @Mensaje = ''
+
+    BEGIN TRY
+        DECLARE @FechaApertura datetime = GETDATE();
+
+        -- Verificar si ya existe una apertura de caja para el usuario en la fecha actual
+        IF NOT EXISTS (SELECT 1 FROM APERTURA_CAJA WHERE IdUsuario = @IdUsuario AND CAST(FechaApertura AS DATE) = CAST(@FechaApertura AS DATE) AND EstadoCaja = 0)
+        BEGIN
+            -- Insertar nueva apertura de caja
+            INSERT INTO APERTURA_CAJA (IdUsuario, MontoInicial, FechaApertura, EstadoCaja)
+            VALUES (@IdUsuario, @MontoInicial, @FechaApertura, 0);
+            
+            SET @Resultado = SCOPE_IDENTITY()
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'Ya existe una apertura de caja para este usuario en la fecha actual.';
+        END
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = 'Error al realizar la apertura de caja. Detalles: ' + ERROR_MESSAGE();
+    END CATCH
+END;
+GO
+-- Procedimiento almacenado para el cierre de caja
+
+CREATE PROCEDURE SP_CIERRE_CAJA
+    @IdAperturaCaja int,
+    @IdUsuario int,
+    @Resultado int OUTPUT,
+    @Mensaje varchar(500) OUTPUT
+AS
+BEGIN
+    SET @Resultado = 0
+    SET @Mensaje = ''
+
+    BEGIN TRY
+        DECLARE @FechaCierre datetime = GETDATE();
+
+        -- Verificar si la apertura de caja existe y aún no ha sido cerrada
+        IF EXISTS (SELECT 1 FROM APERTURA_CAJA WHERE IdAperturaCaja = @IdAperturaCaja AND IdUsuario = @IdUsuario AND EstadoCaja = 0)
+        BEGIN
+            -- Actualizar la apertura de caja con la fecha de cierre y cambiar el estado a cerrada
+            UPDATE APERTURA_CAJA
+            SET FechaCierre = @FechaCierre,
+                EstadoCaja = 1
+            WHERE IdAperturaCaja = @IdAperturaCaja;
+
+            SET @Resultado = 1
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'La apertura de caja no existe, no pertenece al usuario actual o ya ha sido cerrada.';
+        END
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = 'Error al realizar el cierre de caja. Detalles: ' + ERROR_MESSAGE();
+    END CATCH
+END;
+GO
+
+
+/*########################## FIN PROC PROC APERTURA CAJA ##########################*/
 
 /*########################## INICIO PROC PROC SUCURSALES ##########################*/
 create PROC SP_REGISTARSUCURSAL(
@@ -1024,7 +1164,6 @@ CREATE PROC SP_REGISTRARPRODUCTO(
     @UbicacionProducto VARCHAR(100),
     @StockExistente DECIMAL(18,2),
     @StockMinimo DECIMAL(18,2),
-    @FechaVencimiento VARCHAR(50),
     @Estado BIT,
     @Resultado INT OUTPUT,
     @Mensaje VARCHAR(500) OUTPUT
@@ -1038,13 +1177,13 @@ BEGIN
         INSERT INTO PRODUCTOS (
             CodigoBarras, Codigo, DescripcionGeneral, IdCategoria, IdSubcategoria, IdTasaImpuesto,
             IdTipoUnidad, ProveedorAsociado, Imagen, PrecioCompra, IdMargenGanancia, PrecioFinal,
-            UbicacionProducto, StockExistente, StockMinimo, FechaVencimiento,
+            UbicacionProducto, StockExistente, StockMinimo,
             Estado
         ) 
         VALUES (
             @CodigoBarras, @Codigo, @DescripcionGeneral, @IdCategoria, @IdSubcategoria, @IdTasaImpuesto,
             @IdTipoUnidad, @ProveedorAsociado, @Imagen, @PrecioCompra, @IdMargenGanancia, @PrecioFinal,
-            @UbicacionProducto, @StockExistente, @StockMinimo, @FechaVencimiento,
+            @UbicacionProducto, @StockExistente, @StockMinimo,
             @Estado
         );
 
@@ -1077,7 +1216,6 @@ CREATE PROCEDURE SP_MODIFICARPRODUCTO(
     @UbicacionProducto VARCHAR(100),
     @StockExistente DECIMAL(18,2),
     @StockMinimo DECIMAL(18,2),
-    @FechaVencimiento VARCHAR(50),
     @Estado BIT,
     @Resultado BIT OUTPUT,
     @Mensaje VARCHAR(500) OUTPUT
@@ -1105,7 +1243,6 @@ BEGIN
             UbicacionProducto = @UbicacionProducto,
             StockExistente = @StockExistente,
             StockMinimo = @StockMinimo,
-            FechaVencimiento = @FechaVencimiento,
             Estado = @Estado
         WHERE IdProducto = @IdProducto;
     END
@@ -1216,7 +1353,7 @@ CREATE PROCEDURE SP_OBTENER_CODIGO_O_CODIGO_BARRAS
     @CodigoBarras NVARCHAR(50) = NULL
 AS
 BEGIN
-    SELECT IdProducto, CodigoBarras, Codigo, DescripcionGeneral, PrecioFinal, UbicacionProducto, StockExistente, FechaVencimiento
+    SELECT IdProducto, CodigoBarras, Codigo, DescripcionGeneral, PrecioFinal, UbicacionProducto, StockExistente
     FROM PRODUCTOS
     WHERE Codigo = @Codigo OR CodigoBarras = @CodigoBarras;
 END;
@@ -1391,6 +1528,7 @@ BEGIN
     WHERE
         V.IdVenta = @IdVenta;
 END
+GO
 
 --ObtenerDetallesVentaRDLC
 -- Procedimiento para obtener los detalles de la venta
@@ -1467,6 +1605,45 @@ GO
 
 /*########################## FIN PROC VENTAS ##########################*/
 
+/*########################## INICIO PROC SP_REGISTRAR_INICIO_FIN_FECHAS ##########################*/
+
+CREATE PROCEDURE SP_REGISTRAR_INICIO_FIN_FECHAS
+    @FechaInicio DATETIME,
+    @FechaFin DATETIME,
+    @DiasDiferencia INT OUTPUT,
+    @Resultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    -- Verificar que la fecha de inicio sea menor o igual a la fecha de fin
+    IF @FechaInicio > @FechaFin
+    BEGIN
+        SET @Resultado = 0; -- 0 indica error
+        SET @Mensaje = 'La Fecha de Inicio no puede ser posterior a la Fecha de Fin.';
+        RETURN;
+    END
+
+    -- Calcular la diferencia en días entre FechaInicio y FechaFin
+    SET @DiasDiferencia = DATEDIFF(DAY, @FechaInicio, @FechaFin);
+
+    -- Verificar restricción de al menos 1 día de diferencia
+    IF @DiasDiferencia < 1
+    BEGIN
+        SET @Resultado = 0; -- 0 indica error
+        SET @Mensaje = 'Debe haber al menos 1 día de diferencia entre FechaInicio y FechaFin.';
+        RETURN;
+    END
+
+    -- Insertar datos en la tabla Caducidad
+    INSERT INTO Caducidad (FechaInicio, FechaFin, DiasDiferencia)
+    VALUES (@FechaInicio, @FechaFin, @DiasDiferencia);
+
+    SET @Resultado = 1; -- 1 indica éxito
+    SET @Mensaje = 'Registro exitoso.';
+END
+GO
+/*########################## FIN PROC SP_REGISTRAR_INICIO_FIN_FECHAS ##########################*/
+
 
 
 /****************** INSERTAMOS REGISTROS A LAS TABLAS ******************/
@@ -1485,6 +1662,12 @@ insert into USUARIO(Documento,NombreCompleto,Clave,IdRol,Estado)
  ('123','ADMIN','123',1,1)
 
 GO
+------------------------------------------------------
+
+/*ClaveUnica privada Gestión de caducidad*/
+INSERT INTO ClaveUnica (IdUsuario, ClaveUnica)
+VALUES (1, '123');
+
 -------------------------------------------------------
   
 insert into PERMISO(IdRol,NombreMenu) values
@@ -1506,6 +1689,22 @@ insert into PERMISO(IdRol,NombreMenu) values
   (1,'mdVentas')
   
 GO
+
+insert into PERMISO(IdRol,NombreMenu) values
+  (1,'mdCompras')
+  
+GO
+
+insert into PERMISO(IdRol,NombreMenu) values
+  (1,'mdReportes')
+  
+GO
+
+insert into PERMISO(IdRol,NombreMenu) values
+  (1,'mdLicencia')
+  
+GO
+
 ------------------------------------------------------
 
 insert into NEGOCIO(IdNegocio,Nombre,Telefono,Direccion,Titular,CUIT,NumIngresosBrutos,Logo) values
@@ -1526,17 +1725,38 @@ insert into TASA_IMPUESTOS (NombreTasa, Porcentaje, Descripcion, Estado)
 	values ('SNIVA', 0, 'Sin impuesto', 1);
 GO
 --------------------------------------------------------------------
---INSERT INTO CLIENTE (IdTipoContribuyentes, NombreCompleto, Documento, CUIT, Correo, Telefono, Notas, Estado)
---VALUES 
- --   (4, 'CONSUMIDOR FINAL', '00000001', '00-00000001-1', 'consumidor@gmail.com', '123-4567890', 'Nota', 1)
-   -- ;
---go
----------------------------------------------------------------------
--- Unidades comunes
+
+
 INSERT INTO TIPOS_UNIDADES (NombreTipoUnidad) VALUES 
 --('UNIDAD'), ('KILOGRAMO'), ('LITRO'), ('CAJA'), ('BULTO'), ('SACO'), ('METRO'), ('PIEZA'), ('JUEGO'), ('DOCENA'), ('SERVICIO');
-  ('UNIDAD'), ('KILOGRAMO'), ('PACK'), ('CAJA'), ('ENVASE');
+  ('KG'), ('UN');
 GO
 ---------------------------------------------------------------------
 
-/*---------------------------------------------------------------------*/
+--#########################################################################--
+
+-- PRUEBAS --
+
+------------------------
+select * from Caducidad
+
+delete Caducidad
+
+DECLARE @FechaInicio DATETIME = '2024-02-25T00:00:00';
+DECLARE @FechaFin DATETIME = '2024-02-26T00:00:00';
+DECLARE @DiasDiferencia INT;
+DECLARE @Resultado INT;
+DECLARE @Mensaje VARCHAR(500);
+
+-- Ejecutar el procedimiento almacenado
+EXEC SP_REGISTRAR_INICIO_FIN_FECHAS
+    @FechaInicio = @FechaInicio,
+    @FechaFin = @FechaFin,
+    @DiasDiferencia = @DiasDiferencia OUTPUT,
+    @Resultado = @Resultado OUTPUT,
+    @Mensaje = @Mensaje OUTPUT;
+
+-- Imprimir los resultados
+PRINT 'Resultado: ' + CAST(@Resultado AS VARCHAR(10));
+PRINT 'Mensaje: ' + @Mensaje;
+PRINT 'Días de Diferencia: ' + CAST(@DiasDiferencia AS VARCHAR(10));

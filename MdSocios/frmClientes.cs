@@ -129,7 +129,7 @@ namespace CapaPresentación.MdSocios
                         idgenerado,
                         ((OpcionCombo)cboTipoContribuyente.SelectedItem).Valor.ToString(),
                         ((OpcionCombo)cboTipoContribuyente.SelectedItem).Texto.ToString(),
-                        txtnombrecompleto.Text, 
+                        txtnombrecompleto.Text,
                         txtdocumento.Text,
                         txtcuit.Text,
                         txtcorreo.Text, 
@@ -190,7 +190,7 @@ namespace CapaPresentación.MdSocios
             txtNotas.Text = "";
             cboTipoContribuyente.SelectedIndex = 0;
             cboestado.SelectedIndex = 0;
-            txtdocumento.Select();
+            txtcuit.Select();
         }
 
         private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -332,7 +332,7 @@ namespace CapaPresentación.MdSocios
         {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 9; i++)
             {
                 sb.Append(random.Next(0, 9));
             }
@@ -351,6 +351,23 @@ namespace CapaPresentación.MdSocios
             }
 
             lblTotalSucursales.Text = Total.ToString();
+        }
+
+        private void txtcuit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtdocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números y la coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

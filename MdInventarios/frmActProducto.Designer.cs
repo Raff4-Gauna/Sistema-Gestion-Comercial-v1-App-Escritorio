@@ -55,6 +55,8 @@ namespace CapaPresentación.MdInventarios
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnbuscarproducto = new FontAwesome.Sharp.IconButton();
+            this.txtidproducto = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -67,7 +69,7 @@ namespace CapaPresentación.MdInventarios
             // 
             this.txtcodigobarra.BackColor = System.Drawing.Color.AntiqueWhite;
             this.txtcodigobarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcodigobarra.Location = new System.Drawing.Point(154, 27);
+            this.txtcodigobarra.Location = new System.Drawing.Point(133, 27);
             this.txtcodigobarra.Name = "txtcodigobarra";
             this.txtcodigobarra.Size = new System.Drawing.Size(284, 26);
             this.txtcodigobarra.TabIndex = 112;
@@ -80,7 +82,7 @@ namespace CapaPresentación.MdInventarios
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(151, 6);
+            this.label10.Location = new System.Drawing.Point(130, 4);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(136, 18);
             this.label10.TabIndex = 111;
@@ -120,6 +122,7 @@ namespace CapaPresentación.MdInventarios
             this.txtpreciofinal.Name = "txtpreciofinal";
             this.txtpreciofinal.Size = new System.Drawing.Size(177, 44);
             this.txtpreciofinal.TabIndex = 147;
+            this.txtpreciofinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpreciofinal_KeyPress);
             this.txtpreciofinal.Leave += new System.EventHandler(this.txtpreciofinal_Leave);
             // 
             // btnlimpiarcampos
@@ -132,7 +135,7 @@ namespace CapaPresentación.MdInventarios
             this.btnlimpiarcampos.IconColor = System.Drawing.Color.Black;
             this.btnlimpiarcampos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnlimpiarcampos.IconSize = 18;
-            this.btnlimpiarcampos.Location = new System.Drawing.Point(128, 277);
+            this.btnlimpiarcampos.Location = new System.Drawing.Point(128, 276);
             this.btnlimpiarcampos.Name = "btnlimpiarcampos";
             this.btnlimpiarcampos.Size = new System.Drawing.Size(173, 30);
             this.btnlimpiarcampos.TabIndex = 171;
@@ -152,7 +155,7 @@ namespace CapaPresentación.MdInventarios
             this.btnactualizarprod.IconColor = System.Drawing.Color.Black;
             this.btnactualizarprod.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnactualizarprod.IconSize = 16;
-            this.btnactualizarprod.Location = new System.Drawing.Point(334, 277);
+            this.btnactualizarprod.Location = new System.Drawing.Point(334, 276);
             this.btnactualizarprod.Name = "btnactualizarprod";
             this.btnactualizarprod.Size = new System.Drawing.Size(173, 30);
             this.btnactualizarprod.TabIndex = 170;
@@ -184,6 +187,7 @@ namespace CapaPresentación.MdInventarios
             this.txtstockexistente.Size = new System.Drawing.Size(126, 40);
             this.txtstockexistente.TabIndex = 178;
             this.txtstockexistente.Text = "0";
+            this.txtstockexistente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtstockexistente_KeyPress);
             // 
             // lblprecioactual
             // 
@@ -215,7 +219,7 @@ namespace CapaPresentación.MdInventarios
             this.txtcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcodigo.Location = new System.Drawing.Point(12, 25);
             this.txtcodigo.Name = "txtcodigo";
-            this.txtcodigo.Size = new System.Drawing.Size(136, 26);
+            this.txtcodigo.Size = new System.Drawing.Size(115, 26);
             this.txtcodigo.TabIndex = 181;
             this.txtcodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcodigo_KeyDown);
             this.txtcodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcodigo_KeyPress);
@@ -258,7 +262,7 @@ namespace CapaPresentación.MdInventarios
             this.groupBox2.Controls.Add(this.lblfechacaducidad);
             this.groupBox2.Controls.Add(this.txtindice);
             this.groupBox2.Controls.Add(this.txtid);
-            this.groupBox2.Location = new System.Drawing.Point(12, 60);
+            this.groupBox2.Location = new System.Drawing.Point(12, 59);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(426, 191);
             this.groupBox2.TabIndex = 187;
@@ -342,7 +346,7 @@ namespace CapaPresentación.MdInventarios
             // 
             this.groupBox6.Controls.Add(this.txtstockexistente);
             this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox6.Location = new System.Drawing.Point(444, 79);
+            this.groupBox6.Location = new System.Drawing.Point(444, 78);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(190, 69);
             this.groupBox6.TabIndex = 0;
@@ -354,7 +358,7 @@ namespace CapaPresentación.MdInventarios
             this.textBox1.BackColor = System.Drawing.Color.LightYellow;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(436, 60);
+            this.textBox1.Location = new System.Drawing.Point(436, 59);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(201, 202);
@@ -363,18 +367,47 @@ namespace CapaPresentación.MdInventarios
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.txtpreciofinal);
-            this.groupBox5.Location = new System.Drawing.Point(443, 174);
+            this.groupBox5.Location = new System.Drawing.Point(443, 173);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(191, 69);
             this.groupBox5.TabIndex = 192;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Actualizar Precio Venta";
             // 
+            // btnbuscarproducto
+            // 
+            this.btnbuscarproducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnbuscarproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbuscarproducto.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnbuscarproducto.IconColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnbuscarproducto.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnbuscarproducto.IconSize = 18;
+            this.btnbuscarproducto.Location = new System.Drawing.Point(551, 21);
+            this.btnbuscarproducto.Name = "btnbuscarproducto";
+            this.btnbuscarproducto.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.btnbuscarproducto.Size = new System.Drawing.Size(76, 32);
+            this.btnbuscarproducto.TabIndex = 193;
+            this.btnbuscarproducto.Text = "(F10)";
+            this.btnbuscarproducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnbuscarproducto.UseVisualStyleBackColor = true;
+            this.btnbuscarproducto.Click += new System.EventHandler(this.btnbuscarproducto_Click);
+            // 
+            // txtidproducto
+            // 
+            this.txtidproducto.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.txtidproducto.Location = new System.Drawing.Point(513, 286);
+            this.txtidproducto.Name = "txtidproducto";
+            this.txtidproducto.Size = new System.Drawing.Size(32, 20);
+            this.txtidproducto.TabIndex = 194;
+            this.txtidproducto.Visible = false;
+            // 
             // frmActProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 323);
+            this.ClientSize = new System.Drawing.Size(639, 321);
+            this.Controls.Add(this.txtidproducto);
+            this.Controls.Add(this.btnbuscarproducto);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.txtcodigo);
@@ -438,5 +471,7 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox5;
+        private FontAwesome.Sharp.IconButton btnbuscarproducto;
+        private System.Windows.Forms.TextBox txtidproducto;
     }
 }

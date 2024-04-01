@@ -11,7 +11,7 @@ using CapaNegocio;
 using CapaDatos;
 using CapaEntidad;
 using System.Data.SqlClient;
-
+using CapaPresentación.Modales;
 
 
 namespace CapaPresentación.MdInventarios
@@ -20,7 +20,6 @@ namespace CapaPresentación.MdInventarios
     {
         //mantener activa solo una ventana y evitar duplicidad
         private static frmActProducto instancia = null;
-
         public static frmActProducto ventana_unica()
         {
             if (instancia == null || instancia.IsDisposed)
@@ -39,6 +38,20 @@ namespace CapaPresentación.MdInventarios
         private void frmActProducto_Load(object sender, EventArgs e)
         {
             txtcodigo.Select();
+        }
+
+        private void btnbuscarproducto_Click(object sender, EventArgs e)
+        {
+            frmConsultarProductos FrmConsultarProductos = new frmConsultarProductos();
+            FrmConsultarProductos.ShowDialog();
+
+            // Verificar si se ha establecido el código de barras en el formulario consultado
+            if (!string.IsNullOrEmpty(FrmConsultarProductos.CodigoBarra))
+            {
+                // Asignar el valor del código de barras al control txtcodigobarra
+                txtcodigobarra.Text = FrmConsultarProductos.CodigoBarra;
+                txtcodigobarra.Select();
+            }
         }
 
         private void txtcodigobarra_KeyPress(object sender, KeyPressEventArgs e)
@@ -65,6 +78,21 @@ namespace CapaPresentación.MdInventarios
         {
             CN_Formato_Monedas cnFormatoMonedas = new CN_Formato_Monedas();
             cnFormatoMonedas.FormatoMoneda(txtpreciofinal);
+        }
+
+        private void txtpreciofinal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números, punto y coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto o una coma decimal
+            if ((e.KeyChar == '.' || e.KeyChar == ',') && (sender as TextBox).Text.Contains(".") && (sender as TextBox).Text.Contains(","))
+            {
+                e.Handled = true;
+            }
         }
 
         //Buscar Productos
@@ -185,6 +213,19 @@ namespace CapaPresentación.MdInventarios
             txtcodigo.Select();
         }
 
-        
+        private void txtstockexistente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números, punto y coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto o una coma decimal
+            if ((e.KeyChar == '.' || e.KeyChar == ',') && (sender as TextBox).Text.Contains(".") && (sender as TextBox).Text.Contains(","))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

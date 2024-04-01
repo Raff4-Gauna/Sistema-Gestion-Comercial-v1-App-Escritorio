@@ -109,5 +109,13 @@ namespace CapaPresentación.FomsModulos
             frmCrudProducto.Show();
             frmCrudProducto.BringToFront();
         }
+
+        private void iconValorDolarActual_Click(object sender, EventArgs e)
+        {
+            frmValorDolar frmValorDolar = frmValorDolar.ventana_unica();
+            frmValorDolar.MdiParent = this;
+            frmValorDolar.Show();
+            frmValorDolar.BringToFront();
+        }
     }
 }

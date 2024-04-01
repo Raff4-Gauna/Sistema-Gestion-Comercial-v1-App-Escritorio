@@ -56,6 +56,7 @@ namespace CapaPresentación.MdInventarios
             this.PrecioFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaActualizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAgregarMarGanancia = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
             this.txtAumentoProcentaje = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,7 +70,7 @@ namespace CapaPresentación.MdInventarios
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(254, 29);
+            this.label24.Location = new System.Drawing.Point(221, 10);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(42, 31);
             this.label24.TabIndex = 177;
@@ -79,13 +80,13 @@ namespace CapaPresentación.MdInventarios
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(302, 15);
+            this.label12.Location = new System.Drawing.Point(265, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(124, 18);
+            this.label12.Size = new System.Drawing.Size(160, 15);
             this.label12.TabIndex = 173;
-            this.label12.Text = "Sub Categorias";
+            this.label12.Text = "SubCategorias / Marcas";
             // 
             // cbosubcategoria
             // 
@@ -93,7 +94,7 @@ namespace CapaPresentación.MdInventarios
             this.cbosubcategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbosubcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbosubcategoria.FormattingEnabled = true;
-            this.cbosubcategoria.Location = new System.Drawing.Point(302, 36);
+            this.cbosubcategoria.Location = new System.Drawing.Point(265, 18);
             this.cbosubcategoria.Name = "cbosubcategoria";
             this.cbosubcategoria.Size = new System.Drawing.Size(234, 21);
             this.cbosubcategoria.TabIndex = 174;
@@ -104,7 +105,7 @@ namespace CapaPresentación.MdInventarios
             this.cbocategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbocategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbocategoria.FormattingEnabled = true;
-            this.cbocategoria.Location = new System.Drawing.Point(38, 36);
+            this.cbocategoria.Location = new System.Drawing.Point(6, 18);
             this.cbocategoria.Name = "cbocategoria";
             this.cbocategoria.Size = new System.Drawing.Size(210, 21);
             this.cbocategoria.TabIndex = 172;
@@ -114,11 +115,11 @@ namespace CapaPresentación.MdInventarios
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(35, 15);
+            this.label11.Location = new System.Drawing.Point(14, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 18);
+            this.label11.Size = new System.Drawing.Size(76, 15);
             this.label11.TabIndex = 171;
             this.label11.Text = "Categorias";
             // 
@@ -164,14 +165,14 @@ namespace CapaPresentación.MdInventarios
             // 
             // cbomargenganancias
             // 
-            this.cbomargenganancias.BackColor = System.Drawing.Color.White;
+            this.cbomargenganancias.BackColor = System.Drawing.Color.Gainsboro;
             this.cbomargenganancias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbomargenganancias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbomargenganancias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbomargenganancias.ForeColor = System.Drawing.Color.Black;
             this.cbomargenganancias.FormattingEnabled = true;
-            this.cbomargenganancias.Location = new System.Drawing.Point(590, 32);
+            this.cbomargenganancias.Location = new System.Drawing.Point(553, 18);
             this.cbomargenganancias.Name = "cbomargenganancias";
-            this.cbomargenganancias.Size = new System.Drawing.Size(107, 24);
+            this.cbomargenganancias.Size = new System.Drawing.Size(107, 21);
             this.cbomargenganancias.TabIndex = 232;
             this.cbomargenganancias.SelectedIndexChanged += new System.EventHandler(this.cbomargenganancias_SelectedIndexChanged);
             // 
@@ -179,23 +180,23 @@ namespace CapaPresentación.MdInventarios
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(587, 8);
+            this.label1.Location = new System.Drawing.Point(550, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 18);
+            this.label1.Size = new System.Drawing.Size(111, 15);
             this.label1.TabIndex = 233;
             this.label1.Text = "% M. Ganancias";
             // 
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvdata.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -216,25 +217,25 @@ namespace CapaPresentación.MdInventarios
             this.FechaActualizacion});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdata.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvdata.Location = new System.Drawing.Point(4, 86);
+            this.dgvdata.Location = new System.Drawing.Point(1, 46);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
@@ -242,7 +243,7 @@ namespace CapaPresentación.MdInventarios
             this.dgvdata.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowTemplate.Height = 28;
             this.dgvdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvdata.Size = new System.Drawing.Size(899, 277);
+            this.dgvdata.Size = new System.Drawing.Size(910, 320);
             this.dgvdata.TabIndex = 234;
             // 
             // Id
@@ -317,6 +318,7 @@ namespace CapaPresentación.MdInventarios
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox1.Controls.Add(this.btnAgregarMarGanancia);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtAumentoProcentaje);
             this.groupBox1.Controls.Add(this.label2);
@@ -329,30 +331,50 @@ namespace CapaPresentación.MdInventarios
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Location = new System.Drawing.Point(-2, -1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(928, 81);
+            this.groupBox1.Size = new System.Drawing.Size(928, 45);
             this.groupBox1.TabIndex = 235;
             this.groupBox1.TabStop = false;
+            // 
+            // btnAgregarMarGanancia
+            // 
+            this.btnAgregarMarGanancia.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarMarGanancia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarMarGanancia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarMarGanancia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarMarGanancia.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAgregarMarGanancia.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.btnAgregarMarGanancia.IconColor = System.Drawing.SystemColors.HotTrack;
+            this.btnAgregarMarGanancia.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnAgregarMarGanancia.IconSize = 20;
+            this.btnAgregarMarGanancia.Location = new System.Drawing.Point(666, 13);
+            this.btnAgregarMarGanancia.Name = "btnAgregarMarGanancia";
+            this.btnAgregarMarGanancia.Size = new System.Drawing.Size(21, 28);
+            this.btnAgregarMarGanancia.TabIndex = 236;
+            this.btnAgregarMarGanancia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregarMarGanancia.UseVisualStyleBackColor = false;
+            this.btnAgregarMarGanancia.Click += new System.EventHandler(this.btnAgregarMarGanancia_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(744, 8);
+            this.label3.Location = new System.Drawing.Point(744, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 18);
+            this.label3.Size = new System.Drawing.Size(71, 15);
             this.label3.TabIndex = 237;
             this.label3.Text = "% Manual";
             // 
             // txtAumentoProcentaje
             // 
-            this.txtAumentoProcentaje.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.txtAumentoProcentaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAumentoProcentaje.Location = new System.Drawing.Point(747, 30);
+            this.txtAumentoProcentaje.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtAumentoProcentaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAumentoProcentaje.Location = new System.Drawing.Point(747, 16);
             this.txtAumentoProcentaje.Name = "txtAumentoProcentaje";
-            this.txtAumentoProcentaje.Size = new System.Drawing.Size(107, 29);
+            this.txtAumentoProcentaje.Size = new System.Drawing.Size(107, 22);
             this.txtAumentoProcentaje.TabIndex = 236;
+            this.txtAumentoProcentaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAumentoProcentaje_KeyPress);
             this.txtAumentoProcentaje.Leave += new System.EventHandler(this.txtAumentoProcentaje_Leave);
             // 
             // label2
@@ -361,7 +383,7 @@ namespace CapaPresentación.MdInventarios
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(542, 29);
+            this.label2.Location = new System.Drawing.Point(505, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 31);
             this.label2.TabIndex = 234;
@@ -380,7 +402,7 @@ namespace CapaPresentación.MdInventarios
             this.MaximizeBox = false;
             this.Name = "frmActMasivaProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Actualizar Precios Masivamente";
+            this.Text = "Actualización Masiva Precio";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmActMasivaProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
@@ -416,5 +438,6 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.DataGridViewTextBoxColumn NumeroPorcentaje;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaActualizacion;
+        private FontAwesome.Sharp.IconButton btnAgregarMarGanancia;
     }
 }
