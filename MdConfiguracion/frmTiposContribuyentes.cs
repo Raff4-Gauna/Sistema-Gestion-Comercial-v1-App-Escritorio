@@ -74,6 +74,19 @@ namespace CapaPresentación.MdConfiguracion
             }
         }
 
+        //Convertir en mayuscula todos los textos que se ingresen
+        private void txtContribuyente_TextChanged(object sender, EventArgs e)
+        {
+            // Almacenar la posición actual del cursor
+            int posicionCursor = txtContribuyente.SelectionStart;
+
+            // Convertir el texto a mayúsculas y asignarlo de nuevo al control
+            txtContribuyente.Text = txtContribuyente.Text.ToUpper();
+
+            // Restaurar la posición del cursor
+            txtContribuyente.SelectionStart = posicionCursor;
+        }
+
         // convertir a monedas
         private void txtPrMaximoEfectivo_Leave(object sender, EventArgs e)
         {
@@ -233,5 +246,6 @@ namespace CapaPresentación.MdConfiguracion
         {
             Limpiar();
         }
+
     }
 }

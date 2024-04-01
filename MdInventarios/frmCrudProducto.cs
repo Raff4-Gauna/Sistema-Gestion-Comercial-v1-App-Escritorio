@@ -2,8 +2,8 @@
 using CapaNegocio;
 using CapaDatos;
 using CapaPresentación.Utilidades;
-//using ClosedXML.Excel;
-//using DocumentFormat.OpenXml.Office2010.Excel;
+using CapaPresentación.MdSocios;
+using CapaPresentación.MdConfiguracion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -183,6 +183,156 @@ namespace CapaPresentación.MdInventarios
             rbCodigo.Select();
         }
 
+
+        //ATAJOS DE FORMS
+        //Abrir forms CRUD CATEGORIAS
+        private void btnAgregarCat_Click(object sender, EventArgs e)
+        {
+            frmCrudCategoria FrmCrudCategoria = new frmCrudCategoria();
+            FrmCrudCategoria.FormClosed += FrmCrudCategoria_FormClosed; // Suscribir al evento FormClosed
+            FrmCrudCategoria.ShowDialog();
+        }
+        
+        //Forms CRUD CATEGORIAS
+        private void FrmCrudCategoria_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Actualizar la lista de categorías en el ComboBox
+            cbocategoria.Items.Clear(); // Limpiar el ComboBox
+            List<Categorias> Listacategoria = new CN_Categorias().Listar();
+            Listacategoria = Listacategoria.OrderBy(c => c.NombreCategoria).ToList();
+            foreach (Categorias item in Listacategoria)
+            {
+                cbocategoria.Items.Add(new OpcionCombo() { Valor = item.IdCategoria, Texto = item.NombreCategoria });
+            }
+            cbocategoria.DisplayMember = "Texto";
+            cbocategoria.ValueMember = "Valor";
+            cbocategoria.SelectedIndex = 0;
+        }
+
+        //Abrir forms CRUD SUBCATEGORIAS
+        private void btnAgregarSubCat_Click(object sender, EventArgs e)
+        {
+            frmCrudSubCategoria FrmCrudSubCategoria = new frmCrudSubCategoria();
+            FrmCrudSubCategoria.FormClosed += frmCrudSubCategoria_FormClosed; // Suscribir al evento FormClosed
+            FrmCrudSubCategoria.ShowDialog();
+        }
+
+        //Forms CRUD SUBCATEGORIAS
+        private void frmCrudSubCategoria_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Actualizar la lista de categorías en el ComboBox
+            cbosubcategoria.Items.Clear(); // Limpiar el ComboBox
+            List<SubCategorias> ListaSubCategorias = new CN_SubCategoria().Listar();
+            ListaSubCategorias = ListaSubCategorias.OrderBy(c => c.NombreSubcategoria).ToList();
+            foreach (SubCategorias item in ListaSubCategorias)
+            {
+                cbosubcategoria.Items.Add(new OpcionCombo() { Valor = item.IdSubcategoria, Texto = item.NombreSubcategoria });
+            }
+            cbosubcategoria.DisplayMember = "Texto";
+            cbosubcategoria.ValueMember = "Valor";
+            cbosubcategoria.SelectedIndex = 0;
+        }
+
+        //Abrir forms TIPOS DE UNIDADES
+        private void btnAbrirUnidadMedidas_Click(object sender, EventArgs e)
+        {
+            frmTipoUnidades FrmTipoUnidades = new frmTipoUnidades();
+            FrmTipoUnidades.FormClosed += frmTipoUnidades_FormClosed; // Suscribir al evento FormClosed
+            FrmTipoUnidades.ShowDialog();
+        }
+
+        //Forms CRUD TIPOS DE UNIDADES
+        private void frmTipoUnidades_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Actualizar la lista de categorías en el ComboBox
+            cbotipounidad.Items.Clear(); // Limpiar el ComboBox
+            List<TiposUnidades> ListaTiposUnidades = new CN_Tipos_Unidades().Listar();
+            ListaTiposUnidades = ListaTiposUnidades.OrderBy(c => c.NombreTipoUnidad).ToList();
+            foreach (TiposUnidades item in ListaTiposUnidades)
+            {
+                cbotipounidad.Items.Add(new OpcionCombo() { Valor = item.IdTipoUnidad, Texto = item.NombreTipoUnidad });
+            }
+            cbotipounidad.DisplayMember = "Texto";
+            cbotipounidad.ValueMember = "Valor";
+            cbotipounidad.SelectedIndex = 0;
+        }
+
+
+        //Abrir forms PROVEEDORES
+        private void btnAgregarProveedor_Click(object sender, EventArgs e)
+        {
+            frmProveedores FrmProveedores = new frmProveedores();
+            FrmProveedores.FormClosed += frmProveedores_FormClosed; // Suscribir al evento FormClosed
+            FrmProveedores.ShowDialog();
+        }
+
+        //Forms CRUD PROVEEDORES
+        private void frmProveedores_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Actualizar la lista de categorías en el ComboBox
+            cboproveedor.Items.Clear(); // Limpiar el ComboBox
+            List<Proveedor> ListaProveedor = new CN_Proveedor().Listar();
+            ListaProveedor = ListaProveedor.OrderBy(c => c.RazonSocial).ToList();
+            foreach (Proveedor item in ListaProveedor)
+            {
+                cboproveedor.Items.Add(new OpcionCombo() { Valor = item.IdProveedor, Texto = item.RazonSocial });
+            }
+            cboproveedor.DisplayMember = "Texto";
+            cboproveedor.ValueMember = "Valor";
+            cboproveedor.SelectedIndex = 0;
+        }
+
+
+        //Abrir forms TASA DE IMPRUESTO
+        private void btnAgregarImpuestos_Click(object sender, EventArgs e)
+        {
+            frmTasaImpuestos FrmTasaImpuestos = new frmTasaImpuestos();
+            FrmTasaImpuestos.FormClosed += frmTasaImpuestos_FormClosed; // Suscribir al evento FormClosed
+            FrmTasaImpuestos.ShowDialog();
+        }
+
+        //Forms CRUD PROVEEDORES
+        private void frmTasaImpuestos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Actualizar la lista de categorías en el ComboBox
+            cboimpuestos.Items.Clear(); // Limpiar el ComboBox
+            List<TasaImpuestos> ListaTasaImpuestos = new CN_Tasa_Impuesto().Listar();
+            ListaTasaImpuestos = ListaTasaImpuestos.OrderBy(c => c.Porcentaje).ToList();
+            foreach (TasaImpuestos item in ListaTasaImpuestos)
+            {
+                cboimpuestos.Items.Add(new OpcionCombo() { Valor = item.IdTasaImpuesto, Texto = item.Porcentaje.ToString() });
+            }
+            cboimpuestos.DisplayMember = "Texto";
+            cboimpuestos.ValueMember = "Valor";
+            cboimpuestos.SelectedIndex = 0;
+        }
+
+
+        //Abrir forms MARGENES DE GANANCIAS
+        private void btnAgregarMarGanancia_Click(object sender, EventArgs e)
+        {
+            frmMargenGanancias frmMargenGanancias = new frmMargenGanancias();
+            frmMargenGanancias.FormClosed += frmMargenGanancias_FormClosed; // Suscribir al evento FormClosed
+            frmMargenGanancias.ShowDialog();
+        }
+
+        //Forms CRUD MARGENES DE GANANCIAS
+        private void frmMargenGanancias_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Actualizar la lista de categorías en el ComboBox
+            cbomargenganancias.Items.Clear(); // Limpiar el ComboBox
+            List<Margenes_Ganancias> ListaMargenesGanancias = new CN_Margenes_Ganancias().Listar();
+            ListaMargenesGanancias = ListaMargenesGanancias.OrderBy(c => c.Porcentaje).ToList();
+            foreach (Margenes_Ganancias item in ListaMargenesGanancias)
+            {
+                cbomargenganancias.Items.Add(new OpcionCombo() { Valor = item.IdMargenGanancia, Texto = item.Porcentaje.ToString() });
+            }
+            cbomargenganancias.DisplayMember = "Texto";
+            cbomargenganancias.ValueMember = "Valor";
+            cbomargenganancias.SelectedIndex = 0;
+        }
+
+
         private void CargarImagenPorDefecto()
         {
             // Obtener la imagen desde los recursos
@@ -241,12 +391,19 @@ namespace CapaPresentación.MdInventarios
 
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Obtener los valores seleccionados de categoría y subcategoría
-            int idCategoriaSeleccionada = Convert.ToInt32(((OpcionCombo)cbocategoria.SelectedItem).Valor);
-            int idSubcategoriaSeleccionada = Convert.ToInt32(((OpcionCombo)cbosubcategoria.SelectedItem).Valor);
+            try
+            {
+                // Obtener los valores seleccionados de categoría y subcategoría
+                int idCategoriaSeleccionada = Convert.ToInt32(((OpcionCombo)cbocategoria.SelectedItem).Valor);
+                int idSubcategoriaSeleccionada = Convert.ToInt32(((OpcionCombo)cbosubcategoria.SelectedItem).Valor);
 
-            // Mostrar contenido al datagrid basado en la categoría y subcategoría seleccionadas
-            List<Productos> listaFiltrada = FiltrarProductosPorCategoriaSubcategoria(idCategoriaSeleccionada, idSubcategoriaSeleccionada);
+                // Mostrar contenido al datagrid basado en la categoría y subcategoría seleccionadas
+                List<Productos> listaFiltrada = FiltrarProductosPorCategoriaSubcategoria(idCategoriaSeleccionada, idSubcategoriaSeleccionada);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al obtener las categorías y subcategorías seleccionadas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private List<Productos> FiltrarProductosPorCategoriaSubcategoria(int idCategoria, int idSubcategoria)
@@ -780,12 +937,19 @@ namespace CapaPresentación.MdInventarios
         {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
-            for (int i = 0; i < 13; i++)
+
+            // Añadimos los dos primeros dígitos fijos "77"
+            sb.Append("77");
+
+            // Generamos los siguientes 11 dígitos de manera aleatoria
+            for (int i = 0; i < 11; i++)
             {
                 sb.Append(random.Next(0, 9));
             }
+
             txtcodigobarra.Text = sb.ToString();
         }
+
 
         private void chechgenerarcod_CheckedChanged(object sender, EventArgs e)
         {
@@ -916,6 +1080,5 @@ namespace CapaPresentación.MdInventarios
             }
         }
 
-        
     }
 }

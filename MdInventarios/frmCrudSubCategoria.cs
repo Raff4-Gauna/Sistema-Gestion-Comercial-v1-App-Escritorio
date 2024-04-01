@@ -335,7 +335,5 @@ namespace CapaPresentación.MdInventarios
 
             lblTotalSubCategoriasNoActivas.Text = TotalNoActivas.ToString();
         }
-
-       
     }
 }

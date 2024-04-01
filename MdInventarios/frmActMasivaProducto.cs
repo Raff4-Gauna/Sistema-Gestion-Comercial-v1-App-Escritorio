@@ -77,29 +77,7 @@ namespace CapaPresentación.MdInventarios
             cbomargenganancias.ValueMember = "Valor";
             cbomargenganancias.SelectedIndex = 0;
 
-            /*
-            //----------Mostrar contenido al datagrid
-            List <Productos> lista = new CN_Productos().Listar();
-
-            foreach (Productos item in lista)
-            {
-                dgvdata.Rows.Add(new object[] {
-                item.IdProducto,
-                item.oCategorias.IdCategoria,
-                item.oCategorias.NombreCategoria,
-                item.oSubCategorias.IdSubcategoria,
-                item.oSubCategorias.NombreSubcategoria,
-                item.DescripcionGeneral,
-                item.oTasaImpuestos.IdTasaImpuesto,
-                item.oTasaImpuestos.Porcentaje,
-                item.PrecioFinal,
-                item.FechaActualizacion
-                });
-            }
-            */
-
             dgvdata.Rows.Clear();
-
         }
 
         private void cbocategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -147,6 +125,45 @@ namespace CapaPresentación.MdInventarios
             // Mostrar contenido al datagrid basado en la categoría y subcategoría seleccionadas
             ActualizarDataGridView(idCategoriaSeleccionada, idSubcategoriaSeleccionada);
 
+        }
+
+        //Abrir forms MARGENES DE GANANCIAS
+        private void btnAgregarMarGanancia_Click(object sender, EventArgs e)
+        {
+            frmMargenGanancias frmMargenGanancias = new frmMargenGanancias();
+            frmMargenGanancias.FormClosed += frmMargenGanancias_FormClosed; // Suscribir al evento FormClosed
+            frmMargenGanancias.ShowDialog();
+        }
+
+        //Forms CRUD MARGENES DE GANANCIAS
+        private void frmMargenGanancias_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Actualizar la lista de categorías en el ComboBox
+            cbomargenganancias.Items.Clear(); // Limpiar el ComboBox
+            List<Margenes_Ganancias> ListaMargenesGanancias = new CN_Margenes_Ganancias().Listar();
+            ListaMargenesGanancias = ListaMargenesGanancias.OrderBy(c => c.Porcentaje).ToList();
+            foreach (Margenes_Ganancias item in ListaMargenesGanancias)
+            {
+                cbomargenganancias.Items.Add(new OpcionCombo() { Valor = item.IdMargenGanancia, Texto = item.Porcentaje.ToString() });
+            }
+            cbomargenganancias.DisplayMember = "Texto";
+            cbomargenganancias.ValueMember = "Valor";
+            cbomargenganancias.SelectedIndex = 0;
+        }
+
+        private void txtAumentoProcentaje_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números, punto y coma
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto o una coma decimal
+            if ((e.KeyChar == '.' || e.KeyChar == ',') && (sender as TextBox).Text.Contains(".") && (sender as TextBox).Text.Contains(","))
+            {
+                e.Handled = true;
+            }
         }
 
         private void ActualizarDataGridView(int idCategoria, int idSubcategoria)
@@ -258,7 +275,5 @@ namespace CapaPresentación.MdInventarios
         {
             Limpiar();
         }
-
-       
     }
 }

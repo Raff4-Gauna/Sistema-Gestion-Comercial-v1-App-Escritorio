@@ -230,11 +230,11 @@ namespace CapaPresentación.MdInventarios
             // 
             this.cbocategoria.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cbocategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbocategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbocategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbocategoria.FormattingEnabled = true;
-            this.cbocategoria.Location = new System.Drawing.Point(6, 38);
+            this.cbocategoria.Location = new System.Drawing.Point(6, 41);
             this.cbocategoria.Name = "cbocategoria";
-            this.cbocategoria.Size = new System.Drawing.Size(222, 24);
+            this.cbocategoria.Size = new System.Drawing.Size(222, 21);
             this.cbocategoria.TabIndex = 119;
             // 
             // label1
@@ -274,9 +274,9 @@ namespace CapaPresentación.MdInventarios
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(235, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 15);
+            this.label2.Size = new System.Drawing.Size(156, 15);
             this.label2.TabIndex = 109;
-            this.label2.Text = "Nombre SubCategoria*";
+            this.label2.Text = "SubCategoria /  Marca*";
             // 
             // txtNombreSubCategoria
             // 

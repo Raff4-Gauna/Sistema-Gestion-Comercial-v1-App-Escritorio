@@ -91,6 +91,7 @@ namespace CapaPresentación.MdConfiguracion
             this.txtContribuyente.Name = "txtContribuyente";
             this.txtContribuyente.Size = new System.Drawing.Size(274, 29);
             this.txtContribuyente.TabIndex = 112;
+            this.txtContribuyente.TextChanged += new System.EventHandler(this.txtContribuyente_TextChanged);
             // 
             // cboestado
             // 

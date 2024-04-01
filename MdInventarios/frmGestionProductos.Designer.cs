@@ -49,6 +49,8 @@ namespace CapaPresentación.MdInventarios
             this.btnAgregarProducto = new FontAwesome.Sharp.IconButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.lblUltActPrecioVenta = new System.Windows.Forms.Label();
             this.picImgProducto = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lblDescripcionProd = new System.Windows.Forms.Label();
@@ -84,14 +86,16 @@ namespace CapaPresentación.MdInventarios
             this.UbicacionProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockConcatenado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaActualizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.treeViewDatos = new System.Windows.Forms.TreeView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.treeViewDatos = new System.Windows.Forms.TreeView();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImgProducto)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -253,7 +257,7 @@ namespace CapaPresentación.MdInventarios
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(116, 30);
             this.btnAgregarProducto.TabIndex = 167;
-            this.btnAgregarProducto.Text = "Nuevo Prod.";
+            this.btnAgregarProducto.Text = "Productos";
             this.btnAgregarProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarProducto.UseVisualStyleBackColor = false;
             this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
@@ -271,6 +275,7 @@ namespace CapaPresentación.MdInventarios
             // tabPage1
             // 
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage1.Controls.Add(this.groupBox10);
             this.tabPage1.Controls.Add(this.picImgProducto);
             this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.btnAgregarProducto);
@@ -285,6 +290,28 @@ namespace CapaPresentación.MdInventarios
             this.tabPage1.Text = "Detalles";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.lblUltActPrecioVenta);
+            this.groupBox10.Location = new System.Drawing.Point(616, 49);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(171, 41);
+            this.groupBox10.TabIndex = 237;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Ult. Act. Precio Venta";
+            // 
+            // lblUltActPrecioVenta
+            // 
+            this.lblUltActPrecioVenta.AutoSize = true;
+            this.lblUltActPrecioVenta.BackColor = System.Drawing.Color.Black;
+            this.lblUltActPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUltActPrecioVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblUltActPrecioVenta.Location = new System.Drawing.Point(6, 15);
+            this.lblUltActPrecioVenta.Name = "lblUltActPrecioVenta";
+            this.lblUltActPrecioVenta.Size = new System.Drawing.Size(14, 20);
+            this.lblUltActPrecioVenta.TabIndex = 193;
+            this.lblUltActPrecioVenta.Text = ".";
+            // 
             // picImgProducto
             // 
             this.picImgProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -298,7 +325,7 @@ namespace CapaPresentación.MdInventarios
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.lblDescripcionProd);
-            this.groupBox5.Location = new System.Drawing.Point(162, 2);
+            this.groupBox5.Location = new System.Drawing.Point(124, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(575, 41);
             this.groupBox5.TabIndex = 192;
@@ -320,9 +347,9 @@ namespace CapaPresentación.MdInventarios
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lblStockExistente);
-            this.groupBox4.Location = new System.Drawing.Point(335, 49);
+            this.groupBox4.Location = new System.Drawing.Point(288, 49);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(167, 41);
+            this.groupBox4.Size = new System.Drawing.Size(158, 41);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Stock Existente";
@@ -342,9 +369,9 @@ namespace CapaPresentación.MdInventarios
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lblUltPrecioCompra);
-            this.groupBox3.Location = new System.Drawing.Point(508, 49);
+            this.groupBox3.Location = new System.Drawing.Point(452, 49);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(167, 41);
+            this.groupBox3.Size = new System.Drawing.Size(158, 41);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ult. Precio Compra";
@@ -364,9 +391,9 @@ namespace CapaPresentación.MdInventarios
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblUltPrecioVenta);
-            this.groupBox1.Location = new System.Drawing.Point(162, 48);
+            this.groupBox1.Location = new System.Drawing.Point(124, 48);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(167, 41);
+            this.groupBox1.Size = new System.Drawing.Size(158, 41);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ult. Precio Venta";
@@ -460,6 +487,7 @@ namespace CapaPresentación.MdInventarios
             this.UbicacionProducto,
             this.stockConcatenado,
             this.StockMinimo,
+            this.FechaActualizacion,
             this.EstadoValor,
             this.Estado});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -499,7 +527,7 @@ namespace CapaPresentación.MdInventarios
             this.btnseleccionar.Name = "btnseleccionar";
             this.btnseleccionar.ReadOnly = true;
             this.btnseleccionar.Visible = false;
-            this.btnseleccionar.Width = 30;
+            this.btnseleccionar.Width = 15;
             // 
             // Id
             // 
@@ -507,6 +535,7 @@ namespace CapaPresentación.MdInventarios
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
+            this.Id.Width = 15;
             // 
             // IdCategoria
             // 
@@ -657,6 +686,13 @@ namespace CapaPresentación.MdInventarios
             this.StockMinimo.Name = "StockMinimo";
             this.StockMinimo.ReadOnly = true;
             // 
+            // FechaActualizacion
+            // 
+            this.FechaActualizacion.HeaderText = "FechaActualizacion";
+            this.FechaActualizacion.Name = "FechaActualizacion";
+            this.FechaActualizacion.ReadOnly = true;
+            this.FechaActualizacion.Visible = false;
+            // 
             // EstadoValor
             // 
             this.EstadoValor.HeaderText = "EstadoValor";
@@ -679,17 +715,6 @@ namespace CapaPresentación.MdInventarios
             this.tabControl2.Size = new System.Drawing.Size(268, 271);
             this.tabControl2.TabIndex = 172;
             // 
-            // treeViewDatos
-            // 
-            this.treeViewDatos.BackColor = System.Drawing.Color.White;
-            this.treeViewDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeViewDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeViewDatos.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.treeViewDatos.Location = new System.Drawing.Point(6, 6);
-            this.treeViewDatos.Name = "treeViewDatos";
-            this.treeViewDatos.Size = new System.Drawing.Size(246, 231);
-            this.treeViewDatos.TabIndex = 0;
-            // 
             // tabPage3
             // 
             this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -702,6 +727,17 @@ namespace CapaPresentación.MdInventarios
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Cat/SubCat";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // treeViewDatos
+            // 
+            this.treeViewDatos.BackColor = System.Drawing.Color.White;
+            this.treeViewDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewDatos.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.treeViewDatos.Location = new System.Drawing.Point(6, 6);
+            this.treeViewDatos.Name = "treeViewDatos";
+            this.treeViewDatos.Size = new System.Drawing.Size(246, 231);
+            this.treeViewDatos.TabIndex = 0;
             // 
             // frmGestionProductos
             // 
@@ -716,12 +752,14 @@ namespace CapaPresentación.MdInventarios
             this.MaximizeBox = false;
             this.Name = "frmGestionProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestión de Productos";
+            this.Text = "Gestión de Productos / Artículos";
             this.Load += new System.EventHandler(this.frmGestionProductos_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImgProducto)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -766,6 +804,11 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label lblDescripcionProd;
         private System.Windows.Forms.PictureBox picImgProducto;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TreeView treeViewDatos;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Label lblUltActPrecioVenta;
         private System.Windows.Forms.DataGridViewButtonColumn btnseleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCategoria;
@@ -789,10 +832,8 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.DataGridViewTextBoxColumn UbicacionProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockConcatenado;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockMinimo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaActualizacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TreeView treeViewDatos;
     }
 }

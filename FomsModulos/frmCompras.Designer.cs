@@ -85,6 +85,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuOrdenCompra.Name = "subMenuOrdenCompra";
             this.subMenuOrdenCompra.Size = new System.Drawing.Size(182, 22);
             this.subMenuOrdenCompra.Text = "Órden de Compra";
+            this.subMenuOrdenCompra.Click += new System.EventHandler(this.subMenuOrdenCompra_Click);
             // 
             // subMenuListaCompra
             // 
@@ -122,7 +123,6 @@ namespace CapaPresentación.FomsModulos
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Compras";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmCompras_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.menu.ResumeLayout(false);
