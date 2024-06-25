@@ -63,6 +63,9 @@ namespace CapaPresentación.MdInventarios
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnImportarExel = new FontAwesome.Sharp.IconButton();
             this.dgvdata = new System.Windows.Forms.DataGridView();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.treeViewDatos = new System.Windows.Forms.TreeView();
             this.btnseleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,13 +88,11 @@ namespace CapaPresentación.MdInventarios
             this.PrecioFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UbicacionProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockConcatenado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockExistenteNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaActualizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.treeViewDatos = new System.Windows.Forms.TreeView();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -445,10 +446,10 @@ namespace CapaPresentación.MdInventarios
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.BackgroundColor = System.Drawing.Color.White;
@@ -458,8 +459,8 @@ namespace CapaPresentación.MdInventarios
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -486,15 +487,16 @@ namespace CapaPresentación.MdInventarios
             this.PrecioFinal,
             this.UbicacionProducto,
             this.stockConcatenado,
+            this.StockExistenteNum,
             this.StockMinimo,
             this.FechaActualizacion,
             this.EstadoValor,
             this.Estado});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdata.DefaultCellStyle = dataGridViewCellStyle3;
@@ -504,22 +506,57 @@ namespace CapaPresentación.MdInventarios
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
+            this.dgvdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvdata.Size = new System.Drawing.Size(672, 223);
             this.dgvdata.TabIndex = 171;
             this.dgvdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellClick);
+            this.dgvdata.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellDoubleClick);
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Location = new System.Drawing.Point(12, 8);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(268, 271);
+            this.tabControl2.TabIndex = 172;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage3.Controls.Add(this.treeViewDatos);
+            this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(260, 245);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Cat/SubCat";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // treeViewDatos
+            // 
+            this.treeViewDatos.BackColor = System.Drawing.Color.White;
+            this.treeViewDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewDatos.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.treeViewDatos.Location = new System.Drawing.Point(6, 6);
+            this.treeViewDatos.Name = "treeViewDatos";
+            this.treeViewDatos.Size = new System.Drawing.Size(246, 231);
+            this.treeViewDatos.TabIndex = 0;
             // 
             // btnseleccionar
             // 
@@ -680,6 +717,13 @@ namespace CapaPresentación.MdInventarios
             this.stockConcatenado.Name = "stockConcatenado";
             this.stockConcatenado.ReadOnly = true;
             // 
+            // StockExistenteNum
+            // 
+            this.StockExistenteNum.HeaderText = "StockExistenteNum";
+            this.StockExistenteNum.Name = "StockExistenteNum";
+            this.StockExistenteNum.ReadOnly = true;
+            this.StockExistenteNum.Visible = false;
+            // 
             // StockMinimo
             // 
             this.StockMinimo.HeaderText = "StockMinimo";
@@ -705,39 +749,6 @@ namespace CapaPresentación.MdInventarios
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.Controls.Add(this.tabPage3);
-            this.tabControl2.Location = new System.Drawing.Point(12, 8);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(268, 271);
-            this.tabControl2.TabIndex = 172;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPage3.Controls.Add(this.treeViewDatos);
-            this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(260, 245);
-            this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "Cat/SubCat";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // treeViewDatos
-            // 
-            this.treeViewDatos.BackColor = System.Drawing.Color.White;
-            this.treeViewDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeViewDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeViewDatos.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.treeViewDatos.Location = new System.Drawing.Point(6, 6);
-            this.treeViewDatos.Name = "treeViewDatos";
-            this.treeViewDatos.Size = new System.Drawing.Size(246, 231);
-            this.treeViewDatos.TabIndex = 0;
             // 
             // frmGestionProductos
             // 
@@ -831,6 +842,7 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn UbicacionProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockConcatenado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockExistenteNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockMinimo;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaActualizacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
