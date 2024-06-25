@@ -487,8 +487,8 @@ namespace CapaPresentación.MdInventarios
         private void txtpreciocompra_TextChanged(object sender, EventArgs e)
         {
             CalcularPrecioFinal();
-
         }
+
         // impuestos
         private void cboimpuestos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -496,7 +496,7 @@ namespace CapaPresentación.MdInventarios
         }
 
         // procentaje de ganancia
-        private void cbomargenganancias_TextChanged(object sender, EventArgs e)
+        private void cbomargenganancias_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Llamar al método que realiza el cálculo del precio final
             CalcularPrecioFinal();
@@ -552,7 +552,7 @@ namespace CapaPresentación.MdInventarios
             {
                 calculandoPrecioFinal = true;
 
-                
+
                 calculandoPrecioFinal = false;
             }
         }
@@ -591,7 +591,7 @@ namespace CapaPresentación.MdInventarios
             cnFormatoMonedas.FormatoMoneda(txtpreciofinal);
         }
 
-       //Eleccion en el cbo de unidades y mostrar en los lbl
+        //Eleccion en el cbo de unidades y mostrar en los lbl
         private void cbotipounidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Obtén la selección actual del ComboBox
@@ -602,7 +602,7 @@ namespace CapaPresentación.MdInventarios
             lblEleccion2CboUniMed.Text = seleccion.Texto;
         }
 
-        
+
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
@@ -1079,6 +1079,5 @@ namespace CapaPresentación.MdInventarios
                 }
             }
         }
-
     }
 }

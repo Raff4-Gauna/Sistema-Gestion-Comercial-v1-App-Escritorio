@@ -51,19 +51,26 @@ namespace CapaPresentación.FomsModulos
 
         private void subMenuListaVenta_Click(object sender, EventArgs e)
         {
-            frmListaVenta frmListaVenta = frmListaVenta.ventana_unica();
-            frmListaVenta.MdiParent = this;
-            frmListaVenta.Show();
-            frmListaVenta.BringToFront();
+            frmListaVenta FrmListaVenta = frmListaVenta.ventana_unica();
+            FrmListaVenta.MdiParent = this;
+            FrmListaVenta.Show();
+            FrmListaVenta.BringToFront();
         }
 
         private void subAperturaCaja_Click(object sender, EventArgs e)
         {
-            frmAperturaCaja frmEstadoCaja = frmAperturaCaja.ventana_unica(usuarioActual);
-            frmEstadoCaja.MdiParent = this;
-            frmEstadoCaja.Show();
-            frmEstadoCaja.BringToFront();
+            frmAperturaCaja FrmAperturaCaja = frmAperturaCaja.ventana_unica(usuarioActual);
+            FrmAperturaCaja.MdiParent = this;
+            FrmAperturaCaja.Show();
+            FrmAperturaCaja.BringToFront();
         }
 
+        private void subEstadoCaja_Click(object sender, EventArgs e)
+        {
+            frmEstadoCaja FrmEstadoCaja = frmEstadoCaja.ventana_unica(usuarioActual);
+            FrmEstadoCaja.MdiParent = this;
+            FrmEstadoCaja.Show();
+            FrmEstadoCaja.BringToFront();
+        }
     }
 }

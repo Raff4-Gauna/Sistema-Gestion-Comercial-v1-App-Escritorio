@@ -38,6 +38,7 @@ namespace CapaPresentación.FomsModulos
             this.subAperturaCaja = new FontAwesome.Sharp.IconMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.subEstadoCaja = new FontAwesome.Sharp.IconMenuItem();
             this.menu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -79,7 +80,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuPuntoVenta.IconColor = System.Drawing.Color.Black;
             this.subMenuPuntoVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuPuntoVenta.Name = "subMenuPuntoVenta";
-            this.subMenuPuntoVenta.Size = new System.Drawing.Size(169, 22);
+            this.subMenuPuntoVenta.Size = new System.Drawing.Size(180, 22);
             this.subMenuPuntoVenta.Text = "Punto de Ventas";
             this.subMenuPuntoVenta.Click += new System.EventHandler(this.subMenuPuntoVenta_Click);
             // 
@@ -90,7 +91,7 @@ namespace CapaPresentación.FomsModulos
             this.subMenuListaVenta.IconColor = System.Drawing.Color.Black;
             this.subMenuListaVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuListaVenta.Name = "subMenuListaVenta";
-            this.subMenuListaVenta.Size = new System.Drawing.Size(169, 22);
+            this.subMenuListaVenta.Size = new System.Drawing.Size(180, 22);
             this.subMenuListaVenta.Text = "Lista de Ventas";
             this.subMenuListaVenta.Click += new System.EventHandler(this.subMenuListaVenta_Click);
             // 
@@ -98,7 +99,8 @@ namespace CapaPresentación.FomsModulos
             // 
             this.menuCaja.AutoSize = false;
             this.menuCaja.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.subAperturaCaja});
+            this.subAperturaCaja,
+            this.subEstadoCaja});
             this.menuCaja.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
             this.menuCaja.IconColor = System.Drawing.Color.Black;
             this.menuCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -116,7 +118,7 @@ namespace CapaPresentación.FomsModulos
             this.subAperturaCaja.IconColor = System.Drawing.Color.Black;
             this.subAperturaCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subAperturaCaja.Name = "subAperturaCaja";
-            this.subAperturaCaja.Size = new System.Drawing.Size(174, 22);
+            this.subAperturaCaja.Size = new System.Drawing.Size(180, 22);
             this.subAperturaCaja.Text = "Apertura de Caja";
             this.subAperturaCaja.Click += new System.EventHandler(this.subAperturaCaja_Click);
             // 
@@ -135,6 +137,17 @@ namespace CapaPresentación.FomsModulos
             this.tssHora.Name = "tssHora";
             this.tssHora.Size = new System.Drawing.Size(36, 17);
             this.tssHora.Text = "Hora:";
+            // 
+            // subEstadoCaja
+            // 
+            this.subEstadoCaja.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.subEstadoCaja.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.subEstadoCaja.IconColor = System.Drawing.Color.Black;
+            this.subEstadoCaja.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.subEstadoCaja.Name = "subEstadoCaja";
+            this.subEstadoCaja.Size = new System.Drawing.Size(180, 22);
+            this.subEstadoCaja.Text = "Estado de Caja";
+            this.subEstadoCaja.Click += new System.EventHandler(this.subEstadoCaja_Click);
             // 
             // frmVentas
             // 
@@ -168,5 +181,6 @@ namespace CapaPresentación.FomsModulos
         private FontAwesome.Sharp.IconMenuItem subAperturaCaja;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel tssHora;
+        private FontAwesome.Sharp.IconMenuItem subEstadoCaja;
     }
 }

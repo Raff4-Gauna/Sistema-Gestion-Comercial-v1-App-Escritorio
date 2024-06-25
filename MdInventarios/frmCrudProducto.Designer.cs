@@ -39,45 +39,42 @@ namespace CapaPresentación.MdInventarios
             this.label10 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnAgregarImg = new FontAwesome.Sharp.IconButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.radioButtonSinRedondeo = new System.Windows.Forms.RadioButton();
+            this.btnAgregarMarGanancia = new FontAwesome.Sharp.IconButton();
+            this.radioButtonRedondeo = new System.Windows.Forms.RadioButton();
+            this.btnAgregarImpuestos = new FontAwesome.Sharp.IconButton();
+            this.txtpreciofinal = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnAgregarProveedor = new FontAwesome.Sharp.IconButton();
+            this.cboproveedor = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cbomargenganancias = new System.Windows.Forms.ComboBox();
+            this.cboimpuestos = new System.Windows.Forms.ComboBox();
+            this.txtpreciocompra = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtstockexistente = new System.Windows.Forms.TextBox();
+            this.btnAbrirUnidadMedidas = new FontAwesome.Sharp.IconButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cbotipounidad = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblEleccion1CboUniMed = new System.Windows.Forms.Label();
+            this.txtstockminimo = new System.Windows.Forms.TextBox();
+            this.txtubicacion = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblEleccion2CboUniMed = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.picImgProducto = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtdescripciongeneral = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnAbrirUnidadMedidas = new FontAwesome.Sharp.IconButton();
-            this.cbotipounidad = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblEleccion2CboUniMed = new System.Windows.Forms.Label();
-            this.lblEleccion1CboUniMed = new System.Windows.Forms.Label();
-            this.txtubicacion = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtstockminimo = new System.Windows.Forms.TextBox();
-            this.txtstockexistente = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnAgregarMarGanancia = new FontAwesome.Sharp.IconButton();
-            this.btnAgregarImpuestos = new FontAwesome.Sharp.IconButton();
-            this.btnAgregarProveedor = new FontAwesome.Sharp.IconButton();
-            this.cboproveedor = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cbomargenganancias = new System.Windows.Forms.ComboBox();
-            this.radioButtonSinRedondeo = new System.Windows.Forms.RadioButton();
-            this.radioButtonRedondeo = new System.Windows.Forms.RadioButton();
-            this.txtpreciofinal = new System.Windows.Forms.TextBox();
-            this.cboimpuestos = new System.Windows.Forms.ComboBox();
-            this.txtpreciocompra = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAgregarImg = new FontAwesome.Sharp.IconButton();
+            this.picImgProducto = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -135,10 +132,10 @@ namespace CapaPresentación.MdInventarios
             this.rbCodigoBarra = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picImgProducto)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImgProducto)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
@@ -171,22 +168,21 @@ namespace CapaPresentación.MdInventarios
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 96);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(942, 285);
+            this.tabControl1.Size = new System.Drawing.Size(942, 290);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPage1.Controls.Add(this.btnAgregarImg);
+            this.tabPage1.Controls.Add(this.groupBox4);
+            this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.picImgProducto);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.txtdescripciongeneral);
@@ -194,289 +190,49 @@ namespace CapaPresentación.MdInventarios
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(934, 257);
+            this.tabPage1.Size = new System.Drawing.Size(934, 262);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnAgregarImg
+            // groupBox4
             // 
-            this.btnAgregarImg.BackColor = System.Drawing.Color.Silver;
-            this.btnAgregarImg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarImg.IconChar = FontAwesome.Sharp.IconChar.CameraRetro;
-            this.btnAgregarImg.IconColor = System.Drawing.Color.Black;
-            this.btnAgregarImg.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnAgregarImg.IconSize = 25;
-            this.btnAgregarImg.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarImg.Location = new System.Drawing.Point(715, 196);
-            this.btnAgregarImg.Name = "btnAgregarImg";
-            this.btnAgregarImg.Size = new System.Drawing.Size(182, 34);
-            this.btnAgregarImg.TabIndex = 146;
-            this.btnAgregarImg.Text = "Agregar";
-            this.btnAgregarImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregarImg.UseVisualStyleBackColor = false;
-            this.btnAgregarImg.Click += new System.EventHandler(this.btnAgregarImg_Click);
+            this.groupBox4.Controls.Add(this.radioButtonSinRedondeo);
+            this.groupBox4.Controls.Add(this.btnAgregarMarGanancia);
+            this.groupBox4.Controls.Add(this.radioButtonRedondeo);
+            this.groupBox4.Controls.Add(this.btnAgregarImpuestos);
+            this.groupBox4.Controls.Add(this.txtpreciofinal);
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Controls.Add(this.btnAgregarProveedor);
+            this.groupBox4.Controls.Add(this.cboproveedor);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.cbomargenganancias);
+            this.groupBox4.Controls.Add(this.cboimpuestos);
+            this.groupBox4.Controls.Add(this.txtpreciocompra);
+            this.groupBox4.Controls.Add(this.label22);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.label21);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.Blue;
+            this.groupBox4.Location = new System.Drawing.Point(397, 59);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(529, 190);
+            this.groupBox4.TabIndex = 160;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Cotización";
             // 
-            // label8
+            // radioButtonSinRedondeo
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(157, 101);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
-            this.label8.TabIndex = 112;
-            this.label8.Text = "Cat/Sub";
-            this.label8.Visible = false;
-            // 
-            // picImgProducto
-            // 
-            this.picImgProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picImgProducto.Location = new System.Drawing.Point(715, 18);
-            this.picImgProducto.Name = "picImgProducto";
-            this.picImgProducto.Size = new System.Drawing.Size(182, 172);
-            this.picImgProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picImgProducto.TabIndex = 145;
-            this.picImgProducto.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(27, 101);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(124, 13);
-            this.label9.TabIndex = 111;
-            this.label9.Text = "Categoria/SubCategoria:";
-            this.label9.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(18, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(371, 20);
-            this.label2.TabIndex = 95;
-            this.label2.Text = "TIPO + MARCA + DESCRIPCIÓN + CAPACIDAD/TAMAÑO";
-            // 
-            // txtdescripciongeneral
-            // 
-            this.txtdescripciongeneral.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtdescripciongeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdescripciongeneral.Location = new System.Drawing.Point(22, 62);
-            this.txtdescripciongeneral.Name = "txtdescripciongeneral";
-            this.txtdescripciongeneral.Size = new System.Drawing.Size(386, 24);
-            this.txtdescripciongeneral.TabIndex = 90;
-            this.txtdescripciongeneral.TextChanged += new System.EventHandler(this.txtdescripciongeneral_TextChanged);
-            this.txtdescripciongeneral.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdescripciongeneral_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(19, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 13);
-            this.label1.TabIndex = 89;
-            this.label1.Text = "Descripción General: *";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPage2.Controls.Add(this.btnAbrirUnidadMedidas);
-            this.tabPage2.Controls.Add(this.cbotipounidad);
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.lblEleccion2CboUniMed);
-            this.tabPage2.Controls.Add(this.lblEleccion1CboUniMed);
-            this.tabPage2.Controls.Add(this.txtubicacion);
-            this.tabPage2.Controls.Add(this.label16);
-            this.tabPage2.Controls.Add(this.txtstockminimo);
-            this.tabPage2.Controls.Add(this.txtstockexistente);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label15);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(934, 257);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Inventario";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnAbrirUnidadMedidas
-            // 
-            this.btnAbrirUnidadMedidas.BackColor = System.Drawing.Color.Transparent;
-            this.btnAbrirUnidadMedidas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAbrirUnidadMedidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbrirUnidadMedidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirUnidadMedidas.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAbrirUnidadMedidas.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.btnAbrirUnidadMedidas.IconColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAbrirUnidadMedidas.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnAbrirUnidadMedidas.IconSize = 20;
-            this.btnAbrirUnidadMedidas.Location = new System.Drawing.Point(511, 38);
-            this.btnAbrirUnidadMedidas.Name = "btnAbrirUnidadMedidas";
-            this.btnAbrirUnidadMedidas.Size = new System.Drawing.Size(26, 28);
-            this.btnAbrirUnidadMedidas.TabIndex = 147;
-            this.btnAbrirUnidadMedidas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAbrirUnidadMedidas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAbrirUnidadMedidas.UseVisualStyleBackColor = false;
-            this.btnAbrirUnidadMedidas.Click += new System.EventHandler(this.btnAbrirUnidadMedidas_Click);
-            // 
-            // cbotipounidad
-            // 
-            this.cbotipounidad.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cbotipounidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbotipounidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbotipounidad.FormattingEnabled = true;
-            this.cbotipounidad.Location = new System.Drawing.Point(324, 38);
-            this.cbotipounidad.Name = "cbotipounidad";
-            this.cbotipounidad.Size = new System.Drawing.Size(186, 28);
-            this.cbotipounidad.TabIndex = 132;
-            this.cbotipounidad.SelectedIndexChanged += new System.EventHandler(this.cbotipounidad_SelectedIndexChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.White;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(321, 22);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(123, 13);
-            this.label14.TabIndex = 131;
-            this.label14.Text = "Unidad de Medida: *";
-            // 
-            // lblEleccion2CboUniMed
-            // 
-            this.lblEleccion2CboUniMed.AutoSize = true;
-            this.lblEleccion2CboUniMed.BackColor = System.Drawing.Color.Black;
-            this.lblEleccion2CboUniMed.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEleccion2CboUniMed.ForeColor = System.Drawing.Color.Lime;
-            this.lblEleccion2CboUniMed.Location = new System.Drawing.Point(205, 104);
-            this.lblEleccion2CboUniMed.Name = "lblEleccion2CboUniMed";
-            this.lblEleccion2CboUniMed.Size = new System.Drawing.Size(16, 24);
-            this.lblEleccion2CboUniMed.TabIndex = 130;
-            this.lblEleccion2CboUniMed.Text = ".";
-            // 
-            // lblEleccion1CboUniMed
-            // 
-            this.lblEleccion1CboUniMed.AutoSize = true;
-            this.lblEleccion1CboUniMed.BackColor = System.Drawing.Color.Black;
-            this.lblEleccion1CboUniMed.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEleccion1CboUniMed.ForeColor = System.Drawing.Color.Lime;
-            this.lblEleccion1CboUniMed.Location = new System.Drawing.Point(205, 43);
-            this.lblEleccion1CboUniMed.Name = "lblEleccion1CboUniMed";
-            this.lblEleccion1CboUniMed.Size = new System.Drawing.Size(16, 24);
-            this.lblEleccion1CboUniMed.TabIndex = 129;
-            this.lblEleccion1CboUniMed.Text = ".";
-            // 
-            // txtubicacion
-            // 
-            this.txtubicacion.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtubicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtubicacion.Location = new System.Drawing.Point(21, 162);
-            this.txtubicacion.Multiline = true;
-            this.txtubicacion.Name = "txtubicacion";
-            this.txtubicacion.Size = new System.Drawing.Size(246, 66);
-            this.txtubicacion.TabIndex = 100;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.White;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(20, 143);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(163, 16);
-            this.label16.TabIndex = 99;
-            this.label16.Text = "Ubicación en el Almacén: ";
-            // 
-            // txtstockminimo
-            // 
-            this.txtstockminimo.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtstockminimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstockminimo.Location = new System.Drawing.Point(22, 99);
-            this.txtstockminimo.Name = "txtstockminimo";
-            this.txtstockminimo.Size = new System.Drawing.Size(181, 29);
-            this.txtstockminimo.TabIndex = 98;
-            this.txtstockminimo.Text = "1";
-            this.txtstockminimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtstockminimo_KeyPress);
-            // 
-            // txtstockexistente
-            // 
-            this.txtstockexistente.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtstockexistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstockexistente.Location = new System.Drawing.Point(21, 38);
-            this.txtstockexistente.Name = "txtstockexistente";
-            this.txtstockexistente.Size = new System.Drawing.Size(182, 29);
-            this.txtstockexistente.TabIndex = 96;
-            this.txtstockexistente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtstockexistente_KeyPress);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(20, 83);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 13);
-            this.label5.TabIndex = 97;
-            this.label5.Text = "Stock Mínimo: *";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.White;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(20, 22);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(109, 13);
-            this.label15.TabIndex = 95;
-            this.label15.Text = "Stock Existente: *";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPage3.Controls.Add(this.btnAgregarMarGanancia);
-            this.tabPage3.Controls.Add(this.btnAgregarImpuestos);
-            this.tabPage3.Controls.Add(this.btnAgregarProveedor);
-            this.tabPage3.Controls.Add(this.cboproveedor);
-            this.tabPage3.Controls.Add(this.label17);
-            this.tabPage3.Controls.Add(this.cbomargenganancias);
-            this.tabPage3.Controls.Add(this.radioButtonSinRedondeo);
-            this.tabPage3.Controls.Add(this.radioButtonRedondeo);
-            this.tabPage3.Controls.Add(this.txtpreciofinal);
-            this.tabPage3.Controls.Add(this.cboimpuestos);
-            this.tabPage3.Controls.Add(this.txtpreciocompra);
-            this.tabPage3.Controls.Add(this.label27);
-            this.tabPage3.Controls.Add(this.label26);
-            this.tabPage3.Controls.Add(this.label22);
-            this.tabPage3.Controls.Add(this.label18);
-            this.tabPage3.Controls.Add(this.label20);
-            this.tabPage3.Controls.Add(this.label21);
-            this.tabPage3.Controls.Add(this.label25);
-            this.tabPage3.Controls.Add(this.pictureBox1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(934, 257);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Cotización";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.radioButtonSinRedondeo.AutoSize = true;
+            this.radioButtonSinRedondeo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.radioButtonSinRedondeo.Location = new System.Drawing.Point(404, 133);
+            this.radioButtonSinRedondeo.Name = "radioButtonSinRedondeo";
+            this.radioButtonSinRedondeo.Size = new System.Drawing.Size(121, 17);
+            this.radioButtonSinRedondeo.TabIndex = 237;
+            this.radioButtonSinRedondeo.TabStop = true;
+            this.radioButtonSinRedondeo.Text = "Quitar Redondeo";
+            this.radioButtonSinRedondeo.UseVisualStyleBackColor = true;
+            this.radioButtonSinRedondeo.CheckedChanged += new System.EventHandler(this.radioButtonSinRedondeo_CheckedChanged);
             // 
             // btnAgregarMarGanancia
             // 
@@ -489,13 +245,26 @@ namespace CapaPresentación.MdInventarios
             this.btnAgregarMarGanancia.IconColor = System.Drawing.SystemColors.HotTrack;
             this.btnAgregarMarGanancia.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnAgregarMarGanancia.IconSize = 20;
-            this.btnAgregarMarGanancia.Location = new System.Drawing.Point(301, 201);
+            this.btnAgregarMarGanancia.Location = new System.Drawing.Point(219, 148);
             this.btnAgregarMarGanancia.Name = "btnAgregarMarGanancia";
             this.btnAgregarMarGanancia.Size = new System.Drawing.Size(21, 28);
-            this.btnAgregarMarGanancia.TabIndex = 235;
+            this.btnAgregarMarGanancia.TabIndex = 246;
             this.btnAgregarMarGanancia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarMarGanancia.UseVisualStyleBackColor = false;
             this.btnAgregarMarGanancia.Click += new System.EventHandler(this.btnAgregarMarGanancia_Click);
+            // 
+            // radioButtonRedondeo
+            // 
+            this.radioButtonRedondeo.AutoSize = true;
+            this.radioButtonRedondeo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.radioButtonRedondeo.Location = new System.Drawing.Point(275, 133);
+            this.radioButtonRedondeo.Name = "radioButtonRedondeo";
+            this.radioButtonRedondeo.Size = new System.Drawing.Size(126, 17);
+            this.radioButtonRedondeo.TabIndex = 236;
+            this.radioButtonRedondeo.TabStop = true;
+            this.radioButtonRedondeo.Text = "Aplicar Redondeo";
+            this.radioButtonRedondeo.UseVisualStyleBackColor = true;
+            this.radioButtonRedondeo.CheckedChanged += new System.EventHandler(this.radioButtonRedondeo_CheckedChanged);
             // 
             // btnAgregarImpuestos
             // 
@@ -508,13 +277,38 @@ namespace CapaPresentación.MdInventarios
             this.btnAgregarImpuestos.IconColor = System.Drawing.SystemColors.HotTrack;
             this.btnAgregarImpuestos.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnAgregarImpuestos.IconSize = 20;
-            this.btnAgregarImpuestos.Location = new System.Drawing.Point(139, 202);
+            this.btnAgregarImpuestos.Location = new System.Drawing.Point(102, 148);
             this.btnAgregarImpuestos.Name = "btnAgregarImpuestos";
             this.btnAgregarImpuestos.Size = new System.Drawing.Size(21, 28);
-            this.btnAgregarImpuestos.TabIndex = 234;
+            this.btnAgregarImpuestos.TabIndex = 245;
             this.btnAgregarImpuestos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarImpuestos.UseVisualStyleBackColor = false;
             this.btnAgregarImpuestos.Click += new System.EventHandler(this.btnAgregarImpuestos_Click);
+            // 
+            // txtpreciofinal
+            // 
+            this.txtpreciofinal.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtpreciofinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.txtpreciofinal.Location = new System.Drawing.Point(275, 83);
+            this.txtpreciofinal.Multiline = true;
+            this.txtpreciofinal.Name = "txtpreciofinal";
+            this.txtpreciofinal.Size = new System.Drawing.Size(207, 44);
+            this.txtpreciofinal.TabIndex = 235;
+            this.txtpreciofinal.TextChanged += new System.EventHandler(this.txtpreciofinal_TextChanged);
+            this.txtpreciofinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpreciofinal_KeyPress);
+            this.txtpreciofinal.Leave += new System.EventHandler(this.txtpreciofinal_Leave);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.White;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label20.Location = new System.Drawing.Point(272, 61);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(177, 16);
+            this.label20.TabIndex = 234;
+            this.label20.Text = "Precio Final Consumidor";
             // 
             // btnAgregarProveedor
             // 
@@ -527,10 +321,10 @@ namespace CapaPresentación.MdInventarios
             this.btnAgregarProveedor.IconColor = System.Drawing.SystemColors.HotTrack;
             this.btnAgregarProveedor.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnAgregarProveedor.IconSize = 20;
-            this.btnAgregarProveedor.Location = new System.Drawing.Point(263, 73);
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(182, 37);
             this.btnAgregarProveedor.Name = "btnAgregarProveedor";
             this.btnAgregarProveedor.Size = new System.Drawing.Size(20, 21);
-            this.btnAgregarProveedor.TabIndex = 233;
+            this.btnAgregarProveedor.TabIndex = 244;
             this.btnAgregarProveedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarProveedor.UseVisualStyleBackColor = false;
             this.btnAgregarProveedor.Click += new System.EventHandler(this.btnAgregarProveedor_Click);
@@ -541,10 +335,10 @@ namespace CapaPresentación.MdInventarios
             this.cboproveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboproveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboproveedor.FormattingEnabled = true;
-            this.cboproveedor.Location = new System.Drawing.Point(50, 73);
+            this.cboproveedor.Location = new System.Drawing.Point(10, 37);
             this.cboproveedor.Name = "cboproveedor";
-            this.cboproveedor.Size = new System.Drawing.Size(207, 21);
-            this.cboproveedor.TabIndex = 232;
+            this.cboproveedor.Size = new System.Drawing.Size(166, 21);
+            this.cboproveedor.TabIndex = 243;
             // 
             // label17
             // 
@@ -552,10 +346,10 @@ namespace CapaPresentación.MdInventarios
             this.label17.BackColor = System.Drawing.Color.White;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(47, 57);
+            this.label17.Location = new System.Drawing.Point(7, 21);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(74, 13);
-            this.label17.TabIndex = 231;
+            this.label17.TabIndex = 242;
             this.label17.Text = "Proveedor *";
             // 
             // cbomargenganancias
@@ -564,48 +358,11 @@ namespace CapaPresentación.MdInventarios
             this.cbomargenganancias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbomargenganancias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbomargenganancias.FormattingEnabled = true;
-            this.cbomargenganancias.Location = new System.Drawing.Point(211, 201);
+            this.cbomargenganancias.Location = new System.Drawing.Point(129, 148);
             this.cbomargenganancias.Name = "cbomargenganancias";
             this.cbomargenganancias.Size = new System.Drawing.Size(88, 28);
-            this.cbomargenganancias.TabIndex = 230;
-            this.cbomargenganancias.TextChanged += new System.EventHandler(this.cbomargenganancias_TextChanged);
-            // 
-            // radioButtonSinRedondeo
-            // 
-            this.radioButtonSinRedondeo.AutoSize = true;
-            this.radioButtonSinRedondeo.Location = new System.Drawing.Point(599, 129);
-            this.radioButtonSinRedondeo.Name = "radioButtonSinRedondeo";
-            this.radioButtonSinRedondeo.Size = new System.Drawing.Size(119, 19);
-            this.radioButtonSinRedondeo.TabIndex = 229;
-            this.radioButtonSinRedondeo.TabStop = true;
-            this.radioButtonSinRedondeo.Text = "Quitar Redondeo";
-            this.radioButtonSinRedondeo.UseVisualStyleBackColor = true;
-            this.radioButtonSinRedondeo.CheckedChanged += new System.EventHandler(this.radioButtonSinRedondeo_CheckedChanged);
-            // 
-            // radioButtonRedondeo
-            // 
-            this.radioButtonRedondeo.AutoSize = true;
-            this.radioButtonRedondeo.Location = new System.Drawing.Point(470, 129);
-            this.radioButtonRedondeo.Name = "radioButtonRedondeo";
-            this.radioButtonRedondeo.Size = new System.Drawing.Size(123, 19);
-            this.radioButtonRedondeo.TabIndex = 228;
-            this.radioButtonRedondeo.TabStop = true;
-            this.radioButtonRedondeo.Text = "Aplicar Redondeo";
-            this.radioButtonRedondeo.UseVisualStyleBackColor = true;
-            this.radioButtonRedondeo.CheckedChanged += new System.EventHandler(this.radioButtonRedondeo_CheckedChanged);
-            // 
-            // txtpreciofinal
-            // 
-            this.txtpreciofinal.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.txtpreciofinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpreciofinal.Location = new System.Drawing.Point(470, 73);
-            this.txtpreciofinal.Multiline = true;
-            this.txtpreciofinal.Name = "txtpreciofinal";
-            this.txtpreciofinal.Size = new System.Drawing.Size(235, 44);
-            this.txtpreciofinal.TabIndex = 227;
-            this.txtpreciofinal.TextChanged += new System.EventHandler(this.txtpreciofinal_TextChanged);
-            this.txtpreciofinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpreciofinal_KeyPress);
-            this.txtpreciofinal.Leave += new System.EventHandler(this.txtpreciofinal_Leave);
+            this.cbomargenganancias.TabIndex = 241;
+            this.cbomargenganancias.SelectedIndexChanged += new System.EventHandler(this.cbomargenganancias_SelectedIndexChanged);
             // 
             // cboimpuestos
             // 
@@ -613,48 +370,24 @@ namespace CapaPresentación.MdInventarios
             this.cboimpuestos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboimpuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboimpuestos.FormattingEnabled = true;
-            this.cboimpuestos.Location = new System.Drawing.Point(50, 201);
+            this.cboimpuestos.Location = new System.Drawing.Point(10, 148);
             this.cboimpuestos.Name = "cboimpuestos";
             this.cboimpuestos.Size = new System.Drawing.Size(88, 28);
-            this.cboimpuestos.TabIndex = 225;
+            this.cboimpuestos.TabIndex = 240;
             this.cboimpuestos.SelectedIndexChanged += new System.EventHandler(this.cboimpuestos_SelectedIndexChanged);
             // 
             // txtpreciocompra
             // 
             this.txtpreciocompra.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.txtpreciocompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpreciocompra.Location = new System.Drawing.Point(50, 126);
+            this.txtpreciocompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpreciocompra.Location = new System.Drawing.Point(10, 83);
             this.txtpreciocompra.Multiline = true;
             this.txtpreciocompra.Name = "txtpreciocompra";
             this.txtpreciocompra.Size = new System.Drawing.Size(207, 44);
-            this.txtpreciocompra.TabIndex = 224;
+            this.txtpreciocompra.TabIndex = 239;
             this.txtpreciocompra.TextChanged += new System.EventHandler(this.txtpreciocompra_TextChanged);
             this.txtpreciocompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpreciocompra_KeyPress);
             this.txtpreciocompra.Leave += new System.EventHandler(this.txtpreciocompra_Leave);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.White;
-            this.label27.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(512, 12);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(124, 18);
-            this.label27.TabIndex = 223;
-            this.label27.Text = "Géstion de Ventas";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.White;
-            this.label26.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(94, 12);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(136, 18);
-            this.label26.TabIndex = 222;
-            this.label26.Text = "Géstion de Compras";
             // 
             // label22
             // 
@@ -662,10 +395,10 @@ namespace CapaPresentación.MdInventarios
             this.label22.BackColor = System.Drawing.Color.White;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(47, 110);
+            this.label22.Location = new System.Drawing.Point(7, 67);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(116, 13);
-            this.label22.TabIndex = 141;
+            this.label22.TabIndex = 238;
             this.label22.Text = "Precio de Compra *";
             // 
             // label18
@@ -674,23 +407,11 @@ namespace CapaPresentación.MdInventarios
             this.label18.BackColor = System.Drawing.Color.White;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(48, 185);
+            this.label18.Location = new System.Drawing.Point(8, 132);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(73, 13);
-            this.label18.TabIndex = 137;
+            this.label18.TabIndex = 237;
             this.label18.Text = "Impuestos *";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.White;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(467, 54);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(154, 16);
-            this.label20.TabIndex = 133;
-            this.label20.Text = "Precio Final Consumidor";
             // 
             // label21
             // 
@@ -698,37 +419,274 @@ namespace CapaPresentación.MdInventarios
             this.label21.BackColor = System.Drawing.Color.White;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(208, 185);
+            this.label21.Location = new System.Drawing.Point(126, 132);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(82, 13);
-            this.label21.TabIndex = 131;
+            this.label21.TabIndex = 236;
             this.label21.Text = "% Ganancia: ";
             // 
-            // label25
+            // groupBox3
             // 
-            this.label25.BackColor = System.Drawing.Color.White;
-            this.label25.Enabled = false;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(4, 26);
-            this.label25.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(783, 20);
-            this.label25.TabIndex = 221;
-            this.label25.Text = "_________________________________________________________________________________" +
-    "________________________________________________________________________________" +
-    "______";
+            this.groupBox3.Controls.Add(this.txtstockexistente);
+            this.groupBox3.Controls.Add(this.btnAbrirUnidadMedidas);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.cbotipounidad);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.lblEleccion1CboUniMed);
+            this.groupBox3.Controls.Add(this.txtstockminimo);
+            this.groupBox3.Controls.Add(this.txtubicacion);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.lblEleccion2CboUniMed);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.Navy;
+            this.groupBox3.Location = new System.Drawing.Point(6, 59);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(385, 190);
+            this.groupBox3.TabIndex = 159;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Inventario";
             // 
-            // pictureBox1
+            // txtstockexistente
             // 
-            this.pictureBox1.Enabled = false;
-            this.pictureBox1.Image = global::CapaPresentación.Properties.Resources.vertical_line;
-            this.pictureBox1.Location = new System.Drawing.Point(355, 49);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(51, 266);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 220;
-            this.pictureBox1.TabStop = false;
+            this.txtstockexistente.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtstockexistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstockexistente.Location = new System.Drawing.Point(6, 38);
+            this.txtstockexistente.Name = "txtstockexistente";
+            this.txtstockexistente.Size = new System.Drawing.Size(182, 29);
+            this.txtstockexistente.TabIndex = 149;
+            this.txtstockexistente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtstockexistente_KeyPress);
+            // 
+            // btnAbrirUnidadMedidas
+            // 
+            this.btnAbrirUnidadMedidas.BackColor = System.Drawing.Color.Transparent;
+            this.btnAbrirUnidadMedidas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAbrirUnidadMedidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbrirUnidadMedidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbrirUnidadMedidas.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAbrirUnidadMedidas.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.btnAbrirUnidadMedidas.IconColor = System.Drawing.SystemColors.HotTrack;
+            this.btnAbrirUnidadMedidas.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnAbrirUnidadMedidas.IconSize = 20;
+            this.btnAbrirUnidadMedidas.Location = new System.Drawing.Point(348, 38);
+            this.btnAbrirUnidadMedidas.Name = "btnAbrirUnidadMedidas";
+            this.btnAbrirUnidadMedidas.Size = new System.Drawing.Size(26, 28);
+            this.btnAbrirUnidadMedidas.TabIndex = 158;
+            this.btnAbrirUnidadMedidas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAbrirUnidadMedidas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbrirUnidadMedidas.UseVisualStyleBackColor = false;
+            this.btnAbrirUnidadMedidas.Click += new System.EventHandler(this.btnAbrirUnidadMedidas_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.White;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(5, 22);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(109, 13);
+            this.label15.TabIndex = 148;
+            this.label15.Text = "Stock Existente: *";
+            // 
+            // cbotipounidad
+            // 
+            this.cbotipounidad.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbotipounidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbotipounidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbotipounidad.FormattingEnabled = true;
+            this.cbotipounidad.Location = new System.Drawing.Point(238, 37);
+            this.cbotipounidad.Name = "cbotipounidad";
+            this.cbotipounidad.Size = new System.Drawing.Size(104, 28);
+            this.cbotipounidad.TabIndex = 157;
+            this.cbotipounidad.SelectedIndexChanged += new System.EventHandler(this.cbotipounidad_SelectedIndexChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.White;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(242, 21);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(123, 13);
+            this.label14.TabIndex = 156;
+            this.label14.Text = "Unidad de Medida: *";
+            // 
+            // lblEleccion1CboUniMed
+            // 
+            this.lblEleccion1CboUniMed.AutoSize = true;
+            this.lblEleccion1CboUniMed.BackColor = System.Drawing.Color.Black;
+            this.lblEleccion1CboUniMed.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEleccion1CboUniMed.ForeColor = System.Drawing.Color.Lime;
+            this.lblEleccion1CboUniMed.Location = new System.Drawing.Point(191, 42);
+            this.lblEleccion1CboUniMed.Name = "lblEleccion1CboUniMed";
+            this.lblEleccion1CboUniMed.Size = new System.Drawing.Size(16, 24);
+            this.lblEleccion1CboUniMed.TabIndex = 154;
+            this.lblEleccion1CboUniMed.Text = ".";
+            // 
+            // txtstockminimo
+            // 
+            this.txtstockminimo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtstockminimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstockminimo.Location = new System.Drawing.Point(6, 86);
+            this.txtstockminimo.Name = "txtstockminimo";
+            this.txtstockminimo.Size = new System.Drawing.Size(181, 29);
+            this.txtstockminimo.TabIndex = 151;
+            this.txtstockminimo.Text = "1";
+            this.txtstockminimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtstockminimo_KeyPress);
+            // 
+            // txtubicacion
+            // 
+            this.txtubicacion.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtubicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtubicacion.Location = new System.Drawing.Point(7, 134);
+            this.txtubicacion.Multiline = true;
+            this.txtubicacion.Name = "txtubicacion";
+            this.txtubicacion.Size = new System.Drawing.Size(335, 40);
+            this.txtubicacion.TabIndex = 153;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.White;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(7, 118);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(131, 13);
+            this.label16.TabIndex = 152;
+            this.label16.Text = "Ubicación en el Almacén: ";
+            // 
+            // lblEleccion2CboUniMed
+            // 
+            this.lblEleccion2CboUniMed.AutoSize = true;
+            this.lblEleccion2CboUniMed.BackColor = System.Drawing.Color.Black;
+            this.lblEleccion2CboUniMed.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEleccion2CboUniMed.ForeColor = System.Drawing.Color.Lime;
+            this.lblEleccion2CboUniMed.Location = new System.Drawing.Point(189, 91);
+            this.lblEleccion2CboUniMed.Name = "lblEleccion2CboUniMed";
+            this.lblEleccion2CboUniMed.Size = new System.Drawing.Size(16, 24);
+            this.lblEleccion2CboUniMed.TabIndex = 155;
+            this.lblEleccion2CboUniMed.Text = ".";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(4, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 13);
+            this.label5.TabIndex = 150;
+            this.label5.Text = "Stock Mínimo: *";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(861, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.TabIndex = 112;
+            this.label8.Text = "Cat/Sub";
+            this.label8.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(731, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(124, 13);
+            this.label9.TabIndex = 111;
+            this.label9.Text = "Categoria/SubCategoria:";
+            this.label9.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(432, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(293, 16);
+            this.label2.TabIndex = 95;
+            this.label2.Text = "TIPO + MARCA + DESCRIPCIÓN + CAPACIDAD/TAMAÑO";
+            this.label2.Visible = false;
+            // 
+            // txtdescripciongeneral
+            // 
+            this.txtdescripciongeneral.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtdescripciongeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescripciongeneral.Location = new System.Drawing.Point(6, 23);
+            this.txtdescripciongeneral.Name = "txtdescripciongeneral";
+            this.txtdescripciongeneral.Size = new System.Drawing.Size(386, 22);
+            this.txtdescripciongeneral.TabIndex = 90;
+            this.txtdescripciongeneral.TextChanged += new System.EventHandler(this.txtdescripciongeneral_TextChanged);
+            this.txtdescripciongeneral.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdescripciongeneral_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 13);
+            this.label1.TabIndex = 89;
+            this.label1.Text = "Descripción General: *";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage2.Controls.Add(this.btnAgregarImg);
+            this.tabPage2.Controls.Add(this.picImgProducto);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(934, 262);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Imagen";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarImg
+            // 
+            this.btnAgregarImg.BackColor = System.Drawing.Color.Silver;
+            this.btnAgregarImg.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarImg.IconChar = FontAwesome.Sharp.IconChar.CameraRetro;
+            this.btnAgregarImg.IconColor = System.Drawing.Color.Black;
+            this.btnAgregarImg.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnAgregarImg.IconSize = 25;
+            this.btnAgregarImg.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAgregarImg.Location = new System.Drawing.Point(6, 184);
+            this.btnAgregarImg.Name = "btnAgregarImg";
+            this.btnAgregarImg.Size = new System.Drawing.Size(182, 34);
+            this.btnAgregarImg.TabIndex = 148;
+            this.btnAgregarImg.Text = "Agregar";
+            this.btnAgregarImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregarImg.UseVisualStyleBackColor = false;
+            this.btnAgregarImg.Click += new System.EventHandler(this.btnAgregarImg_Click);
+            // 
+            // picImgProducto
+            // 
+            this.picImgProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picImgProducto.Location = new System.Drawing.Point(6, 6);
+            this.picImgProducto.Name = "picImgProducto";
+            this.picImgProducto.Size = new System.Drawing.Size(182, 172);
+            this.picImgProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImgProducto.TabIndex = 147;
+            this.picImgProducto.TabStop = false;
             // 
             // tabPage4
             // 
@@ -738,7 +696,7 @@ namespace CapaPresentación.MdInventarios
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(934, 257);
+            this.tabPage4.Size = new System.Drawing.Size(934, 262);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Detalles";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -896,7 +854,7 @@ namespace CapaPresentación.MdInventarios
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdata.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.EnableHeadersVisualStyles = false;
-            this.dgvdata.Location = new System.Drawing.Point(6, 62);
+            this.dgvdata.Location = new System.Drawing.Point(-2, 62);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
@@ -914,7 +872,7 @@ namespace CapaPresentación.MdInventarios
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(920, 179);
+            this.dgvdata.Size = new System.Drawing.Size(936, 199);
             this.dgvdata.TabIndex = 99;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
@@ -1162,7 +1120,7 @@ namespace CapaPresentación.MdInventarios
             // 
             this.txtcodigo.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcodigo.Location = new System.Drawing.Point(8, 66);
+            this.txtcodigo.Location = new System.Drawing.Point(8, 64);
             this.txtcodigo.Name = "txtcodigo";
             this.txtcodigo.Size = new System.Drawing.Size(136, 24);
             this.txtcodigo.TabIndex = 125;
@@ -1185,14 +1143,14 @@ namespace CapaPresentación.MdInventarios
             this.btneliminar.BackColor = System.Drawing.Color.IndianRed;
             this.btneliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btneliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btneliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.btneliminar.IconColor = System.Drawing.Color.Black;
             this.btneliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btneliminar.IconSize = 16;
-            this.btneliminar.Location = new System.Drawing.Point(565, 383);
+            this.btneliminar.IconSize = 17;
+            this.btneliminar.Location = new System.Drawing.Point(565, 387);
             this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(165, 30);
+            this.btneliminar.Size = new System.Drawing.Size(165, 26);
             this.btneliminar.TabIndex = 165;
             this.btneliminar.Text = "Eliminar";
             this.btneliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1205,14 +1163,14 @@ namespace CapaPresentación.MdInventarios
             this.btnguardar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnguardar.IconChar = FontAwesome.Sharp.IconChar.Check;
             this.btnguardar.IconColor = System.Drawing.Color.Black;
             this.btnguardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnguardar.IconSize = 16;
-            this.btnguardar.Location = new System.Drawing.Point(223, 383);
+            this.btnguardar.IconSize = 17;
+            this.btnguardar.Location = new System.Drawing.Point(223, 387);
             this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(165, 30);
+            this.btnguardar.Size = new System.Drawing.Size(165, 26);
             this.btnguardar.TabIndex = 163;
             this.btnguardar.Text = "Grabar";
             this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1225,14 +1183,14 @@ namespace CapaPresentación.MdInventarios
             this.btnlimpiar.BackColor = System.Drawing.Color.Wheat;
             this.btnlimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
             this.btnlimpiar.IconColor = System.Drawing.Color.Black;
             this.btnlimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnlimpiar.IconSize = 18;
-            this.btnlimpiar.Location = new System.Drawing.Point(394, 383);
+            this.btnlimpiar.IconSize = 17;
+            this.btnlimpiar.Location = new System.Drawing.Point(394, 387);
             this.btnlimpiar.Name = "btnlimpiar";
-            this.btnlimpiar.Size = new System.Drawing.Size(165, 30);
+            this.btnlimpiar.Size = new System.Drawing.Size(165, 26);
             this.btnlimpiar.TabIndex = 164;
             this.btnlimpiar.Text = "Limpiar";
             this.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1257,14 +1215,14 @@ namespace CapaPresentación.MdInventarios
             this.cboestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboestado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboestado.FormattingEnabled = true;
-            this.cboestado.Location = new System.Drawing.Point(653, 69);
+            this.cboestado.Location = new System.Drawing.Point(658, 66);
             this.cboestado.Name = "cboestado";
             this.cboestado.Size = new System.Drawing.Size(165, 24);
             this.cboestado.TabIndex = 166;
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(778, 386);
+            this.txtid.Location = new System.Drawing.Point(768, 393);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(26, 20);
             this.txtid.TabIndex = 168;
@@ -1273,7 +1231,7 @@ namespace CapaPresentación.MdInventarios
             // 
             // txtindice
             // 
-            this.txtindice.Location = new System.Drawing.Point(746, 386);
+            this.txtindice.Location = new System.Drawing.Point(736, 393);
             this.txtindice.Name = "txtindice";
             this.txtindice.Size = new System.Drawing.Size(26, 20);
             this.txtindice.TabIndex = 169;
@@ -1286,7 +1244,7 @@ namespace CapaPresentación.MdInventarios
             this.label3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(150, 75);
+            this.label3.Location = new System.Drawing.Point(150, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(183, 16);
             this.label3.TabIndex = 145;
@@ -1359,7 +1317,7 @@ namespace CapaPresentación.MdInventarios
             // 
             this.rbCodigo.AutoSize = true;
             this.rbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCodigo.Location = new System.Drawing.Point(439, 74);
+            this.rbCodigo.Location = new System.Drawing.Point(471, 70);
             this.rbCodigo.Name = "rbCodigo";
             this.rbCodigo.Size = new System.Drawing.Size(58, 16);
             this.rbCodigo.TabIndex = 172;
@@ -1372,7 +1330,7 @@ namespace CapaPresentación.MdInventarios
             // 
             this.rbCodigoBarra.AutoSize = true;
             this.rbCodigoBarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCodigoBarra.Location = new System.Drawing.Point(339, 74);
+            this.rbCodigoBarra.Location = new System.Drawing.Point(371, 70);
             this.rbCodigoBarra.Name = "rbCodigoBarra";
             this.rbCodigoBarra.Size = new System.Drawing.Size(94, 16);
             this.rbCodigoBarra.TabIndex = 171;
@@ -1404,12 +1362,12 @@ namespace CapaPresentación.MdInventarios
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picImgProducto)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImgProducto)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -1431,17 +1389,6 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.TextBox txtdescripciongeneral;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox txtubicacion;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtstockminimo;
-        private System.Windows.Forms.TextBox txtstockexistente;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
@@ -1467,27 +1414,9 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.TextBox txtindice;
         public System.Windows.Forms.ComboBox cbocategoria;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtpreciofinal;
-        private System.Windows.Forms.ComboBox cboimpuestos;
-        private System.Windows.Forms.TextBox txtpreciocompra;
-        private System.Windows.Forms.RadioButton radioButtonSinRedondeo;
-        private System.Windows.Forms.RadioButton radioButtonRedondeo;
-        private System.Windows.Forms.ComboBox cbomargenganancias;
-        private System.Windows.Forms.Label lblEleccion2CboUniMed;
-        private System.Windows.Forms.Label lblEleccion1CboUniMed;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox picImgProducto;
-        private FontAwesome.Sharp.IconButton btnAgregarImg;
-        private System.Windows.Forms.ComboBox cbotipounidad;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox cboproveedor;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.RadioButton rbCodigo;
         private System.Windows.Forms.RadioButton rbCodigoBarra;
         private System.Windows.Forms.DataGridViewButtonColumn btnseleccionar;
@@ -1515,11 +1444,37 @@ namespace CapaPresentación.MdInventarios
         private System.Windows.Forms.DataGridViewTextBoxColumn StockMinimo;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private FontAwesome.Sharp.IconButton btnAbrirUnidadMedidas;
+        private FontAwesome.Sharp.IconButton btnAgregarSubCat;
+        private FontAwesome.Sharp.IconButton btnAgregarCat;
+        private System.Windows.Forms.GroupBox groupBox4;
         private FontAwesome.Sharp.IconButton btnAgregarMarGanancia;
         private FontAwesome.Sharp.IconButton btnAgregarImpuestos;
         private FontAwesome.Sharp.IconButton btnAgregarProveedor;
-        private FontAwesome.Sharp.IconButton btnAgregarSubCat;
-        private FontAwesome.Sharp.IconButton btnAgregarCat;
+        private System.Windows.Forms.ComboBox cboproveedor;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cbomargenganancias;
+        private System.Windows.Forms.ComboBox cboimpuestos;
+        private System.Windows.Forms.TextBox txtpreciocompra;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtstockexistente;
+        private FontAwesome.Sharp.IconButton btnAbrirUnidadMedidas;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cbotipounidad;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblEleccion1CboUniMed;
+        private System.Windows.Forms.TextBox txtstockminimo;
+        private System.Windows.Forms.TextBox txtubicacion;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblEleccion2CboUniMed;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RadioButton radioButtonSinRedondeo;
+        private System.Windows.Forms.RadioButton radioButtonRedondeo;
+        private System.Windows.Forms.TextBox txtpreciofinal;
+        private System.Windows.Forms.Label label20;
+        private FontAwesome.Sharp.IconButton btnAgregarImg;
+        private System.Windows.Forms.PictureBox picImgProducto;
     }
 }

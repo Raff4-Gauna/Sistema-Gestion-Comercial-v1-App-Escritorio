@@ -232,6 +232,7 @@ namespace CapaPresentación.MdInventarios
                     item.PrecioFinal,
                     item.UbicacionProducto,
                     stockConcatenado,
+                    item.StockExistente,
                     item.StockMinimo,
                     item.FechaActualizacion,
                     item.Estado == true ? 1 : 0,
@@ -322,6 +323,18 @@ namespace CapaPresentación.MdInventarios
                 LlenarDatosEnLabels(selectedRowIndex);
             }
         }
+
+        //Limpiar los labels
+        private void LimpiarLabels()
+        {
+            lblDescripcionProd.Text = "";
+            lblUltPrecioCompra.Text = "";
+            lblUltPrecioVenta.Text = "";
+            lblStockExistente.Text = "";
+            picImgProducto.Image = null;
+            lblUltActPrecioVenta.Text = "";
+        }
+
         private void LlenarDatosEnLabels(int rowIndex)
         {
             if (rowIndex >= 0 && rowIndex < dgvdata.Rows.Count)
@@ -467,5 +480,58 @@ namespace CapaPresentación.MdInventarios
             }
         }
 
+        private void dgvdata_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmDetalleProducto FrmDetalleProducto = new frmDetalleProducto();
+
+            // Suscribirse al evento
+            FrmDetalleProducto.ProductUpdated += FrmDetalleProducto_ProductUpdated;
+
+            //Id
+            FrmDetalleProducto.txtid.Text = this.dgvdata.CurrentRow.Cells[1].Value.ToString();
+
+           
+            //Cod
+            FrmDetalleProducto.txtcodigo.Text = this.dgvdata.CurrentRow.Cells[14].Value.ToString();
+            FrmDetalleProducto.txtcodigobarra.Text = this.dgvdata.CurrentRow.Cells[13].Value.ToString();
+
+            //General
+            FrmDetalleProducto.txtdescripciongeneral.Text = this.dgvdata.CurrentRow.Cells[15].Value.ToString();
+
+            //Inventario
+            FrmDetalleProducto.txtstockexistente.Text = this.dgvdata.CurrentRow.Cells[22].Value.ToString();
+            FrmDetalleProducto.txtstockminimo.Text = this.dgvdata.CurrentRow.Cells[23].Value.ToString();
+
+            //Cotización
+            FrmDetalleProducto.txtpreciocompra.Text = this.dgvdata.CurrentRow.Cells[16].Value.ToString();
+            FrmDetalleProducto.txtpreciofinal.Text = this.dgvdata.CurrentRow.Cells[19].Value.ToString(); 
+
+            //Img Obtener los bytes de la celda 12
+            byte[] imgBytes = (byte[])this.dgvdata.CurrentRow.Cells[12].Value as byte[];
+
+            // Convertir los bytes en una imagen
+            // Asignar los bytes de la imagen al control picImgProducto
+            
+            if (imgBytes != null)
+            {
+                using (MemoryStream ms = new MemoryStream(imgBytes))
+                {
+                    FrmDetalleProducto.picImgProducto.Image = Image.FromStream(ms);
+                }
+            }
+            else
+            {
+                // Si no hay datos de imagen, puedes asignar una imagen por defecto o limpiar el PictureBox
+                picImgProducto.Image = null; // O asignar una imagen por defecto si es necesario
+            }
+
+            FrmDetalleProducto.ShowDialog();
+        }
+
+        private void FrmDetalleProducto_ProductUpdated(object sender, EventArgs e)
+        {
+            ActualizarDataGridView();
+            LimpiarLabels();
+        }
     }
 }
