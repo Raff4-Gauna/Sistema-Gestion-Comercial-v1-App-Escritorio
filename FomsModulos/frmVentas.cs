@@ -21,6 +21,7 @@ namespace CapaPresentación.FomsModulos
         {
             usuarioActual = oUsuario;
             InitializeComponent();
+            this.IsMdiContainer = true;
         }
 
         private void frmVentas_Load(object sender, EventArgs e)
@@ -47,6 +48,19 @@ namespace CapaPresentación.FomsModulos
             puntoVentaForm.MdiParent = this;
             puntoVentaForm.Show();
             puntoVentaForm.BringToFront();
+
+            //frmPuntoVenta puntoVentaForm = frmPuntoVenta.ventana_unica(usuarioActual);
+
+            //// Verificar si la ventana ya está abierta
+            //if (!puntoVentaForm.Visible)
+            //{
+            //    puntoVentaForm.MdiParent = this;
+            //    puntoVentaForm.Show();
+            //}
+            //else
+            //{
+            //    puntoVentaForm.BringToFront();  // Si está abierta, solo traerla al frente
+            //}
         }
 
         private void subMenuListaVenta_Click(object sender, EventArgs e)

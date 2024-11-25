@@ -43,9 +43,32 @@ namespace CapaPresentación.MdVentas.Modal
         {
             lblusuario.Text = usuarioActual.NombreCompleto;
 
+            // Validar si el usuario tiene una apertura activa
+            bool aperturaActiva = new CN_Apertura_Caja().ValidarAperturaCaja(usuarioActual.IdUsuario, out string mensaje);
+
+            if (aperturaActiva)
+            {
+                // Si existe una apertura activa, deshabilitar el botón Registrar
+                btnRegistrar.Enabled = false;
+                txtMontoIncialCaja.Enabled = false; // Opcional: deshabilitar el campo de monto inicial
+                MessageBox.Show("Ya existe una apertura de caja activa para este usuario.",
+                                "Apertura Activa",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Si no hay apertura activa, habilitar el botón Registrar
+                btnRegistrar.Enabled = true;
+                txtMontoIncialCaja.Enabled = true;
+            }
+
+            // Colocar el foco en el campo de monto inicial
             txtMontoIncialCaja.Select();
 
         }
+
+
 
         private void txtMontoIncialCaja_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -81,12 +104,24 @@ namespace CapaPresentación.MdVentas.Modal
                 };
 
                 string mensaje = string.Empty;
-                idAperturaCaja = new CN_Apertura_Caja().AperturaCaja(obj, out mensaje); // Asignar el idAperturaCaja
+                int idAperturaCaja = new CN_Apertura_Caja().AperturaCaja(obj, out mensaje); // Asignar el idAperturaCaja
 
                 if (idAperturaCaja != 0)
                 {
                     MessageBox.Show("Apertura de caja realizada con éxito.");
-                    this.Close();
+
+                    // Cerrar el formulario de apertura de caja
+                    this.Hide(); // Usamos Hide en vez de Close para no eliminar la referencia a frmAperturaCaja
+
+                    // Verificar si el formulario de punto de venta ya está abierto antes de intentar abrirlo
+                    if (Application.OpenForms["frmPuntoVenta"] == null)
+                    {
+                        // Si no está abierto, abrir el formulario de ventas (frmPuntoVenta)
+                        frmPuntoVenta puntoVentaForm = frmPuntoVenta.ventana_unica(usuarioActual);
+                        puntoVentaForm.MdiParent = this.MdiParent;  // Asegúrate de que el formulario es MDI
+                        puntoVentaForm.FormClosed += (s, args) => { this.Close(); };
+                        puntoVentaForm.Show();
+                    }
                 }
                 else
                 {
