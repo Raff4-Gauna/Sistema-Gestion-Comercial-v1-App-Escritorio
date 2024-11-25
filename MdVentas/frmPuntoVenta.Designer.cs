@@ -41,6 +41,12 @@ namespace CapaPresentación.MdVentas
             this.txtproducto = new System.Windows.Forms.TextBox();
             this.txtcantidad = new System.Windows.Forms.NumericUpDown();
             this.dgvdata = new System.Windows.Forms.DataGridView();
+            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btneliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtpagocon = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtcambio = new System.Windows.Forms.TextBox();
@@ -62,11 +68,19 @@ namespace CapaPresentación.MdVentas
             this.btnverificarprecio = new FontAwesome.Sharp.IconButton();
             this.btnlimpiarcampos = new FontAwesome.Sharp.IconButton();
             this.btnagregarproducto = new FontAwesome.Sharp.IconButton();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnlimpiarcampovrapida = new FontAwesome.Sharp.IconButton();
+            this.btnCrearVentaRapida = new FontAwesome.Sharp.IconButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPagoRapido = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCantProdRapida = new System.Windows.Forms.NumericUpDown();
+            this.txtDescripProdRapida = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btncrearventa = new FontAwesome.Sharp.IconButton();
             this.label4 = new System.Windows.Forms.Label();
             this.cbotipodocumento = new System.Windows.Forms.ComboBox();
             this.txtfecha = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.btnbuscarproducto = new FontAwesome.Sharp.IconButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDescripcionProd = new System.Windows.Forms.TextBox();
@@ -81,16 +95,12 @@ namespace CapaPresentación.MdVentas
             this.txtmetodopago = new System.Windows.Forms.TextBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btneliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtcantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantProdRapida)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -99,7 +109,7 @@ namespace CapaPresentación.MdVentas
             // txtidproducto
             // 
             this.txtidproducto.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.txtidproducto.Location = new System.Drawing.Point(650, 51);
+            this.txtidproducto.Location = new System.Drawing.Point(645, 55);
             this.txtidproducto.Name = "txtidproducto";
             this.txtidproducto.Size = new System.Drawing.Size(32, 20);
             this.txtidproducto.TabIndex = 0;
@@ -143,7 +153,7 @@ namespace CapaPresentación.MdVentas
             // 
             this.txtcantidad.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtcantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcantidad.DecimalPlaces = 2;
+            this.txtcantidad.DecimalPlaces = 3;
             this.txtcantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcantidad.ForeColor = System.Drawing.Color.Black;
             this.txtcantidad.Increment = new decimal(new int[] {
@@ -153,7 +163,7 @@ namespace CapaPresentación.MdVentas
             65536});
             this.txtcantidad.Location = new System.Drawing.Point(375, 91);
             this.txtcantidad.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});
@@ -207,6 +217,7 @@ namespace CapaPresentación.MdVentas
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdata.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvdata.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvdata.EnableHeadersVisualStyles = false;
             this.dgvdata.Location = new System.Drawing.Point(6, 6);
             this.dgvdata.MultiSelect = false;
@@ -225,10 +236,58 @@ namespace CapaPresentación.MdVentas
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(648, 256);
+            this.dgvdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvdata.Size = new System.Drawing.Size(658, 256);
             this.dgvdata.TabIndex = 208;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
+            // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "IdProducto";
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.ReadOnly = true;
+            this.IdProducto.Visible = false;
+            this.IdProducto.Width = 150;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 300;
+            // 
+            // PrecioVenta
+            // 
+            this.PrecioVenta.HeaderText = "Precio";
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
+            this.PrecioVenta.Visible = false;
+            this.PrecioVenta.Width = 130;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cant U/K";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 110;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "P. Total";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            this.SubTotal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.SubTotal.Width = 130;
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.HeaderText = "";
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.ReadOnly = true;
+            this.btneliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btneliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btneliminar.Width = 50;
             // 
             // txtpagocon
             // 
@@ -323,7 +382,7 @@ namespace CapaPresentación.MdVentas
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(661, 74);
+            this.label14.Location = new System.Drawing.Point(656, 78);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(50, 13);
             this.label14.TabIndex = 84;
@@ -335,7 +394,7 @@ namespace CapaPresentación.MdVentas
             this.txtdocumentocliente.BackColor = System.Drawing.SystemColors.HotTrack;
             this.txtdocumentocliente.Enabled = false;
             this.txtdocumentocliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdocumentocliente.Location = new System.Drawing.Point(688, 51);
+            this.txtdocumentocliente.Location = new System.Drawing.Point(683, 55);
             this.txtdocumentocliente.Name = "txtdocumentocliente";
             this.txtdocumentocliente.Size = new System.Drawing.Size(34, 20);
             this.txtdocumentocliente.TabIndex = 85;
@@ -345,11 +404,11 @@ namespace CapaPresentación.MdVentas
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblusuario.Location = new System.Drawing.Point(881, 6);
+            this.lblusuario.Location = new System.Drawing.Point(897, 17);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(81, 18);
+            this.lblusuario.Size = new System.Drawing.Size(61, 13);
             this.lblusuario.TabIndex = 216;
             this.lblusuario.Text = "lblusuario";
             // 
@@ -423,6 +482,7 @@ namespace CapaPresentación.MdVentas
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(1, 131);
             this.tabControl1.Name = "tabControl1";
@@ -443,7 +503,7 @@ namespace CapaPresentación.MdVentas
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(972, 295);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Venta";
+            this.tabPage1.Text = "Venta Regular";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnverificarprecio
@@ -470,16 +530,16 @@ namespace CapaPresentación.MdVentas
             // 
             this.btnlimpiarcampos.BackColor = System.Drawing.Color.Transparent;
             this.btnlimpiarcampos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnlimpiarcampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlimpiarcampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlimpiarcampos.ForeColor = System.Drawing.Color.Black;
             this.btnlimpiarcampos.IconChar = FontAwesome.Sharp.IconChar.Broom;
             this.btnlimpiarcampos.IconColor = System.Drawing.Color.CadetBlue;
             this.btnlimpiarcampos.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnlimpiarcampos.IconSize = 20;
             this.btnlimpiarcampos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnlimpiarcampos.Location = new System.Drawing.Point(659, 64);
+            this.btnlimpiarcampos.Location = new System.Drawing.Point(670, 64);
             this.btnlimpiarcampos.Name = "btnlimpiarcampos";
-            this.btnlimpiarcampos.Size = new System.Drawing.Size(67, 52);
+            this.btnlimpiarcampos.Size = new System.Drawing.Size(56, 52);
             this.btnlimpiarcampos.TabIndex = 5;
             this.btnlimpiarcampos.Text = "Limpiar (F2)";
             this.btnlimpiarcampos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -490,21 +550,176 @@ namespace CapaPresentación.MdVentas
             // 
             this.btnagregarproducto.BackColor = System.Drawing.Color.Transparent;
             this.btnagregarproducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnagregarproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnagregarproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnagregarproducto.ForeColor = System.Drawing.Color.Black;
             this.btnagregarproducto.IconChar = FontAwesome.Sharp.IconChar.CartPlus;
             this.btnagregarproducto.IconColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnagregarproducto.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnagregarproducto.IconSize = 20;
             this.btnagregarproducto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnagregarproducto.Location = new System.Drawing.Point(660, 6);
+            this.btnagregarproducto.Location = new System.Drawing.Point(670, 6);
             this.btnagregarproducto.Name = "btnagregarproducto";
-            this.btnagregarproducto.Size = new System.Drawing.Size(66, 52);
+            this.btnagregarproducto.Size = new System.Drawing.Size(56, 52);
             this.btnagregarproducto.TabIndex = 6;
             this.btnagregarproducto.Text = "Agregar (F1)";
             this.btnagregarproducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnagregarproducto.UseVisualStyleBackColor = false;
             this.btnagregarproducto.Click += new System.EventHandler(this.btnagregarproducto_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.tabPage3.Controls.Add(this.btnlimpiarcampovrapida);
+            this.tabPage3.Controls.Add(this.btnCrearVentaRapida);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.txtPagoRapido);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.txtCantProdRapida);
+            this.tabPage3.Controls.Add(this.txtDescripProdRapida);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(972, 295);
+            this.tabPage3.TabIndex = 1;
+            this.tabPage3.Text = "Venta Express ";
+            // 
+            // btnlimpiarcampovrapida
+            // 
+            this.btnlimpiarcampovrapida.BackColor = System.Drawing.Color.Transparent;
+            this.btnlimpiarcampovrapida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnlimpiarcampovrapida.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlimpiarcampovrapida.ForeColor = System.Drawing.Color.Black;
+            this.btnlimpiarcampovrapida.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnlimpiarcampovrapida.IconColor = System.Drawing.Color.CadetBlue;
+            this.btnlimpiarcampovrapida.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnlimpiarcampovrapida.IconSize = 20;
+            this.btnlimpiarcampovrapida.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnlimpiarcampovrapida.Location = new System.Drawing.Point(667, 77);
+            this.btnlimpiarcampovrapida.Name = "btnlimpiarcampovrapida";
+            this.btnlimpiarcampovrapida.Size = new System.Drawing.Size(56, 46);
+            this.btnlimpiarcampovrapida.TabIndex = 230;
+            this.btnlimpiarcampovrapida.Text = "Limpiar";
+            this.btnlimpiarcampovrapida.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnlimpiarcampovrapida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnlimpiarcampovrapida.UseVisualStyleBackColor = false;
+            this.btnlimpiarcampovrapida.Click += new System.EventHandler(this.btnlimpiarcampovrapida_Click);
+            // 
+            // btnCrearVentaRapida
+            // 
+            this.btnCrearVentaRapida.BackColor = System.Drawing.Color.Transparent;
+            this.btnCrearVentaRapida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCrearVentaRapida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearVentaRapida.ForeColor = System.Drawing.Color.Black;
+            this.btnCrearVentaRapida.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
+            this.btnCrearVentaRapida.IconColor = System.Drawing.Color.Maroon;
+            this.btnCrearVentaRapida.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCrearVentaRapida.IconSize = 25;
+            this.btnCrearVentaRapida.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCrearVentaRapida.Location = new System.Drawing.Point(511, 77);
+            this.btnCrearVentaRapida.Name = "btnCrearVentaRapida";
+            this.btnCrearVentaRapida.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.btnCrearVentaRapida.Size = new System.Drawing.Size(85, 77);
+            this.btnCrearVentaRapida.TabIndex = 229;
+            this.btnCrearVentaRapida.Text = "Venta Rapida";
+            this.btnCrearVentaRapida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCrearVentaRapida.UseVisualStyleBackColor = false;
+            this.btnCrearVentaRapida.Click += new System.EventHandler(this.btnCrearVentaRapida_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Black;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.Lime;
+            this.label10.Location = new System.Drawing.Point(508, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 15);
+            this.label10.TabIndex = 216;
+            this.label10.Text = "Importe Total";
+            // 
+            // txtPagoRapido
+            // 
+            this.txtPagoRapido.BackColor = System.Drawing.Color.White;
+            this.txtPagoRapido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPagoRapido.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPagoRapido.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtPagoRapido.Location = new System.Drawing.Point(511, 33);
+            this.txtPagoRapido.Name = "txtPagoRapido";
+            this.txtPagoRapido.Size = new System.Drawing.Size(212, 38);
+            this.txtPagoRapido.TabIndex = 228;
+            this.txtPagoRapido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPagoRapido_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Black;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.Lime;
+            this.label8.Location = new System.Drawing.Point(335, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 15);
+            this.label8.TabIndex = 227;
+            this.label8.Text = "Un. / Kg. *";
+            // 
+            // txtCantProdRapida
+            // 
+            this.txtCantProdRapida.BackColor = System.Drawing.Color.Honeydew;
+            this.txtCantProdRapida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCantProdRapida.DecimalPlaces = 3;
+            this.txtCantProdRapida.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantProdRapida.ForeColor = System.Drawing.Color.Black;
+            this.txtCantProdRapida.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtCantProdRapida.Location = new System.Drawing.Point(335, 33);
+            this.txtCantProdRapida.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtCantProdRapida.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.txtCantProdRapida.Name = "txtCantProdRapida";
+            this.txtCantProdRapida.Size = new System.Drawing.Size(160, 38);
+            this.txtCantProdRapida.TabIndex = 226;
+            this.txtCantProdRapida.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtCantProdRapida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantProdRapida_KeyPress);
+            // 
+            // txtDescripProdRapida
+            // 
+            this.txtDescripProdRapida.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtDescripProdRapida.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtDescripProdRapida.BackColor = System.Drawing.Color.Linen;
+            this.txtDescripProdRapida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripProdRapida.Location = new System.Drawing.Point(7, 33);
+            this.txtDescripProdRapida.Multiline = true;
+            this.txtDescripProdRapida.Name = "txtDescripProdRapida";
+            this.txtDescripProdRapida.Size = new System.Drawing.Size(313, 67);
+            this.txtDescripProdRapida.TabIndex = 225;
+            this.txtDescripProdRapida.TextChanged += new System.EventHandler(this.txtDescripProdRapida_TextChanged);
+            this.txtDescripProdRapida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripProdRapida_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Black;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Lime;
+            this.label3.Location = new System.Drawing.Point(7, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 15);
+            this.label3.TabIndex = 224;
+            this.label3.Text = "Descripción Producto *";
             // 
             // btncrearventa
             // 
@@ -532,7 +747,7 @@ namespace CapaPresentación.MdVentas
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(646, 9);
+            this.label4.Location = new System.Drawing.Point(642, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 15);
             this.label4.TabIndex = 91;
@@ -544,7 +759,7 @@ namespace CapaPresentación.MdVentas
             this.cbotipodocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbotipodocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbotipodocumento.FormattingEnabled = true;
-            this.cbotipodocumento.Location = new System.Drawing.Point(649, 27);
+            this.cbotipodocumento.Location = new System.Drawing.Point(644, 31);
             this.cbotipodocumento.Name = "cbotipodocumento";
             this.cbotipodocumento.Size = new System.Drawing.Size(131, 21);
             this.cbotipodocumento.TabIndex = 93;
@@ -553,23 +768,11 @@ namespace CapaPresentación.MdVentas
             // 
             this.txtfecha.Enabled = false;
             this.txtfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfecha.Location = new System.Drawing.Point(787, 106);
+            this.txtfecha.Location = new System.Drawing.Point(787, 105);
             this.txtfecha.Name = "txtfecha";
             this.txtfecha.ReadOnly = true;
             this.txtfecha.Size = new System.Drawing.Size(119, 21);
             this.txtfecha.TabIndex = 90;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.Transparent;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(811, 8);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(68, 15);
-            this.label27.TabIndex = 217;
-            this.label27.Text = "Vendedor";
             // 
             // btnbuscarproducto
             // 
@@ -579,7 +782,7 @@ namespace CapaPresentación.MdVentas
             this.btnbuscarproducto.IconColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnbuscarproducto.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnbuscarproducto.IconSize = 18;
-            this.btnbuscarproducto.Location = new System.Drawing.Point(541, 98);
+            this.btnbuscarproducto.Location = new System.Drawing.Point(562, 97);
             this.btnbuscarproducto.Name = "btnbuscarproducto";
             this.btnbuscarproducto.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.btnbuscarproducto.Size = new System.Drawing.Size(76, 32);
@@ -598,6 +801,7 @@ namespace CapaPresentación.MdVentas
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.rbCodigo);
             this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.lblusuario);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.txtdocumentocliente);
             this.groupBox1.Controls.Add(this.rbCodigoBarra);
@@ -623,9 +827,9 @@ namespace CapaPresentación.MdVentas
             this.groupBox1.Controls.Add(this.btnbuscarproducto);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox1.Location = new System.Drawing.Point(1, -11);
+            this.groupBox1.Location = new System.Drawing.Point(-5, -13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(980, 136);
+            this.groupBox1.Size = new System.Drawing.Size(986, 140);
             this.groupBox1.TabIndex = 220;
             this.groupBox1.TabStop = false;
             // 
@@ -673,7 +877,7 @@ namespace CapaPresentación.MdVentas
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(784, 9);
+            this.label15.Location = new System.Drawing.Point(784, 15);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(107, 15);
             this.label15.TabIndex = 83;
@@ -696,7 +900,7 @@ namespace CapaPresentación.MdVentas
             // 
             this.txtnombrecliente.Enabled = false;
             this.txtnombrecliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombrecliente.Location = new System.Drawing.Point(786, 27);
+            this.txtnombrecliente.Location = new System.Drawing.Point(787, 33);
             this.txtnombrecliente.Name = "txtnombrecliente";
             this.txtnombrecliente.Size = new System.Drawing.Size(134, 21);
             this.txtnombrecliente.TabIndex = 86;
@@ -709,7 +913,7 @@ namespace CapaPresentación.MdVentas
             this.btnbuscarcliente.IconColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnbuscarcliente.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnbuscarcliente.IconSize = 20;
-            this.btnbuscarcliente.Location = new System.Drawing.Point(925, 23);
+            this.btnbuscarcliente.Location = new System.Drawing.Point(925, 31);
             this.btnbuscarcliente.Name = "btnbuscarcliente";
             this.btnbuscarcliente.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.btnbuscarcliente.Size = new System.Drawing.Size(37, 31);
@@ -723,7 +927,7 @@ namespace CapaPresentación.MdVentas
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(783, 55);
+            this.label25.Location = new System.Drawing.Point(784, 63);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(92, 15);
             this.label25.TabIndex = 214;
@@ -737,7 +941,7 @@ namespace CapaPresentación.MdVentas
             this.btnbuscarmetodospagos.IconColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnbuscarmetodospagos.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnbuscarmetodospagos.IconSize = 20;
-            this.btnbuscarmetodospagos.Location = new System.Drawing.Point(926, 71);
+            this.btnbuscarmetodospagos.Location = new System.Drawing.Point(925, 72);
             this.btnbuscarmetodospagos.Name = "btnbuscarmetodospagos";
             this.btnbuscarmetodospagos.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.btnbuscarmetodospagos.Size = new System.Drawing.Size(37, 31);
@@ -749,7 +953,7 @@ namespace CapaPresentación.MdVentas
             // 
             this.txtmetodopago.Enabled = false;
             this.txtmetodopago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmetodopago.Location = new System.Drawing.Point(786, 78);
+            this.txtmetodopago.Location = new System.Drawing.Point(787, 78);
             this.txtmetodopago.Name = "txtmetodopago";
             this.txtmetodopago.Size = new System.Drawing.Size(134, 21);
             this.txtmetodopago.TabIndex = 215;
@@ -781,53 +985,6 @@ namespace CapaPresentación.MdVentas
             this.tabPage2.Text = "Intercambio";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // IdProducto
-            // 
-            this.IdProducto.HeaderText = "IdProducto";
-            this.IdProducto.Name = "IdProducto";
-            this.IdProducto.ReadOnly = true;
-            this.IdProducto.Visible = false;
-            this.IdProducto.Width = 150;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            this.Producto.Width = 300;
-            // 
-            // PrecioVenta
-            // 
-            this.PrecioVenta.HeaderText = "Precio";
-            this.PrecioVenta.Name = "PrecioVenta";
-            this.PrecioVenta.ReadOnly = true;
-            this.PrecioVenta.Visible = false;
-            this.PrecioVenta.Width = 130;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cant U/K";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 110;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "P. Total";
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.ReadOnly = true;
-            this.SubTotal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.SubTotal.Width = 130;
-            // 
-            // btneliminar
-            // 
-            this.btneliminar.HeaderText = "";
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.ReadOnly = true;
-            this.btneliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btneliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btneliminar.Width = 50;
-            // 
             // frmPuntoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -835,29 +992,30 @@ namespace CapaPresentación.MdVentas
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(984, 456);
             this.Controls.Add(this.tabControl2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label27);
-            this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "frmPuntoVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Punto de Venta";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPuntoVenta_FormClosing);
             this.Load += new System.EventHandler(this.frmPuntoVenta_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmPuntoVenta_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.txtcantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantProdRapida)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -893,7 +1051,6 @@ namespace CapaPresentación.MdVentas
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbotipodocumento;
         private System.Windows.Forms.TextBox txtfecha;
-        private System.Windows.Forms.Label label27;
         private FontAwesome.Sharp.IconButton btnlimpiarcampos;
         private FontAwesome.Sharp.IconButton btnverificarprecio;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -909,6 +1066,15 @@ namespace CapaPresentación.MdVentas
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox txtDescripcionProd;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDescripProdRapida;
+        private System.Windows.Forms.NumericUpDown txtCantProdRapida;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtPagoRapido;
+        private FontAwesome.Sharp.IconButton btnCrearVentaRapida;
+        private FontAwesome.Sharp.IconButton btnlimpiarcampovrapida;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;

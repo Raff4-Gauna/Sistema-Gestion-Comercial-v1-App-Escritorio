@@ -50,6 +50,7 @@ namespace CapaPresentación.MdConfiguracion
 
         private void frmNegocio_Load(object sender, EventArgs e)
         {
+            // --- NEGOCIO
             //Obtener datos del negocio al cargar el formulario
             bool obtenido = true;
             byte[] byteimage = new CN_Negocio().ObtenerLogo(out obtenido);
@@ -66,11 +67,31 @@ namespace CapaPresentación.MdConfiguracion
             txtcuit.Text = datos.CUIT;
             txtingresosbrutos.Text = datos.NumIngresosBrutos;
 
+            // --- SISTEMA
             //Mostrar todas las impresoras
             foreach (string Impresora in PrinterSettings.InstalledPrinters)
             {
                 cbolistadoimpresoras.Items.Add(Impresora);
             }
+
+            // --- SISTEMA
+            // Obtener el valor actual de la configuración desde la base de datos
+            cbocajaopcionapertura.Items.Add("No Solicitar Apertura");
+            cbocajaopcionapertura.Items.Add("Solicitar Apertura");
+            CN_ConfiguracionSistema objCNConfiguracion = new CN_ConfiguracionSistema();
+            string mensaje;
+            string valor = objCNConfiguracion.ObtenerRequiereAperturaCaja(out mensaje);
+
+            if (string.IsNullOrEmpty(mensaje))
+            {
+                cbocajaopcionapertura.SelectedItem = valor;
+            }
+            else
+            {
+                MessageBox.Show("Error al cargar la configuración: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
 
             //Mostrar datos de las credenciales de correo smtp
             Smtp datosSmpt = new CN_Smtp().ObtenerDatosSmtp();
@@ -205,7 +226,30 @@ namespace CapaPresentación.MdConfiguracion
             }
         }
 
-        
+
+        //----SISTEMA - APERTURA CAJA
+        private void btncajaopcionapertura_Click(object sender, EventArgs e)
+        {
+            if (cbocajaopcionapertura.SelectedItem != null)
+            {
+                string nuevoValor = cbocajaopcionapertura.SelectedItem.ToString();
+
+                CN_ConfiguracionSistema objCNConfiguracion = new CN_ConfiguracionSistema();
+                string mensaje;
+                if (objCNConfiguracion.ActualizarRequiereAperturaCaja(nuevoValor, out mensaje))
+                {
+                    MessageBox.Show("Configuración guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar la configuración: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una opción antes de guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 
 }
